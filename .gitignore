@@ -19,3 +19,4 @@ node_modules/
 **/playwright-report
 **/test-results
 /packages/*/temp/
+/.claude/worktrees/

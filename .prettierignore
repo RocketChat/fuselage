@@ -7,3 +7,7 @@ bundle-report.html
 /.yarn
 /README.md
 *.api.md
+/packages/fuselage/registry.json
+/.claude/skills/fuselage/references/catalog.md
+/.claude/skills/fuselage/references/components.md
+/.claude/skills/fuselage/references/migration.md

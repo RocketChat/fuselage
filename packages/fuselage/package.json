@@ -20,7 +20,8 @@
   "types": "dist/index.d.ts",
   "files": [
     "/dist",
-    "/index.js"
+    "/index.js",
+    "/registry.json"
   ],
   "scripts": {
     "visual-regression": "visual-regression",

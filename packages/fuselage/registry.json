@@ -1,0 +1,7059 @@
+{
+  "package": "@rocket.chat/fuselage",
+  "version": "0.90.1",
+  "import": "import { Button } from '@rocket.chat/fuselage';",
+  "components": [
+    {
+      "name": "Accordion",
+      "file": "packages/fuselage/src/components/Accordion/Accordion.tsx",
+      "group": "Accordion",
+      "description": "An `Accordion` allows users to toggle the display of sections of content.",
+      "usage": "Groups related content and lets users collapse/expand it under a section title, so they can scan titles and decide where to look.\n\n**Rules**\n- Use for large amounts of groupable content (e.g. settings configurations).\n- Do NOT use an accordion to hide important inputs or controls required for the current task.\n- Secondary title and leading icon are optional (off by default).",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "optional": false
+        }
+      ],
+      "extends": [
+        "Partial<StylingProps>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "component",
+        "spec": "component",
+        "axe": true
+      }
+    },
+    {
+      "name": "AccordionItem",
+      "file": "packages/fuselage/src/components/Accordion/AccordionItem.tsx",
+      "group": "Accordion",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "optional": true
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "optional": true
+        },
+        {
+          "name": "defaultExpanded",
+          "type": "boolean",
+          "optional": true
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "optional": true
+        },
+        {
+          "name": "expanded",
+          "type": "boolean",
+          "optional": true
+        },
+        {
+          "name": "tabIndex",
+          "type": "number",
+          "optional": true
+        },
+        {
+          "name": "title",
+          "type": "ReactNode",
+          "optional": false
+        },
+        {
+          "name": "noncollapsible",
+          "type": "boolean",
+          "optional": true
+        }
+      ],
+      "extends": [],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "AnimatedVisibility",
+      "file": "packages/fuselage/src/components/AnimatedVisibility/AnimatedVisibility.tsx",
+      "group": "AnimatedVisibility",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "optional": false
+        },
+        {
+          "name": "visibility",
+          "type": "VisibilityType",
+          "optional": true
+        }
+      ],
+      "extends": [],
+      "primitive": "none",
+      "coverage": {
+        "stories": "component",
+        "spec": "none",
+        "axe": false
+      }
+    },
+    {
+      "name": "AudioPlayer",
+      "file": "packages/fuselage/src/components/AudioPlayer/AudioPlayer.tsx",
+      "group": "AudioPlayer",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "src",
+          "type": "string",
+          "optional": false
+        },
+        {
+          "name": "type",
+          "type": "string",
+          "optional": true
+        },
+        {
+          "name": "maxPlaybackSpeed",
+          "type": "number",
+          "optional": true
+        },
+        {
+          "name": "minPlaybackSpeed",
+          "type": "number",
+          "optional": true
+        },
+        {
+          "name": "playbackSpeedStep",
+          "type": "number",
+          "optional": true
+        },
+        {
+          "name": "download",
+          "type": "boolean",
+          "optional": true
+        },
+        {
+          "name": "playLabel",
+          "type": "string",
+          "optional": true
+        },
+        {
+          "name": "pauseLabel",
+          "type": "string",
+          "optional": true
+        },
+        {
+          "name": "audioPlaybackRangeLabel",
+          "type": "string",
+          "optional": true
+        },
+        {
+          "name": "changePlaybackSpeedLabel",
+          "type": "string",
+          "optional": true
+        },
+        {
+          "name": "downloadAudioFileLabel",
+          "type": "string",
+          "optional": true
+        },
+        {
+          "name": "trackProps",
+          "type": "TrackHTMLAttributes<HTMLTrackElement>",
+          "optional": true
+        }
+      ],
+      "extends": [
+        "RefAttributes<HTMLAudioElement>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "component",
+        "spec": "none",
+        "axe": false
+      }
+    },
+    {
+      "name": "AudioPlayerControls",
+      "file": "packages/fuselage/src/components/AudioPlayer/AudioPlayerControls.tsx",
+      "group": "AudioPlayer",
+      "description": "Presentational, fully controlled audio controls (play/pause, seek, elapsed time, playback speed and optional download). It owns no `<audio>` element and no playback state, so it can be driven by any source — a local element or a shared/persistent one. `AudioPlayer` wraps this with its own element for the common self-contained case.",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "isPlaying",
+          "type": "boolean",
+          "optional": false
+        },
+        {
+          "name": "currentTime",
+          "type": "number",
+          "optional": false
+        },
+        {
+          "name": "durationTime",
+          "type": "number",
+          "optional": false
+        },
+        {
+          "name": "playbackSpeed",
+          "type": "number",
+          "optional": false
+        },
+        {
+          "name": "onTogglePlay",
+          "type": "() => void",
+          "optional": false
+        },
+        {
+          "name": "onSeek",
+          "type": "(time: number) => void",
+          "optional": false
+        },
+        {
+          "name": "onChangePlaybackSpeed",
+          "type": "() => void",
+          "optional": false
+        },
+        {
+          "name": "download",
+          "type": "boolean",
+          "optional": true
+        },
+        {
+          "name": "downloadHref",
+          "type": "string",
+          "optional": true
+        },
+        {
+          "name": "onDownload",
+          "type": "(event: MouseEvent<HTMLElement>) => void",
+          "optional": true
+        },
+        {
+          "name": "playLabel",
+          "type": "string",
+          "optional": true
+        },
+        {
+          "name": "pauseLabel",
+          "type": "string",
+          "optional": true
+        },
+        {
+          "name": "audioPlaybackRangeLabel",
+          "type": "string",
+          "optional": true
+        },
+        {
+          "name": "changePlaybackSpeedLabel",
+          "type": "string",
+          "optional": true
+        },
+        {
+          "name": "downloadAudioFileLabel",
+          "type": "string",
+          "optional": true
+        }
+      ],
+      "extends": [],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "none",
+        "axe": false
+      }
+    },
+    {
+      "name": "AutoComplete",
+      "file": "packages/fuselage/src/components/AutoComplete/AutoComplete.tsx",
+      "group": "AutoComplete",
+      "description": "An input for selection of options.",
+      "deprecated": "Use `SelectFiltered` or `MultiSelectFiltered` instead.",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "filter",
+          "type": "string",
+          "optional": false
+        },
+        {
+          "name": "setFilter",
+          "type": "(filter: string) => void",
+          "optional": true
+        },
+        {
+          "name": "options",
+          "type": "AutoCompleteOption<TLabel>[]",
+          "optional": true
+        },
+        {
+          "name": "renderSelected",
+          "type": "ComponentType<{ selected: AutoCompleteOption<TLabel>; onRemove?: (event: MouseEvent<HTMLButtonElement>) => void; }>",
+          "optional": true
+        },
+        {
+          "name": "onChange",
+          "type": "(value: string | string[]) => void",
+          "optional": false
+        },
+        {
+          "name": "renderItem",
+          "type": "ComponentType<{ role?: string; label: TLabel; value: string; selected?: boolean; focus?: boolean; onMouseDown: MouseEventHandler; }>",
+          "optional": true
+        },
+        {
+          "name": "renderEmpty",
+          "type": "ComponentType<{ customEmpty?: string; }>",
+          "optional": true
+        },
+        {
+          "name": "placeholder",
+          "type": "string",
+          "optional": true
+        },
+        {
+          "name": "error",
+          "type": "boolean",
+          "optional": true
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "optional": true
+        },
+        {
+          "name": "multiple",
+          "type": "boolean",
+          "optional": true
+        },
+        {
+          "name": "value",
+          "type": "string | string[]",
+          "optional": true
+        }
+      ],
+      "extends": [
+        "Omit< AllHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'is' >",
+        "RefAttributes<HTMLInputElement>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "component",
+        "spec": "component",
+        "axe": true
+      }
+    },
+    {
+      "name": "Avatar",
+      "file": "packages/fuselage/src/components/Avatar/Avatar.tsx",
+      "group": "Avatar",
+      "usage": "A visual, thumbnail representation of a single user or entity.\n\n**Rules**\n- Represents a SINGLE user or entity (not groups).\n- Always provide meaningful alt text for images — critical for screen readers.\n- Choose the size to match the surrounding context.\n- Use the letter (initials) fallback when no image is available.",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "rounded",
+          "type": "boolean",
+          "optional": true
+        },
+        {
+          "name": "objectFit",
+          "type": "CSSProperties['objectFit']",
+          "optional": true
+        },
+        {
+          "name": "url",
+          "type": "string",
+          "optional": false
+        }
+      ],
+      "extends": [
+        "AvatarContainerProps",
+        "Omit<AllHTMLAttributes<HTMLImageElement>, 'size'>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "component",
+        "spec": "component",
+        "axe": true
+      }
+    },
+    {
+      "name": "AvatarContainer",
+      "file": "packages/fuselage/src/components/Avatar/AvatarContainer.tsx",
+      "group": "Avatar",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "size",
+          "type": "| 'x16' | 'x18' | 'x20' | 'x24' | 'x28' | 'x32' | 'x36' | 'x40' | 'x48' | 'x124' | 'x200' | 'x332'",
+          "values": [
+            "x16",
+            "x18",
+            "x20",
+            "x24",
+            "x28",
+            "x32",
+            "x36",
+            "x40",
+            "x48",
+            "x124",
+            "x200",
+            "x332"
+          ],
+          "optional": true
+        }
+      ],
+      "extends": [
+        "HTMLAttributes<HTMLElement>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "AvatarStack",
+      "file": "packages/fuselage/src/components/Avatar/AvatarStack.tsx",
+      "group": "Avatar",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "DetailedHTMLProps< HTMLAttributes<HTMLDivElement>, HTMLDivElement >"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "Badge",
+      "file": "packages/fuselage/src/components/Badge/Badge.tsx",
+      "group": "Badge",
+      "description": "Communicates notification’s amount and types.",
+      "usage": "Indicates the type and quantity of notifications, highlighting key events and facilitating user navigation.\n\n**Rules**\n- Pick `variant` by the EVENT semantics it represents (e.g. `primary` for a thread reply, `danger` for a user mention), not by color preference — the options are named by color, but each maps to a specific semantic meaning.\n- Never exceed 3 characters; show \"99+\" for anything above 99.\n- Use the small dot variant (empty content) when you only need to signal that something new exists, or when the quantity can't be shown.",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "is",
+          "type": "ElementType<HTMLAttributes<HTMLSpanElement>>",
+          "optional": true
+        },
+        {
+          "name": "variant",
+          "type": "'secondary' | 'primary' | 'danger' | 'warning'",
+          "values": [
+            "secondary",
+            "primary",
+            "danger",
+            "warning"
+          ],
+          "optional": true
+        },
+        {
+          "name": "small",
+          "type": "boolean",
+          "optional": true
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "optional": true
+        },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "optional": true
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "optional": true
+        }
+      ],
+      "extends": [
+        "HTMLAttributes<HTMLSpanElement>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "component",
+        "spec": "component",
+        "axe": false
+      }
+    },
+    {
+      "name": "Banner",
+      "file": "packages/fuselage/src/components/Banner/Banner.tsx",
+      "group": "Banner",
+      "usage": "A system-level, non-time-based notification fixed at the top of the viewport. Communicates that something happened or is about to happen. Dismissibility depends on the notification's importance.\n\n**Rules**\n- Use for a whole-window/system condition (e.g. reconnecting, recording consent, blocked permissions) — for inline status tied to specific content use a Callout instead, and for brief action feedback use a Toast.\n- Icon and title are mandatory; description is optional.\n- Only show the \"X of Y notifications\" counter and prev/next controls when more than one banner is queued.\n- A banner has no action-button slot — if the notification needs a decision, use a Callout instead.",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "actionable",
+          "type": "boolean",
+          "optional": true
+        },
+        {
+          "name": "closeable",
+          "type": "boolean",
+          "optional": true
+        },
+        {
+          "name": "icon",
+          "type": "ReactNode",
+          "optional": true
+        },
+        {
+          "name": "inline",
+          "type": "boolean",
+          "optional": true
+        },
+        {
+          "name": "link",
+          "type": "string",
+          "optional": true
+        },
+        {
+          "name": "linkTarget",
+          "type": "HTMLAttributeAnchorTarget",
+          "optional": true
+        },
+        {
+          "name": "linkText",
+          "type": "string",
+          "optional": true
+        },
+        {
+          "name": "onAction",
+          "type": "() => void",
+          "optional": true
+        },
+        {
+          "name": "onClose",
+          "type": "() => void",
+          "optional": true
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "optional": true
+        },
+        {
+          "name": "variant",
+          "type": "BannerVariant",
+          "optional": true
+        }
+      ],
+      "extends": [
+        "AllHTMLAttributes<HTMLElement>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "component",
+        "spec": "component",
+        "axe": false
+      }
+    },
+    {
+      "name": "Box",
+      "file": "packages/fuselage/src/components/Box/Box.tsx",
+      "group": "Box",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "is",
+          "type": "ElementType",
+          "optional": true,
+          "description": "The `is` prop is used to render the Box as a different HTML tag. It can also be used to render a different fuselage component."
+        },
+        {
+          "name": "className",
+          "type": "string | cssFn | (string | cssFn | Falsy)[]",
+          "optional": true
+        },
+        {
+          "name": "animated",
+          "type": "boolean",
+          "optional": true
+        },
+        {
+          "name": "withRichContent",
+          "type": "boolean | 'inlineWithoutBreaks'",
+          "optional": true
+        },
+        {
+          "name": "htmlSize",
+          "type": "AllHTMLAttributes<HTMLElement>['size']",
+          "optional": true
+        },
+        {
+          "name": "focusable",
+          "type": "boolean",
+          "optional": true
+        }
+      ],
+      "extends": [
+        "Partial<StylingProps>",
+        "Omit< AllHTMLAttributes<HTMLElement>, 'ref' | 'is' | 'className' | 'size' | 'elevation' | keyof StylingProps >",
+        "Omit< SVGAttributes<SVGElement>, keyof AllHTMLAttributes<HTMLElement> | 'elevation' | keyof StylingProps >",
+        "RefAttributes<any>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "none",
+        "spec": "component",
+        "axe": false
+      }
+    },
+    {
+      "name": "Bubble",
+      "file": "packages/fuselage/src/components/Bubble/Bubble.tsx",
+      "group": "Bubble",
+      "usage": "Floating control used in a scrollable feed or dynamic menu without pagination.\n\n**Rules**\n- Use in scrollable feeds or dynamic menus without pagination.\n- Position: 8px below the top of the feed/menu, 8px above the bottom, 8px between two bubbles in the same space.",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "secondary",
+          "type": "boolean",
+          "optional": true
+        },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "optional": false
+        },
+        {
+          "name": "small",
+          "type": "boolean",
+          "optional": true
+        },
+        {
+          "name": "onClick",
+          "type": "() => void",
+          "optional": true
+        },
+        {
+          "name": "icon",
+          "type": "IconName",
+          "optional": true
+        },
+        {
+          "name": "onDismiss",
+          "type": "() => void",
+          "optional": true
+        },
+        {
+          "name": "contentProps",
+          "type": "Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'onClick'>",
+          "optional": true
+        },
+        {
+          "name": "dismissProps",
+          "type": "Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'onClick'>",
+          "optional": true
+        }
+      ],
+      "extends": [
+        "Omit<AllHTMLAttributes<HTMLDivElement>, 'onClick'>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "component",
+        "spec": "component",
+        "axe": true
+      }
+    },
+    {
+      "name": "Button",
+      "file": "packages/fuselage/src/components/Button/Button.tsx",
+      "group": "Button",
+      "description": "Indicates an actionable user action.",
+      "usage": "Triggers events and actions. Use for actions that change data or how it is displayed, change a state, trigger an action, or navigate the user within the app or to a different site. Buttons can also link to external URLs.\n\n**Rules**\n- When more than one button is side by side, always wrap them in a Button group with an 8px gap; a lone button needs no group.\n- In a button group, use Primary when the next step is evident, and Secondary when it is unclear; exactly one Primary per group, the rest Secondary.\n- For destructive flows, initiate with a Secondary danger button, then confirm with a Primary danger button.\n- Never rely on color alone to signal danger — keep a clear label (and icon if used).\n- Set a leading icon only when the label needs visual support; skip it when redundant.\n- Do not pair a regular Button with an Icon button — use Icon Only on a regular Button instead if a label-less button is needed beside text buttons.\n- Loading: replace the icon with a spinner, disable the button, and keep the label copy unchanged.\n- Labels: sentence case, no title case, no exclamation marks; avoid vague stand-alone verbs (e.g. \"Create channel\", not \"Create\").\n- For lightweight in-text navigation, use a link instead of a Button.",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "variant",
+          "type": "| 'primary' | 'secondary' | 'danger' | 'warning' | 'success' | 'secondary-danger' | 'secondary-warning' | 'secondary-success'",
+          "values": [
+            "primary",
+            "secondary",
+            "danger",
+            "warning",
+            "success",
+            "secondary-danger",
+            "secondary-warning",
+            "secondary-success"
+          ],
+          "optional": true
+        },
+        {
+          "name": "size",
+          "type": "'mini' | 'tiny' | 'small' | 'medium' | 'large'",
+          "values": [
+            "mini",
+            "tiny",
+            "small",
+            "medium",
+            "large"
+          ],
+          "optional": true
+        },
+        {
+          "name": "primary",
+          "type": "boolean",
+          "optional": true,
+          "deprecated": "Use `variant=\"primary\"` instead."
+        },
+        {
+          "name": "secondary",
+          "type": "boolean",
+          "optional": true,
+          "deprecated": "Use `variant=\"secondary\"` instead."
+        },
+        {
+          "name": "danger",
+          "type": "boolean",
+          "optional": true,
+          "deprecated": "Use `variant=\"danger\"` instead."
+        },
+        {
+          "name": "warning",
+          "type": "boolean",
+          "optional": true,
+          "deprecated": "Use `variant=\"warning\"` instead."
+        },
+        {
+          "name": "success",
+          "type": "boolean",
+          "optional": true,
+          "deprecated": "Use `variant=\"success\"` instead."
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "optional": true
+        },
+        {
+          "name": "loading",
+          "type": "boolean",
+          "optional": true
+        },
+        {
+          "name": "mini",
+          "type": "boolean",
+          "optional": true,
+          "deprecated": "Use `size=\"mini\"` instead."
+        },
+        {
+          "name": "tiny",
+          "type": "boolean",
+          "optional": true,
+          "deprecated": "Use `size=\"tiny\"` instead."
+        },
+        {
+          "name": "small",
+          "type": "boolean",
+          "optional": true,
+          "deprecated": "Use `size=\"small\"` instead."
+        },
+        {
+          "name": "medium",
+          "type": "boolean",
+          "optional": true,
+          "deprecated": "Use `size=\"medium\"` instead."
+        },
+        {
+          "name": "large",
+          "type": "boolean",
+          "optional": true,
+          "deprecated": "Use `size=\"large\"` instead."
+        },
+        {
+          "name": "square",
+          "type": "boolean",
+          "optional": true
+        },
+        {
+          "name": "external",
+          "type": "boolean",
+          "optional": true
+        },
+        {
+          "name": "icon",
+          "type": "IconProps['name']",
+          "optional": true
+        }
+      ],
+      "extends": [
+        "Omit<BoxProps, 'ref'>",
+        "Omit< AllHTMLAttributes<HTMLButtonElement | HTMLAnchorElement>, 'is' | 'className' | 'size' >",
+        "RefAttributes<HTMLButtonElement | HTMLAnchorElement>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "component",
+        "spec": "component",
+        "axe": true
+      }
+    },
+    {
+      "name": "ButtonGroup",
+      "file": "packages/fuselage/src/components/ButtonGroup/ButtonGroup.tsx",
+      "group": "ButtonGroup",
+      "description": "A container for grouping buttons that semantically share a common action context.",
+      "usage": "A container for grouping buttons that semantically share a common action context. By default the buttons are laid out with an 8px gap (4px with `small`, 16px with `large`).\n\n**Joined**\n\nThe `joined` variant fuses the buttons into a single segmented control: no gap between segments, group-level rounded corners, and no dividers — buttons sit flush. `joined` takes precedence over the `small`/`large` spacing modifiers; it composes with `vertical`, `stretch`, and `align`.\n\nThe joined group carries a translucent background (the secondary button background at 60% opacity). With opaque buttons it is fully covered; it only shows through the **ghost** segment — picked by the group via `ghostPosition='start' | 'end'`, which turns the first or last segment transparent so the surface behind the group shines through. Use the ghost segment for auxiliary edge actions, e.g. the expand chevron of a split button or floating controls over media/video. It keeps hover/active/focus feedback, and by design it is always an edge segment — a middle button cannot be ghosted.\n\n**Rules**\n- Use 2–4 buttons in a joined group, with at most one Primary.\n- Joined groups work with regular labeled Buttons, icon-only `square` Buttons, and IconButtons.\n- Do not pair a regular Button with an IconButton — beside labeled buttons use an icon-only `square` Button; reserve IconButtons for groups made only of IconButtons.\n- Keep a joined group homogeneous: every button in it must use the same size. Any Button size works, but never mix sizes inside the same joined group — the segments would no longer sit flush.",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "align",
+          "type": "'start' | 'center' | 'end'",
+          "values": [
+            "start",
+            "center",
+            "end"
+          ],
+          "optional": true
+        },
+        {
+          "name": "stretch",
+          "type": "boolean",
+          "optional": true
+        },
+        {
+          "name": "wrap",
+          "type": "boolean",
+          "optional": true
+        },
+        {
+          "name": "vertical",
+          "type": "boolean",
+          "optional": true
+        },
+        {
+          "name": "small",
+          "type": "boolean",
+          "optional": true
+        },
+        {
+          "name": "large",
+          "type": "boolean",
+          "optional": true
+        }
+      ],
+      "extends": [
+        "RefAttributes<HTMLDivElement>",
+        "HTMLAttributes<HTMLDivElement>",
+        "| { /** * Fuses the buttons into a single segmented control. Takes precedence * over `small`/`large` spacing. */ joined: true; /** * Render…"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "component",
+        "spec": "component",
+        "axe": true
+      }
+    },
+    {
+      "name": "Callout",
+      "file": "packages/fuselage/src/components/Callout/Callout.tsx",
+      "group": "Callout",
+      "description": "The `Callout` is used to get the user's attention explaining something important in the content of the current page.",
+      "usage": "A non-time-based notification (system- or user-level) that cannot be dismissed by the user and persists until its status changes. May contain links.\n\n**Rules**\n- Cannot be dismissed by the user — use only for status that persists until it changes.\n- Description is mandatory; icon and title are optional.\n- Make copy concise while explicitly naming the event and the affected object.\n- A Callout CAN carry action buttons — use it (not a Banner) when the notification needs a decision.",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "type",
+          "type": "'info' | 'success' | 'warning' | 'danger'",
+          "values": [
+            "info",
+            "success",
+            "warning",
+            "danger"
+          ],
+          "optional": true
+        },
+        {
+          "name": "title",
+          "type": "ReactNode",
+          "optional": true
+        },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "optional": true
+        },
+        {
+          "name": "icon",
+          "type": "IconProps['name']",
+          "optional": true
+        },
+        {
+          "name": "actions",
+          "type": "ReactNode",
+          "optional": true
+        }
+      ],
+      "extends": [
+        "Omit<BoxProps, 'type' | 'name'>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "component",
+        "spec": "component",
+        "axe": true
+      }
+    },
+    {
+      "name": "Card",
+      "file": "packages/fuselage/src/components/Card/Card.tsx",
+      "group": "Card",
+      "usage": "Displays content in a visually appealing manner.\n\n**Rules**\n- Vertical card — use Regular as the default; use Hero for priority info at the top of a page.\n- Horizontal card — use within a list, among other list items; do NOT use as a stand-alone element.\n- Use the Header/Content sections to compose the card body from other design-system components.",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "horizontal",
+          "type": "boolean",
+          "optional": true
+        },
+        {
+          "name": "hero",
+          "type": "boolean",
+          "optional": true
+        },
+        {
+          "name": "clickable",
+          "type": "boolean",
+          "optional": true
+        }
+      ],
+      "extends": [
+        "Omit<AllHTMLAttributes<HTMLElement>, 'is'>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "component",
+        "spec": "component",
+        "axe": true
+      }
+    },
+    {
+      "name": "CardBody",
+      "file": "packages/fuselage/src/components/Card/CardBody.tsx",
+      "group": "Card",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "flexDirection",
+          "type": "CSSProperties['flexDirection']",
+          "optional": true
+        },
+        {
+          "name": "height",
+          "type": "BoxProps['height']",
+          "optional": true
+        },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "optional": false
+        }
+      ],
+      "extends": [
+        "Omit<AllHTMLAttributes<HTMLElement>, 'is'>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "CardCol",
+      "file": "packages/fuselage/src/components/Card/CardCol.tsx",
+      "group": "Card",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "optional": false
+        }
+      ],
+      "extends": [
+        "AllHTMLAttributes<HTMLElement>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "CardControls",
+      "file": "packages/fuselage/src/components/Card/CardControls.tsx",
+      "group": "Card",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "HTMLAttributes<HTMLDivElement>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "CardGrid",
+      "file": "packages/fuselage/src/components/CardGrid/CardGrid.tsx",
+      "group": "CardGrid",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "optional": false
+        },
+        {
+          "name": "breakpoints",
+          "type": "GridItemProps",
+          "optional": true
+        }
+      ],
+      "extends": [],
+      "primitive": "none",
+      "coverage": {
+        "stories": "component",
+        "spec": "component",
+        "axe": true
+      }
+    },
+    {
+      "name": "CardGroup",
+      "file": "packages/fuselage/src/components/CardGroup/CardGroup.tsx",
+      "group": "CardGroup",
+      "usage": "Arranges Cards together with consistent spacing.\n\n**Rules**\n- Vertical card groups use an 8px gap between cards; horizontal card groups use a 16px gap.",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "align",
+          "type": "'start' | 'center' | 'end'",
+          "values": [
+            "start",
+            "center",
+            "end"
+          ],
+          "optional": true
+        },
+        {
+          "name": "stretch",
+          "type": "boolean",
+          "optional": true
+        },
+        {
+          "name": "wrap",
+          "type": "boolean",
+          "optional": true
+        },
+        {
+          "name": "vertical",
+          "type": "boolean",
+          "optional": true
+        },
+        {
+          "name": "small",
+          "type": "boolean",
+          "optional": true
+        },
+        {
+          "name": "large",
+          "type": "boolean",
+          "optional": true
+        },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "optional": true
+        }
+      ],
+      "extends": [
+        "Omit<AllHTMLAttributes<HTMLElement>, 'is' | 'wrap'>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "component",
+        "spec": "component",
+        "axe": true
+      }
+    },
+    {
+      "name": "CardHeader",
+      "file": "packages/fuselage/src/components/Card/CardHeader.tsx",
+      "group": "Card",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "optional": false
+        }
+      ],
+      "extends": [
+        "AllHTMLAttributes<HTMLElement>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "CardRow",
+      "file": "packages/fuselage/src/components/Card/CardRow.tsx",
+      "group": "Card",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "optional": false
+        }
+      ],
+      "extends": [
+        "AllHTMLAttributes<HTMLElement>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "CardTitle",
+      "file": "packages/fuselage/src/components/Card/CardTitle.tsx",
+      "group": "Card",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "optional": false
+        },
+        {
+          "name": "info",
+          "type": "string",
+          "optional": true
+        },
+        {
+          "name": "variant",
+          "type": "'h3' | 'h4' | 'h5'",
+          "values": [
+            "h3",
+            "h4",
+            "h5"
+          ],
+          "optional": true
+        }
+      ],
+      "extends": [
+        "Omit<AllHTMLAttributes<HTMLElement>, 'is'>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "CheckBox",
+      "file": "packages/fuselage/src/components/CheckBox/CheckBox.tsx",
+      "group": "CheckBox",
+      "usage": "Allows users to select one or more options from a list. Unlike radio buttons and switches, it also supports an indeterminate state for groups with partial selection.\n\n**Rules**\n- Use a checkbox when more than one option can be selected, or for a single opt-in such as accepting terms of service.\n- Use the indeterminate state only for a parent controlling a group with partial selection.",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "indeterminate",
+          "type": "boolean",
+          "optional": true
+        },
+        {
+          "name": "labelChildren",
+          "type": "ReactNode",
+          "optional": true
+        }
+      ],
+      "extends": [
+        "Omit<BoxProps, 'ref'>",
+        "RefAttributes<HTMLInputElement>",
+        "AllHTMLAttributes<HTMLInputElement>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "component",
+        "spec": "component",
+        "axe": true
+      }
+    },
+    {
+      "name": "CheckOption",
+      "file": "packages/fuselage/src/components/Option/CheckOption.tsx",
+      "group": "Option",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "OptionProps"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": false
+      }
+    },
+    {
+      "name": "Chevron",
+      "file": "packages/fuselage/src/components/Chevron/Chevron.tsx",
+      "group": "Chevron",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "size",
+          "type": "BoxProps['width']",
+          "optional": true
+        },
+        {
+          "name": "up",
+          "type": "boolean",
+          "optional": true
+        },
+        {
+          "name": "right",
+          "type": "boolean",
+          "optional": true
+        },
+        {
+          "name": "left",
+          "type": "boolean",
+          "optional": true
+        },
+        {
+          "name": "down",
+          "type": "boolean",
+          "optional": true
+        },
+        {
+          "name": "top",
+          "type": "boolean",
+          "optional": true
+        },
+        {
+          "name": "bottom",
+          "type": "boolean",
+          "optional": true
+        }
+      ],
+      "extends": [
+        "Omit<BoxProps, 'size'>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "component",
+        "spec": "component",
+        "axe": false
+      }
+    },
+    {
+      "name": "Chip",
+      "file": "packages/fuselage/src/components/Chip/Chip.tsx",
+      "group": "Chip",
+      "usage": "Used to communicate and manage input-field selections.\n\n**Rules**\n- Text is mandatory.\n- A chip may have either a leading icon or a leading avatar — not both.\n- Keep the close button when the chip represents a removable selection.",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "thumbUrl",
+          "type": "string",
+          "optional": true
+        },
+        {
+          "name": "renderThumb",
+          "type": "(props: { url: string }) => ReactNode",
+          "optional": true
+        },
+        {
+          "name": "renderDismissSymbol",
+          "type": "() => ReactNode",
+          "optional": true
+        }
+      ],
+      "extends": [
+        "Omit< ButtonHTMLAttributes<HTMLButtonElement>, 'type' >"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "component",
+        "spec": "component",
+        "axe": false
+      }
+    },
+    {
+      "name": "CodeSnippet",
+      "file": "packages/fuselage/src/components/CodeSnippet/CodeSnippet.tsx",
+      "group": "CodeSnippet",
+      "description": "The `CodeSnippet` is used to show code or commands and make easier to copy them. The default button text is `Copy` but you can use the `buttonText` prop to handle translations in your project. Please check the `useClipBoard` hook in `fuselage-hooks` package, to handle the copy behaviour.",
+      "usage": "A specific code style developed for easy copy and sharing.\n\n**Rules**\n- Use when the platform needs to make server settings available to users in code form (easy copy/paste).\n- Note: the design system also documents an interactive \"Code block\" variant (with a reload button and expand/collapse controls) — this component currently only implements static display + a copy button, not those interactive features.",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "children",
+          "type": "string",
+          "optional": false
+        },
+        {
+          "name": "buttonText",
+          "type": "string",
+          "optional": true
+        },
+        {
+          "name": "buttonDisabled",
+          "type": "boolean",
+          "optional": true
+        },
+        {
+          "name": "onClick",
+          "type": "() => void",
+          "optional": true
+        }
+      ],
+      "extends": [
+        "BoxProps"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "component",
+        "spec": "component",
+        "axe": true
+      }
+    },
+    {
+      "name": "Contextualbar",
+      "file": "packages/fuselage/src/components/Contextualbar/Contextualbar.tsx",
+      "group": "Contextualbar",
+      "description": "The `Contextualbar` has the purpose to persist and input information about the scope of the related page.",
+      "usage": "A persistent UI element showing relevant information and actions for the current page context, letting users input data and act without the page disappearing.\n\n**Rules**\n- Title is mandatory.\n- Provide a mandatory empty state on both navigation levels.\n- Never disable the confirmation button — allow submit, then show required-field errors after confirm.\n- Prefer the contextual bar over a Modal for non-disruptive contextual input.",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "Omit<BoxProps, 'ref'>",
+        "RefAttributes<HTMLElement>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "component",
+        "spec": "component",
+        "axe": true
+      }
+    },
+    {
+      "name": "ContextualbarAction",
+      "file": "packages/fuselage/src/components/Contextualbar/ContextualbarAction.tsx",
+      "group": "Contextualbar",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "name",
+          "type": "IconButtonProps['icon']",
+          "optional": false
+        }
+      ],
+      "extends": [
+        "Omit<IconButtonProps, 'name' | 'icon'>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "ContextualbarActions",
+      "file": "packages/fuselage/src/components/Contextualbar/ContextualbarActions.tsx",
+      "group": "Contextualbar",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "ButtonGroupProps"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "ContextualbarButton",
+      "file": "packages/fuselage/src/components/Contextualbar/ContextualbarButton.tsx",
+      "group": "Contextualbar",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "ButtonProps"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "ContextualbarContent",
+      "file": "packages/fuselage/src/components/Contextualbar/ContextualbarContent.tsx",
+      "group": "Contextualbar",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "Omit<BoxProps, 'ref'>",
+        "RefAttributes<HTMLElement>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "ContextualbarEmptyContent",
+      "file": "packages/fuselage/src/components/Contextualbar/ContextualbarEmptyContent.tsx",
+      "group": "Contextualbar",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "icon",
+          "type": "StatesIconProps['name']",
+          "optional": true
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "optional": true
+        },
+        {
+          "name": "subtitle",
+          "type": "string",
+          "optional": true
+        }
+      ],
+      "extends": [
+        "ContextualbarContentProps"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "ContextualbarFooter",
+      "file": "packages/fuselage/src/components/Contextualbar/ContextualbarFooter.tsx",
+      "group": "Contextualbar",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "Omit<BoxProps, 'ref'>",
+        "RefAttributes<HTMLElement>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "ContextualbarHeader",
+      "file": "packages/fuselage/src/components/Contextualbar/ContextualbarHeader.tsx",
+      "group": "Contextualbar",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "BoxProps"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "ContextualbarIcon",
+      "file": "packages/fuselage/src/components/Contextualbar/ContextualbarIcon.tsx",
+      "group": "Contextualbar",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "IconProps"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "ContextualbarSection",
+      "file": "packages/fuselage/src/components/Contextualbar/ContextualbarSection.tsx",
+      "group": "Contextualbar",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "Omit<BoxProps, 'ref'>",
+        "RefAttributes<HTMLElement>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "ContextualbarSkeleton",
+      "file": "packages/fuselage/src/components/Contextualbar/ContextualbarSkeleton.tsx",
+      "group": "Contextualbar",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "BoxProps"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "ContextualbarTitle",
+      "file": "packages/fuselage/src/components/Contextualbar/ContextualbarTitle.tsx",
+      "group": "Contextualbar",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "BoxProps"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "Divider",
+      "file": "packages/fuselage/src/components/Divider/Divider.tsx",
+      "group": "Divider",
+      "usage": "Separates sections of content.\n\n**Rules**\n- Use inset to separate related content within a wrapper.\n- For a full-width stroke (e.g. separating a header from page content), use a border, not a divider.\n- Vertical dividers are used between things like a menu and composer; horizontal + text is used e.g. on a login page.",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "variation",
+          "type": "'danger'",
+          "optional": true
+        },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "optional": true
+        },
+        {
+          "name": "vertical",
+          "type": "boolean",
+          "optional": true
+        }
+      ],
+      "extends": [
+        "BoxProps"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "component",
+        "spec": "component",
+        "axe": false
+      }
+    },
+    {
+      "name": "Dropdown",
+      "file": "packages/fuselage/src/components/Dropdown/Dropdown.tsx",
+      "group": "Dropdown",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "reference",
+          "type": "RefObject<T | null>",
+          "optional": false
+        },
+        {
+          "name": "placement",
+          "type": "UsePositionOptions['placement']",
+          "optional": true
+        },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "optional": false
+        }
+      ],
+      "extends": [
+        "RefAttributes<HTMLElement>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "component",
+        "spec": "component",
+        "axe": false
+      }
+    },
+    {
+      "name": "EmailInput",
+      "file": "packages/fuselage/src/components/EmailInput/EmailInput.tsx",
+      "group": "EmailInput",
+      "description": "An input for email addresses.",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "Omit<InputBoxProps<HTMLInputElement>, 'type'>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "component",
+        "spec": "component",
+        "axe": true
+      }
+    },
+    {
+      "name": "Field",
+      "file": "packages/fuselage/src/components/Field/Field.tsx",
+      "group": "Field",
+      "description": "A `Field` is a wrapper representing an entry in a form.",
+      "usage": "Wraps an input with the supporting copy elements (label, description, hint, link, error) and keeps that copy clear, concise and consistent.\n\n**Rules**\n- Label — accurately describe the information needed; mark required fields with an asterisk.\n- Description — context/instructions that clarify the label; keep it clear and simple.\n- Placeholder — only when an extra hint helps the user, since it disappears on input; don't repeat the label in the placeholder.\n- Error message — explain the problem and give an actionable fix (e.g. \"Invalid email address\"); avoid vague or apologetic copy.\n- Hint — explain technical terms or behaviors.\n- There is no dedicated Select/Dropdown component — a select is composed from a text Field whose input shows a chevron-down as its trailing icon.",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "BoxProps"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "component",
+        "spec": "component",
+        "axe": true
+      }
+    },
+    {
+      "name": "FieldDescription",
+      "file": "packages/fuselage/src/components/Field/FieldDescription.tsx",
+      "group": "Field",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "BoxProps"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "FieldError",
+      "file": "packages/fuselage/src/components/Field/FieldError.tsx",
+      "group": "Field",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "BoxProps"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "FieldGroup",
+      "file": "packages/fuselage/src/components/FieldGroup/FieldGroup.tsx",
+      "group": "FieldGroup",
+      "description": "A container for grouping fields that semantically share a common data context.",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "BoxProps"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "component",
+        "spec": "component",
+        "axe": false
+      }
+    },
+    {
+      "name": "FieldHint",
+      "file": "packages/fuselage/src/components/Field/FieldHint.tsx",
+      "group": "Field",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "BoxProps"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "FieldLabel",
+      "file": "packages/fuselage/src/components/Field/FieldLabel.tsx",
+      "group": "Field",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "LabelProps"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "component",
+        "axe": true
+      }
+    },
+    {
+      "name": "FieldLabelInfo",
+      "file": "packages/fuselage/src/components/Field/FieldLabelInfo.tsx",
+      "group": "Field",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "LabelInfoProps"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "FieldLink",
+      "file": "packages/fuselage/src/components/Field/FieldLink.tsx",
+      "group": "Field",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "BoxProps"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "FieldRow",
+      "file": "packages/fuselage/src/components/Field/FieldRow.tsx",
+      "group": "Field",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "BoxProps"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "FlexContainer",
+      "file": "packages/fuselage/src/components/Flex/FlexContainer.tsx",
+      "group": "Flex",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "optional": true
+        },
+        {
+          "name": "inline",
+          "type": "boolean",
+          "optional": true
+        },
+        {
+          "name": "direction",
+          "type": "'row' | 'row-reverse' | 'column' | 'column-reverse'",
+          "values": [
+            "row",
+            "row-reverse",
+            "column",
+            "column-reverse"
+          ],
+          "optional": true
+        },
+        {
+          "name": "wrap",
+          "type": "'no-wrap' | 'wrap' | 'wrap-reverse'",
+          "values": [
+            "no-wrap",
+            "wrap",
+            "wrap-reverse"
+          ],
+          "optional": true
+        },
+        {
+          "name": "alignItems",
+          "type": "'stretch' | 'start' | 'center' | 'end' | 'baseline'",
+          "values": [
+            "stretch",
+            "start",
+            "center",
+            "end",
+            "baseline"
+          ],
+          "optional": true
+        },
+        {
+          "name": "alignContent",
+          "type": "'start' | 'center' | 'end' | 'space-between' | 'space-around'",
+          "values": [
+            "start",
+            "center",
+            "end",
+            "space-between",
+            "space-around"
+          ],
+          "optional": true
+        },
+        {
+          "name": "justifyContent",
+          "type": "| 'start' | 'center' | 'end' | 'space-between' | 'space-around'",
+          "values": [
+            "start",
+            "center",
+            "end",
+            "space-between",
+            "space-around"
+          ],
+          "optional": true
+        }
+      ],
+      "extends": [],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": false
+      }
+    },
+    {
+      "name": "FlexItem",
+      "file": "packages/fuselage/src/components/Flex/FlexItem.tsx",
+      "group": "Flex",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "optional": true
+        },
+        {
+          "name": "order",
+          "type": "number",
+          "optional": true
+        },
+        {
+          "name": "grow",
+          "type": "number",
+          "optional": true
+        },
+        {
+          "name": "shrink",
+          "type": "number",
+          "optional": true
+        },
+        {
+          "name": "basis",
+          "type": "number | string | 'auto'",
+          "optional": true
+        },
+        {
+          "name": "align",
+          "type": "'auto' | 'start' | 'end' | 'center' | 'stretch'",
+          "values": [
+            "auto",
+            "start",
+            "end",
+            "center",
+            "stretch"
+          ],
+          "optional": true
+        }
+      ],
+      "extends": [],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": false
+      }
+    },
+    {
+      "name": "FramedIcon",
+      "file": "packages/fuselage/src/components/FramedIcon/FramedIcon.tsx",
+      "group": "FramedIcon",
+      "usage": "Draws attention to a specific UI element with an icon inside a rectangular frame; communicates system state.\n\n**Rules**\n- Always use alongside text, never standalone.\n- Not for user actions — use the Icon button for actions.\n- Do not mix multiple color types in the same context.",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "info",
+          "type": "boolean",
+          "optional": true
+        },
+        {
+          "name": "success",
+          "type": "boolean",
+          "optional": true
+        },
+        {
+          "name": "warning",
+          "type": "boolean",
+          "optional": true
+        },
+        {
+          "name": "danger",
+          "type": "boolean",
+          "optional": true
+        },
+        {
+          "name": "neutral",
+          "type": "boolean",
+          "optional": true
+        },
+        {
+          "name": "icon",
+          "type": "Keys",
+          "optional": false
+        }
+      ],
+      "extends": [
+        "Omit<AllHTMLAttributes<HTMLElement>, 'is'>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "component",
+        "spec": "component",
+        "axe": true
+      }
+    },
+    {
+      "name": "Grid",
+      "file": "packages/fuselage/src/components/Grid/Grid.tsx",
+      "group": "Grid",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "xs",
+          "type": "boolean",
+          "optional": true
+        },
+        {
+          "name": "sm",
+          "type": "boolean",
+          "optional": true
+        },
+        {
+          "name": "md",
+          "type": "boolean",
+          "optional": true
+        },
+        {
+          "name": "lg",
+          "type": "boolean",
+          "optional": true
+        },
+        {
+          "name": "xl",
+          "type": "boolean",
+          "optional": true
+        }
+      ],
+      "extends": [
+        "BoxProps"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "component",
+        "spec": "component",
+        "axe": false
+      }
+    },
+    {
+      "name": "GridItem",
+      "file": "packages/fuselage/src/components/Grid/GridItem.tsx",
+      "group": "Grid",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "xs",
+          "type": "1 | 2 | 3 | 4",
+          "optional": true
+        },
+        {
+          "name": "sm",
+          "type": "1 | 2 | 3 | 4 | 5 | 6 | 7 | 8",
+          "optional": true
+        },
+        {
+          "name": "md",
+          "type": "1 | 2 | 3 | 4 | 5 | 6 | 7 | 8",
+          "optional": true
+        },
+        {
+          "name": "lg",
+          "type": "1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12",
+          "optional": true
+        },
+        {
+          "name": "xl",
+          "type": "1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12",
+          "optional": true
+        }
+      ],
+      "extends": [
+        "BoxProps"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": false
+      }
+    },
+    {
+      "name": "Icon",
+      "file": "packages/fuselage/src/components/Icon/Icon.tsx",
+      "group": "Icon",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "name",
+          "type": "IconName",
+          "optional": false
+        },
+        {
+          "name": "size",
+          "type": "BoxProps['width']",
+          "optional": true
+        }
+      ],
+      "extends": [
+        "Omit<BoxProps, 'ref' | 'name' | 'size'>",
+        "RefAttributes<HTMLElement>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "component",
+        "spec": "component",
+        "axe": false
+      }
+    },
+    {
+      "name": "IconButton",
+      "file": "packages/fuselage/src/components/Button/IconButton.tsx",
+      "group": "Button",
+      "usage": "A label-less, icon-only button. More minimalistic than a regular button with text.\n\n**Rules**\n- Use only when a clear, recognizable icon represents the action and no text label is needed.\n- When the button indicates a status (not just triggers it), use the icon that reflects the current status (e.g. bell = following, bell-off = not following).\n- When paired with a Badge, don't combine mini/tiny icon buttons with large/medium badges.",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "icon",
+          "type": "IconName | ReactElement<any>",
+          "optional": false
+        },
+        {
+          "name": "primary",
+          "type": "boolean",
+          "optional": true
+        },
+        {
+          "name": "secondary",
+          "type": "boolean",
+          "optional": true
+        },
+        {
+          "name": "info",
+          "type": "boolean",
+          "optional": true
+        },
+        {
+          "name": "danger",
+          "type": "boolean",
+          "optional": true
+        },
+        {
+          "name": "warning",
+          "type": "boolean",
+          "optional": true
+        },
+        {
+          "name": "success",
+          "type": "boolean",
+          "optional": true
+        },
+        {
+          "name": "pressed",
+          "type": "boolean",
+          "optional": true
+        }
+      ],
+      "extends": [
+        "IconButtonSize",
+        "BoxProps"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "component",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "Input",
+      "file": "packages/fuselage/src/components/InputBox/Input.tsx",
+      "group": "InputBox",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "Omit<BoxProps, 'ref'>",
+        "RefAttributes<T>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "InputBox",
+      "file": "packages/fuselage/src/components/InputBox/InputBox.tsx",
+      "group": "InputBox",
+      "description": "A decorated input control with support for addons. Usually you'll perfer to use `-Input` (e.g. <LinkTo kind='Forms/TextInput' story='Default'>`TextInput`</LinkTo>) components over this one because it works as a construction block for them.",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "startAddon",
+          "type": "ReactNode",
+          "optional": true
+        },
+        {
+          "name": "endAddon",
+          "type": "ReactNode",
+          "optional": true
+        },
+        {
+          "name": "input",
+          "type": "ReactNode",
+          "optional": true
+        },
+        {
+          "name": "multiple",
+          "type": "boolean",
+          "optional": true
+        },
+        {
+          "name": "error",
+          "type": "string",
+          "optional": true
+        },
+        {
+          "name": "placeholder",
+          "type": "string",
+          "optional": true
+        },
+        {
+          "name": "placeholderVisible",
+          "type": "boolean",
+          "optional": true
+        },
+        {
+          "name": "small",
+          "type": "boolean",
+          "optional": true
+        },
+        {
+          "name": "type",
+          "type": "| 'button' | 'checkbox' | 'color' | 'date' | 'datetime' | 'datetime-local' | 'email' | 'file' | 'hidden' | 'image' | 'month' | 'number' | '…",
+          "values": [
+            "button",
+            "checkbox",
+            "color",
+            "date",
+            "datetime",
+            "datetime-local",
+            "email",
+            "file",
+            "hidden",
+            "image",
+            "month",
+            "number",
+            "password",
+            "radio",
+            "range",
+            "reset",
+            "search",
+            "submit",
+            "tel",
+            "text",
+            "time",
+            "url",
+            "week",
+            "textarea",
+            "select"
+          ],
+          "optional": false
+        }
+      ],
+      "extends": [
+        "Omit<BoxProps, 'ref'>",
+        "RefAttributes<T>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "component",
+        "spec": "component",
+        "axe": true
+      }
+    },
+    {
+      "name": "InputBoxSkeleton",
+      "file": "packages/fuselage/src/components/InputBox/InputBoxSkeleton.tsx",
+      "group": "InputBox",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "BoxProps"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "Label",
+      "file": "packages/fuselage/src/components/Label/Label.tsx",
+      "group": "Label",
+      "description": "A caption for an input component.",
+      "usage": "The label for an input — names the field and marks whether it's required.\n\n**Rules**\n- May be used standalone, e.g. to label a Checkbox, Radio button or Toggle switch.\n- Accurately describe the information needed; mark required fields with the required indicator.\n- Avoid generic labels or unnecessary ownership wording.\n- Use the info icon only when the field needs a tooltip explanation.",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "optional": true
+        },
+        {
+          "name": "required",
+          "type": "boolean",
+          "optional": true
+        }
+      ],
+      "extends": [
+        "Omit<BoxProps, 'ref'>",
+        "RefAttributes<HTMLElement>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "component",
+        "spec": "component",
+        "axe": true
+      }
+    },
+    {
+      "name": "Margins",
+      "file": "packages/fuselage/src/components/Margins/Margins.tsx",
+      "group": "Margins",
+      "description": "Add margins to the wrapped component.",
+      "usage": "Add margins to the wrapped component.",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "PropsWithChildren<{ all?: BoxProps['margin']; block?: BoxProps['marginBlock']; blockStart?: BoxProps['marginBlockStart']; blockEnd?: BoxPro…"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "component",
+        "spec": "component",
+        "axe": false
+      }
+    },
+    {
+      "name": "Menu",
+      "file": "packages/fuselage/src/components/Menu/Menu.tsx",
+      "group": "Menu",
+      "usage": "Presents the actions a user can take at a given moment — selection or specific functionality.\n\n**Rules**\n- The item label is mandatory; the trailing element is optional (radio, checkbox, etc.).\n- Use title/divider items to structure groups; mark destructive items as danger; disable items that are unavailable.\n- A device picker / list of selectable options is a Menu with title groups + radio trailing elements — not hand-built rows.\n- Position 4px from the trigger edge on the opening side; align the menu border to the trigger border.",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "icon",
+          "type": "IconButtonProps['icon']",
+          "optional": true
+        },
+        {
+          "name": "large",
+          "type": "boolean",
+          "optional": true
+        },
+        {
+          "name": "medium",
+          "type": "boolean",
+          "optional": true
+        },
+        {
+          "name": "small",
+          "type": "boolean",
+          "optional": true
+        },
+        {
+          "name": "tiny",
+          "type": "boolean",
+          "optional": true
+        },
+        {
+          "name": "mini",
+          "type": "boolean",
+          "optional": true
+        },
+        {
+          "name": "placement",
+          "type": "UsePositionOptions['placement']",
+          "optional": true
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "optional": true
+        },
+        {
+          "name": "detached",
+          "type": "boolean",
+          "optional": true
+        },
+        {
+          "name": "is",
+          "type": "ElementType",
+          "optional": true,
+          "description": "A component that renders an IconButton"
+        },
+        {
+          "name": "className",
+          "type": "BoxProps['className']",
+          "optional": true
+        },
+        {
+          "name": "pressed",
+          "type": "boolean",
+          "optional": true
+        },
+        {
+          "name": "maxWidth",
+          "type": "string",
+          "optional": true
+        },
+        {
+          "name": "button",
+          "type": "ReactElement<any>",
+          "optional": true
+        }
+      ],
+      "extends": [
+        "AriaMenuProps<T>",
+        "MenuTriggerProps"
+      ],
+      "primitive": "react-aria",
+      "coverage": {
+        "stories": "component",
+        "spec": "component",
+        "axe": true
+      }
+    },
+    {
+      "name": "MenuItem",
+      "file": "packages/fuselage/src/components/Menu/stately/MenuItem.tsx",
+      "group": "Menu",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "ItemProps<T>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "MenuItemAvatar",
+      "file": "packages/fuselage/src/components/Option/OptionAvatar.tsx",
+      "group": "Menu",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "optional": true
+        }
+      ],
+      "extends": [],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "MenuItemColumn",
+      "file": "packages/fuselage/src/components/Option/OptionColumn.tsx",
+      "group": "Menu",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "optional": true
+        }
+      ],
+      "extends": [],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "MenuItemContent",
+      "file": "packages/fuselage/src/components/Option/OptionContent.tsx",
+      "group": "Menu",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "HTMLAttributes<HTMLDivElement>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "MenuItemDescription",
+      "file": "packages/fuselage/src/components/Option/OptionDescriptionBlock.tsx",
+      "group": "Menu",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "optional": true
+        }
+      ],
+      "extends": [],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "MenuItemIcon",
+      "file": "packages/fuselage/src/components/Option/OptionIcon.tsx",
+      "group": "Menu",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "IconProps"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "MenuItemInput",
+      "file": "packages/fuselage/src/components/Option/OptionInput.tsx",
+      "group": "Menu",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "optional": true
+        }
+      ],
+      "extends": [],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "MenuItemSkeleton",
+      "file": "packages/fuselage/src/components/Option/OptionSkeleton.tsx",
+      "group": "Menu",
+      "acceptsProps": false,
+      "props": [],
+      "extends": [],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "MenuItemTitle",
+      "file": "packages/fuselage/src/components/Option/OptionTitle.tsx",
+      "group": "Menu",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "optional": true
+        }
+      ],
+      "extends": [],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "MenuSection",
+      "file": "packages/fuselage/src/components/Menu/stately/MenuSection.tsx",
+      "group": "Menu",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "SectionProps<T>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "MenuSubmenuTrigger",
+      "file": "packages/fuselage/src/components/Menu/stately/MenuSubmenuTrigger.tsx",
+      "group": "Menu",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "optional": false,
+          "description": "The trigger item followed by the submenu items. The **first** child is rendered as the entry in the parent menu — it may use the rich `MenuItem*` sub-components (`MenuItemIcon`, `MenuItemContent`, …). The **remaining** children populate the submenu that opens beside it."
+        },
+        {
+          "name": "variant",
+          "type": "'danger' | 'success' | 'warning' | 'primary'",
+          "values": [
+            "danger",
+            "success",
+            "warning",
+            "primary"
+          ],
+          "optional": true
+        }
+      ],
+      "extends": [
+        "Omit< ItemProps<T>, 'title' | 'children' >"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "Message",
+      "file": "packages/fuselage/src/components/Message/Message.tsx",
+      "group": "Message",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "clickable",
+          "type": "boolean",
+          "optional": true
+        },
+        {
+          "name": "sequential",
+          "type": "boolean",
+          "optional": true
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "optional": true
+        },
+        {
+          "name": "isSelected",
+          "type": "boolean",
+          "optional": true
+        },
+        {
+          "name": "isEditing",
+          "type": "boolean",
+          "optional": true
+        },
+        {
+          "name": "isPending",
+          "type": "boolean",
+          "optional": true
+        },
+        {
+          "name": "highlight",
+          "type": "boolean",
+          "optional": true
+        }
+      ],
+      "extends": [
+        "AllHTMLAttributes<HTMLDivElement>",
+        "RefAttributes<HTMLDivElement>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "none",
+        "spec": "component",
+        "axe": true
+      }
+    },
+    {
+      "name": "MessageBlock",
+      "file": "packages/fuselage/src/components/Message/MessageBlock.tsx",
+      "group": "Message",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "fixedWidth",
+          "type": "boolean",
+          "optional": true
+        }
+      ],
+      "extends": [
+        "Omit<BoxProps, 'ref'>",
+        "RefAttributes<HTMLDivElement>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "none",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "MessageBody",
+      "file": "packages/fuselage/src/components/Message/MessageBody.tsx",
+      "group": "Message",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "clamp",
+          "type": "2 | 3 | 4",
+          "optional": true
+        }
+      ],
+      "extends": [
+        "HTMLAttributes<HTMLDivElement>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "none",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "MessageContainer",
+      "file": "packages/fuselage/src/components/Message/MessageContainer.tsx",
+      "group": "Message",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "HTMLAttributes<HTMLDivElement>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "none",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "MessageContainerFixed",
+      "file": "packages/fuselage/src/components/Message/MessageContainerFixed.tsx",
+      "group": "Message",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "HTMLAttributes<HTMLDivElement>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "none",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "MessageDivider",
+      "file": "packages/fuselage/src/components/Message/MessageDivider/MessageDivider.tsx",
+      "group": "Message",
+      "usage": "Separates message sections, appearing above them.\n\n**Rules**\n- Use the date to mark when messages were sent; use the unread indicator to highlight new messages.\n- Omit the divider line itself for longer messages likely to wrap multiple lines.",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "optional": true
+        },
+        {
+          "name": "unreadLabel",
+          "type": "string",
+          "optional": true
+        }
+      ],
+      "extends": [],
+      "primitive": "none",
+      "coverage": {
+        "stories": "component",
+        "spec": "component",
+        "axe": true
+      }
+    },
+    {
+      "name": "MessageEmoji",
+      "file": "packages/fuselage/src/components/Message/MessageEmoji.tsx",
+      "group": "Message",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "big",
+          "type": "boolean",
+          "optional": true
+        }
+      ],
+      "extends": [
+        "MessageEmojiBaseProps"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "none",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "MessageGenericPreview",
+      "file": "packages/fuselage/src/components/Message/MessageGenericPreview/MessageGenericPreview.tsx",
+      "group": "Message",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "HTMLAttributes<HTMLDivElement>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "component",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "MessageGenericPreviewContent",
+      "file": "packages/fuselage/src/components/Message/MessageGenericPreview/MessageGenericPreviewContent.tsx",
+      "group": "Message",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "optional": true
+        },
+        {
+          "name": "thumb",
+          "type": "ReactNode",
+          "optional": true
+        }
+      ],
+      "extends": [],
+      "primitive": "none",
+      "coverage": {
+        "stories": "none",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "MessageGenericPreviewCoverImage",
+      "file": "packages/fuselage/src/components/Message/MessageGenericPreview/MessageGenericPreviewCoverImage.tsx",
+      "group": "Message",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "url",
+          "type": "string",
+          "optional": false
+        },
+        {
+          "name": "width",
+          "type": "number",
+          "optional": false
+        },
+        {
+          "name": "height",
+          "type": "number",
+          "optional": false
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "optional": true
+        }
+      ],
+      "extends": [],
+      "primitive": "none",
+      "coverage": {
+        "stories": "none",
+        "spec": "component",
+        "axe": true
+      }
+    },
+    {
+      "name": "MessageGenericPreviewDescription",
+      "file": "packages/fuselage/src/components/Message/MessageGenericPreview/MessageGenericPreviewDescription.tsx",
+      "group": "Message",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "optional": true
+        },
+        {
+          "name": "clamp",
+          "type": "boolean",
+          "optional": true
+        }
+      ],
+      "extends": [],
+      "primitive": "none",
+      "coverage": {
+        "stories": "none",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "MessageGenericPreviewFooter",
+      "file": "packages/fuselage/src/components/Message/MessageGenericPreview/MessageGenericPreviewFooter.tsx",
+      "group": "Message",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "optional": true
+        },
+        {
+          "name": "clamp",
+          "type": "boolean",
+          "optional": true
+        }
+      ],
+      "extends": [],
+      "primitive": "none",
+      "coverage": {
+        "stories": "none",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "MessageGenericPreviewIcon",
+      "file": "packages/fuselage/src/components/Message/MessageGenericPreview/MessageGenericPreviewIcon.tsx",
+      "group": "Message",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "type",
+          "type": "string",
+          "optional": false
+        }
+      ],
+      "extends": [
+        "IconProps"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "none",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "MessageGenericPreviewImage",
+      "file": "packages/fuselage/src/components/Message/MessageGenericPreview/MessageGenericPreviewImage.tsx",
+      "group": "Message",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "url",
+          "type": "string",
+          "optional": false
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "optional": true
+        }
+      ],
+      "extends": [
+        "ImgHTMLAttributes<HTMLImageElement>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "none",
+        "spec": "component",
+        "axe": true
+      }
+    },
+    {
+      "name": "MessageGenericPreviewThumb",
+      "file": "packages/fuselage/src/components/Message/MessageGenericPreview/MessageGenericPreviewThumb.tsx",
+      "group": "Message",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "HTMLAttributes<HTMLDivElement>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "none",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "MessageGenericPreviewTitle",
+      "file": "packages/fuselage/src/components/Message/MessageGenericPreview/MessageGenericPreviewTitle.tsx",
+      "group": "Message",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "externalUrl",
+          "type": "string",
+          "optional": true
+        }
+      ],
+      "extends": [
+        "HTMLAttributes<HTMLSpanElement>",
+        "AnchorHTMLAttributes<HTMLAnchorElement>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "none",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "MessageHeader",
+      "file": "packages/fuselage/src/components/Message/MessageHeader.tsx",
+      "group": "Message",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "HTMLAttributes<HTMLDivElement>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "none",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "MessageHighlight",
+      "file": "packages/fuselage/src/components/Message/MessageHighlight.tsx",
+      "group": "Message",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "is",
+          "type": "ElementType",
+          "optional": true
+        },
+        {
+          "name": "clickable",
+          "type": "boolean",
+          "optional": true
+        },
+        {
+          "name": "variant",
+          "type": "'critical' | 'relevant' | 'other' | 'link'",
+          "values": [
+            "critical",
+            "relevant",
+            "other",
+            "link"
+          ],
+          "optional": true
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "optional": true
+        },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "optional": false
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "optional": true
+        }
+      ],
+      "extends": [
+        "HTMLAttributes<HTMLElement>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "none",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "MessageLeftContainer",
+      "file": "packages/fuselage/src/components/Message/MessageLeftContainer.tsx",
+      "group": "Message",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "HTMLAttributes<HTMLDivElement>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "none",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "MessageMetrics",
+      "file": "packages/fuselage/src/components/Message/MessageMetrics/MessageMetrics.tsx",
+      "group": "Message",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "HTMLAttributes<HTMLDivElement>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "component",
+        "spec": "component",
+        "axe": true
+      }
+    },
+    {
+      "name": "MessageMetricsFollowing",
+      "file": "packages/fuselage/src/components/Message/MessageMetrics/MessageMetricsFollowing.tsx",
+      "group": "Message",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "name",
+          "type": "'bell' | 'bell-off'",
+          "values": [
+            "bell",
+            "bell-off"
+          ],
+          "optional": false
+        },
+        {
+          "name": "badge",
+          "type": "ReactNode",
+          "optional": true
+        }
+      ],
+      "extends": [
+        "Omit<IconButtonProps, 'icon'>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "none",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "MessageMetricsItem",
+      "file": "packages/fuselage/src/components/Message/MessageMetrics/MessageMetricsItem/MessageMetricsItem.tsx",
+      "group": "Message",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "HTMLAttributes<HTMLDivElement>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "none",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "MessageMetricsItemAvatarRow",
+      "file": "packages/fuselage/src/components/Message/MessageMetrics/MessageMetricsItem/MessageMetricsItemAvatarRow.tsx",
+      "group": "Message",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "HTMLAttributes<HTMLDivElement>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "none",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "MessageMetricsItemAvatarRowContent",
+      "file": "packages/fuselage/src/components/Message/MessageMetrics/MessageMetricsItem/MessageMetricsItemAvatarRowContent.tsx",
+      "group": "Message",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "HTMLAttributes<HTMLDivElement>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "none",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "MessageMetricsItemIcon",
+      "file": "packages/fuselage/src/components/Message/MessageMetrics/MessageMetricsItem/MessageMetricsItemIcon.tsx",
+      "group": "Message",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "name",
+          "type": "'thread' | 'user' | 'clock' | 'discussion'",
+          "values": [
+            "thread",
+            "user",
+            "clock",
+            "discussion"
+          ],
+          "optional": false
+        }
+      ],
+      "extends": [
+        "Omit<IconProps, 'name'>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "none",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "MessageMetricsItemLabel",
+      "file": "packages/fuselage/src/components/Message/MessageMetrics/MessageMetricsItem/MessageMetricsItemLabel.tsx",
+      "group": "Message",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "HTMLAttributes<HTMLDivElement>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "none",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "MessageMetricsReply",
+      "file": "packages/fuselage/src/components/Message/MessageMetrics/MessageMetricsReply.tsx",
+      "group": "Message",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "ButtonProps"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "none",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "MessageName",
+      "file": "packages/fuselage/src/components/Message/MessageName.tsx",
+      "group": "Message",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "HTMLAttributes<HTMLSpanElement>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "none",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "MessageNameContainer",
+      "file": "packages/fuselage/src/components/Message/MessageNameContainer.tsx",
+      "group": "Message",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "HTMLAttributes<HTMLSpanElement>",
+        "RefAttributes<HTMLSpanElement>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "none",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "MessageReaction",
+      "file": "packages/fuselage/src/components/Message/MessageReactions/MessageReaction.tsx",
+      "group": "Message",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "name",
+          "type": "string",
+          "optional": true
+        },
+        {
+          "name": "counter",
+          "type": "number",
+          "optional": true
+        },
+        {
+          "name": "mine",
+          "type": "boolean",
+          "optional": true
+        },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "optional": true
+        }
+      ],
+      "extends": [
+        "RefAttributes<HTMLDivElement>",
+        "HTMLAttributes<HTMLDivElement>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "none",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "MessageReactionAction",
+      "file": "packages/fuselage/src/components/Message/MessageReactions/MessageReactionAction.tsx",
+      "group": "Message",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "HTMLAttributes<HTMLDivElement>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "none",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "MessageReactionCounter",
+      "file": "packages/fuselage/src/components/Message/MessageReactions/MessageReactionCounter.tsx",
+      "group": "Message",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "counter",
+          "type": "number",
+          "optional": false
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "optional": true
+        }
+      ],
+      "extends": [],
+      "primitive": "none",
+      "coverage": {
+        "stories": "none",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "MessageReactionEmoji",
+      "file": "packages/fuselage/src/components/Message/MessageReactions/MessageReactionEmoji.tsx",
+      "group": "Message",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "MessageEmojiBaseProps"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "none",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "MessageRole",
+      "file": "packages/fuselage/src/components/Message/MessageRole.tsx",
+      "group": "Message",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "TagProps"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "none",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "MessageRoles",
+      "file": "packages/fuselage/src/components/Message/MessageRoles.tsx",
+      "group": "Message",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "HTMLAttributes<HTMLDivElement>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "none",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "MessageStatusIndicator",
+      "file": "packages/fuselage/src/components/Message/MessageStatusIndicator/MessageStatusIndicator.tsx",
+      "group": "Message",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "AllHTMLAttributes<HTMLDivElement>",
+        "RefAttributes<HTMLDivElement>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "component",
+        "spec": "component",
+        "axe": true
+      }
+    },
+    {
+      "name": "MessageStatusIndicatorItem",
+      "file": "packages/fuselage/src/components/Message/MessageStatusIndicator/MessageStatusIndicatorItem.tsx",
+      "group": "Message",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "name",
+          "type": "IconProps['name']",
+          "optional": false
+        },
+        {
+          "name": "variant",
+          "type": "'success' | 'danger' | 'warning' | 'primary'",
+          "values": [
+            "success",
+            "danger",
+            "warning",
+            "primary"
+          ],
+          "optional": true
+        }
+      ],
+      "extends": [
+        "Omit<AllHTMLAttributes<HTMLElement>, 'is'>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "none",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "MessageStatusIndicatorText",
+      "file": "packages/fuselage/src/components/Message/MessageStatusIndicator/MessageStatusIndicatorText.tsx",
+      "group": "Message",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "optional": false
+        }
+      ],
+      "extends": [],
+      "primitive": "none",
+      "coverage": {
+        "stories": "none",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "MessageStatusPrivateIndicator",
+      "file": "packages/fuselage/src/components/Message/MessageStatusIndicator/MessageStatusPrivateIndicator.tsx",
+      "group": "Message",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "optional": true
+        },
+        {
+          "name": "variant",
+          "type": "MessageStatusIndicatorItemProps['variant']",
+          "optional": true
+        }
+      ],
+      "extends": [],
+      "primitive": "none",
+      "coverage": {
+        "stories": "none",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "MessageSystem",
+      "file": "packages/fuselage/src/components/Message/MessageSystem/MessageSystem.tsx",
+      "group": "Message",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "optional": true
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "optional": true
+        },
+        {
+          "name": "isSelected",
+          "type": "boolean",
+          "optional": true
+        },
+        {
+          "name": "onClick",
+          "type": "(e: ReactMouseEvent<HTMLDivElement, MouseEvent>) => void",
+          "optional": true
+        }
+      ],
+      "extends": [
+        "AllHTMLAttributes<HTMLDivElement>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "component",
+        "spec": "component",
+        "axe": true
+      }
+    },
+    {
+      "name": "MessageSystemBlock",
+      "file": "packages/fuselage/src/components/Message/MessageSystem/MessageSystemBlock.tsx",
+      "group": "Message",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "optional": true
+        }
+      ],
+      "extends": [],
+      "primitive": "none",
+      "coverage": {
+        "stories": "none",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "MessageSystemBody",
+      "file": "packages/fuselage/src/components/Message/MessageSystem/MessageSystemBody.tsx",
+      "group": "Message",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "HTMLAttributes<HTMLDivElement>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "none",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "MessageSystemContainer",
+      "file": "packages/fuselage/src/components/Message/MessageSystem/MessageSystemContainer.tsx",
+      "group": "Message",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "optional": true
+        }
+      ],
+      "extends": [],
+      "primitive": "none",
+      "coverage": {
+        "stories": "none",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "MessageSystemLeftContainer",
+      "file": "packages/fuselage/src/components/Message/MessageLeftContainer.tsx",
+      "group": "Message",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "HTMLAttributes<HTMLDivElement>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "none",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "MessageSystemName",
+      "file": "packages/fuselage/src/components/Message/MessageSystem/MessageSystemName.tsx",
+      "group": "Message",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "MessageNameProps"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "none",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "MessageSystemTimestamp",
+      "file": "packages/fuselage/src/components/Message/MessageSystem/MessageSystemTimestamp.tsx",
+      "group": "Message",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "optional": false
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "optional": true
+        }
+      ],
+      "extends": [],
+      "primitive": "none",
+      "coverage": {
+        "stories": "none",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "MessageTimestamp",
+      "file": "packages/fuselage/src/components/Message/MessageTimestamp.tsx",
+      "group": "Message",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "HTMLAttributes<HTMLSpanElement>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "none",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "MessageToolbar",
+      "file": "packages/fuselage/src/components/Message/MessageToolbar/MessageToolbar.tsx",
+      "group": "Message",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "ButtonGroupProps"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "component",
+        "spec": "component",
+        "axe": true
+      }
+    },
+    {
+      "name": "MessageToolbarItem",
+      "file": "packages/fuselage/src/components/Message/MessageToolbar/MessageToolbarItem.tsx",
+      "group": "Message",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "Omit<IconButtonProps, 'ref'>",
+        "RefAttributes<HTMLButtonElement>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "none",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "MessageToolbarWrapper",
+      "file": "packages/fuselage/src/components/Message/MessageToolbar/MessageToolbarWrapper.tsx",
+      "group": "Message",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "visible",
+          "type": "boolean",
+          "optional": true
+        }
+      ],
+      "extends": [
+        "HTMLAttributes<HTMLDivElement>",
+        "RefAttributes<HTMLDivElement>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "none",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "MessageUsername",
+      "file": "packages/fuselage/src/components/Message/MessageUsername.tsx",
+      "group": "Message",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "HTMLAttributes<HTMLSpanElement>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "none",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "Modal",
+      "file": "packages/fuselage/src/components/Modal/Modal.tsx",
+      "group": "Modal",
+      "usage": "A powerful component that temporarily blocks interaction with the main view to capture and hold the user's undivided attention with a distinct prompt or information window.\n\n**Rules**\n- Use for critical information, gathering input when a contextual bar isn't applicable, confirmations/decisions, or interruptive workflows.\n- For low-priority information use a Toast instead; for non-disruptive contextual input prefer the Contextual bar.\n- Title must use sentence case and contain no question mark; keep titles concise.\n- Default the header to title only — hide any icon/thumbnail unless the modal is triggered by a Rocket.Chat app or the title strongly needs visual reinforcement.\n- Never disable the confirmation (Primary) button — allow submit, then show required-field errors after the user clicks confirm.\n- Footer actions use the Button component — typically one Primary (confirm) + one Secondary (cancel); for destructive confirmations the Primary becomes a danger button.",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "wrapperFunction",
+          "type": "( props: Pick<BoxProps, 'elevation' | 'className' | 'children'>, ) => ReactNode",
+          "optional": true
+        },
+        {
+          "name": "wrapper",
+          "type": "ElementType< Pick<BoxProps, 'elevation' | 'className' | 'children'> >",
+          "optional": true
+        }
+      ],
+      "extends": [
+        "Omit<BoxProps, 'ref'>",
+        "RefAttributes<Element>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "component",
+        "spec": "component",
+        "axe": true
+      }
+    },
+    {
+      "name": "ModalBackdrop",
+      "file": "packages/fuselage/src/components/Modal/ModalBackdrop.tsx",
+      "group": "Modal",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "BoxProps"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "ModalClose",
+      "file": "packages/fuselage/src/components/Modal/ModalClose.tsx",
+      "group": "Modal",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "BoxProps"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "ModalContent",
+      "file": "packages/fuselage/src/components/Modal/ModalContent.tsx",
+      "group": "Modal",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "onScrollContent",
+          "type": "((touching: { top: boolean }) => void) | undefined",
+          "optional": true
+        }
+      ],
+      "extends": [
+        "BoxProps"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "ModalFooter",
+      "file": "packages/fuselage/src/components/Modal/ModalFooter.tsx",
+      "group": "Modal",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "BoxProps"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "ModalFooterAnnotation",
+      "file": "packages/fuselage/src/components/Modal/ModalFooterAnnotation.tsx",
+      "group": "Modal",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "BoxProps"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "ModalFooterControllers",
+      "file": "packages/fuselage/src/components/Modal/ModalFooterControllers.tsx",
+      "group": "Modal",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "ButtonGroupProps"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "ModalHeader",
+      "file": "packages/fuselage/src/components/Modal/ModalHeader.tsx",
+      "group": "Modal",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "BoxProps"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "ModalHeaderText",
+      "file": "packages/fuselage/src/components/Modal/ModalHeaderText.tsx",
+      "group": "Modal",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "BoxProps"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "ModalHeroImage",
+      "file": "packages/fuselage/src/components/Modal/ModalHeroImage.tsx",
+      "group": "Modal",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "BoxProps"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "ModalIcon",
+      "file": "packages/fuselage/src/components/Modal/ModalIcon.tsx",
+      "group": "Modal",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "name",
+          "type": "IconProps['name']",
+          "optional": false
+        }
+      ],
+      "extends": [
+        "BoxProps"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "ModalTagline",
+      "file": "packages/fuselage/src/components/Modal/ModalTagline.tsx",
+      "group": "Modal",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "BoxProps"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "ModalThumb",
+      "file": "packages/fuselage/src/components/Modal/ModalThumb.tsx",
+      "group": "Modal",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "AvatarProps"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "ModalTitle",
+      "file": "packages/fuselage/src/components/Modal/ModalTitle.tsx",
+      "group": "Modal",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "BoxProps"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "MultiSelect",
+      "file": "packages/fuselage/src/components/MultiSelect/MultiSelect.tsx",
+      "group": "MultiSelect",
+      "description": "An input for selection of options.",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "value",
+          "type": "SelectOption[0][]",
+          "optional": true
+        },
+        {
+          "name": "error",
+          "type": "string",
+          "optional": true
+        },
+        {
+          "name": "options",
+          "type": "SelectOption[]",
+          "optional": false
+        },
+        {
+          "name": "onChange",
+          "type": "(params: SelectOption[0][]) => void",
+          "optional": false
+        },
+        {
+          "name": "getLabel",
+          "type": "(params: SelectOption) => SelectOption[1]",
+          "optional": true
+        },
+        {
+          "name": "getValue",
+          "type": "(params: SelectOption) => SelectOption[0]",
+          "optional": true
+        },
+        {
+          "name": "customEmpty",
+          "type": "string",
+          "optional": true
+        },
+        {
+          "name": "anchor",
+          "type": "ElementType<MultiSelectAnchorParams>",
+          "optional": true
+        },
+        {
+          "name": "renderOptions",
+          "type": "ElementType",
+          "optional": true
+        },
+        {
+          "name": "renderItem",
+          "type": "ElementType",
+          "optional": true
+        },
+        {
+          "name": "renderSelected",
+          "type": "ElementType<{ value: SelectOption[0]; label: SelectOption[1]; onMouseDown: MouseEventHandler; children: ReactNode; }>",
+          "optional": true
+        },
+        {
+          "name": "addonIcon",
+          "type": "IconProps['name']",
+          "optional": true
+        },
+        {
+          "name": "setFilter",
+          "type": "(filter: string) => void",
+          "optional": true
+        }
+      ],
+      "extends": [
+        "Omit<BoxProps, 'ref' | 'onChange' | 'value'>",
+        "RefAttributes<HTMLInputElement>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "component",
+        "spec": "component",
+        "axe": true
+      }
+    },
+    {
+      "name": "MultiSelectFiltered",
+      "file": "packages/fuselage/src/components/MultiSelect/MultiSelectFiltered.tsx",
+      "group": "MultiSelect",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "filter",
+          "type": "string",
+          "optional": true
+        },
+        {
+          "name": "setFilter",
+          "type": "Dispatch<SetStateAction<string>>",
+          "optional": true
+        },
+        {
+          "name": "addonIcon",
+          "type": "IconProps['name']",
+          "optional": true
+        }
+      ],
+      "extends": [
+        "MultiSelectProps"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "NavBar",
+      "file": "packages/fuselage/src/components/NavBar/NavBar.tsx",
+      "group": "NavBar",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "HTMLAttributes<HTMLElement>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "component",
+        "spec": "component",
+        "axe": true
+      }
+    },
+    {
+      "name": "NavBarDivider",
+      "file": "packages/fuselage/src/components/NavBar/NavBarDivider.tsx",
+      "group": "NavBar",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "DividerProps"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "NavBarGroup",
+      "file": "packages/fuselage/src/components/NavBar/NavBarGroup.tsx",
+      "group": "NavBar",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "ButtonGroupProps"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "NavBarItem",
+      "file": "packages/fuselage/src/components/NavBar/NavBarItem.tsx",
+      "group": "NavBar",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "HTMLAttributes<HTMLElement>",
+        "Partial<Omit<IconButtonProps, 'ref'>>",
+        "RefAttributes<HTMLElement>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "NavBarSection",
+      "file": "packages/fuselage/src/components/NavBar/NavBarSection.tsx",
+      "group": "NavBar",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "HTMLAttributes<HTMLSpanElement>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "NumberInput",
+      "file": "packages/fuselage/src/components/NumberInput/NumberInput.tsx",
+      "group": "NumberInput",
+      "description": "An input for numbers.",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "Omit<InputBoxProps<HTMLInputElement>, 'type'>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "component",
+        "spec": "component",
+        "axe": true
+      }
+    },
+    {
+      "name": "Option",
+      "file": "packages/fuselage/src/components/Option/Option.tsx",
+      "group": "Option",
+      "description": "The generic `Option` item of options. Can be freely used or inside the `Options` as well.",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "is",
+          "type": "BoxProps['is']",
+          "optional": true
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "optional": true
+        },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "optional": true
+        },
+        {
+          "name": "label",
+          "type": "TLabel",
+          "optional": true
+        },
+        {
+          "name": "focus",
+          "type": "boolean",
+          "optional": true
+        },
+        {
+          "name": "selected",
+          "type": "boolean",
+          "optional": true
+        },
+        {
+          "name": "className",
+          "type": "BoxProps['className']",
+          "optional": true
+        },
+        {
+          "name": "icon",
+          "type": "IconProps['name']",
+          "optional": true
+        },
+        {
+          "name": "gap",
+          "type": "boolean",
+          "optional": true
+        },
+        {
+          "name": "avatar",
+          "type": "ReactNode",
+          "optional": true
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "optional": true
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "optional": true
+        },
+        {
+          "name": "value",
+          "type": "string | number",
+          "optional": true
+        },
+        {
+          "name": "variant",
+          "type": "'danger' | 'success' | 'warning' | 'primary'",
+          "values": [
+            "danger",
+            "success",
+            "warning",
+            "primary"
+          ],
+          "optional": true
+        },
+        {
+          "name": "onClick",
+          "type": "(event: MouseEvent<HTMLElement>) => void",
+          "optional": true
+        },
+        {
+          "name": "description",
+          "type": "ReactNode",
+          "optional": true
+        }
+      ],
+      "extends": [
+        "RefAttributes<Element>",
+        "Omit< AllHTMLAttributes<HTMLElement>, | 'is' | 'id' | 'children' | 'label' | 'selected' | 'className' | 'ref' | 'icon' | 'gap' | 'avatar' |…",
+        "RefAttributes<Element>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "component",
+        "spec": "component",
+        "axe": false
+      }
+    },
+    {
+      "name": "OptionAvatar",
+      "file": "packages/fuselage/src/components/Option/OptionAvatar.tsx",
+      "group": "Option",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "optional": true
+        }
+      ],
+      "extends": [],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": false
+      }
+    },
+    {
+      "name": "OptionColumn",
+      "file": "packages/fuselage/src/components/Option/OptionColumn.tsx",
+      "group": "Option",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "optional": true
+        }
+      ],
+      "extends": [],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": false
+      }
+    },
+    {
+      "name": "OptionContainer",
+      "file": "packages/fuselage/src/components/Options/OptionContainer.tsx",
+      "group": "Options",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "Omit<BoxProps, 'ref'>",
+        "RefAttributes<HTMLElement>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": false
+      }
+    },
+    {
+      "name": "OptionContent",
+      "file": "packages/fuselage/src/components/Option/OptionContent.tsx",
+      "group": "Option",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "HTMLAttributes<HTMLDivElement>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": false
+      }
+    },
+    {
+      "name": "OptionDescription",
+      "file": "packages/fuselage/src/components/Option/OptionDescription.tsx",
+      "group": "Option",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "optional": true
+        }
+      ],
+      "extends": [],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": false
+      }
+    },
+    {
+      "name": "OptionDescriptionBlock",
+      "file": "packages/fuselage/src/components/Option/OptionDescriptionBlock.tsx",
+      "group": "Option",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "optional": true
+        }
+      ],
+      "extends": [],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": false
+      }
+    },
+    {
+      "name": "OptionDivider",
+      "file": "packages/fuselage/src/components/Option/OptionDivider.tsx",
+      "group": "Option",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "DividerProps"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": false
+      }
+    },
+    {
+      "name": "OptionHeader",
+      "file": "packages/fuselage/src/components/Option/OptionHeader.tsx",
+      "group": "Option",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "optional": false
+        }
+      ],
+      "extends": [],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": false
+      }
+    },
+    {
+      "name": "OptionIcon",
+      "file": "packages/fuselage/src/components/Option/OptionIcon.tsx",
+      "group": "Option",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "IconProps"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": false
+      }
+    },
+    {
+      "name": "OptionInput",
+      "file": "packages/fuselage/src/components/Option/OptionInput.tsx",
+      "group": "Option",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "optional": true
+        }
+      ],
+      "extends": [],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": false
+      }
+    },
+    {
+      "name": "OptionMenu",
+      "file": "packages/fuselage/src/components/Option/OptionMenu.tsx",
+      "group": "Option",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "HTMLAttributes<HTMLDivElement>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": false
+      }
+    },
+    {
+      "name": "Options",
+      "file": "packages/fuselage/src/components/Options/Options.tsx",
+      "group": "Options",
+      "description": "An input for selection of options.",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "multiple",
+          "type": "boolean",
+          "optional": true
+        },
+        {
+          "name": "options",
+          "type": "OptionType<TValue, TLabel>[]",
+          "optional": false
+        },
+        {
+          "name": "cursor",
+          "type": "number",
+          "optional": false
+        },
+        {
+          "name": "renderItem",
+          "type": "ComponentType<{ role?: string; label: TLabel; value: TValue; selected?: boolean; focus?: boolean; disabled?: boolean; onMouseDown: MouseEve…",
+          "optional": true
+        },
+        {
+          "name": "renderEmpty",
+          "type": "ComponentType<{ customEmpty?: string; }>",
+          "optional": true
+        },
+        {
+          "name": "onSelect",
+          "type": "(option: OptionType<TValue, TLabel>) => void",
+          "optional": false
+        },
+        {
+          "name": "customEmpty",
+          "type": "string",
+          "optional": true
+        }
+      ],
+      "extends": [
+        "Omit<BoxProps, 'ref' | 'onSelect'>",
+        "RefAttributes<HTMLElement>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "component",
+        "spec": "component",
+        "axe": false
+      }
+    },
+    {
+      "name": "OptionSkeleton",
+      "file": "packages/fuselage/src/components/Option/OptionSkeleton.tsx",
+      "group": "Option",
+      "acceptsProps": false,
+      "props": [],
+      "extends": [],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": false
+      }
+    },
+    {
+      "name": "OptionTitle",
+      "file": "packages/fuselage/src/components/Option/OptionTitle.tsx",
+      "group": "Option",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "optional": true
+        }
+      ],
+      "extends": [],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": false
+      }
+    },
+    {
+      "name": "PaginatedMultiSelectFiltered",
+      "file": "packages/fuselage/src/components/PaginatedSelect/PaginatedMultiSelectFiltered.tsx",
+      "group": "PaginatedSelect",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "setFilter",
+          "type": "(value: string) => void",
+          "optional": true
+        }
+      ],
+      "extends": [
+        "PaginatedMultiSelectProps"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "component",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "PaginatedSelectFiltered",
+      "file": "packages/fuselage/src/components/PaginatedSelect/PaginatedSelectFiltered.tsx",
+      "group": "PaginatedSelect",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "setFilter",
+          "type": "(value: string | undefined | number) => void",
+          "optional": false
+        }
+      ],
+      "extends": [
+        "Omit< PaginatedSelectProps, 'setFilter' >",
+        "RefAttributes<HTMLInputElement>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "component",
+        "spec": "component",
+        "axe": true
+      }
+    },
+    {
+      "name": "Pagination",
+      "file": "packages/fuselage/src/components/Pagination/Pagination.tsx",
+      "group": "Pagination",
+      "usage": "Splits data into several pages, with navigation control and items-per-page. Usually used with tables.\n\n**Rules**\n- Use with paginated data sets, typically below a table.",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "count",
+          "type": "number",
+          "optional": false
+        },
+        {
+          "name": "current",
+          "type": "number",
+          "optional": true
+        },
+        {
+          "name": "divider",
+          "type": "boolean",
+          "optional": true
+        },
+        {
+          "name": "itemsPerPage",
+          "type": "ItemsPerPage",
+          "optional": true
+        },
+        {
+          "name": "itemsPerPageLabel",
+          "type": "(context: { count: number; current: number; itemsPerPage: ItemsPerPage; }) => string",
+          "optional": true
+        },
+        {
+          "name": "showingResultsLabel",
+          "type": "(context: { count: number; current: number; itemsPerPage: ItemsPerPage; }) => string",
+          "optional": true
+        },
+        {
+          "name": "onSetCurrent",
+          "type": "Dispatch<SetStateAction<number>>",
+          "optional": true
+        },
+        {
+          "name": "onSetItemsPerPage",
+          "type": "Dispatch<SetStateAction<ItemsPerPage>>",
+          "optional": true
+        }
+      ],
+      "extends": [
+        "HTMLAttributes<HTMLElement>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "component",
+        "spec": "component",
+        "axe": true
+      }
+    },
+    {
+      "name": "PaletteStyleTag",
+      "file": "packages/fuselage/src/components/PaletteStyleTag/PaletteStyleTag.tsx",
+      "group": "PaletteStyleTag",
+      "description": "Style tag to handle the theme of the application. Import `PaletteStyleTag` and use it on the application informing the desired theme. Toggle the theme on Storybook's Control panel to see the color changes.",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "theme",
+          "type": "Themes",
+          "optional": true
+        },
+        {
+          "name": "tagId",
+          "type": "string",
+          "optional": true,
+          "description": "Default is `main-palette`."
+        },
+        {
+          "name": "prefix",
+          "type": "string",
+          "optional": true,
+          "description": "Token prefix. Default is `--rcx-color`."
+        },
+        {
+          "name": "selector",
+          "type": "string",
+          "optional": true,
+          "description": "Default is `:root`."
+        },
+        {
+          "name": "palette",
+          "type": "string",
+          "optional": true,
+          "description": "CSS containing custom palette styles to be used."
+        }
+      ],
+      "extends": [],
+      "primitive": "none",
+      "coverage": {
+        "stories": "component",
+        "spec": "component",
+        "axe": false
+      }
+    },
+    {
+      "name": "PasswordInput",
+      "file": "packages/fuselage/src/components/PasswordInput/PasswordInput.tsx",
+      "group": "PasswordInput",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "Omit<InputBoxProps<HTMLInputElement>, 'type'>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "component",
+        "spec": "component",
+        "axe": true
+      }
+    },
+    {
+      "name": "Popover",
+      "file": "packages/fuselage/src/components/Popover/Popover.tsx",
+      "group": "Popover",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "optional": false
+        },
+        {
+          "name": "state",
+          "type": "OverlayTriggerState",
+          "optional": false
+        },
+        {
+          "name": "portalContainer",
+          "type": "Element",
+          "optional": true
+        },
+        {
+          "name": "popoverRef",
+          "type": "RefObject<HTMLDivElement | null>",
+          "optional": true
+        }
+      ],
+      "extends": [
+        "Omit<AriaPopoverProps, 'popoverRef'>"
+      ],
+      "primitive": "react-aria",
+      "coverage": {
+        "stories": "component",
+        "spec": "component",
+        "axe": true
+      }
+    },
+    {
+      "name": "PositionAnimated",
+      "file": "packages/fuselage/src/components/PositionAnimated/PositionAnimated.tsx",
+      "group": "PositionAnimated",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "anchor",
+          "type": "RefObject<Element | null>",
+          "optional": false
+        },
+        {
+          "name": "children",
+          "type": "ReactElement<any>",
+          "optional": false
+        },
+        {
+          "name": "margin",
+          "type": "number",
+          "optional": true
+        },
+        {
+          "name": "placement",
+          "type": "UsePositionOptions['placement']",
+          "optional": true
+        },
+        {
+          "name": "visible",
+          "type": "'hidden' | 'visible' | 'hiding' | 'unhiding'",
+          "values": [
+            "hidden",
+            "visible",
+            "hiding",
+            "unhiding"
+          ],
+          "optional": true
+        }
+      ],
+      "extends": [
+        "Omit<BoxProps, 'children' | 'margin'>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "component",
+        "spec": "none",
+        "axe": false
+      }
+    },
+    {
+      "name": "ProgressBar",
+      "file": "packages/fuselage/src/components/ProgressBar/ProgressBar.tsx",
+      "group": "ProgressBar",
+      "description": "The `ProgressBar` is used to inform the user the progress of an operation.",
+      "usage": "Concisely presents consumption or progress statistics.\n\n**Rules**\n- Use the `variant` (info/success/warning/danger) to convey state according to consumption or progress.\n- Note: the design system also documents a \"+ info\" variant (adding a label + counter) — this component does not implement that variant yet.",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "percentage",
+          "type": "number",
+          "optional": false
+        },
+        {
+          "name": "variant",
+          "type": "'info' | 'success' | 'warning' | 'danger'",
+          "values": [
+            "info",
+            "success",
+            "warning",
+            "danger"
+          ],
+          "optional": true
+        },
+        {
+          "name": "error",
+          "type": "string",
+          "optional": true
+        },
+        {
+          "name": "animated",
+          "type": "boolean",
+          "optional": true
+        },
+        {
+          "name": "light",
+          "type": "boolean",
+          "optional": true
+        }
+      ],
+      "extends": [
+        "RefAttributes<unknown>",
+        "Omit<AllHTMLAttributes<HTMLElement>, 'is'>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "component",
+        "spec": "component",
+        "axe": false
+      }
+    },
+    {
+      "name": "RadioButton",
+      "file": "packages/fuselage/src/components/RadioButton/RadioButton.tsx",
+      "group": "RadioButton",
+      "usage": "Allows users to select only one option from a set of mutually exclusive options.\n\n**Rules**\n- Use only for a single choice from a small set of mutually exclusive options.\n- Avoid when the number of choices is large — consider another control.\n- Do not add links to the radio label.\n- Do not use for accepting terms of service or similar — use a checkbox instead.",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "labelChildren",
+          "type": "ReactNode",
+          "optional": true
+        }
+      ],
+      "extends": [
+        "Omit<BoxProps, 'ref'>",
+        "RefAttributes<HTMLInputElement>",
+        "AllHTMLAttributes<HTMLInputElement>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "component",
+        "spec": "component",
+        "axe": true
+      }
+    },
+    {
+      "name": "Scrollable",
+      "file": "packages/fuselage/src/components/Scrollable/Scrollable.tsx",
+      "group": "Scrollable",
+      "description": "Add scroll capability to the wrapped component.",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "PropsWithChildren<{ horizontal?: boolean; vertical?: boolean; smooth?: boolean; onScrollContent?: (touching: { top: boolean }) => void; }>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "component",
+        "spec": "component",
+        "axe": false
+      }
+    },
+    {
+      "name": "SearchInput",
+      "file": "packages/fuselage/src/components/SearchInput/SearchInput.tsx",
+      "group": "SearchInput",
+      "description": "An input for search queries.",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "Omit<InputBoxProps<HTMLInputElement>, 'type'>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "component",
+        "spec": "component",
+        "axe": true
+      }
+    },
+    {
+      "name": "Select",
+      "file": "packages/fuselage/src/components/Select/Select.tsx",
+      "group": "Select",
+      "description": "An input for selection of options.",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "error",
+          "type": "string",
+          "optional": true
+        },
+        {
+          "name": "placeholder",
+          "type": "string",
+          "optional": true
+        },
+        {
+          "name": "value",
+          "type": "V | null",
+          "optional": true
+        },
+        {
+          "name": "onChange",
+          "type": "((key: V) => any) | undefined",
+          "optional": true
+        },
+        {
+          "name": "options",
+          "type": "SelectOption[]",
+          "optional": false
+        },
+        {
+          "name": "small",
+          "type": "boolean",
+          "optional": true
+        }
+      ],
+      "extends": [
+        "Omit< AriaSelectProps<T>, 'value' | 'onChange' | 'children' >",
+        "RefAttributes<HTMLElement>",
+        "Omit<AllHTMLAttributes<HTMLElement>, 'value' | 'onChange'>"
+      ],
+      "primitive": "react-aria",
+      "coverage": {
+        "stories": "component",
+        "spec": "component",
+        "axe": true
+      }
+    },
+    {
+      "name": "SelectFiltered",
+      "file": "packages/fuselage/src/components/Select/SelectFiltered.tsx",
+      "group": "Select",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "filter",
+          "type": "string",
+          "optional": true
+        },
+        {
+          "name": "setFilter",
+          "type": "Dispatch<SetStateAction<string>>",
+          "optional": true
+        },
+        {
+          "name": "addonIcon",
+          "type": "IconProps['name']",
+          "optional": true
+        }
+      ],
+      "extends": [
+        "Omit<SelectProps, 'anchor'>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "SelectLegacy",
+      "file": "packages/fuselage/src/components/Select/SelectLegacy.tsx",
+      "group": "Select",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "anchor",
+          "type": "ElementType",
+          "optional": true
+        },
+        {
+          "name": "error",
+          "type": "string",
+          "optional": true
+        },
+        {
+          "name": "options",
+          "type": "SelectOption[]",
+          "optional": false
+        },
+        {
+          "name": "onChange",
+          "type": "(value: SelectOption[0]) => void",
+          "optional": false
+        },
+        {
+          "name": "getLabel",
+          "type": "(params: SelectOption) => SelectOption[1]",
+          "optional": true
+        },
+        {
+          "name": "getValue",
+          "type": "(params: SelectOption) => SelectOption[0]",
+          "optional": true
+        },
+        {
+          "name": "filter",
+          "type": "string",
+          "optional": true
+        },
+        {
+          "name": "renderOptions",
+          "type": "ElementType",
+          "optional": true
+        },
+        {
+          "name": "renderItem",
+          "type": "ElementType",
+          "optional": true
+        },
+        {
+          "name": "renderSelected",
+          "type": "ElementType",
+          "optional": true
+        },
+        {
+          "name": "customEmpty",
+          "type": "string",
+          "optional": true
+        },
+        {
+          "name": "addonIcon",
+          "type": "IconProps['name']",
+          "optional": true
+        }
+      ],
+      "extends": [
+        "Omit<BoxProps, 'ref' | 'onChange'>",
+        "RefAttributes<HTMLInputElement>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "Sidebar",
+      "file": "packages/fuselage/src/components/Sidebar/Sidebar.tsx",
+      "group": "Sidebar",
+      "usage": "The room-list sidebar — rows for rooms (channels/teams/discussions/DMs) grouped into collapsible categories.\n\n**Rules**\n- Build a room list from sidebar items grouped under collapsible categories.\n- Use the unread status to highlight rooms with new activity; use badges for counts.",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "collapsed",
+          "type": "boolean",
+          "optional": true
+        }
+      ],
+      "extends": [
+        "HTMLAttributes<HTMLElement>",
+        "RefAttributes<HTMLElement>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "component",
+        "spec": "component",
+        "axe": true
+      }
+    },
+    {
+      "name": "SidebarAccordion",
+      "file": "packages/fuselage/src/components/Sidebar/SidebarAccordion.tsx",
+      "group": "Sidebar",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "HTMLAttributes<HTMLDivElement>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "SidebarAccordionItem",
+      "file": "packages/fuselage/src/components/Sidebar/SidebarAccordionItem.tsx",
+      "group": "Sidebar",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "optional": true
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "optional": true
+        },
+        {
+          "name": "defaultExpanded",
+          "type": "boolean",
+          "optional": true
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "optional": true
+        },
+        {
+          "name": "expanded",
+          "type": "boolean",
+          "optional": true
+        },
+        {
+          "name": "title",
+          "type": "ReactNode",
+          "optional": false
+        },
+        {
+          "name": "noncollapsible",
+          "type": "boolean",
+          "optional": true
+        },
+        {
+          "name": "badge",
+          "type": "ReactNode",
+          "optional": true
+        }
+      ],
+      "extends": [
+        "HTMLAttributes<HTMLElement>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "SidebarAction",
+      "file": "packages/fuselage/src/components/Sidebar/SidebarAction.tsx",
+      "group": "Sidebar",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "Omit<IconButtonProps, 'ref'>",
+        "RefAttributes<HTMLElement>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "SidebarActions",
+      "file": "packages/fuselage/src/components/Sidebar/SidebarActions.tsx",
+      "group": "Sidebar",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "ButtonGroupProps"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "SidebarBanner",
+      "file": "packages/fuselage/src/components/Sidebar/SidebarBanner.tsx",
+      "group": "Sidebar",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "title",
+          "type": "ReactNode",
+          "optional": true
+        },
+        {
+          "name": "linkText",
+          "type": "string",
+          "optional": true
+        },
+        {
+          "name": "linkProps",
+          "type": "AllHTMLAttributes<HTMLAnchorElement>",
+          "optional": true
+        },
+        {
+          "name": "onClick",
+          "type": "() => void",
+          "optional": true
+        },
+        {
+          "name": "variant",
+          "type": "SidebarBannerVariant",
+          "optional": true
+        },
+        {
+          "name": "onClose",
+          "type": "() => void",
+          "optional": true
+        },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "optional": true
+        },
+        {
+          "name": "addon",
+          "type": "ReactNode",
+          "optional": true
+        }
+      ],
+      "extends": [],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "SidebarButtonGroup",
+      "file": "packages/fuselage/src/components/Sidebar/SidebarButtonGroup.tsx",
+      "group": "Sidebar",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "ButtonGroupProps"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "SidebarCollapseGroup",
+      "file": "packages/fuselage/src/components/Sidebar/SidebarCollapseGroup.tsx",
+      "group": "Sidebar",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "expanded",
+          "type": "boolean",
+          "optional": true
+        },
+        {
+          "name": "defaultExpanded",
+          "type": "boolean",
+          "optional": true
+        },
+        {
+          "name": "tabIndex",
+          "type": "number",
+          "optional": true
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "optional": false
+        },
+        {
+          "name": "empty",
+          "type": "boolean",
+          "optional": true
+        },
+        {
+          "name": "badge",
+          "type": "ReactNode",
+          "optional": true
+        },
+        {
+          "name": "menu",
+          "type": "ReactNode",
+          "optional": true
+        },
+        {
+          "name": "actions",
+          "type": "ReactNode",
+          "optional": true
+        }
+      ],
+      "extends": [
+        "HTMLAttributes<HTMLDivElement>",
+        "RefAttributes<HTMLDivElement>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "SidebarCollapseGroupMenu",
+      "file": "packages/fuselage/src/components/Sidebar/SidebarCollapseGroupMenu.tsx",
+      "group": "Sidebar",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "HTMLAttributes<HTMLDivElement>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "SidebarDivider",
+      "file": "packages/fuselage/src/components/Sidebar/SidebarDivider.tsx",
+      "group": "Sidebar",
+      "acceptsProps": false,
+      "props": [],
+      "extends": [],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "SidebarFooter",
+      "file": "packages/fuselage/src/components/Sidebar/SidebarFooter/SidebarFooter.tsx",
+      "group": "Sidebar",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "HTMLAttributes<HTMLElement>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "SidebarFooterContent",
+      "file": "packages/fuselage/src/components/Sidebar/SidebarFooter/SidebarFooterContent.tsx",
+      "group": "Sidebar",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "BoxProps"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "SidebarGroupTitle",
+      "file": "packages/fuselage/src/components/Sidebar/SidebarGroupTitle.tsx",
+      "group": "Sidebar",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "expanded",
+          "type": "boolean",
+          "optional": true
+        },
+        {
+          "name": "empty",
+          "type": "boolean",
+          "optional": true
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "optional": true
+        },
+        {
+          "name": "titleId",
+          "type": "string",
+          "optional": true
+        },
+        {
+          "name": "badge",
+          "type": "ReactNode",
+          "optional": true
+        },
+        {
+          "name": "menu",
+          "type": "ReactNode",
+          "optional": true
+        },
+        {
+          "name": "barProps",
+          "type": "AriaAttributes",
+          "optional": true
+        }
+      ],
+      "extends": [
+        "HTMLAttributes<HTMLDivElement>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "SidebarItem",
+      "file": "packages/fuselage/src/components/Sidebar/SidebarItem/SidebarItem.tsx",
+      "group": "Sidebar",
+      "usage": "A single room row within the chat sidebar.\n\n**Rules**\n- Use the unread status to highlight rooms with new activity; use badges for counts.\n- Shows the room name, an optional avatar/icon, and a trailing timestamp/status.",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "selected",
+          "type": "boolean",
+          "optional": true
+        },
+        {
+          "name": "level",
+          "type": "number",
+          "optional": true
+        },
+        {
+          "name": "indent",
+          "type": "boolean",
+          "optional": true
+        },
+        {
+          "name": "is",
+          "type": "ElementType",
+          "optional": true
+        }
+      ],
+      "extends": [
+        "AllHTMLAttributes<HTMLAnchorElement>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "component",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "SidebarItemAction",
+      "file": "packages/fuselage/src/components/Sidebar/SidebarItem/SidebarItemAction.tsx",
+      "group": "Sidebar",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "onClick",
+          "type": "(e: Event) => void",
+          "optional": false
+        },
+        {
+          "name": "icon",
+          "type": "Icons",
+          "optional": true
+        }
+      ],
+      "extends": [
+        "HTMLAttributes<HTMLDivElement>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "SidebarItemAvatarWrapper",
+      "file": "packages/fuselage/src/components/Sidebar/SidebarItem/SidebarItemAvatarWrapper.tsx",
+      "group": "Sidebar",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "HTMLAttributes<HTMLDivElement>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "SidebarItemBadge",
+      "file": "packages/fuselage/src/components/Sidebar/SidebarItem/SidebarItemBadge.tsx",
+      "group": "Sidebar",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "BadgeProps"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "SidebarItemCol",
+      "file": "packages/fuselage/src/components/Sidebar/SidebarItem/SidebarItemCol.tsx",
+      "group": "Sidebar",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "HTMLAttributes<HTMLDivElement>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "SidebarItemContent",
+      "file": "packages/fuselage/src/components/Sidebar/SidebarItem/SidebarItemContent.tsx",
+      "group": "Sidebar",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "unread",
+          "type": "boolean",
+          "optional": true
+        }
+      ],
+      "extends": [
+        "HTMLAttributes<HTMLDivElement>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "SidebarItemIcon",
+      "file": "packages/fuselage/src/components/Sidebar/SidebarItem/SidebarItemIcon.tsx",
+      "group": "Sidebar",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "icon",
+          "type": "IconKeys | ReactElement<any>",
+          "optional": false
+        },
+        {
+          "name": "highlighted",
+          "type": "boolean",
+          "optional": true
+        }
+      ],
+      "extends": [
+        "Omit<IconProps, 'name'>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "SidebarItemMenu",
+      "file": "packages/fuselage/src/components/Sidebar/SidebarItem/SidebarItemMenu.tsx",
+      "group": "Sidebar",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "HTMLAttributes<HTMLDivElement>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "SidebarItemRow",
+      "file": "packages/fuselage/src/components/Sidebar/SidebarItem/SidebarItemRow.tsx",
+      "group": "Sidebar",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "HTMLAttributes<HTMLDivElement>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "SidebarItemStatusBullet",
+      "file": "packages/fuselage/src/components/Sidebar/SidebarItem/SidebarItemStatusBullet.tsx",
+      "group": "Sidebar",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "StatusBulletProps"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "SidebarItemTimestamp",
+      "file": "packages/fuselage/src/components/Sidebar/SidebarItem/SidebarItemTimestamp.tsx",
+      "group": "Sidebar",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "unread",
+          "type": "boolean",
+          "optional": true
+        }
+      ],
+      "extends": [
+        "HTMLAttributes<HTMLDivElement>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "SidebarItemTitle",
+      "file": "packages/fuselage/src/components/Sidebar/SidebarItem/SidebarItemTitle.tsx",
+      "group": "Sidebar",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "unread",
+          "type": "boolean",
+          "optional": true
+        }
+      ],
+      "extends": [
+        "HTMLAttributes<HTMLDivElement>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "SidebarLink",
+      "file": "packages/fuselage/src/components/Sidebar/SidebarLink.tsx",
+      "group": "Sidebar",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "selected",
+          "type": "boolean",
+          "optional": true
+        },
+        {
+          "name": "icon",
+          "type": "Icons",
+          "optional": true
+        },
+        {
+          "name": "badge",
+          "type": "ReactNode",
+          "optional": true
+        },
+        {
+          "name": "menu",
+          "type": "ReactNode",
+          "optional": true
+        }
+      ],
+      "extends": [
+        "LinkHTMLAttributes<HTMLAnchorElement>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "SidebarListItem",
+      "file": "packages/fuselage/src/components/Sidebar/SidebarItem/SidebarListItem.tsx",
+      "group": "Sidebar",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "selected",
+          "type": "boolean",
+          "optional": true
+        }
+      ],
+      "extends": [
+        "HTMLAttributes<HTMLDivElement>",
+        "RefAttributes<HTMLDivElement>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "SidebarMedia",
+      "file": "packages/fuselage/src/components/Sidebar/SidebarMedia/SidebarMedia.tsx",
+      "group": "Sidebar",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "HTMLAttributes<HTMLDivElement>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "component",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "SidebarMediaController",
+      "file": "packages/fuselage/src/components/Sidebar/SidebarMedia/SidebarMediaController.tsx",
+      "group": "Sidebar",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "label",
+          "type": "string",
+          "optional": true
+        }
+      ],
+      "extends": [
+        "HTMLAttributes<HTMLDivElement>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "SidebarMediaTitle",
+      "file": "packages/fuselage/src/components/Sidebar/SidebarMedia/SidebarMediaTitle.tsx",
+      "group": "Sidebar",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "HTMLAttributes<HTMLDivElement>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "SidebarSection",
+      "file": "packages/fuselage/src/components/Sidebar/SidebarSection.tsx",
+      "group": "Sidebar",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "HTMLAttributes<HTMLDivElement>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "Sidepanel",
+      "file": "packages/fuselage/src/components/Sidepanel/Sidepanel.tsx",
+      "group": "Sidepanel",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "HTMLAttributes<HTMLDivElement>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "component",
+        "spec": "component",
+        "axe": true
+      }
+    },
+    {
+      "name": "SidepanelDivider",
+      "file": "packages/fuselage/src/components/Sidepanel/SidepanelDivider.tsx",
+      "group": "Sidepanel",
+      "acceptsProps": false,
+      "props": [],
+      "extends": [],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "SidepanelHeader",
+      "file": "packages/fuselage/src/components/Sidepanel/SidepanelHeader.tsx",
+      "group": "Sidepanel",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "HTMLAttributes<HTMLDivElement>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "SidepanelHeaderTitle",
+      "file": "packages/fuselage/src/components/Sidepanel/SidepanelHeaderTitle.tsx",
+      "group": "Sidepanel",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "HTMLAttributes<HTMLDivElement>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "SidepanelList",
+      "file": "packages/fuselage/src/components/Sidepanel/SidepanelList.tsx",
+      "group": "Sidepanel",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "HTMLAttributes<HTMLDivElement>",
+        "RefAttributes<HTMLDivElement>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "SidepanelListItem",
+      "file": "packages/fuselage/src/components/Sidepanel/SidepanelListItem.tsx",
+      "group": "Sidepanel",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "HTMLAttributes<HTMLDivElement>",
+        "RefAttributes<HTMLDivElement>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "SidepanelSection",
+      "file": "packages/fuselage/src/components/Sidepanel/SidepanelSection.tsx",
+      "group": "Sidepanel",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "HTMLAttributes<HTMLDivElement>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "SidepanelSectionAction",
+      "file": "packages/fuselage/src/components/Sidepanel/SidepanelSectionAction.tsx",
+      "group": "Sidepanel",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "HTMLAttributes<HTMLDivElement>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "Skeleton",
+      "file": "packages/fuselage/src/components/Skeleton/Skeleton.tsx",
+      "group": "Skeleton",
+      "usage": "A visual loading indicator, used to indicate in-progress loading.\n\n**Rules**\n- Pair the skeleton with the content that is about to appear, matching its shape.",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "variant",
+          "type": "'text' | 'rect' | 'circle'",
+          "values": [
+            "text",
+            "rect",
+            "circle"
+          ],
+          "optional": true
+        }
+      ],
+      "extends": [
+        "Omit<StylingBoxProps, 'children'>",
+        "AllHTMLAttributes<HTMLSpanElement>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "component",
+        "spec": "component",
+        "axe": true
+      }
+    },
+    {
+      "name": "Slider",
+      "file": "packages/fuselage/src/components/Slider/Slider.tsx",
+      "group": "Slider",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "T extends number ? SliderProps<number> : SliderProps<[min: number, max: number]>"
+      ],
+      "primitive": "react-aria",
+      "coverage": {
+        "stories": "component",
+        "spec": "component",
+        "axe": false
+      }
+    },
+    {
+      "name": "States",
+      "file": "packages/fuselage/src/components/States/States.tsx",
+      "group": "States",
+      "usage": "Appears when there is no data to display and, if possible, describes what the user can do next.\n\n**Rules**\n- The message should be neutral and helpful, accurately describing the state and suggesting next steps.\n- Prefer a link over a primary button/CTA for the default empty state.\n- The magnifying-glass icon is reserved for search-related empty states; otherwise the icon should reflect the context.",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "optional": true
+        }
+      ],
+      "extends": [
+        "AllHTMLAttributes<HTMLDivElement>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "component",
+        "spec": "component",
+        "axe": false
+      }
+    },
+    {
+      "name": "StatesAction",
+      "file": "packages/fuselage/src/components/States/StatesAction.tsx",
+      "group": "States",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "ButtonProps"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": false
+      }
+    },
+    {
+      "name": "StatesActions",
+      "file": "packages/fuselage/src/components/States/StatesActions.tsx",
+      "group": "States",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "ButtonGroupProps"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": false
+      }
+    },
+    {
+      "name": "StatesIcon",
+      "file": "packages/fuselage/src/components/States/StatesIcon.tsx",
+      "group": "States",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "variation",
+          "type": "'danger' | 'success' | 'warning' | 'primary'",
+          "values": [
+            "danger",
+            "success",
+            "warning",
+            "primary"
+          ],
+          "optional": true
+        }
+      ],
+      "extends": [
+        "IconProps"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": false
+      }
+    },
+    {
+      "name": "StatesLink",
+      "file": "packages/fuselage/src/components/States/StatesLink.tsx",
+      "group": "States",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "BoxProps",
+        "AllHTMLAttributes<HTMLAnchorElement>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": false
+      }
+    },
+    {
+      "name": "StatesSubtitle",
+      "file": "packages/fuselage/src/components/States/StatesSubtitle.tsx",
+      "group": "States",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "optional": true
+        }
+      ],
+      "extends": [
+        "AllHTMLAttributes<HTMLDivElement>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": false
+      }
+    },
+    {
+      "name": "StatesSuggestion",
+      "file": "packages/fuselage/src/components/States/StatesSuggestion.tsx",
+      "group": "States",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "optional": true
+        }
+      ],
+      "extends": [
+        "AllHTMLAttributes<HTMLDivElement>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": false
+      }
+    },
+    {
+      "name": "StatesSuggestionList",
+      "file": "packages/fuselage/src/components/States/StatesSuggestionList.tsx",
+      "group": "States",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "optional": true
+        }
+      ],
+      "extends": [
+        "AllHTMLAttributes<HTMLUListElement>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": false
+      }
+    },
+    {
+      "name": "StatesSuggestionListItem",
+      "file": "packages/fuselage/src/components/States/StatesSuggestionListItem.tsx",
+      "group": "States",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "optional": true
+        }
+      ],
+      "extends": [
+        "AllHTMLAttributes<HTMLLIElement>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": false
+      }
+    },
+    {
+      "name": "StatesSuggestionText",
+      "file": "packages/fuselage/src/components/States/StatesSuggestionText.tsx",
+      "group": "States",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "optional": true
+        }
+      ],
+      "extends": [
+        "AllHTMLAttributes<HTMLDivElement>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": false
+      }
+    },
+    {
+      "name": "StatesTitle",
+      "file": "packages/fuselage/src/components/States/StatesTitle.tsx",
+      "group": "States",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "optional": true
+        }
+      ],
+      "extends": [
+        "AllHTMLAttributes<HTMLHeadingElement>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": false
+      }
+    },
+    {
+      "name": "StatusBullet",
+      "file": "packages/fuselage/src/components/StatusBullet/StatusBullet.tsx",
+      "group": "StatusBullet",
+      "description": "The `StatusBullet` is used to inform the user status.",
+      "usage": "A round icon that shows a user's status, using both color and a smaller icon.\n\n**Rules**\n- Use accompanied by the user's name in proper context, or when the user is setting their own status.\n- Each status color is paired with a smaller icon for accessibility — color is never the only channel.",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "status",
+          "type": "'loading' | 'online' | 'busy' | 'away' | 'offline' | 'disabled'",
+          "values": [
+            "loading",
+            "online",
+            "busy",
+            "away",
+            "offline",
+            "disabled"
+          ],
+          "optional": true
+        },
+        {
+          "name": "size",
+          "type": "'small' | 'large'",
+          "values": [
+            "small",
+            "large"
+          ],
+          "optional": true
+        }
+      ],
+      "extends": [
+        "Omit<AllHTMLAttributes<SVGElement>, 'size'>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "component",
+        "spec": "component",
+        "axe": true
+      }
+    },
+    {
+      "name": "StylingBox",
+      "file": "packages/fuselage/src/components/Box/StylingBox.tsx",
+      "group": "Box",
+      "description": "Merges its `StylingProps` props into a `className` prop passed to a child element. This is intended to be used as a wrapper for components that accept styling props but don't need the weight of the `Box` component prop handling internally.",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactElement<{ className?: string }>",
+          "optional": false
+        },
+        {
+          "name": "className",
+          "type": "string | cssFn | (string | cssFn | Falsy)[]",
+          "optional": true
+        }
+      ],
+      "extends": [
+        "Partial<StylingProps>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "none",
+        "spec": "group",
+        "axe": false
+      }
+    },
+    {
+      "name": "Table",
+      "file": "packages/fuselage/src/components/Table/Table.tsx",
+      "group": "Table",
+      "usage": "Displays tabular data with sortable columns, selectable rows, and cell content (title/subtitle, tags, actions).\n\n**Rules**\n- Match the header column count to the row's column count.\n- Supports multi-row selection (e.g. \"3 items selected\") and row actions.\n- Typically paired with Pagination.",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "striped",
+          "type": "boolean",
+          "optional": true
+        },
+        {
+          "name": "sticky",
+          "type": "boolean",
+          "optional": true
+        },
+        {
+          "name": "fixed",
+          "type": "boolean",
+          "optional": true
+        }
+      ],
+      "extends": [
+        "BoxProps"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "component",
+        "spec": "component",
+        "axe": true
+      }
+    },
+    {
+      "name": "TableBody",
+      "file": "packages/fuselage/src/components/Table/TableBody.tsx",
+      "group": "Table",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "TableProps"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "TableCell",
+      "file": "packages/fuselage/src/components/Table/TableCell.tsx",
+      "group": "Table",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "align",
+          "type": "'start' | 'center' | 'end' | 'justify' | object",
+          "optional": true
+        },
+        {
+          "name": "clickable",
+          "type": "boolean",
+          "optional": true
+        }
+      ],
+      "extends": [
+        "TableProps"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "TableFoot",
+      "file": "packages/fuselage/src/components/Table/TableFoot.tsx",
+      "group": "Table",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "TableProps"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "TableHead",
+      "file": "packages/fuselage/src/components/Table/TableHead.tsx",
+      "group": "Table",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "TableProps"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "TableRow",
+      "file": "packages/fuselage/src/components/Table/TableRow.tsx",
+      "group": "Table",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "action",
+          "type": "boolean",
+          "optional": true
+        },
+        {
+          "name": "hasAction",
+          "type": "boolean",
+          "optional": true
+        }
+      ],
+      "extends": [
+        "Omit<BoxProps, 'action'>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "TableSelection",
+      "file": "packages/fuselage/src/components/Table/TableSelection/TableSelection.tsx",
+      "group": "Table",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "text",
+          "type": "string",
+          "optional": true
+        }
+      ],
+      "extends": [
+        "BoxProps"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "TableSelectionButton",
+      "file": "packages/fuselage/src/components/Table/TableSelection/TableSelectionButton.tsx",
+      "group": "Table",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "ButtonProps"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "TableSelectionButtonGroup",
+      "file": "packages/fuselage/src/components/Table/TableSelection/TableSelectionButtonGroup.tsx",
+      "group": "Table",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "ButtonGroupProps"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "Tabs",
+      "file": "packages/fuselage/src/components/Tabs/Tabs.tsx",
+      "group": "Tabs",
+      "description": "Tabs is a component to navigate around the UI using buttons arranged together with the selected tab highlighted.",
+      "usage": "Lets users move back and forth between groups of related content.\n\n**Rules**\n- Use tabs to group related content; use a tab within the Tabs component, not standalone.\n- Do NOT use tabs to navigate to other pages.\n- The tab bar can scroll horizontally — use as many tabs as needed.\n- Position tabs directly beneath the page header.",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "divider",
+          "type": "boolean",
+          "optional": true
+        }
+      ],
+      "extends": [
+        "BoxProps"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "component",
+        "spec": "component",
+        "axe": false
+      }
+    },
+    {
+      "name": "TabsItem",
+      "file": "packages/fuselage/src/components/Tabs/TabsItem.tsx",
+      "group": "Tabs",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "selected",
+          "type": "boolean",
+          "optional": true
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "optional": true
+        }
+      ],
+      "extends": [
+        "Omit<BoxProps, 'ref'>",
+        "RefAttributes<HTMLButtonElement>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "group",
+        "spec": "group",
+        "axe": false
+      }
+    },
+    {
+      "name": "Tag",
+      "file": "packages/fuselage/src/components/Tag/Tag.tsx",
+      "group": "Tag",
+      "description": "Used for mentions",
+      "usage": "A quickly recognizable component used to display set values.\n\n**Rules**\n- Use the Primary type sparingly — it draws the most attention.\n- A leading icon helps recognition and lowers cognitive load — add only when it clarifies the tag.",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "medium",
+          "type": "boolean",
+          "optional": true
+        },
+        {
+          "name": "large",
+          "type": "boolean",
+          "optional": true
+        },
+        {
+          "name": "variant",
+          "type": "| 'primary' | 'secondary' | 'danger' | 'warning' | 'secondary-danger' | 'secondary-warning' | 'secondary-info' | 'featured'",
+          "values": [
+            "primary",
+            "secondary",
+            "danger",
+            "warning",
+            "secondary-danger",
+            "secondary-warning",
+            "secondary-info",
+            "featured"
+          ],
+          "optional": true
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "optional": true
+        },
+        {
+          "name": "icon",
+          "type": "ReactNode",
+          "optional": true
+        }
+      ],
+      "extends": [
+        "Omit<BoxProps, 'is'>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "component",
+        "spec": "component",
+        "axe": true
+      }
+    },
+    {
+      "name": "TextAreaInput",
+      "file": "packages/fuselage/src/components/TextAreaInput/TextAreaInput.tsx",
+      "group": "TextAreaInput",
+      "description": "An input for multi-line plain-text editing.",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "Omit< InputBoxProps<HTMLTextAreaElement>, 'type' >"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "component",
+        "spec": "component",
+        "axe": false
+      }
+    },
+    {
+      "name": "TextInput",
+      "file": "packages/fuselage/src/components/TextInput/TextInput.tsx",
+      "group": "TextInput",
+      "description": "An input for any kind of single-line text.",
+      "usage": "Lets users input one or multiple string values.\n\n**Rules**\n- Compose text inputs through the Field wrapper to get consistent label/description/hint/error/link.\n- Follow the Field UX-writing rules for all copy (clear labels, actionable error messages, hints for technical terms).",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "Omit<InputBoxProps, 'type'>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "component",
+        "spec": "component",
+        "axe": true
+      }
+    },
+    {
+      "name": "ThreadMessage",
+      "file": "packages/fuselage/src/components/Message/ThreadMessage/ThreadMessage.tsx",
+      "group": "Message",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "MessageProps"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "component",
+        "spec": "component",
+        "axe": true
+      }
+    },
+    {
+      "name": "ThreadMessageBody",
+      "file": "packages/fuselage/src/components/Message/ThreadMessage/ThreadMessageBody.tsx",
+      "group": "Message",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "optional": true
+        }
+      ],
+      "extends": [],
+      "primitive": "none",
+      "coverage": {
+        "stories": "none",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "ThreadMessageContainer",
+      "file": "packages/fuselage/src/components/Message/ThreadMessage/ThreadMessageContainer.tsx",
+      "group": "Message",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "optional": true
+        }
+      ],
+      "extends": [],
+      "primitive": "none",
+      "coverage": {
+        "stories": "none",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "ThreadMessageEmoji",
+      "file": "packages/fuselage/src/components/Message/ThreadMessage/ThreadMessageEmoji.tsx",
+      "group": "Message",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "MessageEmojiBaseProps"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "none",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "ThreadMessageFollow",
+      "file": "packages/fuselage/src/components/Message/ThreadMessage/ThreadMessageFollow.tsx",
+      "group": "Message",
+      "acceptsProps": false,
+      "props": [],
+      "extends": [],
+      "primitive": "none",
+      "coverage": {
+        "stories": "none",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "ThreadMessageIconThread",
+      "file": "packages/fuselage/src/components/Message/ThreadMessage/ThreadMessageIconThread.tsx",
+      "group": "Message",
+      "acceptsProps": false,
+      "props": [],
+      "extends": [],
+      "primitive": "none",
+      "coverage": {
+        "stories": "none",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "ThreadMessageLeftContainer",
+      "file": "packages/fuselage/src/components/Message/ThreadMessage/ThreadMessageLeftContainer.tsx",
+      "group": "Message",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "HTMLAttributes<HTMLDivElement>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "none",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "ThreadMessageOrigin",
+      "file": "packages/fuselage/src/components/Message/ThreadMessage/ThreadMessageOrigin.tsx",
+      "group": "Message",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "optional": true
+        },
+        {
+          "name": "system",
+          "type": "boolean",
+          "optional": true
+        }
+      ],
+      "extends": [],
+      "primitive": "none",
+      "coverage": {
+        "stories": "none",
+        "spec": "component",
+        "axe": true
+      }
+    },
+    {
+      "name": "ThreadMessageRow",
+      "file": "packages/fuselage/src/components/Message/ThreadMessage/ThreadMessageRow.tsx",
+      "group": "Message",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "HTMLAttributes<HTMLDivElement>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "none",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "ThreadMessageUnfollow",
+      "file": "packages/fuselage/src/components/Message/ThreadMessage/ThreadMessageUnfollow.tsx",
+      "group": "Message",
+      "acceptsProps": false,
+      "props": [],
+      "extends": [],
+      "primitive": "none",
+      "coverage": {
+        "stories": "none",
+        "spec": "group",
+        "axe": true
+      }
+    },
+    {
+      "name": "Throbber",
+      "file": "packages/fuselage/src/components/Throbber/Throbber.tsx",
+      "group": "Throbber",
+      "description": "Indicates content that has not loaded yet.",
+      "usage": "A visual loading indicator (spinner), used to indicate in-progress loading.\n\n**Rules**\n- Use a spinner for brief, indeterminate waits.",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "circleCount",
+          "type": "number",
+          "optional": true
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "optional": true
+        },
+        {
+          "name": "inheritColor",
+          "type": "boolean",
+          "optional": true
+        }
+      ],
+      "extends": [
+        "Omit<BoxProps, 'ref' | 'disabled'>",
+        "RefAttributes<HTMLElement>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "component",
+        "spec": "component",
+        "axe": false
+      }
+    },
+    {
+      "name": "Tile",
+      "file": "packages/fuselage/src/components/Tile/Tile.tsx",
+      "group": "Tile",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "Omit<BoxProps, 'ref'>",
+        "RefAttributes<HTMLElement>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "component",
+        "spec": "component",
+        "axe": false
+      }
+    },
+    {
+      "name": "ToastBar",
+      "file": "packages/fuselage/src/components/ToastBar/ToastBar.tsx",
+      "group": "ToastBar",
+      "description": "Shows alerts in a toast component.",
+      "usage": "A user-level, time-based notification that communicates the status of a performed action. Can be dismissed and may contain links. Disappears after a minimum of 5 seconds.\n\n**Rules**\n- Use only for brief action feedback — never for a persistent condition or a decision.\n- Keep copy concise.\n- For success, be explicit about the action and avoid \"successfully\"/exclamation marks (e.g. \"Link copied\", not \"Copied!\").\n- For errors, include how to resolve the issue in a second line.",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "variant",
+          "type": "'info' | 'success' | 'error'",
+          "values": [
+            "info",
+            "success",
+            "error"
+          ],
+          "optional": true
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "optional": true
+        },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "optional": true
+        },
+        {
+          "name": "time",
+          "type": "number",
+          "optional": true
+        },
+        {
+          "name": "isPaused",
+          "type": "boolean",
+          "optional": true
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "optional": true
+        },
+        {
+          "name": "onClose",
+          "type": "(id: string) => void",
+          "optional": true
+        },
+        {
+          "name": "buttonLabel",
+          "type": "string",
+          "optional": true
+        }
+      ],
+      "extends": [
+        "Omit<AllHTMLAttributes<HTMLElement>, 'is'>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "component",
+        "spec": "component",
+        "axe": true
+      }
+    },
+    {
+      "name": "ToggleSwitch",
+      "file": "packages/fuselage/src/components/ToggleSwitch/ToggleSwitch.tsx",
+      "group": "ToggleSwitch",
+      "usage": "Lets users quickly switch between two mutually exclusive states with instant feedback.\n\n**Rules**\n- Use when there are exactly two choices, such as enabling/disabling a setting.\n- The change applies immediately — do not use a toggle when you don't want the interface affected right away (use a checkbox with an explicit save action instead).",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "labelChildren",
+          "type": "ReactNode",
+          "optional": true
+        }
+      ],
+      "extends": [
+        "Omit<BoxProps, 'ref'>",
+        "RefAttributes<HTMLInputElement>",
+        "AllHTMLAttributes<HTMLInputElement>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "component",
+        "spec": "component",
+        "axe": true
+      }
+    },
+    {
+      "name": "Tooltip",
+      "file": "packages/fuselage/src/components/Tooltip/Tooltip.tsx",
+      "group": "Tooltip",
+      "usage": "Shows additional, complementary information about an element on hover.\n\n**Rules**\n- Position 4px from the trigger edge on the opening side; center the tooltip on the trigger.\n- Never put vital information only in a tooltip — it's complementary and hover-only (unavailable on touch).\n- Good for ambiguous elements (number badges, mentions) and icon buttons.\n- Keep copy concise; line breaks are allowed.",
+      "acceptsProps": true,
+      "props": [
+        {
+          "name": "variation",
+          "type": "'dark' | 'light'",
+          "values": [
+            "dark",
+            "light"
+          ],
+          "optional": true
+        },
+        {
+          "name": "placement",
+          "type": "| 'top-start' | 'top-middle' | 'top-end' | 'bottom-start' | 'bottom-middle' | 'bottom-end' | 'top' | 'left' | 'bottom' | 'right' | null",
+          "optional": true
+        }
+      ],
+      "extends": [
+        "Omit<BoxProps, 'ref'>",
+        "RefAttributes<HTMLElement>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "component",
+        "spec": "component",
+        "axe": false
+      }
+    },
+    {
+      "name": "UrlInput",
+      "file": "packages/fuselage/src/components/UrlInput/UrlInput.tsx",
+      "group": "UrlInput",
+      "acceptsProps": true,
+      "props": [],
+      "extends": [
+        "Omit<InputBoxProps<HTMLInputElement>, 'type'>"
+      ],
+      "primitive": "none",
+      "coverage": {
+        "stories": "component",
+        "spec": "component",
+        "axe": true
+      }
+    }
+  ]
+}
