@@ -2,7 +2,16 @@
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "lib": ["DOM"],
-    "outDir": "./dist"
+    "outDir": "./dist",
+    // @tamagui/core and @tamagui/web declare `"type": "module"` but write
+    // extensionless relative imports in their .d.ts files, which `nodenext`
+    // rejects; their public types resolve to `any` under it -- `createTamagui`
+    // included, which would silently untype the whole config.
+    "module": "preserve",
+    "moduleResolution": "bundler",
+    // Implied by `module: preserve`, but ts-jest rewrites `module` to
+    // CommonJS and would otherwise lose it.
+    "esModuleInterop": true
   },
   "include": [
     "./src",

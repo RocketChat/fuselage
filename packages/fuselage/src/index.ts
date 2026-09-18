@@ -5,3 +5,4 @@ export * from './styleTokens';
 export * from './contexts';
 
 export { Palette, __setThrowErrorOnInvalidToken__, Var } from './Theme';
+export type { Themes } from './types/Themes';
