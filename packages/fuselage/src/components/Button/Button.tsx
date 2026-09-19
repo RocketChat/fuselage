@@ -47,6 +47,28 @@ export type ButtonProps = Omit<BoxProps, 'ref'> & {
   RefAttributes<HTMLButtonElement | HTMLAnchorElement>;
 
 /**
+ * External links carry a `new-window` affordance unless the caller has already
+ * chosen a leading icon.
+ */
+const resolveIcon = (
+  icon: ButtonProps['icon'],
+  is: ButtonProps['is'],
+  external: ButtonProps['external'],
+): IconProps['name'] | undefined => {
+  if (icon) {
+    return icon;
+  }
+
+  return is === 'a' && external ? 'new-window' : undefined;
+};
+
+/**
+ * The 40px and 48px buttons pair with a 20px icon; the smaller sizes use 16px.
+ */
+const resolveIconSize = (size: ButtonProps['size']): IconProps['size'] =>
+  size === undefined || size === 'large' ? 'x20' : 'x16';
+
+/**
  * Indicates an actionable user action.
  */
 function Button({
@@ -113,6 +135,14 @@ function Button({
     (large && 'large') ||
     undefined;
 
+  const effectiveIcon = resolveIcon(icon, is, external);
+  const iconSize = resolveIconSize(effectiveSize);
+  const hasLeadingIcon = Boolean(effectiveIcon || loading);
+
+  // The gap only separates the icon from a label. On an icon-only button it has
+  // nothing to separate and just pushes the icon off centre by half its width.
+  const iconGap = children ? 4 : undefined;
+
   return (
     <Box
       is={is}
@@ -123,6 +153,7 @@ function Button({
       rcx-button--medium={effectiveSize === 'medium'}
       rcx-button--large={effectiveSize === 'large'}
       rcx-button--square={square}
+      rcx-button--with-icon={hasLeadingIcon && !square}
       rcx-button--tiny-square={effectiveSize === 'tiny' && square}
       rcx-button--mini-square={effectiveSize === 'mini' && square}
       rcx-button--small-square={effectiveSize === 'small' && square}
@@ -135,10 +166,16 @@ function Button({
       {...props}
     >
       <span className='rcx-button--content'>
-        {icon && !loading && (
-          <Icon size='x16' name={icon} marginInlineEnd={4} />
+        {effectiveIcon && !loading && (
+          <Icon
+            size={iconSize}
+            name={effectiveIcon}
+            marginInlineEnd={iconGap}
+          />
         )}
-        {loading && <Icon size='x16' name='loading' marginInlineEnd={4} />}
+        {loading && (
+          <Icon size={iconSize} name='loading' marginInlineEnd={iconGap} />
+        )}
         {children}
       </span>
     </Box>
