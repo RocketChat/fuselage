@@ -12,5 +12,5 @@ if ((await glob('.stylelintrc*')).length) {
 await $`prettier --plugin=@prettier/plugin-xml --check '**/*.{json,jsonc,md,yml,xml,svg}' '!**/*.api.md'`;
 
 if ((await glob('tsconfig.json')).length) {
-  await $`tsc --skipLibCheck --noEmit`;
+  await $`tsc --noEmit`;
 }
