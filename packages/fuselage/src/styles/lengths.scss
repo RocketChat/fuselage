@@ -64,11 +64,7 @@
 }
 
 @function border-width($value) {
-  @if $value == 1 or $value == 2 or $value == 4 {
-    @return $value * 1px;
-  } @else if map.has-key(border.$border, 'width-#{$value}') {
-    @return map.get(border.$border, 'width-#{$value}');
-  }
+  @return map.get(border.$border, 'width-#{$value}');
 }
 
 @function border-radius($value) {

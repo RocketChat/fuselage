@@ -1,6 +1,6 @@
 {
   "name": "@rocket.chat/icons",
-  "version": "0.49.0",
+  "version": "0.50.0",
   "description": "Rocket.Chat's Icons",
   "homepage": "https://github.com/RocketChat/fuselage#readme",
   "bugs": {
@@ -27,7 +27,7 @@
   },
   "devDependencies": {
     "build-icons": "workspace:~",
-    "eslint": "~10.8.0",
+    "eslint": "~10.8.1",
     "lint-all": "workspace:~",
     "prettier": "~3.6.2",
     "rimraf": "~6.1.3",

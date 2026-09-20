@@ -65,12 +65,27 @@ StyleDictionary.registerTransformGroup({
   ],
 });
 
+StyleDictionary.registerFormat({
+  name: 'dts/rocketchat',
+  async format({ dictionary }) {
+    const moduleName = Object.keys(dictionary.tokens)[0];
+    const tokens = minifyDictionary(dictionary.tokens[moduleName], false);
+
+    return (
+      `export default ${moduleName};\n` +
+      `declare const ${moduleName}: ${JSON.stringify(tokens, null, 2)};`
+    );
+  },
+});
+
 console.log('Build started...');
 console.log('\n==============================================');
 
 // APPLY THE CONFIGURATION
 // needs to be done _before_ applying the configuration
-const StyleDictionaryExtended = new StyleDictionary('./config.js');
+const StyleDictionaryExtended = new StyleDictionary('./config.js', {
+  verbosity: 'verbose',
+});
 
 await StyleDictionaryExtended.hasInitialized;
 

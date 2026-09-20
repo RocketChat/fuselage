@@ -149,7 +149,7 @@ export type LabelTypes = 'hint' | 'description' | 'error' | 'placeholder';
 
 // @public (undocumented)
 export const MultiSelect: {
-    (props: Omit<BoxProps, "ref" | "value" | "onChange"> & RefAttributes<HTMLInputElement> & {
+    (props: Omit<BoxProps, "value" | "ref" | "onChange"> & RefAttributes<HTMLInputElement> & {
         value?: SelectOption[0][];
         error?: string;
         options: SelectOption[];
@@ -174,7 +174,7 @@ export const MultiSelect: {
 
 // @public (undocumented)
 export const MultiSelectFiltered: {
-    (props: Omit<BoxProps, "ref" | "value" | "onChange"> & RefAttributes<HTMLInputElement> & {
+    (props: Omit<BoxProps, "value" | "ref" | "onChange"> & RefAttributes<HTMLInputElement> & {
         value?: SelectOption[0][];
         error?: string;
         options: SelectOption[];
@@ -235,7 +235,7 @@ export const SearchInput: {
 
 // @public (undocumented)
 export const Select: {
-    (props: Omit<AriaSelectProps<unknown>, "children" | "value" | "onChange"> & RefAttributes<HTMLElement> & {
+    (props: Omit<AriaSelectProps<unknown>, "value" | "children" | "onChange"> & RefAttributes<HTMLElement> & {
         error?: string;
         placeholder?: string;
         value?: Key | null | undefined;

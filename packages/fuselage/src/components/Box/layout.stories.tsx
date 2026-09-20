@@ -9,6 +9,7 @@ import flattenChildren from 'react-keyed-flatten-children';
 
 import { Divider } from '../Divider';
 
+import type { BoxProps } from './Box';
 import Box from './Box';
 
 export default {
@@ -35,27 +36,27 @@ export const Borders: Story = {
       <Box borderInline='2px solid currentColor' />
       <Box borderInlineStart='2px solid currentColor' />
       <Box borderInlineEnd='2px solid currentColor' />
-      <Box borderWidth='x2' />
-      <Box borderBlockWidth='x2' />
-      <Box borderBlockStartWidth='x2' />
-      <Box borderBlockEndWidth='x2' />
-      <Box borderInlineWidth='x2' />
-      <Box borderInlineStartWidth='x2' />
-      <Box borderInlineEndWidth='x2' />
-      <Box borderWidth='x1' borderStyle='dashed' />
-      <Box borderWidth='x1' borderBlockStyle='dashed' />
-      <Box borderWidth='x1' borderBlockStartStyle='dashed' />
-      <Box borderWidth='x1' borderBlockEndStyle='dashed' />
-      <Box borderWidth='x1' borderInlineStyle='dashed' />
-      <Box borderWidth='x1' borderInlineStartStyle='dashed' />
-      <Box borderWidth='x1' borderInlineEndStyle='dashed' />
-      <Box borderWidth='x4' borderColor='primary-500' />
-      <Box borderWidth='x4' borderBlockColor='primary-500' />
-      <Box borderWidth='x4' borderBlockStartColor='primary-500' />
-      <Box borderWidth='x4' borderBlockEndColor='primary-500' />
-      <Box borderWidth='x4' borderInlineColor='primary-500' />
-      <Box borderWidth='x4' borderInlineStartColor='primary-500' />
-      <Box borderWidth='x4' borderInlineEndColor='primary-500' />
+      <Box borderWidth='medium' />
+      <Box borderBlockWidth='medium' />
+      <Box borderBlockStartWidth='medium' />
+      <Box borderBlockEndWidth='medium' />
+      <Box borderInlineWidth='medium' />
+      <Box borderInlineStartWidth='medium' />
+      <Box borderInlineEndWidth='medium' />
+      <Box borderWidth='default' borderStyle='dashed' />
+      <Box borderWidth='default' borderBlockStyle='dashed' />
+      <Box borderWidth='default' borderBlockStartStyle='dashed' />
+      <Box borderWidth='default' borderBlockEndStyle='dashed' />
+      <Box borderWidth='default' borderInlineStyle='dashed' />
+      <Box borderWidth='default' borderInlineStartStyle='dashed' />
+      <Box borderWidth='default' borderInlineEndStyle='dashed' />
+      <Box borderWidth='large' borderColor='primary-500' />
+      <Box borderWidth='large' borderBlockColor='primary-500' />
+      <Box borderWidth='large' borderBlockStartColor='primary-500' />
+      <Box borderWidth='large' borderBlockEndColor='primary-500' />
+      <Box borderWidth='large' borderInlineColor='primary-500' />
+      <Box borderWidth='large' borderInlineStartColor='primary-500' />
+      <Box borderWidth='large' borderInlineEndColor='primary-500' />
     </>
   ),
   decorators: [
@@ -67,7 +68,7 @@ export const Borders: Story = {
               size: 'x32',
               margin: 'x16',
               borderColor: 'stroke-dark',
-            }),
+            } satisfies BoxProps),
         )}
       </Box>
     ),
@@ -93,7 +94,7 @@ export const BorderRadii: Story = {
               backgroundColor: 'dark',
               size: 'x32',
               margin: 'x16',
-            }),
+            } satisfies BoxProps),
         )}
       </Box>
     ),
@@ -122,7 +123,7 @@ export const Display: Story = {
               borderColor: 'stroke-light',
               margin: 'x4',
               padding: 'x4',
-            }),
+            } satisfies BoxProps),
         )}
       </Box>
     ),
@@ -148,7 +149,7 @@ export const Elevation: Story = {
               backgroundColor: 'light',
               size: 'x32',
               margin: 'x16',
-            }),
+            } satisfies BoxProps),
         )}
       </Box>
     ),
@@ -171,9 +172,9 @@ export const Heights: Story = {
           (child: any) =>
             cloneElement(child, {
               backgroundColor: 'neutral',
-              w: 'x32',
+              width: 'x32',
               margin: 'x4',
-            }),
+            } satisfies BoxProps),
         )}
       </Box>
     ),
@@ -214,7 +215,7 @@ export const Insets: Story = {
               backgroundColor: 'neutral',
               position: 'absolute',
               minSize: 'x16',
-            })}
+            } satisfies BoxProps)}
           </Box>
         ))}
       </Box>
@@ -256,7 +257,7 @@ export const Margins: Story = {
           <Box key={i} backgroundColor='neutral-200' margin={16}>
             {cloneElement(
               child,
-              { backgroundColor: 'primary-200' },
+              { backgroundColor: 'primary-200' } satisfies BoxProps,
               <Box backgroundColor='neutral-500' size='x16' />,
             )}
           </Box>
@@ -439,7 +440,7 @@ export const Paddings: Story = {
           <Box key={i} backgroundColor='neutral-200' margin={16}>
             {cloneElement(
               child,
-              { backgroundColor: 'primary-200' },
+              { backgroundColor: 'primary-200' } satisfies BoxProps,
               <Box backgroundColor='neutral-500' size='x16' />,
             )}
           </Box>
@@ -468,7 +469,7 @@ export const Position: Story = {
             backgroundColor: 'neutral',
             size: 'x32',
             margin: 'x16',
-          }),
+          } satisfies BoxProps),
         )}
       </Box>
     ),
@@ -494,7 +495,7 @@ export const Widths: Story = {
             backgroundColor: 'neutral',
             height: 'x32',
             margin: 'x4',
-          }),
+          } satisfies BoxProps),
         )}
       </Box>
     ),
@@ -515,7 +516,10 @@ export const Sizes: Story = {
         {flattenChildren(
           context.originalStoryFn(context.args, context).props.children,
         ).map((child: any) =>
-          cloneElement(child, { backgroundColor: 'neutral', margin: 'x4' }),
+          cloneElement(child, {
+            backgroundColor: 'neutral',
+            margin: 'x4',
+          } satisfies BoxProps),
         )}
       </Box>
     ),
@@ -561,10 +565,10 @@ export const VerticalAlign: Story = {
             color: 'default',
             border: '1px solid',
             borderColor: 'stroke-dark',
-            borderRadius: 'x4',
+            borderRadius: 'medium',
             margin: 'x4',
             padding: 'x4',
-          }),
+          } satisfies BoxProps),
         )}
       </Box>
     ),
@@ -588,10 +592,10 @@ export const ZIndex: Story = {
         ).map((child: any) =>
           cloneElement(child, {
             backgroundColor: 'neutral',
-            borderWidth: 'x4',
+            borderWidth: 'large',
             size: 'x32',
             margin: 'neg-x2',
-          }),
+          } satisfies BoxProps),
         )}
       </Box>
     ),

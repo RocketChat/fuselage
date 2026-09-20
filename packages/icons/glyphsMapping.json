@@ -1152,5 +1152,9 @@
   },
   "arrow-up-down": {
     "start": "\ue1cb"
+  },
+  "folder-star": {
+    "start": "\u3016",
+    "end": "\u3017"
   }
 }

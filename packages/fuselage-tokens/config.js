@@ -42,5 +42,17 @@ export default {
         filter: filterByCategory(category),
       })),
     },
+    'fuselage/ts': {
+      transformGroup: 'json/rocketchat',
+      buildPath: 'dist/',
+      files: categories.map((category) => ({
+        destination: `${category}.d.json.ts`,
+        format: 'dts/rocketchat',
+        options: {
+          mapName: kebabCase(category),
+        },
+        filter: filterByCategory(category),
+      })),
+    },
   },
 };

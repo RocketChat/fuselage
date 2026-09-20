@@ -241,7 +241,6 @@ export default tseslint.config(
       ],
       'space-in-parens': ['error', 'never'],
       'space-infix-ops': 'error',
-      'spaced-comment': 'error',
       'switch-colon-spacing': ['error', { after: true, before: false }],
     },
   },

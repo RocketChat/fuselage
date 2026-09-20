@@ -107,6 +107,26 @@
     flex-shrink: 0;
   }
 
+  &--with-badge {
+    position: relative;
+
+    overflow: visible;
+  }
+
+  &__badge {
+    position: absolute;
+    inset-block-start: 0;
+    inset-inline-end: 0;
+
+    display: flex;
+
+    transform: translate(30%, -30%);
+
+    &:dir(rtl) {
+      transform: translate(-30%, -30%);
+    }
+  }
+
   &--icon {
     @include button.kind-variant(colors.$icon);
     @include click-animation('status');

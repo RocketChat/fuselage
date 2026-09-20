@@ -4,8 +4,6 @@ import type {
   AllHTMLAttributes,
 } from 'react';
 
-import './MessageSystem.styles.scss';
-
 export type MessageSystemProps = {
   children?: ReactNode;
   title?: string;

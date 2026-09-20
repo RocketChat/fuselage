@@ -80,7 +80,7 @@ exports[`renders Default without crashing 1`] = `
             </div>
           </div>
           <h1
-            class="rcx-css-3fow2g"
+            class="rcx-css-qd3h7t"
           >
             Title
              
@@ -265,7 +265,7 @@ exports[`renders WithScroll without crashing 1`] = `
             </div>
           </div>
           <h1
-            class="rcx-css-3fow2g"
+            class="rcx-css-qd3h7t"
           >
             Title
           </h1>

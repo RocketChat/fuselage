@@ -26,6 +26,9 @@ import {
   toCSSValue,
 } from './helpers/toCSSValue';
 
+export type BorderWidth = keyof typeof tokenBorder.width;
+export type BorderRadius = keyof typeof tokenBorder.radius;
+
 const measure = (
   computeSpecialValue?: (value: string) => null | undefined | string,
 ) =>
@@ -54,21 +57,21 @@ const measure = (
     return value;
   });
 
-export const borderWidth = measure((value: unknown) => {
+export const borderWidth = (value: unknown) => {
   if (typeof value === 'string' && value in tokenBorder.width) {
     return `${tokenBorder.width[value as keyof typeof tokenBorder.width]}px`;
   }
 
   return undefined;
-});
+};
 
-export const borderRadius = measure((value: unknown) => {
+export const borderRadius = (value: unknown) => {
   if (typeof value === 'string' && value in tokenBorder.radius) {
     return `${tokenBorder.radius[value as keyof typeof tokenBorder.radius] / 16}rem`;
   }
 
   return undefined;
-});
+};
 
 const mapTypeToPrefix = {
   neutral: 'n',

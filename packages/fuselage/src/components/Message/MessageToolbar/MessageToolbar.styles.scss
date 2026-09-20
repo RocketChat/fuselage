@@ -41,11 +41,6 @@ $message-toolbar-border-radius: theme(
     position: absolute;
     z-index: 10;
     top: lengths.margin(-24);
-    right: 0;
-
-    &:dir(rtl) {
-      left: 0;
-      right: initial;
-    }
+    inset-inline-end: 0;
   }
 }

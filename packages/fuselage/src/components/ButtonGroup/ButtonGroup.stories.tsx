@@ -1,12 +1,34 @@
-import type { Meta, StoryFn, StoryObj } from '@storybook/react-webpack5';
+import type {
+  Decorator,
+  Meta,
+  StoryFn,
+  StoryObj,
+} from '@storybook/react-webpack5';
 
-import { Button } from '../Button';
+import { Box } from '../Box';
+import { Button, IconButton } from '../Button';
 
 import ButtonGroup from './ButtonGroup';
 
 export default {
   title: 'Inputs/ButtonGroup',
   component: ButtonGroup,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'A container for grouping buttons that semantically share a common action context. By default the buttons are laid out with an 8px gap (4px with `small`, 16px with `large`).\n\n' +
+          '**Joined**\n\n' +
+          'The `joined` variant fuses the buttons into a single segmented control: no gap between segments, group-level rounded corners, and no dividers — buttons sit flush. `joined` takes precedence over the `small`/`large` spacing modifiers; it composes with `vertical`, `stretch`, and `align`.\n\n' +
+          "The joined group carries a translucent background (the secondary button background at 60% opacity). With opaque buttons it is fully covered; it only shows through the **ghost** segment — picked by the group via `ghostPosition='start' | 'end'`, which turns the first or last segment transparent so the surface behind the group shines through. Use the ghost segment for auxiliary edge actions, e.g. the expand chevron of a split button or floating controls over media/video. It keeps hover/active/focus feedback, and by design it is always an edge segment — a middle button cannot be ghosted.\n\n" +
+          '**Rules**\n' +
+          '- Use 2–4 buttons in a joined group, with at most one Primary.\n' +
+          '- Joined groups work with regular labeled Buttons, icon-only `square` Buttons, and IconButtons.\n' +
+          '- Do not pair a regular Button with an IconButton — beside labeled buttons use an icon-only `square` Button; reserve IconButtons for groups made only of IconButtons.\n' +
+          '- Keep a joined group homogeneous: every button in it must use the same size. Any Button size works, but never mix sizes inside the same joined group — the segments would no longer sit flush.',
+      },
+    },
+  },
   argTypes: {
     align: {
       control: 'select',
@@ -31,18 +53,46 @@ export default {
     },
     small: {
       control: 'boolean',
-      description: 'Small size scale for the contained buttons.',
-      table: { category: 'Size' },
+      description:
+        'Reduces the gap between buttons to 4px (default is 8px). No effect when `joined`.',
+      table: { category: 'Spacing' },
     },
     large: {
       control: 'boolean',
-      description: 'Large size scale for the contained buttons.',
-      table: { category: 'Size' },
+      description:
+        'Increases the gap between buttons to 16px (default is 8px). No effect when `joined`.',
+      table: { category: 'Spacing' },
+    },
+    joined: {
+      control: 'boolean',
+      description:
+        'Fuses the buttons into a single segmented control with zero gap. Takes precedence over `small`/`large` spacing.',
+      table: { category: 'Layout' },
+    },
+    ghostPosition: {
+      control: 'select',
+      options: ['start', 'end'],
+      description:
+        'Renders the first (`start`) or last (`end`) segment of a joined group as a transparent ghost segment. Requires `joined`.',
+      table: { category: 'Layout' },
     },
   },
 } satisfies Meta<typeof ButtonGroup>;
 
 type Story = StoryObj<typeof ButtonGroup>;
+
+// Surface behind the joined stories so ghost translucency reads in both themes.
+const withLightSurface: Decorator = (Story) => (
+  <Box backgroundColor='light' padding='x16'>
+    <Story />
+  </Box>
+);
+
+// `small`/`large` control the gap, which a joined group doesn't have.
+const withoutSpacingControls = {
+  small: { table: { disable: true } },
+  large: { table: { disable: true } },
+};
 
 const Template: StoryFn<typeof ButtonGroup> = (args) => (
   <ButtonGroup {...args}>
@@ -158,5 +208,183 @@ export const AlignedAtEnd: Story = {
   render: Template,
   args: {
     align: 'end',
+  },
+};
+
+export const Joined: Story = {
+  decorators: [withLightSurface],
+  argTypes: withoutSpacingControls,
+  render: (args) => (
+    <Box
+      display='flex'
+      flexDirection='column'
+      alignItems='flex-start'
+      gap='x16'
+    >
+      <ButtonGroup {...args}>
+        <Button>Cancel</Button>
+        <Button primary>Save</Button>
+      </ButtonGroup>
+      <ButtonGroup {...args} joined ghostPosition='start'>
+        <IconButton icon='mic' secondary aria-label='Microphone' />
+        <IconButton
+          icon='chevron-down'
+          secondary
+          aria-label='Microphone options'
+        />
+      </ButtonGroup>
+      <ButtonGroup {...args} joined ghostPosition='start'>
+        <IconButton icon='video' secondary aria-label='Camera' />
+        <IconButton icon='chevron-down' secondary aria-label='Camera options' />
+      </ButtonGroup>
+    </Box>
+  ),
+  args: {
+    joined: true,
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Joined groups fuse buttons into a single segmented control. Typical uses are confirmation pairs and video-call controls, where a device toggle is paired with a ghost chevron segment that opens the device selection.',
+      },
+    },
+  },
+};
+
+export const JoinedSegmented: Story = {
+  decorators: [withLightSurface],
+  argTypes: withoutSpacingControls,
+  render: (args) => (
+    <ButtonGroup {...args}>
+      <Button>Day</Button>
+      <Button>Week</Button>
+      <Button>Month</Button>
+    </ButtonGroup>
+  ),
+  args: {
+    joined: true,
+  },
+};
+
+export const JoinedSplitButton: Story = {
+  decorators: [withLightSurface],
+  argTypes: withoutSpacingControls,
+  render: (args) => (
+    <ButtonGroup {...args} joined>
+      <Button square icon='chevron-down' aria-label='More reply actions' />
+      <Button>Reply</Button>
+    </ButtonGroup>
+  ),
+  args: {
+    joined: true,
+    ghostPosition: 'start',
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'A split button: the main action plus a ghost expand segment (`ghostPosition`). The ghost segment lets the group’s translucent background show through.',
+      },
+    },
+  },
+};
+
+export const JoinedVertical: Story = {
+  decorators: [withLightSurface],
+  argTypes: withoutSpacingControls,
+  render: (args) => (
+    <ButtonGroup {...args}>
+      <Button>Top</Button>
+      <Button>Middle</Button>
+      <Button>Bottom</Button>
+    </ButtonGroup>
+  ),
+  args: {
+    joined: true,
+    vertical: true,
+  },
+};
+
+export const WithIconButtons: Story = {
+  decorators: [withLightSurface],
+  argTypes: withoutSpacingControls,
+  render: () => (
+    <Box
+      display='flex'
+      flexDirection='column'
+      alignItems='flex-start'
+      gap='x16'
+    >
+      <ButtonGroup>
+        <IconButton icon='mic' secondary medium aria-label='Microphone' />
+        <IconButton icon='video' secondary medium aria-label='Camera' />
+        <IconButton icon='kebab' secondary medium aria-label='More options' />
+      </ButtonGroup>
+      <ButtonGroup joined>
+        <IconButton icon='mic' secondary medium aria-label='Microphone' />
+        <IconButton icon='video' secondary medium aria-label='Camera' />
+        <IconButton icon='kebab' secondary medium aria-label='More options' />
+      </ButtonGroup>
+    </Box>
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Icon buttons work in both layouts: a default group keeps the 8px gap, while a joined group fuses them into a single segmented control.',
+      },
+    },
+  },
+};
+
+export const JoinedWithMultipleButtonSizes: Story = {
+  decorators: [withLightSurface],
+  argTypes: withoutSpacingControls,
+  render: (args) => (
+    <Box
+      display='flex'
+      flexDirection='column'
+      alignItems='flex-start'
+      gap='x16'
+    >
+      <ButtonGroup {...args}>
+        <Button size='small'>Day</Button>
+        <Button size='small'>Week</Button>
+        <Button size='small' primary>
+          Month
+        </Button>
+      </ButtonGroup>
+      <ButtonGroup {...args}>
+        <Button size='medium'>Day</Button>
+        <Button size='medium'>Week</Button>
+        <Button size='medium' primary>
+          Month
+        </Button>
+      </ButtonGroup>
+      <ButtonGroup {...args}>
+        <Button>Day</Button>
+        <Button>Week</Button>
+        <Button primary>Month</Button>
+      </ButtonGroup>
+      <ButtonGroup {...args}>
+        <Button size='large'>Day</Button>
+        <Button size='large'>Week</Button>
+        <Button size='large' primary>
+          Month
+        </Button>
+      </ButtonGroup>
+    </Box>
+  ),
+  args: {
+    joined: true,
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'A joined group works with any Button size, as long as the group is homogeneous — every button in it uses the same size (small, medium, default, and large shown here). Never mix sizes inside the same joined group: the segments would no longer sit flush.',
+      },
+    },
   },
 };
