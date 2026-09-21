@@ -91,7 +91,7 @@ $sidebar-color-stroke-extra-light: theme(
       width: 0;
       height: lengths.size(20);
 
-      margin-inline-end: -4px;
+      margin-inline-end: lengths.margin(-4);
 
       opacity: 0;
     }
