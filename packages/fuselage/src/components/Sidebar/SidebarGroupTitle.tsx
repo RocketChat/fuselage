@@ -29,7 +29,6 @@ export const SidebarGroupTitle = ({
       'rcx-sidebar-collapse-group__bar',
       !expanded && empty && 'rcx-sidebar-collapse-group__bar--empty',
       !expanded && badge && 'rcx-sidebar-collapse-group__bar--unread',
-      'rcx-box--animated',
     ]
       .filter(Boolean)
       .join(' ')}
@@ -40,15 +39,17 @@ export const SidebarGroupTitle = ({
       role={role}
       {...barProps}
     >
-      {expanded !== undefined && <Chevron size='x20' right={!expanded} />}
-      {title && (
-        <h4
-          className='rcx-box rcx-box--full rcx-sidebar-collapse-group__title'
-          id={titleId}
-        >
-          {title}
-        </h4>
-      )}
+      <div className='rcx-box rcx-sidebar-collapse-group__heading'>
+        {title && (
+          <h4
+            className='rcx-box rcx-box--full rcx-sidebar-collapse-group__title'
+            id={titleId}
+          >
+            {title}
+          </h4>
+        )}
+        {expanded !== undefined && <Chevron size='x20' right={!expanded} />}
+      </div>
       {!expanded && badge && badge}
     </div>
     {menu}
