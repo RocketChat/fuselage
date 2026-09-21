@@ -40,7 +40,7 @@
       "pureBlack": { "value": "{colors.n900}" }
     },
     "dark-alpha": {
-      "white": { "value": "#2F343D", "type": "color" },
+      "white": { "value": "#2E2E2E", "type": "color" },
       "disabled": { "value": "rgba(255, 255, 255, 0.36)", "type": "color" },
       "annotation": { "value": "rgba(255, 255, 255, 0.62)", "type": "color" },
       "hint": { "value": "rgba(255, 255, 255, 0.62)", "type": "color" },
@@ -53,7 +53,7 @@
       "info": { "value": "#739EDE", "type": "color" },
       "danger": { "value": "#D88892", "type": "color" },
       "pureWhite": { "value": "{colors.white}" },
-      "pureBlack": { "value": "{colors.n900}" }
+      "pureBlack": { "value": "#000000", "type": "color" }
     }
   }
 }

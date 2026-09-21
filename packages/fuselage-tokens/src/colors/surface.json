@@ -130,11 +130,11 @@
     },
     "dark-alpha": {
       "light": {
-        "value": "rgba(44, 46, 50, 0.86)",
+        "value": "rgba(46, 46, 46, 0.86)",
         "type": "color"
       },
       "tint": {
-        "value": "#17181A",
+        "value": "#0F0F0F",
         "type": "color"
       },
       "room": {
@@ -150,15 +150,15 @@
         "type": "color"
       },
       "hover": {
-        "value": "rgba(205, 218, 242, 0.09)",
+        "value": "rgba(255, 255, 255, 0.09)",
         "type": "color"
       },
       "selected": {
-        "value": "rgba(180, 200, 240, 0.18)",
+        "value": "rgba(255, 255, 255, 0.18)",
         "type": "color"
       },
       "dark": {
-        "value": "rgba(228, 231, 234, 0.96)",
+        "value": "rgba(230, 230, 230, 0.96)",
         "type": "color"
       },
       "featured": {
