@@ -2098,7 +2098,6 @@ export const SidebarItemMenu: (input: HTMLAttributes<HTMLDivElement>) => JSX.Ele
 export type SidebarItemProps = {
     selected?: boolean;
     level?: number;
-    indent?: boolean;
     is?: ElementType;
 } & AllHTMLAttributes<HTMLAnchorElement>;
 
