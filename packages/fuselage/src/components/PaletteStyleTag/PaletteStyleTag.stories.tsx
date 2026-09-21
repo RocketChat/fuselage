@@ -25,7 +25,7 @@ export default {
   argTypes: {
     theme: {
       control: 'select',
-      options: ['light', 'dark', 'high-contrast'],
+      options: ['light', 'dark', 'dark-alpha', 'high-contrast'],
       description: 'Theme whose palette is rendered as CSS custom properties.',
       table: { category: 'Theme', defaultValue: { summary: 'light' } },
     },
