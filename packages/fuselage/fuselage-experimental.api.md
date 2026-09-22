@@ -4,9 +4,13 @@
 
 ```ts
 
+import type { ComponentProps } from 'react';
 import { JSX } from 'react';
 import type { ReactNode } from 'react';
 import { TamaguiInternalConfig } from '@tamagui/web';
+import { Text as Text_2 } from '@tamagui/core';
+import { TextProps } from '@tamagui/core';
+import { View } from '@tamagui/core';
 
 // @public
 export const FuselageProvider: (input: FuselageProviderProps) => JSX.Element;
@@ -155,6 +159,15 @@ minWidth: number;
 allowedStyleValues: false;
 autocompleteSpecificTokens: "except-special";
 }, "default">;
+
+export { Text_2 as Text }
+
+export { TextProps }
+
+export { View }
+
+// @public
+export type ViewProps = ComponentProps<typeof View>;
 
 // (No @packageDocumentation comment for this package)
 

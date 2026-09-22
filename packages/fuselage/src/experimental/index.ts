@@ -32,3 +32,5 @@ export {
   type FuselageProviderProps,
 } from './FuselageProvider';
 export { tamaguiConfig } from './tamagui.config';
+export { default as View, type ViewProps } from './View';
+export { default as Text, type TextProps } from './Text';
