@@ -29,4 +29,33 @@ export const rootReadme = (pkgs) => outdent`
     )
     .join('\n')}
 
+  ## Contributing
+
+  This project uses **Yarn 4 (Berry)** and relies on Corepack for Yarn version management.
+  Do not use npm or Yarn 1.x.
+
+  ### Setup
+
+  Install Yarn via Corepack (included with Node.js 16.10+):
+
+  \`\`\`sh
+  corepack enable
+  \`\`\`
+
+  Then install dependencies:
+
+  \`\`\`sh
+  yarn install
+  \`\`\`
+
+  Peer dependency warnings during install are expected in this monorepo and can be ignored.
+
+  ### Windows Setup
+
+  On Windows, enable long paths before cloning to avoid build errors:
+
+  \`\`\`powershell
+  git config --global core.longpaths true
+  \`\`\`
+
 `;
