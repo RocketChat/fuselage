@@ -130,10 +130,11 @@ $sidebar-color-stroke-extra-light: theme(
   &-collapse-group {
     &__bar {
       min-height: lengths.size(28);
-      margin-block-start: lengths.margin(4);
-      margin-inline: lengths.margin(4);
+      margin-block-start: lengths.margin(8);
+      margin-inline: lengths.margin(8);
 
-      padding: lengths.padding(4);
+      padding-block: lengths.padding(4);
+      padding-inline: lengths.padding(8) lengths.padding(4);
 
       color: colors.font(secondary-info);
 
@@ -213,18 +214,23 @@ $sidebar-color-stroke-extra-light: theme(
       top: 0;
 
       min-height: lengths.size(24);
+      margin-inline: lengths.margin(8);
 
-      padding: lengths.padding(12) lengths.padding(16) lengths.padding(12)
-        lengths.padding(none);
+      padding-block: lengths.padding(12);
+      padding-inline: lengths.padding(8) lengths.padding(4);
 
       color: colors.font(default);
 
-      border-radius: lengths.border-radius(small);
+      border-radius: lengths.border-radius(medium);
       background-color: colors.surface(sidebar);
 
       &[tabindex] {
         @include clickable;
         @include focus-state($shadow: false);
+
+        padding-inline-start: calc(
+          #{lengths.padding(8)} - #{lengths.border-width(default)}
+        );
 
         &.hover,
         &:hover {
@@ -253,7 +259,13 @@ $sidebar-color-stroke-extra-light: theme(
     }
 
     &__title {
+      flex: 0 1 auto;
+
       @include use-font-scale(h5);
+    }
+
+    &__title ~ :last-child:not(&__chevron) {
+      margin-inline-start: auto;
     }
   }
 
