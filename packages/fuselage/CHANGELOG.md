@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.92.0
+
+### Minor Changes
+
+- [`7bfeee4`](https://github.com/RocketChat/fuselage/commit/7bfeee493be0153ef4f9aa56d5c92c1f99ff59a4) Thanks [@dougfabris](https://github.com/dougfabris)! - feat(fuselage): Rework the sidebar collapse group header layout
+
 ## 0.91.0
 
 ### Minor Changes

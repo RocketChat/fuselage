@@ -34,15 +34,16 @@
     "docs": "typedoc"
   },
   "dependencies": {
-    "@rocket.chat/css-in-js": "workspace:~"
+    "@rocket.chat/css-in-js": "~0.33.1"
   },
   "devDependencies": {
-    "@microsoft/api-extractor": "~7.58.12",
-    "@testing-library/dom": "~10.4.1",
-    "@testing-library/react": "~16.3.2",
-    "@types/react": "~19.2.17",
-    "@types/react-dom": "~19.2.3",
-    "eslint": "~10.8.0",
+    "@microsoft/api-extractor": "~7.58.13",
+    "@testing-library/dom": "~10.4.2",
+    "@testing-library/react": "~16.3.3",
+    "@types/react": "~19.2.18",
+    "@types/react-dom": "~19.2.7",
+    "@types/stylis": "^4.2.7",
+    "eslint": "~10.8.1",
     "jest": "~30.4.2",
     "jest-environment-jsdom": "~30.4.1",
     "lint-all": "workspace:~",

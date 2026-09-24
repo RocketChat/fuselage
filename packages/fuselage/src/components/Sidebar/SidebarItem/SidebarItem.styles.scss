@@ -83,11 +83,7 @@ $sidebar-color-font-active: theme(
   gap: lengths.padding(4);
 
   &--level-2 {
-    padding: lengths.padding(8);
-  }
-
-  &--indent {
-    margin-inline-start: lengths.padding(12);
+    padding: lengths.padding(4);
   }
 
   &:active {
