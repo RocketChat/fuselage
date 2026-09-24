@@ -134,7 +134,7 @@ $sidebar-color-stroke-extra-light: theme(
       margin-inline: lengths.margin(8);
 
       padding-block: lengths.padding(4);
-      padding-inline: lengths.padding(8) lengths.padding(4);
+      padding-inline: lengths.padding(8);
 
       color: colors.font(secondary-info);
 
@@ -218,7 +218,7 @@ $sidebar-color-stroke-extra-light: theme(
       margin-inline: lengths.margin(8);
 
       padding-block: lengths.padding(12);
-      padding-inline: lengths.padding(8) lengths.padding(4);
+      padding-inline: lengths.padding(8);
 
       color: colors.font(default);
 
@@ -229,7 +229,7 @@ $sidebar-color-stroke-extra-light: theme(
         @include clickable;
         @include focus-state($shadow: false);
 
-        padding-inline-start: calc(
+        padding-inline: calc(
           #{lengths.padding(8)} - #{lengths.border-width(default)}
         );
 
