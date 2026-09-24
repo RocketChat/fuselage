@@ -91,6 +91,8 @@ $sidebar-color-stroke-extra-light: theme(
       width: 0;
       height: lengths.size(20);
 
+      margin-inline-end: lengths.margin(-4);
+
       opacity: 0;
     }
 
@@ -98,6 +100,8 @@ $sidebar-color-stroke-extra-light: theme(
     &__bar:focus-within &__menu-wrapper,
     &__bar:has(&__menu-wrapper [aria-expanded='true']) &__menu-wrapper {
       width: lengths.size(20);
+
+      margin-inline-end: lengths.margin(none);
 
       opacity: 1;
     }
@@ -164,6 +168,19 @@ $sidebar-color-stroke-extra-light: theme(
       &[tabindex] {
         @include clickable;
       }
+    }
+
+    &__heading {
+      display: flex;
+      align-items: center;
+
+      flex: 1 1 0;
+
+      min-width: 0;
+    }
+
+    &__title {
+      flex: 0 1 auto;
     }
 
     &__bar:has(&__bar-button[tabindex]) {

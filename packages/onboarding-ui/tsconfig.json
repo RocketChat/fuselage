@@ -2,8 +2,7 @@
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "rootDirs": ["./src", "./.storybook"],
-    "outDir": "./dist",
-    "skipLibCheck": true
+    "outDir": "./dist"
   },
   "include": ["./src", "./.jest/**/*", "./.storybook/**/*"],
   "exclude": ["./dist", "**/*.spec.ts", "jest.config.*"],
