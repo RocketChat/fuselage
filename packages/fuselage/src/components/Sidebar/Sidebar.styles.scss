@@ -214,6 +214,7 @@ $sidebar-color-stroke-extra-light: theme(
       top: 0;
 
       min-height: lengths.size(24);
+      margin-block-start: lengths.margin(8);
       margin-inline: lengths.margin(8);
 
       padding-block: lengths.padding(12);
