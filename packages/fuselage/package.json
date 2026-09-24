@@ -41,7 +41,7 @@
     "build-storybook": "NODE_ENV=production storybook build"
   },
   "dependencies": {
-    "@rocket.chat/css-in-js": "workspace:~",
+    "@rocket.chat/css-in-js": "~0.33.1",
     "@rocket.chat/fuselage-tokens": "workspace:~",
     "@rocket.chat/memo": "~0.31.25",
     "invariant": "^2.2.4",
@@ -71,6 +71,7 @@
     "@types/react": "~19.2.18",
     "@types/react-dom": "~19.2.7",
     "@types/react-is": "^19.2.0",
+    "@types/stylis": "^4.2.7",
     "autoprefixer": "~10.5.6",
     "caniuse-lite": "~1.0.30001810",
     "cssnano": "~9.0.4",
