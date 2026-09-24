@@ -302,7 +302,7 @@ const CustomTemplate = ({
 );
 
 const renderItems = (Item: ComponentType<{ i: number }>) =>
-  Array.from({ length: 8 }).map((_, i) => <Item key={i} i={i} />);
+  Array.from({ length: 4 }).map((_, i) => <Item key={i} i={i} />);
 
 export const Custom: Story = {
   render: (args) => (
