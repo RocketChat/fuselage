@@ -4503,56 +4503,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rocket.chat/onboarding-ui@workspace:packages/onboarding-ui":
-  version: 0.0.0-use.local
-  resolution: "@rocket.chat/onboarding-ui@workspace:packages/onboarding-ui"
-  dependencies:
-    "@microsoft/api-extractor": "npm:~7.58.13"
-    "@rocket.chat/fuselage": "workspace:~"
-    "@rocket.chat/fuselage-hooks": "workspace:~"
-    "@rocket.chat/fuselage-tokens": "workspace:~"
-    "@rocket.chat/icons": "workspace:~"
-    "@rocket.chat/layout": "workspace:~"
-    "@rocket.chat/logo": "workspace:~"
-    "@rocket.chat/storybook-dark-mode": "npm:~4.2.1"
-    "@rocket.chat/styled": "workspace:~"
-    "@storybook/addon-a11y": "npm:~9.1.20"
-    "@storybook/addon-docs": "npm:~9.1.20"
-    "@storybook/addon-webpack5-compiler-swc": "npm:~4.0.3"
-    "@storybook/react-webpack5": "npm:~9.1.20"
-    "@testing-library/dom": "npm:~10.4.2"
-    "@testing-library/react": "npm:~16.3.3"
-    "@types/react": "npm:~19.2.18"
-    "@types/react-dom": "npm:~19.2.7"
-    countries-list: "npm:^3.4.1"
-    eslint: "npm:~10.8.1"
-    i18next: "npm:~26.4.2"
-    jest: "npm:~30.4.2"
-    jest-environment-jsdom: "npm:~30.4.1"
-    lint-all: "workspace:~"
-    prettier: "npm:~3.6.2"
-    react: "npm:~19.2.8"
-    react-dom: "npm:~19.2.8"
-    react-hook-form: "npm:~7.54.2"
-    react-i18next: "npm:~17.0.14"
-    rimraf: "npm:~6.1.3"
-    storybook: "npm:~9.1.20"
-    ts-jest: "npm:~29.4.12"
-    typedoc: "npm:~0.28.20"
-    typescript: "npm:~5.9.3"
-  peerDependencies:
-    "@rocket.chat/fuselage": "*"
-    "@rocket.chat/fuselage-hooks": "*"
-    "@rocket.chat/icons": "*"
-    "@rocket.chat/layout": "*"
-    "@rocket.chat/logo": "*"
-    "@rocket.chat/styled": "*"
-    react: "*"
-    react-dom: "*"
-    react-i18next: "*"
-  languageName: unknown
-  linkType: soft
-
 "@rocket.chat/prettier-config@workspace:packages/prettier-config, @rocket.chat/prettier-config@workspace:~":
   version: 0.0.0-use.local
   resolution: "@rocket.chat/prettier-config@workspace:packages/prettier-config"
@@ -8078,13 +8028,6 @@ __metadata:
     typescript:
       optional: true
   checksum: 10/e7b08c9c6ed862852bf0ed88c8fa49c57276d976901c9332c87d831926f332c32df3f5ff6a87f3823c3b7c5d6f857a7fd34336e0c2c596fa2d73e6cccbb7bf58
-  languageName: node
-  linkType: hard
-
-"countries-list@npm:^3.4.1":
-  version: 3.4.1
-  resolution: "countries-list@npm:3.4.1"
-  checksum: 10/3fca137016bea979974b36743730facb074cb0ac3efa271dccc1f5f1bc137a04f916506bb54a62fe92338cf4edb673b56a668ad565edd92618b0b3926a3675ae
   languageName: node
   linkType: hard
 
@@ -14887,15 +14830,6 @@ __metadata:
   peerDependencies:
     react: ^19.2.8
   checksum: 10/fb45d500a8615a36d71a821213a3d4bfe32a70aa1d04ce17d8791dd10c4ef0281e7fdd46694e1112f0f2dcf58df89d12043a13228be9788458aa82f4885a9cdc
-  languageName: node
-  linkType: hard
-
-"react-hook-form@npm:~7.54.2":
-  version: 7.54.2
-  resolution: "react-hook-form@npm:7.54.2"
-  peerDependencies:
-    react: ^16.8.0 || ^17 || ^18 || ^19
-  checksum: 10/b156d15b6246c76d0275e5722d9056014693e014d0e3dec06e44bf2672ee549aaba4366de5144d18c4cab29e631f3b2b84269d4fd5727ca17aad9b970fde6960
   languageName: node
   linkType: hard
 

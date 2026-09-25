@@ -63,7 +63,6 @@ jobs:
           name: storybooks
           path: |
             packages/fuselage/storybook-static
-            packages/onboarding-ui/storybook-static
             packages/layout/storybook-static
 
       - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
@@ -157,9 +156,8 @@ jobs:
           name: docs
           path: .
       - run: |
-          rm -rf "fuselage/${{ needs.build-and-test.outputs.branch-name }}" "layout/${{ needs.build-and-test.outputs.branch-name }}" "onboarding-ui/${{ needs.build-and-test.outputs.branch-name }}"
+          rm -rf "fuselage/${{ needs.build-and-test.outputs.branch-name }}" "layout/${{ needs.build-and-test.outputs.branch-name }}"
           mv -v "packages/fuselage/storybook-static" "fuselage/${{ needs.build-and-test.outputs.branch-name }}"
-          mv -v "packages/onboarding-ui/storybook-static" "onboarding-ui/${{ needs.build-and-test.outputs.branch-name }}"
           mv -v "packages/layout/storybook-static" "layout/${{ needs.build-and-test.outputs.branch-name }}"
           rm -rf packages
       - uses: crazy-max/ghaction-github-pages@1d6ee9b181a81033a16bd707a1401afa978daab4 # v5.0.0
