@@ -73,18 +73,15 @@ $sidebar-color-font-active: theme(
 
   align-items: center;
 
-  margin-inline: lengths.padding(4);
-  padding: lengths.padding(4);
+  margin-inline: lengths.margin(8);
+  padding-block: lengths.padding(4);
+  padding-inline: lengths.padding(8);
 
   white-space: nowrap;
 
   text-decoration: none;
 
   gap: lengths.padding(4);
-
-  &--level-2 {
-    padding: lengths.padding(4);
-  }
 
   &:active {
     color: $sidebar-color-font-active;
