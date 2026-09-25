@@ -39,6 +39,8 @@ $tooltip-light-text-color: theme(
 
   @include use-font-scale(p2m);
 
+  // Placements come from `usePosition` in physical screen coordinates, so the
+  // arrow's inline offsets stay physical to keep pointing at the anchor in RTL.
   &--dir-top,
   &--dir-bottom,
   &--dir-left,
@@ -78,7 +80,7 @@ $tooltip-light-text-color: theme(
   &--dir-left {
     &::after {
       inset-block-start: 50%;
-      inset-inline-end: -4px;
+      right: -4px;
 
       margin-block-start: -4px;
 
@@ -89,7 +91,7 @@ $tooltip-light-text-color: theme(
   &--dir-right {
     &::after {
       inset-block-start: 50%;
-      inset-inline-start: -4px;
+      left: -4px;
 
       margin-block-start: -4px;
 
@@ -110,15 +112,15 @@ $tooltip-light-text-color: theme(
   &--pos {
     &-middle {
       &::after {
-        inset-inline-start: 50%;
+        left: 50%;
 
-        margin-inline-start: -4px;
+        margin-left: -4px;
       }
     }
 
     &-start {
       &::after {
-        inset-inline-start: 8px;
+        left: 8px;
 
         margin: 0;
       }
@@ -126,8 +128,8 @@ $tooltip-light-text-color: theme(
 
     &-end {
       &::after {
-        inset-inline-start: initial;
-        inset-inline-end: 8px;
+        left: initial;
+        right: 8px;
 
         margin: 0;
       }
