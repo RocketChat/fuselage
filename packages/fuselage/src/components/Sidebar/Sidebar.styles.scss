@@ -3,7 +3,6 @@
 @use '../../styles/typography.scss' as *;
 @use '../../styles/mixins/interactivity.scss' as *;
 @use '../../styles/mixins/templates.scss' as *;
-@use '../../styles/mixins/states.scss' as *;
 @use '../../styles/functions.scss' as *;
 @use '../../styles/mixins/link.scss' as *;
 @use './variables.scss' as *;
@@ -68,8 +67,34 @@ $sidebar-color-stroke-extra-light: theme(
       flex-flow: row nowrap;
       align-items: center;
 
+      min-height: lengths.size(24);
+
+      padding: calc(lengths.padding(8) - lengths.border-width(default))
+        calc(lengths.padding(16) - lengths.border-width(default));
+
       text-align: start;
+
+      color: colors.font(default);
+
+      background-color: $sidebar-color-surface-default;
       column-gap: lengths.padding(4);
+
+      &[tabindex] {
+        @include clickable;
+        @include focus-state($shadow: false);
+
+        &.hover,
+        &:hover {
+          background-color: colors.surface(tint);
+        }
+      }
+
+      &--disabled {
+        cursor: not-allowed;
+
+        color: colors.font(disabled);
+        background-color: colors.surface(disabled);
+      }
     }
 
     &__title {
@@ -80,7 +105,7 @@ $sidebar-color-stroke-extra-light: theme(
       white-space: nowrap;
 
       @include use-text-ellipsis;
-      @include use-font-scale(c1);
+      @include use-font-scale(c2);
     }
 
     &__menu-wrapper {
@@ -91,8 +116,6 @@ $sidebar-color-stroke-extra-light: theme(
       width: 0;
       height: lengths.size(20);
 
-      margin-inline-end: lengths.margin(-4);
-
       opacity: 0;
     }
 
@@ -100,8 +123,6 @@ $sidebar-color-stroke-extra-light: theme(
     &__bar:focus-within &__menu-wrapper,
     &__bar:has(&__menu-wrapper [aria-expanded='true']) &__menu-wrapper {
       width: lengths.size(20);
-
-      margin-inline-end: lengths.margin(none);
 
       opacity: 1;
     }
@@ -128,31 +149,6 @@ $sidebar-color-stroke-extra-light: theme(
   }
 
   &-collapse-group {
-    &__bar {
-      min-height: lengths.size(28);
-      margin-block-start: lengths.margin(4);
-      margin-inline: lengths.margin(4);
-
-      padding: lengths.padding(4);
-
-      color: colors.font(secondary-info);
-
-      border-radius: lengths.border-radius(medium);
-      background-color: $sidebar-color-surface-default;
-
-      &--empty {
-        color: colors.font(disabled);
-      }
-
-      &--unread {
-        color: $sidebar-item-color-highlighted;
-
-        .rcx-sidebar-collapse-group__title {
-          @include use-font-scale(c2);
-        }
-      }
-    }
-
     &__bar-button {
       display: flex;
       align-items: center;
@@ -167,31 +163,12 @@ $sidebar-color-stroke-extra-light: theme(
 
       &[tabindex] {
         @include clickable;
+        @include focus-state($shadow: false);
       }
     }
 
-    &__heading {
-      display: flex;
-      align-items: center;
-
-      flex: 1 1 0;
-
-      min-width: 0;
-    }
-
-    &__title {
-      flex: 0 1 auto;
-    }
-
-    &__bar:has(&__bar-button[tabindex]) {
-      @include on-hover {
-        background-color: colors.surface(hover);
-      }
-    }
-
-    &__bar:has(&__bar-button:focus-visible) {
-      box-shadow: inset 0 0 0 lengths.border-width('medium')
-        colors.stroke(highlight);
+    &__bar:has(&__bar-button:hover) {
+      background-color: colors.surface(tint);
     }
 
     &__panel--expanded {
@@ -212,32 +189,12 @@ $sidebar-color-stroke-extra-light: theme(
       z-index: 1;
       top: 0;
 
-      min-height: lengths.size(24);
-
       padding: lengths.padding(12) lengths.padding(16) lengths.padding(12)
         lengths.padding(none);
 
-      color: colors.font(default);
-
       border-radius: lengths.border-radius(small);
+
       background-color: colors.surface(sidebar);
-
-      &[tabindex] {
-        @include clickable;
-        @include focus-state($shadow: false);
-
-        &.hover,
-        &:hover {
-          background-color: colors.surface(tint);
-        }
-      }
-
-      &--disabled {
-        cursor: not-allowed;
-
-        color: colors.font(disabled);
-        background-color: colors.surface(disabled);
-      }
 
       .rcx-sidebar-accordion-item__chevron {
         visibility: hidden;
