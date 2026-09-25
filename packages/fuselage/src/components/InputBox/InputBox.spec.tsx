@@ -1,10 +1,12 @@
 import { composeStories } from '@storybook/react-webpack5';
 import { waitFor } from '@testing-library/dom';
+import userEvent from '@testing-library/user-event';
 import { axe } from 'jest-axe';
 import { useEffect, useState } from 'react';
 
 import { render } from '../../testing';
 
+import InputBox from './InputBox';
 import * as stories from './InputBox.stories';
 
 const { WithAddon } = composeStories(stories);
@@ -52,4 +54,39 @@ it('should update error class when error changes asynchronously', async () => {
       .parentElement as HTMLElement;
     expect(input).toHaveClass('invalid');
   });
+});
+
+describe.each(['date', 'time'] as const)('%s picker addon', (type) => {
+  it('opens the picker with Enter and Space', async () => {
+    const user = userEvent.setup();
+    const { getByLabelText, getByRole } = render(
+      <InputBox type={type} aria-label={type} />,
+    );
+    const input = getByLabelText(type) as HTMLInputElement;
+    const showPicker = jest.fn();
+    input.showPicker = showPicker;
+
+    await user.tab();
+    expect(input).toHaveFocus();
+    await user.tab();
+    expect(getByRole('button', { name: `Open ${type} picker` })).toHaveFocus();
+
+    await user.keyboard('{Enter}');
+    await user.keyboard(' ');
+
+    expect(showPicker).toHaveBeenCalledTimes(2);
+  });
+
+  it.each(['disabled', 'readOnly'] as const)(
+    'does not allow opening the picker when %s',
+    (state) => {
+      const { getByRole } = render(
+        <InputBox type={type} aria-label={type} {...{ [state]: true }} />,
+      );
+
+      expect(
+        getByRole('button', { name: `Open ${type} picker` }),
+      ).toBeDisabled();
+    },
+  );
 });
