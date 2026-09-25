@@ -2557,7 +2557,7 @@ export function TextInput(props: TextInputProps): JSX.Element;
 export type TextInputProps = Omit<InputBoxProps, 'type'>;
 
 // @public (undocumented)
-export type Themes = 'light' | 'dark' | 'high-contrast';
+export type Themes = 'light' | 'dark' | 'dark-alpha' | 'high-contrast';
 
 // @public (undocumented)
 export const ThreadMessage: (props: ThreadMessageProps) => JSX.Element;

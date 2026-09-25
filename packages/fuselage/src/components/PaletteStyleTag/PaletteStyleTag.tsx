@@ -3,12 +3,13 @@ import { createPortal } from 'react-dom';
 
 import { convertToCss } from './helpers/convertToCss';
 import { useCreateStyleContainer } from './hooks/useCreateStyleContainer';
-import { dark, highContrast, light } from './lib/themePalettes';
+import { dark, darkAlpha, highContrast, light } from './lib/themePalettes';
 import type { Themes } from './types/themes';
 
 const themes = {
   light,
   dark,
+  'dark-alpha': darkAlpha,
   'high-contrast': highContrast,
 };
 

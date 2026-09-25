@@ -1,46 +1,182 @@
 {
   "surface": {
     "light": {
-      "light": { "value": "{colors.white}" },
-      "tint": { "value": "{colors.n100}" },
-      "room": { "value": "{colors.white}" },
-      "neutral": { "value": "{colors.n400}" },
-      "disabled": { "value": "{colors.n100}" },
-      "hover": { "value": "{colors.n200}" },
-      "selected": { "value": "{colors.n450}" },
-      "dark": { "value": "{colors.n900}" },
-      "featured": { "value": "{colors.p700}" },
-      "featuredHover": { "value": "{colors.p800}" },
-      "sidebar": { "value": "{colors.n400}" },
-      "overlay": { "value": "rgba(47, 52, 61, 0.5)", "type": "color" }
+      "light": {
+        "value": "{colors.white}"
+      },
+      "tint": {
+        "value": "{colors.n100}"
+      },
+      "room": {
+        "value": "{colors.white}"
+      },
+      "neutral": {
+        "value": "{colors.n400}"
+      },
+      "disabled": {
+        "value": "{colors.n100}"
+      },
+      "hover": {
+        "value": "{colors.n200}"
+      },
+      "selected": {
+        "value": "{colors.n450}"
+      },
+      "dark": {
+        "value": "{colors.n900}"
+      },
+      "featured": {
+        "value": "{colors.p700}"
+      },
+      "featuredHover": {
+        "value": "{colors.p800}"
+      },
+      "sidebar": {
+        "value": "{colors.n400}"
+      },
+      "overlay": {
+        "value": "rgba(47, 52, 61, 0.5)",
+        "type": "color"
+      }
     },
     "high-contrast": {
-      "light": { "value": "{colors.white}" },
-      "tint": { "value": "{colors.n100}" },
-      "room": { "value": "{colors.white}" },
-      "neutral": { "value": "{colors.n400}" },
-      "disabled": { "value": "{colors.n100}" },
-      "hover": { "value": "{colors.n200}" },
-      "selected": { "value": "{colors.n450}" },
-      "dark": { "value": "{colors.n900}" },
-      "featured": { "value": "{colors.p700}" },
-      "featuredHover": { "value": "{colors.p800}" },
-      "sidebar": { "value": "{colors.n400}" },
-      "overlay": { "value": "rgba(47, 52, 61, 0.5)", "type": "color" }
+      "light": {
+        "value": "{colors.white}"
+      },
+      "tint": {
+        "value": "{colors.n100}"
+      },
+      "room": {
+        "value": "{colors.white}"
+      },
+      "neutral": {
+        "value": "{colors.n400}"
+      },
+      "disabled": {
+        "value": "{colors.n100}"
+      },
+      "hover": {
+        "value": "{colors.n200}"
+      },
+      "selected": {
+        "value": "{colors.n450}"
+      },
+      "dark": {
+        "value": "{colors.n900}"
+      },
+      "featured": {
+        "value": "{colors.p700}"
+      },
+      "featuredHover": {
+        "value": "{colors.p800}"
+      },
+      "sidebar": {
+        "value": "{colors.n400}"
+      },
+      "overlay": {
+        "value": "rgba(47, 52, 61, 0.5)",
+        "type": "color"
+      }
     },
     "dark": {
-      "light": { "value": "#262931", "type": "color" },
-      "tint": { "value": "#1F2329", "type": "color" },
-      "room": { "value": "#1F2329", "type": "color" },
-      "neutral": { "value": "#2D3039", "type": "color" },
-      "disabled": { "value": "#24272E", "type": "color" },
-      "hover": { "value": "#1A1E23", "type": "color" },
-      "selected": { "value": "#4C5362", "type": "color" },
-      "dark": { "value": "#E4E7EA", "type": "color" },
-      "featured": { "value": "#5F1477", "type": "color" },
-      "featuredHover": { "value": "#4A105D", "type": "color" },
-      "sidebar": { "value": "#2F343D", "type": "color" },
-      "overlay": { "value": "rgba(0, 0, 0, 0.6)", "type": "color" }
+      "light": {
+        "value": "#262931",
+        "type": "color"
+      },
+      "tint": {
+        "value": "#1F2329",
+        "type": "color"
+      },
+      "room": {
+        "value": "#1F2329",
+        "type": "color"
+      },
+      "neutral": {
+        "value": "#2D3039",
+        "type": "color"
+      },
+      "disabled": {
+        "value": "#24272E",
+        "type": "color"
+      },
+      "hover": {
+        "value": "#1A1E23",
+        "type": "color"
+      },
+      "selected": {
+        "value": "#4C5362",
+        "type": "color"
+      },
+      "dark": {
+        "value": "#E4E7EA",
+        "type": "color"
+      },
+      "featured": {
+        "value": "#5F1477",
+        "type": "color"
+      },
+      "featuredHover": {
+        "value": "#4A105D",
+        "type": "color"
+      },
+      "sidebar": {
+        "value": "#2F343D",
+        "type": "color"
+      },
+      "overlay": {
+        "value": "rgba(0, 0, 0, 0.6)",
+        "type": "color"
+      }
+    },
+    "dark-alpha": {
+      "light": {
+        "value": "rgba(46, 46, 46, 0.86)",
+        "type": "color"
+      },
+      "tint": {
+        "value": "#0F0F0F",
+        "type": "color"
+      },
+      "room": {
+        "value": "rgba(0, 0, 0, 0)",
+        "type": "color"
+      },
+      "neutral": {
+        "value": "rgba(255, 255, 255, 0.07)",
+        "type": "color"
+      },
+      "disabled": {
+        "value": "rgba(255, 255, 255, 0.04)",
+        "type": "color"
+      },
+      "hover": {
+        "value": "rgba(255, 255, 255, 0.09)",
+        "type": "color"
+      },
+      "selected": {
+        "value": "rgba(255, 255, 255, 0.18)",
+        "type": "color"
+      },
+      "dark": {
+        "value": "rgba(230, 230, 230, 0.96)",
+        "type": "color"
+      },
+      "featured": {
+        "value": "rgba(95, 20, 119, 0.9)",
+        "type": "color"
+      },
+      "featuredHover": {
+        "value": "rgba(74, 16, 93, 0.95)",
+        "type": "color"
+      },
+      "sidebar": {
+        "value": "rgba(255, 255, 255, 0.045)",
+        "type": "color"
+      },
+      "overlay": {
+        "value": "rgba(0, 0, 0, 0.7)",
+        "type": "color"
+      }
     }
   }
 }
