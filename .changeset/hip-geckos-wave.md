@@ -2,4 +2,4 @@
 '@rocket.chat/icons': minor
 ---
 
-feat(icons): add icons for contacts list- #2215
+feat(icons): add address-book-plus & book-clock - #2215
