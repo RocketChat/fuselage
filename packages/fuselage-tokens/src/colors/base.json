@@ -50,6 +50,7 @@
     "y700": { "value": "#DFAC00", "type": "color" },
     "y800": { "value": "#AC892F", "type": "color" },
     "y900": { "value": "#8E6300", "type": "color" },
+    "y950": { "value": "#895F00", "type": "color" },
     "y1000": { "value": "#573D00", "type": "color" },
     "g100": { "value": "#E5FBF4", "type": "color" },
     "g200": { "value": "#C0F6E4", "type": "color" },
