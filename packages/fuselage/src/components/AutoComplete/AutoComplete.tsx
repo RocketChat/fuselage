@@ -145,23 +145,25 @@ function AutoComplete<TLabel = ReactNode>({
     },
   );
 
+  const removeValue = useStableCallback((valueToRemove: string) => {
+    const filtered = selected.filter((item) => item.value !== valueToRemove);
+
+    const filteredValue =
+      multiple && Array.isArray(value)
+        ? value?.filter((item) => item !== valueToRemove) || []
+        : '';
+
+    setSelected(filtered);
+    onChange(filteredValue);
+    hide();
+  });
+
   const handleRemove = useStableCallback(
     (event: MouseEvent<HTMLButtonElement>) => {
       event.stopPropagation();
       event.preventDefault();
 
-      const filtered = selected.filter(
-        (item) => item.value !== event.currentTarget.value,
-      );
-
-      const filteredValue =
-        multiple && Array.isArray(value)
-          ? value?.filter((item) => item !== event.currentTarget.value) || []
-          : '';
-
-      setSelected(filtered);
-      onChange(filteredValue);
-      hide();
+      removeValue(event.currentTarget.value);
     },
   );
 
@@ -240,8 +242,11 @@ function AutoComplete<TLabel = ReactNode>({
             ) : (
               <Chip
                 key={itemSelected.value}
-                value={itemSelected.value}
-                onClick={handleRemove}
+                onDismiss={(event) => {
+                  event.stopPropagation();
+                  event.preventDefault();
+                  removeValue(itemSelected.value);
+                }}
               >
                 {itemSelected.label as ReactNode}
               </Chip>
