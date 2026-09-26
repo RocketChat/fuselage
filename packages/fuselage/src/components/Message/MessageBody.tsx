@@ -20,6 +20,7 @@ const MessageBody = ({ clamp, className, ...props }: MessageBodyProps) => (
       ) as string
     }
     {...props}
+    dir='auto'
   />
 );
 
