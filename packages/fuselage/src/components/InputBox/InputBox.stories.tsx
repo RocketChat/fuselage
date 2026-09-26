@@ -138,6 +138,22 @@ export const Time: Story = {
   },
 };
 
+export const DateDisabled: Story = {
+  args: {
+    'aria-label': 'Date',
+    'type': 'date',
+    'disabled': true,
+  },
+};
+
+export const TimeDisabled: Story = {
+  args: {
+    'aria-label': 'Time',
+    'type': 'time',
+    'disabled': true,
+  },
+};
+
 export const WithAddon: Story = {
   args: {
     'aria-label': 'Value',

@@ -16,12 +16,53 @@ exports[`renders Date without crashing 1`] = `
       <span
         class="rcx-box rcx-box--full rcx-input-box__addon"
       >
-        <i
-          aria-hidden="true"
-          class="rcx-box rcx-box--full rcx-icon--name-calendar rcx-icon rcx-css-4pvxx3"
+        <button
+          aria-label="Open date picker"
+          class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button"
+          type="button"
         >
-          
-        </i>
+          <i
+            aria-hidden="true"
+            class="rcx-box rcx-box--full rcx-icon--name-calendar rcx-icon rcx-css-4pvxx3"
+          >
+            
+          </i>
+        </button>
+      </span>
+    </label>
+  </div>
+</body>
+`;
+
+exports[`renders DateDisabled without crashing 1`] = `
+<body>
+  <div>
+    <label
+      class="rcx-box rcx-box--full rcx-label rcx-box rcx-box--full rcx-box--animated rcx-input-box__wrapper disabled"
+    >
+      <input
+        aria-label="Date"
+        class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--undecorated rcx-input-box--type-date rcx-input-box"
+        disabled=""
+        size="1"
+        type="date"
+      />
+      <span
+        class="rcx-box rcx-box--full rcx-input-box__addon"
+      >
+        <button
+          aria-label="Open date picker"
+          class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button"
+          disabled=""
+          type="button"
+        >
+          <i
+            aria-hidden="true"
+            class="rcx-box rcx-box--full rcx-icon--name-calendar rcx-icon rcx-css-4pvxx3"
+          >
+            
+          </i>
+        </button>
       </span>
     </label>
   </div>
@@ -141,12 +182,53 @@ exports[`renders Time without crashing 1`] = `
       <span
         class="rcx-box rcx-box--full rcx-input-box__addon"
       >
-        <i
-          aria-hidden="true"
-          class="rcx-box rcx-box--full rcx-icon--name-clock rcx-icon rcx-css-4pvxx3"
+        <button
+          aria-label="Open time picker"
+          class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button"
+          type="button"
         >
-          
-        </i>
+          <i
+            aria-hidden="true"
+            class="rcx-box rcx-box--full rcx-icon--name-clock rcx-icon rcx-css-4pvxx3"
+          >
+            
+          </i>
+        </button>
+      </span>
+    </label>
+  </div>
+</body>
+`;
+
+exports[`renders TimeDisabled without crashing 1`] = `
+<body>
+  <div>
+    <label
+      class="rcx-box rcx-box--full rcx-label rcx-box rcx-box--full rcx-box--animated rcx-input-box__wrapper disabled"
+    >
+      <input
+        aria-label="Time"
+        class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--undecorated rcx-input-box--type-time rcx-input-box"
+        disabled=""
+        size="1"
+        type="time"
+      />
+      <span
+        class="rcx-box rcx-box--full rcx-input-box__addon"
+      >
+        <button
+          aria-label="Open time picker"
+          class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button"
+          disabled=""
+          type="button"
+        >
+          <i
+            aria-hidden="true"
+            class="rcx-box rcx-box--full rcx-icon--name-clock rcx-icon rcx-css-4pvxx3"
+          >
+            
+          </i>
+        </button>
       </span>
     </label>
   </div>

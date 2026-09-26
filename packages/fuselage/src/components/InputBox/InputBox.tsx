@@ -3,7 +3,7 @@ import type { ChangeEvent, ReactNode, RefAttributes } from 'react';
 import { useCallback, useLayoutEffect, useRef } from 'react';
 
 import type { BoxProps } from '../Box';
-import { Icon } from '../Icon';
+import IconButton from '../Button/IconButton';
 
 import Input from './Input';
 import InputBoxAddon from './InputBoxAddon';
@@ -106,16 +106,38 @@ function InputBox<
     [defaultAddon, onChange],
   );
 
-  const handleAddonClick = () =>
-    (innerRef.current as HTMLInputElement).showPicker();
+  const handleAddonClick = () => {
+    try {
+      (innerRef.current as HTMLInputElement).showPicker();
+    } catch {
+      // showPicker() may throw if the browser does not support it
+      // or if the element is not visible/focusable at that moment.
+    }
+  };
+
+  const isPickerDisabled = props.disabled || props.readOnly;
 
   if (type === 'date') {
     defaultAddon = (
-      <Icon name='calendar' size='x20' onClick={handleAddonClick} />
+      <IconButton
+        icon='calendar'
+        small
+        aria-label='Open date picker'
+        onClick={handleAddonClick}
+        disabled={isPickerDisabled}
+      />
     );
   }
   if (type === 'time') {
-    defaultAddon = <Icon name='clock' size='x20' onClick={handleAddonClick} />;
+    defaultAddon = (
+      <IconButton
+        icon='clock'
+        small
+        aria-label='Open time picker'
+        onClick={handleAddonClick}
+        disabled={isPickerDisabled}
+      />
+    );
   }
 
   if (!defaultAddon && !startAddon) {

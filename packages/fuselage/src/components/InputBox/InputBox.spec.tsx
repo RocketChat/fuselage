@@ -4,6 +4,7 @@ import { axe } from 'jest-axe';
 import { useEffect, useState } from 'react';
 
 import { render } from '../../testing';
+import InputBox from './InputBox';
 
 import * as stories from './InputBox.stories';
 
@@ -51,5 +52,57 @@ it('should update error class when error changes asynchronously', async () => {
     const input = getByRole('textbox', { name: /test-input/i })
       .parentElement as HTMLElement;
     expect(input).toHaveClass('invalid');
+  });
+});
+
+describe('date picker addon', () => {
+  it('renders a button with an accessible name', () => {
+    const { getByRole } = render(
+      <InputBox type='date' aria-label='Date input' />,
+    );
+    const button = getByRole('button', { name: /open date picker/i });
+    expect(button).toBeInTheDocument();
+  });
+
+  it('button is disabled when input is disabled', () => {
+    const { getByRole } = render(
+      <InputBox type='date' aria-label='Date input' disabled />,
+    );
+    const button = getByRole('button', { name: /open date picker/i });
+    expect(button).toBeDisabled();
+  });
+
+  it('button is disabled when input is readOnly', () => {
+    const { getByRole } = render(
+      <InputBox type='date' aria-label='Date input' readOnly />,
+    );
+    const button = getByRole('button', { name: /open date picker/i });
+    expect(button).toBeDisabled();
+  });
+});
+
+describe('time picker addon', () => {
+  it('renders a button with an accessible name', () => {
+    const { getByRole } = render(
+      <InputBox type='time' aria-label='Time input' />,
+    );
+    const button = getByRole('button', { name: /open time picker/i });
+    expect(button).toBeInTheDocument();
+  });
+
+  it('button is disabled when input is disabled', () => {
+    const { getByRole } = render(
+      <InputBox type='time' aria-label='Time input' disabled />,
+    );
+    const button = getByRole('button', { name: /open time picker/i });
+    expect(button).toBeDisabled();
+  });
+
+  it('button is disabled when input is readOnly', () => {
+    const { getByRole } = render(
+      <InputBox type='time' aria-label='Time input' readOnly />,
+    );
+    const button = getByRole('button', { name: /open time picker/i });
+    expect(button).toBeDisabled();
   });
 });
