@@ -1,7 +1,11 @@
+import type { UsePositionOptions } from '@rocket.chat/fuselage-hooks';
 import type { Meta, StoryObj } from '@storybook/react-webpack5';
+import { useRef } from 'react';
 
+import { AnimatedVisibility } from '../AnimatedVisibility';
 import { Box } from '../Box';
-import { Margins } from '../Margins';
+import { IconButton } from '../Button';
+import { PositionAnimated } from '../PositionAnimated';
 
 import Tooltip from './Tooltip';
 
@@ -87,30 +91,64 @@ export const WithLineBreak: Story = {
   },
 };
 
+type AnchoredTooltipProps = {
+  placement: UsePositionOptions['placement'];
+};
+
+const AnchoredTooltip = ({ placement }: AnchoredTooltipProps) => {
+  const anchor = useRef<HTMLButtonElement>(null);
+
+  return (
+    <Box display='inline-flex' paddingBlock='x56' paddingInline='x96'>
+      <IconButton ref={anchor} icon='home' small aria-label={placement} />
+      <PositionAnimated
+        anchor={anchor}
+        placement={placement}
+        margin={8}
+        visible={AnimatedVisibility.VISIBLE}
+      >
+        <Tooltip>{placement}</Tooltip>
+      </PositionAnimated>
+    </Box>
+  );
+};
+
+const ArrowGrid = () => (
+  <>
+    <Box>
+      <AnchoredTooltip placement='bottom-start' />
+      <AnchoredTooltip placement='bottom-middle' />
+      <AnchoredTooltip placement='bottom-end' />
+    </Box>
+    <Box>
+      <AnchoredTooltip placement='right-middle' />
+      <AnchoredTooltip placement='left-middle' />
+    </Box>
+    <Box>
+      <AnchoredTooltip placement='top-start' />
+      <AnchoredTooltip placement='top-middle' />
+      <AnchoredTooltip placement='top-end' />
+    </Box>
+  </>
+);
+
 export const ArrowPositioning: Story = {
+  render: () => <ArrowGrid />,
+};
+
+export const ArrowPositioningRTL: Story = {
+  name: 'Arrow Positioning (RTL)',
   render: () => (
-    <Margins inline='neg-x8'>
-      <Box>
-        <Margins all='x8'>
-          <Tooltip children='Tooltip' placement='bottom-start' />
-          <Tooltip children='Tooltip' placement='bottom-middle' />
-          <Tooltip children='Tooltip' placement='bottom-end' />
-        </Margins>
-      </Box>
-      <Box>
-        <Margins all='x8'>
-          <Tooltip children='Tooltip' placement='right' />
-          <Tooltip children='Tooltip' placement={null} />
-          <Tooltip children='Tooltip' placement='left' />
-        </Margins>
-      </Box>
-      <Box>
-        <Margins all='x8'>
-          <Tooltip children='Tooltip' placement='top-start' />
-          <Tooltip children='Tooltip' placement='top-middle' />
-          <Tooltip children='Tooltip' placement='top-end' />
-        </Margins>
-      </Box>
-    </Margins>
+    <Box dir='rtl'>
+      <ArrowGrid />
+    </Box>
   ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Placements are physical, so every arrow must still point at its button, exactly as in `ArrowPositioning`.',
+      },
+    },
+  },
 };
