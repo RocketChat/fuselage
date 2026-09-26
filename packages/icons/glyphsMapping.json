@@ -1156,5 +1156,11 @@
   "folder-star": {
     "start": "\u3016",
     "end": "\u3017"
+  },
+  "address-book-plus": {
+    "start": "\ue1cd"
+  },
+  "book-clock": {
+    "start": "\ue1cf"
   }
 }
