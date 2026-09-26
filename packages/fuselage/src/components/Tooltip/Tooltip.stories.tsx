@@ -93,10 +93,9 @@ export const WithLineBreak: Story = {
 
 type AnchoredTooltipProps = {
   placement: UsePositionOptions['placement'];
-  dir?: 'ltr' | 'rtl';
 };
 
-const AnchoredTooltip = ({ placement, dir }: AnchoredTooltipProps) => {
+const AnchoredTooltip = ({ placement }: AnchoredTooltipProps) => {
   const anchor = useRef<HTMLButtonElement>(null);
 
   return (
@@ -107,7 +106,6 @@ const AnchoredTooltip = ({ placement, dir }: AnchoredTooltipProps) => {
         placement={placement}
         margin={8}
         visible={AnimatedVisibility.VISIBLE}
-        dir={dir}
       >
         <Tooltip>{placement}</Tooltip>
       </PositionAnimated>
@@ -115,21 +113,21 @@ const AnchoredTooltip = ({ placement, dir }: AnchoredTooltipProps) => {
   );
 };
 
-const ArrowGrid = ({ dir }: { dir?: 'ltr' | 'rtl' }) => (
+const ArrowGrid = () => (
   <>
     <Box>
-      <AnchoredTooltip placement='bottom-start' dir={dir} />
-      <AnchoredTooltip placement='bottom-middle' dir={dir} />
-      <AnchoredTooltip placement='bottom-end' dir={dir} />
+      <AnchoredTooltip placement='bottom-start' />
+      <AnchoredTooltip placement='bottom-middle' />
+      <AnchoredTooltip placement='bottom-end' />
     </Box>
     <Box>
-      <AnchoredTooltip placement='right-middle' dir={dir} />
-      <AnchoredTooltip placement='left-middle' dir={dir} />
+      <AnchoredTooltip placement='right-middle' />
+      <AnchoredTooltip placement='left-middle' />
     </Box>
     <Box>
-      <AnchoredTooltip placement='top-start' dir={dir} />
-      <AnchoredTooltip placement='top-middle' dir={dir} />
-      <AnchoredTooltip placement='top-end' dir={dir} />
+      <AnchoredTooltip placement='top-start' />
+      <AnchoredTooltip placement='top-middle' />
+      <AnchoredTooltip placement='top-end' />
     </Box>
   </>
 );
@@ -142,7 +140,7 @@ export const ArrowPositioningRTL: Story = {
   name: 'Arrow Positioning (RTL)',
   render: () => (
     <Box dir='rtl'>
-      <ArrowGrid dir='rtl' />
+      <ArrowGrid />
     </Box>
   ),
   parameters: {
