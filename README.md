@@ -12,7 +12,6 @@
 
 | Package | Description | Version | Dependencies |
 |---------|-------------|---------|--------------|
-| 📦 [`@rocket.chat/css-in-js`](/packages/css-in-js) | Toolset to transpile and use CSS on runtime | [![npm](https://img.shields.io/npm/v/@rocket.chat/css-in-js?style=flat-square)](https://www.npmjs.com/package/@rocket.chat/css-in-js) | ![deps](https://img.shields.io/librariesio/release/npm/@rocket.chat/css-in-js?style=flat-square) |
 | 📦 [`@rocket.chat/fuselage`](/packages/fuselage) | Rocket.Chat's React Components Library | [![npm](https://img.shields.io/npm/v/@rocket.chat/fuselage?style=flat-square)](https://www.npmjs.com/package/@rocket.chat/fuselage) | ![deps](https://img.shields.io/librariesio/release/npm/@rocket.chat/fuselage?style=flat-square) |
 | 📦 [`@rocket.chat/fuselage-forms`](/packages/fuselage-forms) | A set of component wrappers to provide ease of use and accessibility out-of-box. | [![npm](https://img.shields.io/npm/v/@rocket.chat/fuselage-forms?style=flat-square)](https://www.npmjs.com/package/@rocket.chat/fuselage-forms) | ![deps](https://img.shields.io/librariesio/release/npm/@rocket.chat/fuselage-forms?style=flat-square) |
 | 📦 [`@rocket.chat/fuselage-hooks`](/packages/fuselage-hooks) | React hooks for Fuselage, Rocket.Chat's design system and UI toolkit | [![npm](https://img.shields.io/npm/v/@rocket.chat/fuselage-hooks?style=flat-square)](https://www.npmjs.com/package/@rocket.chat/fuselage-hooks) | ![deps](https://img.shields.io/librariesio/release/npm/@rocket.chat/fuselage-hooks?style=flat-square) |
@@ -21,7 +20,11 @@
 | 📦 [`@rocket.chat/icons`](/packages/icons) | Rocket.Chat's Icons | [![npm](https://img.shields.io/npm/v/@rocket.chat/icons?style=flat-square)](https://www.npmjs.com/package/@rocket.chat/icons) | ![deps](https://img.shields.io/librariesio/release/npm/@rocket.chat/icons?style=flat-square) |
 | 📦 [`@rocket.chat/layout`](/packages/layout) | Shared Application Layout Components | [![npm](https://img.shields.io/npm/v/@rocket.chat/layout?style=flat-square)](https://www.npmjs.com/package/@rocket.chat/layout) | ![deps](https://img.shields.io/librariesio/release/npm/@rocket.chat/layout?style=flat-square) |
 | 📦 [`@rocket.chat/logo`](/packages/logo) | Rocket.Chat logo package | [![npm](https://img.shields.io/npm/v/@rocket.chat/logo?style=flat-square)](https://www.npmjs.com/package/@rocket.chat/logo) | ![deps](https://img.shields.io/librariesio/release/npm/@rocket.chat/logo?style=flat-square) |
-| 📦 [`@rocket.chat/onboarding-ui`](/packages/onboarding-ui) | Set of components and functions for the onboarding experience on Rocket.Chat | [![npm](https://img.shields.io/npm/v/@rocket.chat/onboarding-ui?style=flat-square)](https://www.npmjs.com/package/@rocket.chat/onboarding-ui) | ![deps](https://img.shields.io/librariesio/release/npm/@rocket.chat/onboarding-ui?style=flat-square) |
 | 📦 [`@rocket.chat/prettier-config`](/packages/prettier-config) | Prettier configuration for Rocket.Chat repositories | [![npm](https://img.shields.io/npm/v/@rocket.chat/prettier-config?style=flat-square)](https://www.npmjs.com/package/@rocket.chat/prettier-config) | ![deps](https://img.shields.io/librariesio/release/npm/@rocket.chat/prettier-config?style=flat-square) |
 | 📦 [`@rocket.chat/styled`](/packages/styled) | A simple styled API for React components | [![npm](https://img.shields.io/npm/v/@rocket.chat/styled?style=flat-square)](https://www.npmjs.com/package/@rocket.chat/styled) | ![deps](https://img.shields.io/librariesio/release/npm/@rocket.chat/styled?style=flat-square) |
-| 📦 [`@rocket.chat/stylis-logical-props-middleware`](/packages/stylis-logical-props-middleware) | Stylis middleware to handle CSS Logical Properties and their fallbacks | [![npm](https://img.shields.io/npm/v/@rocket.chat/stylis-logical-props-middleware?style=flat-square)](https://www.npmjs.com/package/@rocket.chat/stylis-logical-props-middleware) | ![deps](https://img.shields.io/librariesio/release/npm/@rocket.chat/stylis-logical-props-middleware?style=flat-square) |
+
+## Packages outside the monorepo
+
+These packages were part of this monorepo and remain available on the npm registry:
+
+- [`@rocket.chat/onboarding-ui`](https://www.npmjs.com/package/@rocket.chat/onboarding-ui), now developed in [RocketChat/Rocket.Chat](https://github.com/RocketChat/Rocket.Chat)

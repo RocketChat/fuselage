@@ -17,7 +17,7 @@ jobs:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           ref: gh-pages
-      - run: rm -rf "fuselage/${{ github.event.number }}" "layout/${{ github.event.number }}" "onboarding-ui/${{ github.event.number }}"
+      - run: rm -rf "fuselage/${{ github.event.number }}" "layout/${{ github.event.number }}"
       - uses: crazy-max/ghaction-github-pages@1d6ee9b181a81033a16bd707a1401afa978daab4 # v5.0.0
         with:
           target_branch: gh-pages
