@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import { memo, useLayoutEffect } from 'react';
+import { memo, useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 
 const ensureAnchorElement = (id: string): HTMLElement => {
@@ -47,17 +47,19 @@ type ToastBarPortalProps = {
 };
 
 const ToastBarPortal = ({ children }: ToastBarPortalProps) => {
-  const toastBarRoot = ensureAnchorElement('toastBarRoot');
+  const [toastBarRoot, setToastBarRoot] = useState<HTMLElement | null>(null);
 
-  useLayoutEffect(() => {
-    refAnchorElement(toastBarRoot);
+  useEffect(() => {
+    const anchor = ensureAnchorElement('toastBarRoot');
+    refAnchorElement(anchor);
+    setToastBarRoot(anchor);
 
     return () => {
-      unrefAnchorElement(toastBarRoot);
+      unrefAnchorElement(anchor);
     };
-  }, [toastBarRoot]);
+  }, []);
 
-  return createPortal(children, toastBarRoot);
+  return toastBarRoot ? createPortal(children, toastBarRoot) : null;
 };
 
 export default memo(ToastBarPortal);
