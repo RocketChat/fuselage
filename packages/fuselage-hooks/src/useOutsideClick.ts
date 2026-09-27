@@ -17,10 +17,14 @@ export function useOutsideClick<T extends Element>(
   const handleClickOutside = useStableCallback(function handleClickOutside(
     event: MouseEvent,
   ): void {
+    const path = event.composedPath();
+
     if (
       elements.every(
         (ref) =>
-          event && ref.current && !ref.current.contains(event.target as Node),
+          ref.current &&
+          !ref.current.contains(event.target as Node) &&
+          !path.includes(ref.current),
       )
     )
       return cb(event);
