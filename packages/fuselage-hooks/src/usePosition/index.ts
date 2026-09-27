@@ -1,5 +1,5 @@
 import type { RefObject, CSSProperties } from 'react';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 
 import { useDebouncedCallback } from '../useDebouncedCallback';
 import { useSafely } from '../useSafely';
@@ -206,11 +206,7 @@ export function usePosition<TTarget extends Element, TAnchor extends Element>(
 ): UsePositionResult {
   const [style, setStyle] = useSafely(useState<UsePositionResult>(emptyStyle));
 
-  const containerRef = useRef(container);
-
-  useEffect(() => {
-    containerRef.current = container;
-  }, [container]);
+  const containerRef = useMemo(() => ({ current: container }), [container]);
 
   const handleBoundingClientRectChange = useDebouncedCallback(
     useStableCallback(() => {
@@ -259,5 +255,10 @@ export function usePosition<TTarget extends Element, TAnchor extends Element>(
   useBoundingClientRectChanges(targetRef, handleBoundingClientRectChange);
   useBoundingClientRectChanges(anchorRef, handleBoundingClientRectChange);
   useBoundingClientRectChanges(containerRef, handleBoundingClientRectChange);
+
+  useEffect(() => {
+    handleBoundingClientRectChange();
+  }, [container, margin, placement, handleBoundingClientRectChange]);
+
   return style;
 }
