@@ -167,14 +167,16 @@ export function getPositionStyle({
   const referencePoint = directionVertical ? top : left;
 
   const point = (containerHeight - targetHeight) / 2 + referencePoint;
+  const targetTop = directionVertical ? point : variantPoint;
+  const targetLeft = directionVertical ? variantPoint : point;
 
   return {
     style: {
-      top: point,
-      left: variantPoint,
+      top: targetTop,
+      left: targetLeft,
       position: 'fixed',
       zIndex: 999999,
-      ...(bottom < targetRect.height + point && {
+      ...(bottom < targetRect.height + targetTop && {
         bottom: margin,
         overflowY: 'auto',
       }),
