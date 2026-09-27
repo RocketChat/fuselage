@@ -68,7 +68,7 @@ export const useStorage = <T>(
     (cb: () => void) => {
       const handleEvent = (event: StorageEvent): void => {
         if (event.storageArea !== storage) return;
-        if (event.key !== storedKey) return;
+        if (event.key !== null && event.key !== storedKey) return;
 
         ee.emit(
           storedKey,
