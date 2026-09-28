@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.51.0
+
+### Minor Changes
+
+- [#2215](https://github.com/RocketChat/fuselage/pull/2215) [`8596894`](https://github.com/RocketChat/fuselage/commit/8596894b28f26444c9b2128a57d896b8a0c1d69d) Thanks [@nazabucciarelli](https://github.com/nazabucciarelli)! - feat(icons): add address-book-plus & book-clock - [#2215](https://github.com/RocketChat/fuselage/issues/2215)
+
 ## 0.50.0
 
 ### Minor Changes
