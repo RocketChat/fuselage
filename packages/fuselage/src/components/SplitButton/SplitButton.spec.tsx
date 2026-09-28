@@ -7,7 +7,7 @@ import { render } from '../../testing';
 
 import * as stories from './SplitButton.stories';
 
-const { Default, Danger } = composeStories(stories);
+const { Default, Danger, Variants } = composeStories(stories);
 
 const testCases = Object.values(composeStories(stories)).map((Story) => [
   Story.storyName || 'Story',
@@ -67,6 +67,19 @@ describe('[SplitButton Component]', () => {
 
     expect(screen.getByRole('group', { name: 'Leave call' })).toHaveClass(
       'rcx-split-button--danger',
+    );
+  });
+
+  it.each([
+    ['Leave call', 'danger'],
+    ['Raise hand', 'warning'],
+    ['Answer call', 'success'],
+    ['Camera', 'primary'],
+  ])('marks the %s group as %s', (name, variant) => {
+    render(<Variants />);
+
+    expect(screen.getByRole('group', { name })).toHaveClass(
+      `rcx-split-button--${variant}`,
     );
   });
 });
