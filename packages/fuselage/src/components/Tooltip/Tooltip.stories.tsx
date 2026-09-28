@@ -1,6 +1,6 @@
 import type { UsePositionOptions } from '@rocket.chat/fuselage-hooks';
 import type { Meta, StoryObj } from '@storybook/react-webpack5';
-import { useRef } from 'react';
+import { useLayoutEffect, useRef } from 'react';
 
 import { AnimatedVisibility } from '../AnimatedVisibility';
 import { Box } from '../Box';
@@ -138,11 +138,21 @@ export const ArrowPositioning: Story = {
 
 export const ArrowPositioningRTL: Story = {
   name: 'Arrow Positioning (RTL)',
-  render: () => (
-    <Box dir='rtl'>
-      <ArrowGrid />
-    </Box>
-  ),
+  render: () => <ArrowGrid />,
+  decorators: [
+    (Story) => {
+      // Set on the document root so the portalled tooltips inherit it too.
+      useLayoutEffect(() => {
+        document.documentElement.dir = 'rtl';
+
+        return () => {
+          document.documentElement.removeAttribute('dir');
+        };
+      }, []);
+
+      return <Story />;
+    },
+  ],
   parameters: {
     docs: {
       description: {
