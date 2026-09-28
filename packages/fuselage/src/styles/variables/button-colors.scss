@@ -523,9 +523,9 @@ $button-off-disabled-color: theme(
   colors.button(on-secondary-disabled)
 );
 
-// joined button group / ghost segments (secondary tokens at 60% opacity)
+// joined button group / ghost segments (secondary tokens at 70% opacity)
 @function -translucent($token) {
-  @return color-mix(in srgb, colors.button($token) 60%, transparent);
+  @return color-mix(in srgb, colors.button($token) 70%, transparent);
 }
 
 $button-group-joined-background-color: theme(
@@ -543,4 +543,72 @@ $button-ghost-active-background-color: theme(
 $button-ghost-focus-background-color: theme(
   'button-ghost-focus-background-color',
   -translucent(secondary-focus)
+);
+
+// variant-aware ghost segments: the variant's own background and state
+// tokens at the same 70% translucency, so a ghost segment keeps the
+// variant's identity while letting the surface behind show through
+$button-ghost-danger-background-color: theme(
+  'button-ghost-danger-background-color',
+  -translucent(danger-default)
+);
+$button-ghost-danger-hover-background-color: theme(
+  'button-ghost-danger-hover-background-color',
+  -translucent(danger-hover)
+);
+$button-ghost-danger-active-background-color: theme(
+  'button-ghost-danger-active-background-color',
+  -translucent(danger-press)
+);
+$button-ghost-danger-focus-background-color: theme(
+  'button-ghost-danger-focus-background-color',
+  -translucent(danger-focus)
+);
+$button-ghost-warning-background-color: theme(
+  'button-ghost-warning-background-color',
+  -translucent(warning-default)
+);
+$button-ghost-warning-hover-background-color: theme(
+  'button-ghost-warning-hover-background-color',
+  -translucent(warning-hover)
+);
+$button-ghost-warning-active-background-color: theme(
+  'button-ghost-warning-active-background-color',
+  -translucent(warning-press)
+);
+$button-ghost-warning-focus-background-color: theme(
+  'button-ghost-warning-focus-background-color',
+  -translucent(warning-focus)
+);
+$button-ghost-success-background-color: theme(
+  'button-ghost-success-background-color',
+  -translucent(success-default)
+);
+$button-ghost-success-hover-background-color: theme(
+  'button-ghost-success-hover-background-color',
+  -translucent(success-hover)
+);
+$button-ghost-success-active-background-color: theme(
+  'button-ghost-success-active-background-color',
+  -translucent(success-press)
+);
+$button-ghost-success-focus-background-color: theme(
+  'button-ghost-success-focus-background-color',
+  -translucent(success-focus)
+);
+$button-ghost-primary-background-color: theme(
+  'button-ghost-primary-background-color',
+  -translucent(primary-default)
+);
+$button-ghost-primary-hover-background-color: theme(
+  'button-ghost-primary-hover-background-color',
+  -translucent(primary-hover)
+);
+$button-ghost-primary-active-background-color: theme(
+  'button-ghost-primary-active-background-color',
+  -translucent(primary-press)
+);
+$button-ghost-primary-focus-background-color: theme(
+  'button-ghost-primary-focus-background-color',
+  -translucent(primary-focus)
 );
