@@ -2235,6 +2235,9 @@ export function SplitButton(input: SplitButtonProps): JSX.Element;
 // @public (undocumented)
 export type SplitButtonProps = RefAttributes<HTMLDivElement> & HTMLAttributes<HTMLDivElement> & {
     danger?: boolean;
+    warning?: boolean;
+    success?: boolean;
+    primary?: boolean;
 } & ({
     'aria-label': string;
 } | {
