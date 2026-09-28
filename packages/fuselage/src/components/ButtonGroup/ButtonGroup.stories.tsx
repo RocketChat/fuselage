@@ -20,7 +20,7 @@ export default {
           'A container for grouping buttons that semantically share a common action context. By default the buttons are laid out with an 8px gap (4px with `small`, 16px with `large`).\n\n' +
           '**Joined**\n\n' +
           'The `joined` variant fuses the buttons into a single segmented control: no gap between segments, group-level rounded corners, and no dividers — buttons sit flush. `joined` takes precedence over the `small`/`large` spacing modifiers; it composes with `vertical`, `stretch`, and `align`.\n\n' +
-          "The joined group carries a translucent background (the secondary button background at 60% opacity). With opaque buttons it is fully covered; it only shows through the **ghost** segment — picked by the group via `ghostPosition='start' | 'end'`, which turns the first or last segment transparent so the surface behind the group shines through. Use the ghost segment for auxiliary edge actions, e.g. the expand chevron of a split button or floating controls over media/video. It keeps hover/active/focus feedback, and by design it is always an edge segment — a middle button cannot be ghosted.\n\n" +
+          "The joined group carries a translucent background (the secondary button background at 70% opacity). With opaque buttons it is fully covered; it only shows through the **ghost** segment — picked by the group via `ghostPosition='start' | 'end'`, which turns the first or last segment transparent so the surface behind the group shines through. Use the ghost segment for auxiliary edge actions, e.g. the expand chevron of a split button or floating controls over media/video. It keeps the button variant's identity — the glyph uses the variant's font color and hover/active/focus feedback reuses the variant's own state tokens at the same 70% translucency — and by design it is always an edge segment: a middle button cannot be ghosted.\n\n" +
           '**Rules**\n' +
           '- Use 2–4 buttons in a joined group, with at most one Primary.\n' +
           '- Joined groups work with regular labeled Buttons, icon-only `square` Buttons, and IconButtons.\n' +
@@ -384,6 +384,75 @@ export const JoinedWithMultipleButtonSizes: Story = {
       description: {
         story:
           'A joined group works with any Button size, as long as the group is homogeneous — every button in it uses the same size (small, medium, default, and large shown here). Never mix sizes inside the same joined group: the segments would no longer sit flush.',
+      },
+    },
+  },
+};
+
+export const JoinedGhostVariants: Story = {
+  decorators: [withLightSurface],
+  argTypes: withoutSpacingControls,
+  render: (args) => (
+    <Box
+      display='flex'
+      flexDirection='column'
+      alignItems='flex-start'
+      gap='x16'
+    >
+      <ButtonGroup {...args} joined>
+        <Button>Mute</Button>
+        <Button square icon='chevron-down' aria-label='Microphone options' />
+      </ButtonGroup>
+      <ButtonGroup {...args} joined>
+        <Button danger>End call</Button>
+        <Button
+          square
+          danger
+          icon='chevron-down'
+          aria-label='End call options'
+        />
+      </ButtonGroup>
+      <ButtonGroup {...args} joined>
+        <Button primary>Join call</Button>
+        <Button
+          square
+          primary
+          icon='chevron-down'
+          aria-label='Join call options'
+        />
+      </ButtonGroup>
+      <ButtonGroup {...args} joined>
+        <IconButton icon='mic' secondary aria-label='Microphone' />
+        <IconButton
+          icon='chevron-down'
+          secondary
+          aria-label='Microphone options'
+        />
+      </ButtonGroup>
+      <ButtonGroup {...args} joined>
+        <IconButton icon='phone-off' secondary danger aria-label='End call' />
+        <IconButton
+          icon='chevron-down'
+          secondary
+          danger
+          aria-label='End call options'
+        />
+      </ButtonGroup>
+      <ButtonGroup {...args} joined>
+        <IconButton icon='video' primary aria-label='Camera' />
+        <IconButton icon='chevron-down' primary aria-label='Camera options' />
+      </ButtonGroup>
+    </Box>
+  ),
+  args: {
+    joined: true,
+    ghostPosition: 'end',
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "The ghost segment keeps the variant of the button it lands on: a danger or primary button at the ghost edge renders its background, glyph, and state feedback with the variant's own tokens at the same translucency as the default (secondary) ghost. It works the same with labeled Buttons and with IconButton-only groups.",
       },
     },
   },
