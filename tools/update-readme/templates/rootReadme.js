@@ -29,4 +29,10 @@ export const rootReadme = (pkgs) => outdent`
     )
     .join('\n')}
 
+  ## Packages outside the monorepo
+
+  These packages were part of this monorepo and remain available on the npm registry:
+
+  - [\`@rocket.chat/onboarding-ui\`](https://www.npmjs.com/package/@rocket.chat/onboarding-ui), now developed in [RocketChat/Rocket.Chat](https://github.com/RocketChat/Rocket.Chat)
+
 `;
