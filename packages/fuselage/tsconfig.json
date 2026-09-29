@@ -2,7 +2,25 @@
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "lib": ["DOM", "ES2024"],
-    "outDir": "./dist"
+    "outDir": "./dist",
+    // @tamagui/core and @tamagui/web declare `"type": "module"` but write
+    // extensionless relative imports in their .d.ts files, which `nodenext`
+    // rejects; their public types resolve to `any` under it -- `createTamagui`
+    // included, which would silently untype the whole config.
+    "module": "preserve",
+    "moduleResolution": "bundler",
+    // Implied by `module: preserve`, but ts-jest rewrites `module` to
+    // CommonJS and would otherwise lose it.
+    "esModuleInterop": true,
+    // Re-enabled for this package alone, against #2214. @tamagui/web ships
+    // .d.ts files that do not type-check on their own: `getThemes` returns
+    // named color properties the same object's index signature rejects
+    // (TS2411 x16), and the web-only build imports types from `react-native`
+    // without declaring it as a dependency (TS2307). 2.7.7 is the latest
+    // stable and 3.0.0-beta carries the same `getThemes` bug, so there is no
+    // version to upgrade to and nothing on our side to configure around it.
+    // Drop this once @tamagui/web's declarations check cleanly.
+    "skipLibCheck": true
   },
   "include": [
     "./src",

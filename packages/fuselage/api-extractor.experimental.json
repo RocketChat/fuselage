@@ -1,0 +1,20 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/api-extractor/v7/api-extractor.schema.json",
+  "extends": "../../api-extractor.json",
+  "mainEntryPointFilePath": "<projectFolder>/dist/experimental/index.d.ts",
+  "apiReport": {
+    "reportFileName": "fuselage-experimental.api.md"
+  },
+  "messages": {
+    "extractorMessageReporting": {
+      /**
+       * @tamagui/types ships raw .ts sources rather than .d.ts, which API
+       * Extractor refuses to analyze. Nothing it reports about them concerns
+       * this package's own API surface.
+       */
+      "ae-wrong-input-file-type": {
+        "logLevel": "none"
+      }
+    }
+  }
+}

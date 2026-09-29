@@ -7,7 +7,7 @@ import statusBullet from '@rocket.chat/fuselage-tokens/dist/statusBullet.json';
 import stroke from '@rocket.chat/fuselage-tokens/dist/stroke.json';
 import surface from '@rocket.chat/fuselage-tokens/dist/surface.json';
 
-import type { Themes } from '../types/themes';
+import type { Themes } from '../types/Themes';
 
 export const getTokens = (theme: Themes) => {
   const tokens = {
