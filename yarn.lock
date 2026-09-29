@@ -4293,7 +4293,8 @@ __metadata:
     "@rocket.chat/fuselage": "workspace:~"
     "@rocket.chat/fuselage-hooks": "workspace:~"
     "@rocket.chat/fuselage-tokens": "workspace:~"
-    "@rocket.chat/layout": "workspace:~"
+    "@rocket.chat/layout": "npm:~0.36.3"
+    "@rocket.chat/logo": "workspace:~"
     "@rocket.chat/storybook-dark-mode": "npm:~4.2.1"
     "@rocket.chat/styled": "workspace:~"
     "@storybook/addon-docs": "npm:~9.1.20"
@@ -4306,12 +4307,14 @@ __metadata:
     "@types/react": "npm:~19.2.18"
     "@types/react-dom": "npm:~19.2.7"
     eslint: "npm:~10.8.1"
+    i18next: "npm:~26.4.2"
     jest: "npm:~30.4.2"
     jest-environment-jsdom: "npm:~30.4.1"
     lint-all: "workspace:~"
     prettier: "npm:~3.6.2"
     react: "npm:~19.2.8"
     react-dom: "npm:~19.2.8"
+    react-i18next: "npm:~17.0.14"
     react-timing-hooks: "npm:~5.2.0"
     rimraf: "npm:~6.1.3"
     storybook: "npm:~9.1.20"
@@ -4428,45 +4431,18 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@rocket.chat/layout@workspace:packages/layout, @rocket.chat/layout@workspace:~":
-  version: 0.0.0-use.local
-  resolution: "@rocket.chat/layout@workspace:packages/layout"
-  dependencies:
-    "@microsoft/api-extractor": "npm:~7.58.13"
-    "@rocket.chat/fuselage": "workspace:~"
-    "@rocket.chat/fuselage-tokens": "workspace:~"
-    "@rocket.chat/logo": "workspace:~"
-    "@rocket.chat/storybook-dark-mode": "npm:~4.2.1"
-    "@storybook/addon-a11y": "npm:~9.1.20"
-    "@storybook/addon-docs": "npm:~9.1.20"
-    "@storybook/addon-webpack5-compiler-swc": "npm:~4.0.3"
-    "@storybook/react-webpack5": "npm:~9.1.20"
-    "@testing-library/dom": "npm:~10.4.2"
-    "@testing-library/react": "npm:~16.3.3"
-    "@types/react": "npm:~19.2.18"
-    "@types/react-dom": "npm:~19.2.7"
-    eslint: "npm:~10.8.1"
-    i18next: "npm:~26.4.2"
-    jest: "npm:~30.4.2"
-    jest-environment-jsdom: "npm:~30.4.1"
-    lint-all: "workspace:~"
-    prettier: "npm:~3.6.2"
-    react: "npm:~19.2.8"
-    react-dom: "npm:~19.2.8"
-    react-i18next: "npm:~17.0.14"
-    rimraf: "npm:~6.1.3"
-    storybook: "npm:~9.1.20"
-    ts-jest: "npm:~29.4.12"
-    typedoc: "npm:~0.28.20"
-    typescript: "npm:~5.9.3"
+"@rocket.chat/layout@npm:~0.36.3":
+  version: 0.36.3
+  resolution: "@rocket.chat/layout@npm:0.36.3"
   peerDependencies:
     "@rocket.chat/fuselage": "*"
     "@rocket.chat/logo": "*"
     react: "*"
     react-dom: "*"
     react-i18next: "*"
-  languageName: unknown
-  linkType: soft
+  checksum: 10/12bdab30798d5c726c7e8524b75385f7696c05f0029e50a66077ee5fbfe4f3ab23eff5d841f11554d53e32d9d1be9a6fce02b1a5a6040761642e07c295d3bb9c
+  languageName: node
+  linkType: hard
 
 "@rocket.chat/logo@workspace:packages/logo, @rocket.chat/logo@workspace:~":
   version: 0.0.0-use.local
@@ -14834,8 +14810,8 @@ __metadata:
   linkType: hard
 
 "react-i18next@npm:~17.0.14":
-  version: 17.0.14
-  resolution: "react-i18next@npm:17.0.14"
+  version: 17.0.15
+  resolution: "react-i18next@npm:17.0.15"
   dependencies:
     "@babel/runtime": "npm:^7.29.7"
     html-parse-stringify: "npm:^4.0.1"
@@ -14851,7 +14827,7 @@ __metadata:
       optional: true
     typescript:
       optional: true
-  checksum: 10/b45f81d6e8064c0ee19969fdb6d7534ab755497f7a9be80e124cf0833c7fba4d485575a847bd1d2cb00b4a159f78a42b9a32f7505c1d6f82d8c9cd8607ca5b53
+  checksum: 10/c600fd89b3421f75c8cf57cfc2afa8613479da21709ee354f2263a6ee8c04e7be29b43f183bdd2b06ffc461625c658a46f9d36fd082f736f4a28baabf61f5976
   languageName: node
   linkType: hard
 
