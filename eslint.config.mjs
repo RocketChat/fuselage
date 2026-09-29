@@ -511,7 +511,7 @@ export default tseslint.config(
     },
   },
   {
-    files: ['packages/fuselage/**/*.ts?(x)', 'packages/layout/**/*.ts?(x)'],
+    files: ['packages/fuselage/**/*.ts?(x)'],
     rules: {
       '@typescript-eslint/explicit-module-boundary-types': 'off',
       '@typescript-eslint/no-empty-function': 'off',

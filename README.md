@@ -18,7 +18,6 @@
 | 📦 [`@rocket.chat/fuselage-toastbar`](/packages/fuselage-toastbar) | Fuselage ToastBar component | [![npm](https://img.shields.io/npm/v/@rocket.chat/fuselage-toastbar?style=flat-square)](https://www.npmjs.com/package/@rocket.chat/fuselage-toastbar) | ![deps](https://img.shields.io/librariesio/release/npm/@rocket.chat/fuselage-toastbar?style=flat-square) |
 | 📦 [`@rocket.chat/fuselage-tokens`](/packages/fuselage-tokens) | Design tokens for Fuselage, Rocket.Chat's design system | [![npm](https://img.shields.io/npm/v/@rocket.chat/fuselage-tokens?style=flat-square)](https://www.npmjs.com/package/@rocket.chat/fuselage-tokens) | ![deps](https://img.shields.io/librariesio/release/npm/@rocket.chat/fuselage-tokens?style=flat-square) |
 | 📦 [`@rocket.chat/icons`](/packages/icons) | Rocket.Chat's Icons | [![npm](https://img.shields.io/npm/v/@rocket.chat/icons?style=flat-square)](https://www.npmjs.com/package/@rocket.chat/icons) | ![deps](https://img.shields.io/librariesio/release/npm/@rocket.chat/icons?style=flat-square) |
-| 📦 [`@rocket.chat/layout`](/packages/layout) | Shared Application Layout Components | [![npm](https://img.shields.io/npm/v/@rocket.chat/layout?style=flat-square)](https://www.npmjs.com/package/@rocket.chat/layout) | ![deps](https://img.shields.io/librariesio/release/npm/@rocket.chat/layout?style=flat-square) |
 | 📦 [`@rocket.chat/logo`](/packages/logo) | Rocket.Chat logo package | [![npm](https://img.shields.io/npm/v/@rocket.chat/logo?style=flat-square)](https://www.npmjs.com/package/@rocket.chat/logo) | ![deps](https://img.shields.io/librariesio/release/npm/@rocket.chat/logo?style=flat-square) |
 | 📦 [`@rocket.chat/prettier-config`](/packages/prettier-config) | Prettier configuration for Rocket.Chat repositories | [![npm](https://img.shields.io/npm/v/@rocket.chat/prettier-config?style=flat-square)](https://www.npmjs.com/package/@rocket.chat/prettier-config) | ![deps](https://img.shields.io/librariesio/release/npm/@rocket.chat/prettier-config?style=flat-square) |
 | 📦 [`@rocket.chat/styled`](/packages/styled) | A simple styled API for React components | [![npm](https://img.shields.io/npm/v/@rocket.chat/styled?style=flat-square)](https://www.npmjs.com/package/@rocket.chat/styled) | ![deps](https://img.shields.io/librariesio/release/npm/@rocket.chat/styled?style=flat-square) |
@@ -27,4 +26,5 @@
 
 These packages were part of this monorepo and remain available on the npm registry:
 
+- [`@rocket.chat/layout`](https://www.npmjs.com/package/@rocket.chat/layout), now developed in [RocketChat/Rocket.Chat](https://github.com/RocketChat/Rocket.Chat)
 - [`@rocket.chat/onboarding-ui`](https://www.npmjs.com/package/@rocket.chat/onboarding-ui), now developed in [RocketChat/Rocket.Chat](https://github.com/RocketChat/Rocket.Chat)
