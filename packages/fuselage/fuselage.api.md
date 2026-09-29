@@ -277,20 +277,14 @@ export function Button(input: ButtonProps): JSX.Element;
 export function ButtonGroup(input: ButtonGroupProps): JSX.Element;
 
 // @public (undocumented)
-export type ButtonGroupProps = RefAttributes<HTMLDivElement> & HTMLAttributes<HTMLDivElement> & {
+export type ButtonGroupProps = RefAttributes<HTMLDivElement> & {
     align?: 'start' | 'center' | 'end';
     stretch?: boolean;
     wrap?: boolean;
     vertical?: boolean;
     small?: boolean;
     large?: boolean;
-} & ({
-    joined: true;
-    ghostPosition?: 'start' | 'end';
-} | {
-    joined?: false;
-    ghostPosition?: never;
-});
+} & HTMLAttributes<HTMLDivElement>;
 
 // @public (undocumented)
 export type ButtonProps = Omit<BoxProps, 'ref'> & {
@@ -2233,6 +2227,16 @@ export type SliderProps<T extends number | number[]> = AriaAttributes & RefAttri
 
 // @public (undocumented)
 export const spacing: (this: unknown, arg: unknown) => string | undefined;
+
+// @public
+export function SplitButton(input: SplitButtonProps): JSX.Element;
+
+// @public (undocumented)
+export type SplitButtonProps = RefAttributes<HTMLDivElement> & HTMLAttributes<HTMLDivElement> & ({
+    'aria-label': string;
+} | {
+    'aria-labelledby': string;
+});
 
 // @public (undocumented)
 export const States: (input: StatesProps) => JSX.Element;

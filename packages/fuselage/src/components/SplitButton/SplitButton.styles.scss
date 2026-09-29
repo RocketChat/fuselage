@@ -1,0 +1,49 @@
+@use '../../styles/colors.scss';
+@use '../../styles/variables/button-colors.scss';
+@use '../../styles/mixins/button.scss';
+@use '../../styles/mixins/states.scss' as *;
+
+.rcx-split-button {
+  display: inline-flex;
+  overflow: hidden;
+
+  flex-flow: row nowrap;
+  align-items: stretch;
+
+  border-radius: button.$button-border-radius;
+
+  // Covered by the opaque action; shows through the ghost segment. Translucency
+  // lives in the color — `opacity` here would fade the children.
+  background-color: button-colors.$split-button-background-color;
+
+  > .rcx-button {
+    border-radius: 0;
+
+    // keeps the focus ring above the adjacent segment
+    @include on-focus-visible {
+      position: relative;
+      z-index: 1;
+    }
+  }
+
+  > .rcx-button:first-child {
+    color: colors.button(on-secondary);
+    border-color: transparent;
+    background-color: transparent;
+
+    @include on-focus-visible {
+      border-color: transparent;
+      background-color: button-colors.$button-ghost-focus-background-color;
+    }
+
+    @include on-hover {
+      border-color: transparent;
+      background-color: button-colors.$button-ghost-hover-background-color;
+    }
+
+    @include on-active {
+      border-color: transparent;
+      background-color: button-colors.$button-ghost-active-background-color;
+    }
+  }
+}

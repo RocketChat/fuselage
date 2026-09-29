@@ -523,13 +523,13 @@ $button-off-disabled-color: theme(
   colors.button(on-secondary-disabled)
 );
 
-// joined button group / ghost segments (secondary tokens at 60% opacity)
+// split button / ghost segment (secondary tokens at 60% opacity)
 @function -translucent($token) {
   @return color-mix(in srgb, colors.button($token) 60%, transparent);
 }
 
-$button-group-joined-background-color: theme(
-  'button-group-joined-background-color',
+$split-button-background-color: theme(
+  'split-button-background-color',
   -translucent(secondary-default)
 );
 $button-ghost-hover-background-color: theme(
