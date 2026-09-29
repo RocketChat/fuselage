@@ -3,6 +3,7 @@
 @use '../../styles/typography.scss' as *;
 @use '../../styles/mixins/interactivity.scss' as *;
 @use '../../styles/mixins/templates.scss' as *;
+@use '../../styles/mixins/states.scss' as *;
 @use '../../styles/functions.scss' as *;
 @use '../../styles/mixins/link.scss' as *;
 @use './variables.scss' as *;
@@ -189,12 +190,18 @@ $sidebar-color-stroke-extra-light: theme(
 
       &[tabindex] {
         @include clickable;
-        @include focus-state($shadow: false);
       }
     }
 
-    &__bar:has(&__bar-button:hover) {
-      background-color: colors.surface(tint);
+    &__bar:has(&__bar-button[tabindex]) {
+      @include on-hover {
+        background-color: colors.surface(hover);
+      }
+    }
+
+    &__bar:has(&__bar-button:focus-visible) {
+      box-shadow: inset 0 0 0 lengths.border-width('medium')
+        colors.stroke(highlight);
     }
 
     &__panel--expanded {

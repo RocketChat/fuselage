@@ -26,13 +26,18 @@ $sidebar-color-font-active: theme(
 %sidebar-item-base {
   @include use-link-colors($color: colors.font(default));
   @include use-font-scale(p2);
-  @include focus-state($shadow: false);
+  @include on-focus-visible {
+    border-radius: lengths.border-radius(medium);
+    outline: 0;
+    box-shadow: inset 0 0 0 lengths.border-width('medium')
+      colors.stroke(highlight);
+  }
 
   display: flex;
 
   align-items: center;
 
-  border-radius: lengths.border-radius(small);
+  border-radius: lengths.border-radius(medium);
 }
 
 %sidebar-item-clickable {
