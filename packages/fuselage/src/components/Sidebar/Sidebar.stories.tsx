@@ -232,104 +232,105 @@ export const Default: Story = {
   ),
 };
 
+type SidebarDisplay = 'condensed' | 'medium' | 'extended';
+
+const itemsByDisplay: Record<
+  SidebarDisplay,
+  { item: ComponentType<{ i: number }>; teamItems: ReactNode }
+> = {
+  condensed: { item: GenericNoAvatarItem, teamItems: <Condensed /> },
+  medium: {
+    item: GenericMediumItem,
+    teamItems: Array.from({ length: 4 }).map((_, i) => (
+      <GenericMediumItem key={i} i={i} />
+    )),
+  },
+  extended: {
+    item: GenericExtendedItem,
+    teamItems: Array.from({ length: 4 }).map((_, i) => (
+      <GenericExtendedItem key={i} i={i} />
+    )),
+  },
+};
+
 type CustomTemplateProps = SidebarProps & {
-  item: ComponentType<{ i: number }>;
-  teamItems: ReactNode;
+  display: SidebarDisplay;
 };
 
-const CustomTemplate = ({
-  item: Item,
-  teamItems,
-  ...args
-}: CustomTemplateProps) => (
-  <Box height='90vh' width='x280'>
-    <Sidebar {...args}>
-      <SidebarCollapseGroup
-        title='Empty'
-        empty
-        menu={
-          <SidebarCollapseGroupMenu>
-            <MenuTemplate />
-          </SidebarCollapseGroupMenu>
-        }
-      />
-      <SidebarCollapseGroup title='Custom'>
-        {Array.from({ length: 4 }).map((_, i) => (
-          <Item key={i} i={i} />
-        ))}
-      </SidebarCollapseGroup>
-      <SidebarCollapseGroup
-        title='Favorites'
-        defaultExpanded
-        badge={
-          <SidebarItemBadge
-            title='99+ unread messages'
-            children='99+'
-            variant='danger'
-          />
-        }
-      >
-        {Array.from({ length: 4 }).map((_, i) => (
-          <Item key={i} i={i} />
-        ))}
-      </SidebarCollapseGroup>
-      <SidebarCollapseGroup
-        title='Teams'
-        defaultExpanded
-        badge={
-          <SidebarItemBadge
-            title='99+ unread messages'
-            children='99+'
-            variant='danger'
-          />
-        }
-      >
-        {teamItems}
-        <SidebarListItem>
-          <SidebarItemAction onClick={action('add team')}>
-            Add team
-          </SidebarItemAction>
-        </SidebarListItem>
-      </SidebarCollapseGroup>
-      <SidebarFooter>
-        <SidebarFooterContent>Powered by Rocket.Chat</SidebarFooterContent>
-        <SidebarFooterContent color='titles-labels'>
-          Free edition
-        </SidebarFooterContent>
-      </SidebarFooter>
-    </Sidebar>
-  </Box>
-);
+const CustomTemplate = ({ display, ...args }: CustomTemplateProps) => {
+  const { item: Item, teamItems } = itemsByDisplay[display];
 
-const renderItems = (Item: ComponentType<{ i: number }>) =>
-  Array.from({ length: 4 }).map((_, i) => <Item key={i} i={i} />);
-
-export const Custom: Story = {
-  render: (args) => (
-    <CustomTemplate
-      {...args}
-      item={GenericNoAvatarItem}
-      teamItems={<Condensed />}
-    />
-  ),
+  return (
+    <Box height='90vh' width='x280'>
+      <Sidebar {...args}>
+        <SidebarCollapseGroup
+          title='Empty'
+          empty
+          menu={
+            <SidebarCollapseGroupMenu>
+              <MenuTemplate />
+            </SidebarCollapseGroupMenu>
+          }
+        />
+        <SidebarCollapseGroup title='Custom'>
+          {Array.from({ length: 4 }).map((_, i) => (
+            <Item key={i} i={i} />
+          ))}
+        </SidebarCollapseGroup>
+        <SidebarCollapseGroup
+          title='Favorites'
+          defaultExpanded
+          badge={
+            <SidebarItemBadge
+              title='99+ unread messages'
+              children='99+'
+              variant='danger'
+            />
+          }
+        >
+          {Array.from({ length: 4 }).map((_, i) => (
+            <Item key={i} i={i} />
+          ))}
+        </SidebarCollapseGroup>
+        <SidebarCollapseGroup
+          title='Teams'
+          defaultExpanded
+          badge={
+            <SidebarItemBadge
+              title='99+ unread messages'
+              children='99+'
+              variant='danger'
+            />
+          }
+        >
+          {teamItems}
+          <SidebarListItem>
+            <SidebarItemAction onClick={action('add team')}>
+              Add team
+            </SidebarItemAction>
+          </SidebarListItem>
+        </SidebarCollapseGroup>
+        <SidebarFooter>
+          <SidebarFooterContent>Powered by Rocket.Chat</SidebarFooterContent>
+          <SidebarFooterContent color='titles-labels'>
+            Free edition
+          </SidebarFooterContent>
+        </SidebarFooter>
+      </Sidebar>
+    </Box>
+  );
 };
 
-export const CustomMedium: Story = {
-  render: (args) => (
-    <CustomTemplate
-      {...args}
-      item={GenericMediumItem}
-      teamItems={renderItems(GenericMediumItem)}
-    />
-  ),
-};
-
-export const CustomExtended: Story = {
-  render: (args) => (
-    <CustomTemplate
-      {...args}
-      item={GenericExtendedItem}
-      teamItems={renderItems(GenericExtendedItem)}
-    />
-  ),
+export const Custom: StoryObj<CustomTemplateProps> = {
+  args: {
+    display: 'condensed',
+  },
+  argTypes: {
+    display: {
+      options: ['condensed', 'medium', 'extended'],
+      control: 'inline-radio',
+      description: 'Density of the room items rendered in the sidebar.',
+    },
+  },
+  render: (args) => <CustomTemplate {...args} />,
 };
