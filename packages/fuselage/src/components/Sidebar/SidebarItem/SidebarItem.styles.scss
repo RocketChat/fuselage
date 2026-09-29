@@ -9,15 +9,6 @@
 @use '../../../styles/primitives/link.scss';
 @use '../variables.scss' as *;
 
-$sidebar-color-surface-hover: theme(
-  'sidebar-color-surface-hover',
-  colors.surface(hover)
-);
-$sidebar-color-surface-selected: theme(
-  'sidebar-color-surface-selected',
-  colors.surface(selected)
-);
-
 $sidebar-color-font-active: theme(
   'sidebar-color-font-active',
   colors.font(titles-labels)

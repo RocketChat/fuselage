@@ -39,15 +39,17 @@ export const SidebarGroupTitle = ({
       role={role}
       {...barProps}
     >
-      {title && (
-        <h4
-          className='rcx-box rcx-box--full rcx-sidebar-collapse-group__title'
-          id={titleId}
-        >
-          {title}
-        </h4>
-      )}
-      {expanded !== undefined && <Chevron size='x20' right={!expanded} />}
+      <div className='rcx-box rcx-sidebar-collapse-group__heading'>
+        {title && (
+          <h4
+            className='rcx-box rcx-box--full rcx-sidebar-collapse-group__title'
+            id={titleId}
+          >
+            {title}
+          </h4>
+        )}
+        {expanded !== undefined && <Chevron size='x20' right={!expanded} />}
+      </div>
       {!expanded && badge && badge}
     </div>
     {menu}

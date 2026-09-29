@@ -23,8 +23,8 @@ import {
   type SidebarProps,
 } from '.';
 import { SidebarCollapseGroupMenu } from './SidebarCollapseGroupMenu';
-import { CondensedItems as Condensed } from './SidebarItem/SidebarItem.stories';
 import {
+  CondensedItems as Condensed,
   GenericExtendedItem,
   GenericMediumItem,
   GenericNoAvatarItem,
@@ -279,7 +279,6 @@ const CustomTemplate = ({ display, ...args }: CustomTemplateProps) => {
         </SidebarCollapseGroup>
         <SidebarCollapseGroup
           title='Favorites'
-          defaultExpanded
           badge={
             <SidebarItemBadge
               title='99+ unread messages'

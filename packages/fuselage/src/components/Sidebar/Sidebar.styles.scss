@@ -2,7 +2,6 @@
 @use '../../styles/lengths.scss';
 @use '../../styles/typography.scss' as *;
 @use '../../styles/mixins/interactivity.scss' as *;
-@use '../../styles/mixins/templates.scss' as *;
 @use '../../styles/mixins/states.scss' as *;
 @use '../../styles/functions.scss' as *;
 @use '../../styles/mixins/link.scss' as *;
@@ -68,68 +67,38 @@ $sidebar-color-stroke-extra-light: theme(
       flex-flow: row nowrap;
       align-items: center;
 
-      min-height: lengths.size(24);
+      margin-block-start: lengths.margin(8);
+      margin-inline: lengths.margin(8);
 
-      padding: calc(lengths.padding(8) - lengths.border-width(default))
-        calc(lengths.padding(16) - lengths.border-width(default));
+      padding-inline: lengths.padding(8);
 
       text-align: start;
 
-      color: colors.font(default);
-
+      border-radius: lengths.border-radius(medium);
       background-color: $sidebar-color-surface-default;
       column-gap: lengths.padding(4);
+    }
 
-      &[tabindex] {
-        @include clickable;
-        @include focus-state($shadow: false);
+    &__heading {
+      display: flex;
+      align-items: center;
 
-        &.hover,
-        &:hover {
-          background-color: colors.surface(tint);
-        }
-      }
+      flex: 1 1 0;
 
-      &--disabled {
-        cursor: not-allowed;
+      min-width: 0;
 
-        color: colors.font(disabled);
-        background-color: colors.surface(disabled);
-      }
+      column-gap: lengths.padding(4);
     }
 
     &__title {
-      flex: 1 1 lengths.size(none);
+      flex: 0 1 auto;
 
       margin: lengths.margin(none);
 
       white-space: nowrap;
 
       @include use-text-ellipsis;
-      @include use-font-scale(c2);
-    }
-
-    &__menu-wrapper {
-      display: flex;
-      align-items: center;
-      flex-shrink: 0;
-
-      width: 0;
-      height: lengths.size(20);
-
-      margin-inline-end: lengths.margin(-4);
-
-      opacity: 0;
-    }
-
-    &__bar:hover &__menu-wrapper,
-    &__bar:focus-within &__menu-wrapper,
-    &__bar:has(&__menu-wrapper [aria-expanded='true']) &__menu-wrapper {
-      width: lengths.size(20);
-
-      margin-inline-end: lengths.margin(none);
-
-      opacity: 1;
+      @include use-font-scale(c1);
     }
 
     &__panel {
@@ -156,16 +125,10 @@ $sidebar-color-stroke-extra-light: theme(
   &-collapse-group {
     &__bar {
       min-height: lengths.size(28);
-      margin-block-start: lengths.margin(8);
-      margin-inline: lengths.margin(8);
 
       padding-block: lengths.padding(4);
-      padding-inline: lengths.padding(8);
 
       color: colors.font(secondary-info);
-
-      border-radius: lengths.border-radius(medium);
-      background-color: $sidebar-color-surface-default;
 
       &--empty {
         color: colors.font(disabled);
@@ -178,6 +141,29 @@ $sidebar-color-stroke-extra-light: theme(
           @include use-font-scale(c2);
         }
       }
+    }
+
+    &__menu-wrapper {
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+
+      width: 0;
+      height: lengths.size(20);
+
+      margin-inline-end: lengths.margin(-4);
+
+      opacity: 0;
+    }
+
+    &__bar:hover &__menu-wrapper,
+    &__bar:focus-within &__menu-wrapper,
+    &__bar:has(&__menu-wrapper [aria-expanded='true']) &__menu-wrapper {
+      width: lengths.size(20);
+
+      margin-inline-end: lengths.margin(none);
+
+      opacity: 1;
     }
 
     &__bar-button {
@@ -197,22 +183,9 @@ $sidebar-color-stroke-extra-light: theme(
       }
     }
 
-    &__heading {
-      display: flex;
-      align-items: center;
-
-      flex: 1 1 0;
-
-      min-width: 0;
-    }
-
-    &__title {
-      flex: 0 1 auto;
-    }
-
     &__bar:has(&__bar-button[tabindex]) {
       @include on-hover {
-        background-color: colors.surface(hover);
+        background-color: $sidebar-color-surface-hover;
       }
     }
 
@@ -239,29 +212,20 @@ $sidebar-color-stroke-extra-light: theme(
       z-index: 1;
       top: 0;
 
-      min-height: lengths.size(24);
-      margin-block-start: lengths.margin(8);
-      margin-inline: lengths.margin(8);
-
       padding-block: lengths.padding(12);
-      padding-inline: lengths.padding(8);
 
       color: colors.font(default);
 
-      border-radius: lengths.border-radius(medium);
-      background-color: colors.surface(sidebar);
-
       &[tabindex] {
         @include clickable;
-        @include focus-state($shadow: false);
 
-        padding-inline: calc(
-          #{lengths.padding(8)} - #{lengths.border-width(default)}
-        );
+        @include on-hover {
+          background-color: $sidebar-color-surface-hover;
+        }
 
-        &.hover,
-        &:hover {
-          background-color: colors.surface(tint);
+        @include on-focus-visible {
+          box-shadow: inset 0 0 0 lengths.border-width('medium')
+            colors.stroke(highlight);
         }
       }
 
@@ -286,13 +250,7 @@ $sidebar-color-stroke-extra-light: theme(
     }
 
     &__title {
-      flex: 0 1 auto;
-
       @include use-font-scale(h5);
-    }
-
-    &__title ~ :last-child:not(&__chevron) {
-      margin-inline-start: auto;
     }
   }
 
