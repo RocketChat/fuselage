@@ -39,32 +39,12 @@ export type ButtonProps = Omit<BoxProps, 'ref'> & {
   large?: boolean;
   square?: boolean;
   external?: boolean;
-  icon?: IconProps['name'] | false;
+  icon?: IconProps['name'];
 } & Omit<
     AllHTMLAttributes<HTMLButtonElement | HTMLAnchorElement>,
     'is' | 'className' | 'size'
   > &
   RefAttributes<HTMLButtonElement | HTMLAnchorElement>;
-
-/**
- * External links carry a `new-window` affordance. Pass `icon={false}` to opt
- * out, for cases where there is no room for one.
- */
-const resolveIcon = (
-  icon: ButtonProps['icon'],
-  is: ButtonProps['is'],
-  external: ButtonProps['external'],
-): IconProps['name'] | undefined => {
-  if (icon === false) {
-    return undefined;
-  }
-
-  if (icon) {
-    return icon;
-  }
-
-  return is === 'a' && external ? 'new-window' : undefined;
-};
 
 /**
  * The 40px and 48px buttons pair with a 20px icon; the smaller sizes use 16px.
@@ -139,9 +119,8 @@ function Button({
     (large && 'large') ||
     undefined;
 
-  const effectiveIcon = resolveIcon(icon, is, external);
   const iconSize = resolveIconSize(effectiveSize);
-  const hasLeadingIcon = Boolean(effectiveIcon || loading);
+  const hasLeadingIcon = Boolean(icon || loading);
 
   // The gap only separates the icon from a label. On an icon-only button it has
   // nothing to separate and just pushes the icon off centre by half its width.
@@ -170,12 +149,8 @@ function Button({
       {...props}
     >
       <span className='rcx-button--content'>
-        {effectiveIcon && !loading && (
-          <Icon
-            size={iconSize}
-            name={effectiveIcon}
-            marginInlineEnd={iconGap}
-          />
+        {icon && !loading && (
+          <Icon size={iconSize} name={icon} marginInlineEnd={iconGap} />
         )}
         {loading && (
           <Icon size={iconSize} name='loading' marginInlineEnd={iconGap} />
