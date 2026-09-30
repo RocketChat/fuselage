@@ -39,7 +39,7 @@ export type ButtonProps = Omit<BoxProps, 'ref'> & {
   large?: boolean;
   square?: boolean;
   external?: boolean;
-  icon?: IconProps['name'];
+  icon?: IconProps['name'] | false;
 } & Omit<
     AllHTMLAttributes<HTMLButtonElement | HTMLAnchorElement>,
     'is' | 'className' | 'size'
@@ -47,14 +47,18 @@ export type ButtonProps = Omit<BoxProps, 'ref'> & {
   RefAttributes<HTMLButtonElement | HTMLAnchorElement>;
 
 /**
- * External links carry a `new-window` affordance unless the caller has already
- * chosen a leading icon.
+ * External links carry a `new-window` affordance. Pass `icon={false}` to opt
+ * out, for cases where there is no room for one.
  */
 const resolveIcon = (
   icon: ButtonProps['icon'],
   is: ButtonProps['is'],
   external: ButtonProps['external'],
 ): IconProps['name'] | undefined => {
+  if (icon === false) {
+    return undefined;
+  }
+
   if (icon) {
     return icon;
   }
