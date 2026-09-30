@@ -1,3 +1,4 @@
+@use '../../styles/functions.scss' as *;
 @use '../../styles/lengths.scss';
 @use '../../styles/typography.scss' as *;
 @use '../../styles/variables/buttons.scss' as colors;
@@ -30,12 +31,11 @@ $inset-icon-large: lengths.padding(24) - lengths.padding(2); // 22px
     padding-block: calc(
       (lengths.size($height) - $line-height) / 2 - $border-width
     );
-    padding-inline: calc(#{$inline-inset} - #{$border-width});
+    padding-inline: calc($inline-inset - $border-width);
   }
 
   @mixin with-leading-icon-inset($start, $end) {
-    padding-inline: calc(#{$start} - #{$border-width})
-      calc(#{$end} - #{$border-width});
+    padding-inline: calc($start - $border-width) calc($end - $border-width);
   }
 
   @mixin with-squared-size($size) {
