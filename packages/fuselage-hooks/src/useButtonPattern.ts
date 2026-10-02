@@ -25,7 +25,7 @@ export const useButtonPattern = (
 ) => {
   const handleKeyDown = useCallback(
     (event: KeyboardEvent<Element>) => {
-      if (event.code === 'Space' || event.code === 'Enter') {
+      if (event.key === ' ' || event.key === 'Enter') {
         event.preventDefault();
         onPress(event);
       }
