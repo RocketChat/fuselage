@@ -327,4 +327,41 @@ describe('getPositionStyle function', () => {
     expect(result.style.left).toEqual(50);
     expect(result.style.top).toEqual(-5);
   });
+  it.each(['left-start', 'right-start'] as const)(
+    'keeps the correct axes for %s when no placement fits',
+    (placement) => {
+      const containerRect = createRect(100, 200, 200, 120);
+      const anchorRect = createRect(180, 260, 40, 20);
+      const targetRect = createRect(0, 0, 240, 40);
+      const result = getPositionStyle({
+        placement,
+        containerRect,
+        targetRect,
+        targetBoundaries: getTargetBoundaries({ anchorRect, targetRect }),
+        variantBoundaries: getVariantBoundaries({ anchorRect, targetRect }),
+      });
+      expect(result.style.left).toBe(80);
+      expect(result.style.top).toBe(260);
+      expect(result.style.overflowY).toBeUndefined();
+      expect(result.placement).toBe(placement);
+    },
+  );
+
+  it('uses the vertical coordinate to detect horizontal fallback overflow', () => {
+    const containerRect = createRect(100, 200, 200, 100);
+    const anchorRect = createRect(180, 270, 40, 20);
+    const targetRect = createRect(0, 0, 240, 80);
+    const result = getPositionStyle({
+      placement: 'right-start',
+      containerRect,
+      targetRect,
+      targetBoundaries: getTargetBoundaries({ anchorRect, targetRect }),
+      variantBoundaries: getVariantBoundaries({ anchorRect, targetRect }),
+      margin: 8,
+    });
+    expect(result.style.left).toBe(80);
+    expect(result.style.top).toBe(270);
+    expect(result.style.overflowY).toBe('auto');
+    expect(result.style.bottom).toBe(8);
+  });
 });
