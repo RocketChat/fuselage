@@ -266,6 +266,201 @@ exports[`[ButtonGroup Rendering] renders Joined without crashing 1`] = `
 </body>
 `;
 
+exports[`[ButtonGroup Rendering] renders JoinedGhostVariants without crashing 1`] = `
+<body>
+  <div>
+    <div
+      class="rcx-box rcx-box--full rcx-css-18mlk3l"
+    >
+      <div
+        class="rcx-box rcx-box--full rcx-css-4n4775"
+      >
+        <div
+          class="rcx-button-group rcx-button-group--align-start rcx-button-group--joined rcx-button-group--ghost-end"
+          role="group"
+        >
+          <button
+            class="rcx-box rcx-box--full rcx-button"
+            type="button"
+          >
+            <span
+              class="rcx-button--content"
+            >
+              Mute
+            </span>
+          </button>
+          <button
+            aria-label="Microphone options"
+            class="rcx-box rcx-box--full rcx-button--square rcx-button"
+            type="button"
+          >
+            <span
+              class="rcx-button--content"
+            >
+              <i
+                aria-hidden="true"
+                class="rcx-box rcx-box--full rcx-icon--name-chevron-down rcx-icon rcx-css-1hdf9ok"
+              >
+                
+              </i>
+            </span>
+          </button>
+        </div>
+        <div
+          class="rcx-button-group rcx-button-group--align-start rcx-button-group--joined rcx-button-group--ghost-end"
+          role="group"
+        >
+          <button
+            class="rcx-box rcx-box--full rcx-button--danger rcx-button"
+            type="button"
+          >
+            <span
+              class="rcx-button--content"
+            >
+              End call
+            </span>
+          </button>
+          <button
+            aria-label="End call options"
+            class="rcx-box rcx-box--full rcx-button--square rcx-button--danger rcx-button"
+            type="button"
+          >
+            <span
+              class="rcx-button--content"
+            >
+              <i
+                aria-hidden="true"
+                class="rcx-box rcx-box--full rcx-icon--name-chevron-down rcx-icon rcx-css-1hdf9ok"
+              >
+                
+              </i>
+            </span>
+          </button>
+        </div>
+        <div
+          class="rcx-button-group rcx-button-group--align-start rcx-button-group--joined rcx-button-group--ghost-end"
+          role="group"
+        >
+          <button
+            class="rcx-box rcx-box--full rcx-button--primary rcx-button"
+            type="button"
+          >
+            <span
+              class="rcx-button--content"
+            >
+              Join call
+            </span>
+          </button>
+          <button
+            aria-label="Join call options"
+            class="rcx-box rcx-box--full rcx-button--square rcx-button--primary rcx-button"
+            type="button"
+          >
+            <span
+              class="rcx-button--content"
+            >
+              <i
+                aria-hidden="true"
+                class="rcx-box rcx-box--full rcx-icon--name-chevron-down rcx-icon rcx-css-1hdf9ok"
+              >
+                
+              </i>
+            </span>
+          </button>
+        </div>
+        <div
+          class="rcx-button-group rcx-button-group--align-start rcx-button-group--joined rcx-button-group--ghost-end"
+          role="group"
+        >
+          <button
+            aria-label="Microphone"
+            class="rcx-box rcx-box--full rcx-button--large-square rcx-button--icon-secondary rcx-button--square rcx-button--icon rcx-button"
+            type="button"
+          >
+            <i
+              aria-hidden="true"
+              class="rcx-box rcx-box--full rcx-icon--name-mic rcx-icon rcx-css-1x2l7ts"
+            >
+              
+            </i>
+          </button>
+          <button
+            aria-label="Microphone options"
+            class="rcx-box rcx-box--full rcx-button--large-square rcx-button--icon-secondary rcx-button--square rcx-button--icon rcx-button"
+            type="button"
+          >
+            <i
+              aria-hidden="true"
+              class="rcx-box rcx-box--full rcx-icon--name-chevron-down rcx-icon rcx-css-1x2l7ts"
+            >
+              
+            </i>
+          </button>
+        </div>
+        <div
+          class="rcx-button-group rcx-button-group--align-start rcx-button-group--joined rcx-button-group--ghost-end"
+          role="group"
+        >
+          <button
+            aria-label="End call"
+            class="rcx-box rcx-box--full rcx-button--large-square rcx-button--icon-secondary-danger rcx-button--square rcx-button--icon rcx-button"
+            type="button"
+          >
+            <i
+              aria-hidden="true"
+              class="rcx-box rcx-box--full rcx-icon--name-phone-off rcx-icon rcx-css-1x2l7ts"
+            >
+              
+            </i>
+          </button>
+          <button
+            aria-label="End call options"
+            class="rcx-box rcx-box--full rcx-button--large-square rcx-button--icon-secondary-danger rcx-button--square rcx-button--icon rcx-button"
+            type="button"
+          >
+            <i
+              aria-hidden="true"
+              class="rcx-box rcx-box--full rcx-icon--name-chevron-down rcx-icon rcx-css-1x2l7ts"
+            >
+              
+            </i>
+          </button>
+        </div>
+        <div
+          class="rcx-button-group rcx-button-group--align-start rcx-button-group--joined rcx-button-group--ghost-end"
+          role="group"
+        >
+          <button
+            aria-label="Camera"
+            class="rcx-box rcx-box--full rcx-button--large-square rcx-button--icon-secondary-info rcx-button--square rcx-button--icon rcx-button"
+            type="button"
+          >
+            <i
+              aria-hidden="true"
+              class="rcx-box rcx-box--full rcx-icon--name-video rcx-icon rcx-css-1x2l7ts"
+            >
+              ❲
+            </i>
+          </button>
+          <button
+            aria-label="Camera options"
+            class="rcx-box rcx-box--full rcx-button--large-square rcx-button--icon-secondary-info rcx-button--square rcx-button--icon rcx-button"
+            type="button"
+          >
+            <i
+              aria-hidden="true"
+              class="rcx-box rcx-box--full rcx-icon--name-chevron-down rcx-icon rcx-css-1x2l7ts"
+            >
+              
+            </i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
 exports[`[ButtonGroup Rendering] renders JoinedSegmented without crashing 1`] = `
 <body>
   <div>

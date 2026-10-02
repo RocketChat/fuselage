@@ -4,26 +4,91 @@
 @use '../../styles/mixins/button.scss';
 @use '../../styles/mixins/states.scss' as *;
 
-// A ghost segment stays transparent so the group background (and the surface
-// behind it) shows through.
+@mixin ghost-states($hover, $active, $focus) {
+  @include on-focus-visible {
+    border-color: transparent;
+    background-color: $focus;
+  }
+
+  @include on-hover {
+    border-color: transparent;
+    background-color: $hover;
+  }
+
+  @include on-active {
+    border-color: transparent;
+    background-color: $active;
+  }
+}
+
+// A ghost segment keeps the button variant's identity at 70% translucency:
+// it paints the variant's own background and state tokens translucent, so
+// the surface behind the group shows through. The default (secondary) ghost
+// stays fully transparent — the group's translucent secondary background
+// provides the same 70% look.
 @mixin ghost-segment {
   color: colors.button(on-secondary);
   border-color: transparent;
   background-color: transparent;
 
-  @include on-focus-visible {
-    border-color: transparent;
-    background-color: button-colors.$button-ghost-focus-background-color;
+  @include ghost-states(
+    button-colors.$button-ghost-hover-background-color,
+    button-colors.$button-ghost-active-background-color,
+    button-colors.$button-ghost-focus-background-color
+  );
+
+  &.rcx-button--danger,
+  &.rcx-button--secondary-danger,
+  &.rcx-button--icon-danger,
+  &.rcx-button--icon-secondary-danger {
+    color: colors.button(on-danger);
+    background-color: button-colors.$button-ghost-danger-background-color;
+
+    @include ghost-states(
+      button-colors.$button-ghost-danger-hover-background-color,
+      button-colors.$button-ghost-danger-active-background-color,
+      button-colors.$button-ghost-danger-focus-background-color
+    );
   }
 
-  @include on-hover {
-    border-color: transparent;
-    background-color: button-colors.$button-ghost-hover-background-color;
+  &.rcx-button--warning,
+  &.rcx-button--secondary-warning,
+  &.rcx-button--icon-warning,
+  &.rcx-button--icon-secondary-warning {
+    color: colors.button(on-warning);
+    background-color: button-colors.$button-ghost-warning-background-color;
+
+    @include ghost-states(
+      button-colors.$button-ghost-warning-hover-background-color,
+      button-colors.$button-ghost-warning-active-background-color,
+      button-colors.$button-ghost-warning-focus-background-color
+    );
   }
 
-  @include on-active {
-    border-color: transparent;
-    background-color: button-colors.$button-ghost-active-background-color;
+  &.rcx-button--success,
+  &.rcx-button--secondary-success,
+  &.rcx-button--icon-success,
+  &.rcx-button--icon-secondary-success {
+    color: colors.button(on-success);
+    background-color: button-colors.$button-ghost-success-background-color;
+
+    @include ghost-states(
+      button-colors.$button-ghost-success-hover-background-color,
+      button-colors.$button-ghost-success-active-background-color,
+      button-colors.$button-ghost-success-focus-background-color
+    );
+  }
+
+  &.rcx-button--primary,
+  &.rcx-button--icon-secondary-info {
+    color: colors.button(on-primary);
+    background-color: button-colors.$button-ghost-primary-background-color;
+
+    @include ghost-states(
+      button-colors.$button-ghost-primary-hover-background-color,
+      button-colors.$button-ghost-primary-active-background-color,
+      button-colors.$button-ghost-primary-focus-background-color
+    );
   }
 }
 
