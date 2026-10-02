@@ -1,0 +1,370 @@
+{
+  "button": {
+    "light": {
+      "backgroundPrimaryDefault": {
+        "value": "{colors.b500}"
+      },
+      "backgroundPrimaryHover": {
+        "value": "{colors.b600}"
+      },
+      "backgroundPrimaryPress": {
+        "value": "{colors.b700}"
+      },
+      "backgroundPrimaryFocus": {
+        "value": "{colors.b500}"
+      },
+      "backgroundPrimaryKeyfocus": {
+        "value": "{colors.b500}"
+      },
+      "backgroundPrimaryDisabled": {
+        "value": "{colors.b200}"
+      },
+      "backgroundSecondaryDefault": {
+        "value": "{colors.n400}"
+      },
+      "backgroundSecondaryHover": {
+        "value": "{colors.n500}"
+      },
+      "backgroundSecondaryPress": {
+        "value": "{colors.n600}"
+      },
+      "backgroundSecondaryFocus": {
+        "value": "{colors.n400}"
+      },
+      "backgroundSecondaryKeyfocus": {
+        "value": "{colors.n400}"
+      },
+      "backgroundSecondaryDisabled": {
+        "value": "{colors.n300}"
+      },
+      "backgroundSecondaryDangerDefault": {
+        "value": "{colors.n400}"
+      },
+      "backgroundSecondaryDangerHover": {
+        "value": "{colors.n500}"
+      },
+      "backgroundSecondaryDangerPress": {
+        "value": "{colors.n600}"
+      },
+      "backgroundSecondaryDangerFocus": {
+        "value": "{colors.n400}"
+      },
+      "backgroundSecondaryDangerKeyfocus": {
+        "value": "{colors.n400}"
+      },
+      "backgroundSecondaryDangerDisabled": {
+        "value": "{colors.n300}"
+      },
+      "backgroundDangerDefault": {
+        "value": "{colors.r500}"
+      },
+      "backgroundDangerHover": {
+        "value": "{colors.r600}"
+      },
+      "backgroundDangerPress": {
+        "value": "{colors.r700}"
+      },
+      "backgroundDangerFocus": {
+        "value": "{colors.r500}"
+      },
+      "backgroundDangerKeyfocus": {
+        "value": "{colors.r500}"
+      },
+      "backgroundDangerDisabled": {
+        "value": "{colors.r200}"
+      },
+      "backgroundSuccessDefault": {
+        "value": "{colors.g800}"
+      },
+      "backgroundSuccessHover": {
+        "value": "{colors.g900}"
+      },
+      "backgroundSuccessPress": {
+        "value": "{colors.g1000}"
+      },
+      "backgroundSuccessFocus": {
+        "value": "{colors.g800}"
+      },
+      "backgroundSuccessKeyfocus": {
+        "value": "{colors.g800}"
+      },
+      "backgroundSuccessDisabled": {
+        "value": "{colors.g200}"
+      },
+      "fontOnPrimary": {
+        "value": "{colors.white}"
+      },
+      "fontOnSecondary": {
+        "value": "{colors.n900}"
+      },
+      "fontOnSecondaryDanger": {
+        "value": "{colors.r700}"
+      },
+      "fontOnDanger": {
+        "value": "{colors.white}"
+      },
+      "fontOnSuccess": {
+        "value": "{colors.white}"
+      },
+      "fontOnPrimaryDisabled": {
+        "value": "{colors.white}"
+      },
+      "fontOnSecondaryDisabled": {
+        "value": "{colors.n500}"
+      },
+      "onSecondaryDangerDisabled": {
+        "value": "{colors.r300}"
+      },
+      "fontOnDangerDisabled": {
+        "value": "{colors.white}"
+      },
+      "fontOnSuccessDisabled": {
+        "value": "{colors.white}"
+      }
+    },
+    "high-contrast": {
+      "backgroundPrimaryDefault": {
+        "value": "{colors.b700}"
+      },
+      "backgroundPrimaryHover": {
+        "value": "{colors.b800}"
+      },
+      "backgroundPrimaryPress": {
+        "value": "{colors.b900}"
+      },
+      "backgroundPrimaryFocus": {
+        "value": "{colors.b700}"
+      },
+      "backgroundPrimaryKeyfocus": {
+        "value": "{colors.b700}"
+      },
+      "backgroundPrimaryDisabled": {
+        "value": "{colors.b200}"
+      },
+      "backgroundSecondaryDefault": {
+        "value": "{colors.n400}"
+      },
+      "backgroundSecondaryHover": {
+        "value": "{colors.n500}"
+      },
+      "backgroundSecondaryPress": {
+        "value": "{colors.n600}"
+      },
+      "backgroundSecondaryFocus": {
+        "value": "{colors.n400}"
+      },
+      "backgroundSecondaryKeyfocus": {
+        "value": "{colors.n400}"
+      },
+      "backgroundSecondaryDisabled": {
+        "value": "{colors.n300}"
+      },
+      "backgroundSecondaryDangerDefault": {
+        "value": "{colors.n400}"
+      },
+      "backgroundSecondaryDangerHover": {
+        "value": "{colors.n500}"
+      },
+      "backgroundSecondaryDangerPress": {
+        "value": "{colors.n600}"
+      },
+      "backgroundSecondaryDangerFocus": {
+        "value": "{colors.n400}"
+      },
+      "backgroundSecondaryDangerKeyfocus": {
+        "value": "{colors.n400}"
+      },
+      "backgroundSecondaryDangerDisabled": {
+        "value": "{colors.n300}"
+      },
+      "backgroundDangerDefault": {
+        "value": "{colors.r800}"
+      },
+      "backgroundDangerHover": {
+        "value": "{colors.r900}"
+      },
+      "backgroundDangerPress": {
+        "value": "{colors.r900}"
+      },
+      "backgroundDangerFocus": {
+        "value": "{colors.r800}"
+      },
+      "backgroundDangerKeyfocus": {
+        "value": "{colors.r800}"
+      },
+      "backgroundDangerDisabled": {
+        "value": "{colors.r200}"
+      },
+      "backgroundSuccessDefault": {
+        "value": "{colors.g800}"
+      },
+      "backgroundSuccessHover": {
+        "value": "{colors.g900}"
+      },
+      "backgroundSuccessPress": {
+        "value": "{colors.g1000}"
+      },
+      "backgroundSuccessFocus": {
+        "value": "{colors.g800}"
+      },
+      "backgroundSuccessKeyfocus": {
+        "value": "{colors.g800}"
+      },
+      "backgroundSuccessDisabled": {
+        "value": "{colors.g200}"
+      },
+      "fontOnPrimary": {
+        "value": "{colors.white}"
+      },
+      "fontOnSecondary": {
+        "value": "{colors.n900}"
+      },
+      "fontOnSecondaryDanger": {
+        "value": "{colors.r900}"
+      },
+      "fontOnDanger": {
+        "value": "{colors.white}"
+      },
+      "fontOnSuccess": {
+        "value": "{colors.white}"
+      },
+      "fontOnPrimaryDisabled": {
+        "value": "{colors.white}"
+      },
+      "fontOnSecondaryDisabled": {
+        "value": "{colors.n500}"
+      },
+      "onSecondaryDangerDisabled": {
+        "value": "{colors.r300}"
+      },
+      "fontOnDangerDisabled": {
+        "value": "{colors.white}"
+      },
+      "fontOnSuccessDisabled": {
+        "value": "{colors.white}"
+      }
+    },
+    "dark": {
+      "backgroundPrimaryDefault": {
+        "value": "#095AD2"
+      },
+      "backgroundPrimaryHover": {
+        "value": "#10529E"
+      },
+      "backgroundPrimaryPress": {
+        "value": "#01336B"
+      },
+      "backgroundPrimaryFocus": {
+        "value": "#095AD2"
+      },
+      "backgroundPrimaryKeyfocus": {
+        "value": "#095AD2"
+      },
+      "backgroundPrimaryDisabled": {
+        "value": "#012247"
+      },
+      "backgroundSecondaryDefault": {
+        "value": "#404754"
+      },
+      "backgroundSecondaryHover": {
+        "value": "#4B5362"
+      },
+      "backgroundSecondaryPress": {
+        "value": "#575F70"
+      },
+      "backgroundSecondaryFocus": {
+        "value": "#404854"
+      },
+      "backgroundSecondaryKeyfocus": {
+        "value": "#404854"
+      },
+      "backgroundSecondaryDisabled": {
+        "value": "#404854"
+      },
+      "backgroundSecondaryDangerDefault": {
+        "value": "#404754"
+      },
+      "backgroundSecondaryDangerHover": {
+        "value": "#4B5362"
+      },
+      "backgroundSecondaryDangerPress": {
+        "value": "#575F70"
+      },
+      "backgroundSecondaryDangerFocus": {
+        "value": "#404854"
+      },
+      "backgroundSecondaryDangerKeyfocus": {
+        "value": "#404854"
+      },
+      "backgroundSecondaryDangerDisabled": {
+        "value": "#404854"
+      },
+      "backgroundDangerDefault": {
+        "value": "#BB3E4E"
+      },
+      "backgroundDangerHover": {
+        "value": "#95323F"
+      },
+      "backgroundDangerPress": {
+        "value": "#822C37"
+      },
+      "backgroundDangerFocus": {
+        "value": "#BB3E4E"
+      },
+      "backgroundDangerKeyfocus": {
+        "value": "#BB3E4E"
+      },
+      "backgroundDangerDisabled": {
+        "value": "#3D2126"
+      },
+      "backgroundSuccessDefault": {
+        "value": "#1D7256"
+      },
+      "backgroundSuccessHover": {
+        "value": "#175943"
+      },
+      "backgroundSuccessPress": {
+        "value": "#134937"
+      },
+      "backgroundSuccessFocus": {
+        "value": "#1D7256"
+      },
+      "backgroundSuccessKeyfocus": {
+        "value": "#1D7256"
+      },
+      "backgroundSuccessDisabled": {
+        "value": "#1E4B40"
+      },
+      "fontOnPrimary": {
+        "value": "#FFFFFF"
+      },
+      "fontOnSecondary": {
+        "value": "#E4E7EA"
+      },
+      "fontOnSecondaryDanger": {
+        "value": "#FFC1C9"
+      },
+      "fontOnDanger": {
+        "value": "#FFFFFF"
+      },
+      "fontOnSuccess": {
+        "value": "#FFFFFF"
+      },
+      "fontOnPrimaryDisabled": {
+        "value": "#6C727A"
+      },
+      "fontOnSecondaryDisabled": {
+        "value": "#6C727A"
+      },
+      "onSecondaryDangerDisabled": {
+        "value": "#6B0513"
+      },
+      "fontOnDangerDisabled": {
+        "value": "#757575"
+      },
+      "fontOnSuccessDisabled": {
+        "value": "#757575"
+      }
+    }
+  }
+}
