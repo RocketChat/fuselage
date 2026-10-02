@@ -367,13 +367,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.29.7":
-  version: 7.29.7
-  resolution: "@babel/runtime@npm:7.29.7"
-  checksum: 10/9883b4951787779fd382b121f22f92966d85f19434841f65fb00b2dfec232107e139683f47c6f252891826ad8ee18317b46c3a0e4819116a9885f47b46d7126a
-  languageName: node
-  linkType: hard
-
 "@babel/template@npm:^7.29.7":
   version: 7.29.7
   resolution: "@babel/template@npm:7.29.7"
@@ -4285,51 +4278,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@rocket.chat/fuselage-toastbar@workspace:packages/fuselage-toastbar":
-  version: 0.0.0-use.local
-  resolution: "@rocket.chat/fuselage-toastbar@workspace:packages/fuselage-toastbar"
-  dependencies:
-    "@microsoft/api-extractor": "npm:~7.58.13"
-    "@rocket.chat/fuselage": "workspace:~"
-    "@rocket.chat/fuselage-hooks": "workspace:~"
-    "@rocket.chat/fuselage-tokens": "workspace:~"
-    "@rocket.chat/layout": "npm:~0.36.3"
-    "@rocket.chat/logo": "workspace:~"
-    "@rocket.chat/storybook-dark-mode": "npm:~4.2.1"
-    "@rocket.chat/styled": "workspace:~"
-    "@storybook/addon-docs": "npm:~9.1.20"
-    "@storybook/addon-webpack5-compiler-swc": "npm:~4.0.3"
-    "@storybook/react-webpack5": "npm:~9.1.20"
-    "@testing-library/dom": "npm:~10.4.2"
-    "@testing-library/jest-dom": "npm:~6.9.1"
-    "@testing-library/react": "npm:~16.3.3"
-    "@testing-library/user-event": "npm:~14.6.7"
-    "@types/react": "npm:~19.2.18"
-    "@types/react-dom": "npm:~19.2.7"
-    eslint: "npm:~10.8.1"
-    i18next: "npm:~26.4.2"
-    jest: "npm:~30.4.2"
-    jest-environment-jsdom: "npm:~30.4.1"
-    lint-all: "workspace:~"
-    prettier: "npm:~3.6.2"
-    react: "npm:~19.2.8"
-    react-dom: "npm:~19.2.8"
-    react-i18next: "npm:~17.0.14"
-    react-timing-hooks: "npm:~5.2.0"
-    rimraf: "npm:~6.1.3"
-    storybook: "npm:~9.1.20"
-    ts-jest: "npm:~29.4.12"
-    typedoc: "npm:~0.28.20"
-    typescript: "npm:~5.9.3"
-  peerDependencies:
-    "@rocket.chat/fuselage": "*"
-    "@rocket.chat/fuselage-hooks": "*"
-    "@rocket.chat/styled": "*"
-    react: "*"
-    react-dom: "*"
-  languageName: unknown
-  linkType: soft
-
 "@rocket.chat/fuselage-tokens@workspace:packages/fuselage-tokens, @rocket.chat/fuselage-tokens@workspace:~":
   version: 0.0.0-use.local
   resolution: "@rocket.chat/fuselage-tokens@workspace:packages/fuselage-tokens"
@@ -4431,20 +4379,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@rocket.chat/layout@npm:~0.36.3":
-  version: 0.36.3
-  resolution: "@rocket.chat/layout@npm:0.36.3"
-  peerDependencies:
-    "@rocket.chat/fuselage": "*"
-    "@rocket.chat/logo": "*"
-    react: "*"
-    react-dom: "*"
-    react-i18next: "*"
-  checksum: 10/12bdab30798d5c726c7e8524b75385f7696c05f0029e50a66077ee5fbfe4f3ab23eff5d841f11554d53e32d9d1be9a6fce02b1a5a6040761642e07c295d3bb9c
-  languageName: node
-  linkType: hard
-
-"@rocket.chat/logo@workspace:packages/logo, @rocket.chat/logo@workspace:~":
+"@rocket.chat/logo@workspace:packages/logo":
   version: 0.0.0-use.local
   resolution: "@rocket.chat/logo@workspace:packages/logo"
   dependencies:
@@ -10391,13 +10326,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"html-parse-stringify@npm:^4.0.1":
-  version: 4.0.1
-  resolution: "html-parse-stringify@npm:4.0.1"
-  checksum: 10/c30ce1fbc81c32c87808d8a527519a7524c73499b223cf2002e9fddd49ecf98626ee8c13bb011a3cc283803831d67fdb75ae9f566666d05c915e460d5b5016cc
-  languageName: node
-  linkType: hard
-
 "html-tags@npm:^5.1.0":
   version: 5.1.0
   resolution: "html-tags@npm:5.1.0"
@@ -10505,18 +10433,6 @@ __metadata:
   version: 1.2.0
   resolution: "hyperdyperid@npm:1.2.0"
   checksum: 10/64abb5568ff17aa08ac0175ae55e46e22831c5552be98acdd1692081db0209f36fff58b31432017b4e1772c178962676a2cc3c54e4d5d7f020d7710cec7ad7a6
-  languageName: node
-  linkType: hard
-
-"i18next@npm:~26.4.2":
-  version: 26.4.2
-  resolution: "i18next@npm:26.4.2"
-  peerDependencies:
-    typescript: ^5 || ^6 || ^7
-  peerDependenciesMeta:
-    typescript:
-      optional: true
-  checksum: 10/7cf060a81682a63d0900c584b03a25557da88afcefebca613ca24c2a1af1322cdf606ba3dffa2d3900b3cf0fa6c3a945d89a0e50517d1b76ac5acb070ac76173
   languageName: node
   linkType: hard
 
@@ -14809,28 +14725,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-i18next@npm:~17.0.14":
-  version: 17.0.15
-  resolution: "react-i18next@npm:17.0.15"
-  dependencies:
-    "@babel/runtime": "npm:^7.29.7"
-    html-parse-stringify: "npm:^4.0.1"
-    use-sync-external-store: "npm:^1.6.0"
-  peerDependencies:
-    i18next: ">= 26.2.0"
-    react: ">= 16.8.0"
-    typescript: ^5 || ^6 || ^7
-  peerDependenciesMeta:
-    react-dom:
-      optional: true
-    react-native:
-      optional: true
-    typescript:
-      optional: true
-  checksum: 10/c600fd89b3421f75c8cf57cfc2afa8613479da21709ee354f2263a6ee8c04e7be29b43f183bdd2b06ffc461625c658a46f9d36fd082f736f4a28baabf61f5976
-  languageName: node
-  linkType: hard
-
 "react-is-18@npm:react-is@^18.3.1, react-is@npm:^18.0.0":
   version: 18.3.1
   resolution: "react-is@npm:18.3.1"
@@ -14908,15 +14802,6 @@ __metadata:
   peerDependencies:
     react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1
   checksum: 10/5977fab93e55d110dc3d009137b97ac9281c2539239958be7743466c16d10da4c7d2a98c65295621be411bbc5f3941fdd15ac3546363d01829ecc430bf3d2604
-  languageName: node
-  linkType: hard
-
-"react-timing-hooks@npm:~5.2.0":
-  version: 5.2.0
-  resolution: "react-timing-hooks@npm:5.2.0"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
-  checksum: 10/076345302108a6f1703bde0383e98b6971ebb9cc376ec8e72f06102610a8236faf491824699aed3eb8d87285041791cbac5d157dfdb815355ecbd6e44b4b9423
   languageName: node
   linkType: hard
 
@@ -17584,15 +17469,6 @@ __metadata:
     punycode: "npm:^1.4.1"
     qs: "npm:^6.12.3"
   checksum: 10/e787d070f0756518b982a4653ef6cdf4d9030d8691eee2d483344faf2b530b71d302287fa63b292299455fea5075c502a5ad5f920cb790e95605847f957a65e4
-  languageName: node
-  linkType: hard
-
-"use-sync-external-store@npm:^1.6.0":
-  version: 1.7.0
-  resolution: "use-sync-external-store@npm:1.7.0"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
-  checksum: 10/cc102e193d079dda118846627f97ac8d34059ae7e1112188ed6330bd42a6b31c209cbb39923d4d663ddc42e5969913015778397131fcd3249909756c88ba9906
   languageName: node
   linkType: hard
 
