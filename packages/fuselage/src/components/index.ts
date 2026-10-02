@@ -28,6 +28,7 @@ export * from './FramedIcon';
 export * from './Grid';
 export * from './Icon';
 export * from './InputBox';
+export * from './Item';
 export * from './Label';
 export * from './Margins';
 export * from './Menu';
