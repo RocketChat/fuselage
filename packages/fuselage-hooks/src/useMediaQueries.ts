@@ -47,6 +47,9 @@ export const useMediaQueries = (...queries: string[]) => {
         mediaQueryList.addListener(callback);
       }
 
+      // Refresh changed queries and changes between rendering and subscribing.
+      callback();
+
       return () => {
         for (const mediaQueryList of mediaQueryLists) {
           if (typeof mediaQueryList.removeEventListener === 'function') {
