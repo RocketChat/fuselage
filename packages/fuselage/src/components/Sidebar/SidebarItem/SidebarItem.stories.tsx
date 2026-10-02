@@ -37,16 +37,14 @@ export default {
 
 type Story = StoryObj<typeof SidebarListItem>;
 
-export const CondensedItems = () => (
-  <>
-    {Array.from({ length: 8 }).map((_, i) => (
-      <GenericCondensedItem key={i} i={i} />
-    ))}
-  </>
-);
-
 export const Condensed: Story = {
-  render: CondensedItems,
+  render: () => (
+    <>
+      {Array.from({ length: 8 }).map((_, i) => (
+        <GenericCondensedItem key={i} i={i} />
+      ))}
+    </>
+  ),
 };
 
 export const Medium: Story = {

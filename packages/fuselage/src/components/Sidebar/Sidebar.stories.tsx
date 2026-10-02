@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-webpack5';
+import type { ComponentType, ReactNode } from 'react';
 import { action } from 'storybook/actions';
 
 import { IconButton, TextInput, Icon, Box } from '../..';
@@ -19,10 +20,16 @@ import {
   SidebarListItem,
   SidebarSection,
   SidebarFooter,
+  type SidebarProps,
 } from '.';
 import { SidebarCollapseGroupMenu } from './SidebarCollapseGroupMenu';
-import { CondensedItems as Condensed } from './SidebarItem/SidebarItem.stories';
-import { GenericNoAvatarItem, MenuTemplate } from './helpers';
+import {
+  CondensedItems as Condensed,
+  GenericExtendedItem,
+  GenericMediumItem,
+  GenericNoAvatarItem,
+  MenuTemplate,
+} from './helpers';
 
 export default {
   title: 'Navigation/Sidebar',
@@ -223,4 +230,106 @@ export const Default: Story = {
       </Sidebar>
     </Box>
   ),
+};
+
+type SidebarDisplay = 'condensed' | 'medium' | 'extended';
+
+const itemsByDisplay: Record<
+  SidebarDisplay,
+  { item: ComponentType<{ i: number }>; teamItems: ReactNode }
+> = {
+  condensed: { item: GenericNoAvatarItem, teamItems: <Condensed /> },
+  medium: {
+    item: GenericMediumItem,
+    teamItems: Array.from({ length: 4 }).map((_, i) => (
+      <GenericMediumItem key={i} i={i} />
+    )),
+  },
+  extended: {
+    item: GenericExtendedItem,
+    teamItems: Array.from({ length: 4 }).map((_, i) => (
+      <GenericExtendedItem key={i} i={i} />
+    )),
+  },
+};
+
+type CustomTemplateProps = SidebarProps & {
+  display: SidebarDisplay;
+};
+
+const CustomTemplate = ({ display, ...args }: CustomTemplateProps) => {
+  const { item: Item, teamItems } = itemsByDisplay[display];
+
+  return (
+    <Box height='90vh' width='x280'>
+      <Sidebar {...args}>
+        <SidebarCollapseGroup
+          title='Empty'
+          empty
+          menu={
+            <SidebarCollapseGroupMenu>
+              <MenuTemplate />
+            </SidebarCollapseGroupMenu>
+          }
+        />
+        <SidebarCollapseGroup title='Custom'>
+          {Array.from({ length: 4 }).map((_, i) => (
+            <Item key={i} i={i} />
+          ))}
+        </SidebarCollapseGroup>
+        <SidebarCollapseGroup
+          title='Favorites'
+          badge={
+            <SidebarItemBadge
+              title='99+ unread messages'
+              children='99+'
+              variant='danger'
+            />
+          }
+        >
+          {Array.from({ length: 4 }).map((_, i) => (
+            <Item key={i} i={i} />
+          ))}
+        </SidebarCollapseGroup>
+        <SidebarCollapseGroup
+          title='Teams'
+          defaultExpanded
+          badge={
+            <SidebarItemBadge
+              title='99+ unread messages'
+              children='99+'
+              variant='danger'
+            />
+          }
+        >
+          {teamItems}
+          <SidebarListItem>
+            <SidebarItemAction onClick={action('add team')}>
+              Add team
+            </SidebarItemAction>
+          </SidebarListItem>
+        </SidebarCollapseGroup>
+        <SidebarFooter>
+          <SidebarFooterContent>Powered by Rocket.Chat</SidebarFooterContent>
+          <SidebarFooterContent color='titles-labels'>
+            Free edition
+          </SidebarFooterContent>
+        </SidebarFooter>
+      </Sidebar>
+    </Box>
+  );
+};
+
+export const Custom: StoryObj<CustomTemplateProps> = {
+  args: {
+    display: 'condensed',
+  },
+  argTypes: {
+    display: {
+      options: ['condensed', 'medium', 'extended'],
+      control: 'inline-radio',
+      description: 'Density of the room items rendered in the sidebar.',
+    },
+  },
+  render: (args) => <CustomTemplate {...args} />,
 };

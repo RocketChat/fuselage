@@ -88,12 +88,22 @@ export const GenericCondensedItem = ({ i = 0 }: { i: number }) => (
   </SidebarListItem>
 );
 
+export const CondensedItems = () => (
+  <>
+    {Array.from({ length: 8 }).map((_, i) => (
+      <GenericCondensedItem key={i} i={i} />
+    ))}
+  </>
+);
+
 export const GenericNoAvatarItem = ({ i = 0 }: { i: number }) => (
   <SidebarListItem>
     <SidebarItem href='#'>
       <SidebarItemStatusBullet status='online' />
-      <SidebarItemTitle>{names[i % 10]}</SidebarItemTitle>
-      <SidebarItemBadge title='unread messages'>{5}</SidebarItemBadge>
+      <SidebarItemTitle unread={i % 2 !== 0}>{names[i % 10]}</SidebarItemTitle>
+      {i % 2 !== 0 && (
+        <SidebarItemBadge title='unread messages'>{5}</SidebarItemBadge>
+      )}
       <SidebarItemMenu>
         <MenuTemplate />
       </SidebarItemMenu>
@@ -107,9 +117,11 @@ export const GenericMediumItem = ({ i = 0 }: { i: number }) => (
       <SidebarItemAvatarWrapper>
         <Avatar size='x28' url={leterAvatarUrls[i % 4]} alt='avatar' />
       </SidebarItemAvatarWrapper>
-      <SidebarItemIcon icon='team' />
-      <SidebarItemTitle>{names[i % 10]}</SidebarItemTitle>
-      <SidebarItemBadge title='unread messages'>{5}</SidebarItemBadge>
+      <SidebarItemIcon highlighted={i % 2 !== 0} icon='team' />
+      <SidebarItemTitle unread={i % 2 !== 0}>{names[i % 10]}</SidebarItemTitle>
+      {i % 2 !== 0 && (
+        <SidebarItemBadge title='unread messages'>{5}</SidebarItemBadge>
+      )}
       <SidebarItemMenu>
         <MenuTemplate />
       </SidebarItemMenu>
@@ -126,14 +138,20 @@ export const GenericExtendedItem = ({ i = 0 }: { i: number }) => (
 
       <SidebarItemCol>
         <SidebarItemRow>
-          <SidebarItemIcon icon='team' />
-          <SidebarItemTitle>{names[i % 10]}</SidebarItemTitle>
-          <SidebarItemTimestamp>12:00</SidebarItemTimestamp>
+          <SidebarItemIcon highlighted={i % 2 !== 0} icon='team' />
+          <SidebarItemTitle unread={i % 2 !== 0}>
+            {names[i % 10]}
+          </SidebarItemTitle>
+          <SidebarItemTimestamp unread={i % 2 !== 0}>
+            12:00
+          </SidebarItemTimestamp>
         </SidebarItemRow>
 
         <SidebarItemRow>
           <SidebarItemContent>No messages yet</SidebarItemContent>
-          <SidebarItemBadge title='unread messages'>{5}</SidebarItemBadge>
+          {i % 2 !== 0 && (
+            <SidebarItemBadge title='unread messages'>{5}</SidebarItemBadge>
+          )}
           <SidebarItemMenu>
             <MenuTemplate />
           </SidebarItemMenu>

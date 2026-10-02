@@ -49,18 +49,20 @@ const SidebarAccordionItem = ({
           .join(' ')}
         {...barProps}
       >
-        {!noncollapsible && (
-          <Chevron
-            className='rcx-sidebar-accordion-item__chevron'
-            size='x16'
-            right={!expanded}
-          />
-        )}
-        {title && (
-          <h5 className='rcx-sidebar-accordion-item__title' id={titleId}>
-            {title}
-          </h5>
-        )}
+        <div className='rcx-sidebar-accordion-item__heading'>
+          {title && (
+            <h5 className='rcx-sidebar-accordion-item__title' id={titleId}>
+              {title}
+            </h5>
+          )}
+          {!noncollapsible && (
+            <Chevron
+              className='rcx-sidebar-accordion-item__chevron'
+              size='x16'
+              right={!expanded}
+            />
+          )}
+        </div>
         {!expanded && badge && badge}
       </div>
       <div
