@@ -152,10 +152,7 @@ $-status-backgrounds: (
 
 $-status-font: (
   on-success: token($status, font-on-success),
-  // TODO(design): token value (font-on-warning, yellow-900, #8E6300)
-  // diverges from fuselage's current yellow-800. Keeping the current value
-  // until design confirms which is correct.
-  on-warning: primitive(y800),
+  on-warning: token($status, font-on-warning),
   on-warning-2: token($status, font-on-warning-2),
   on-danger: token($status, font-on-danger),
   on-service-1: token($status, font-on-service-1),
