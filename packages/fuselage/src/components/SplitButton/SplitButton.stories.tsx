@@ -2,7 +2,7 @@ import type { Decorator, Meta, StoryObj } from '@storybook/react-webpack5';
 import { useState } from 'react';
 
 import { Box } from '../Box';
-import { IconButton } from '../Button';
+import { Button, IconButton } from '../Button';
 import { ButtonGroup } from '../ButtonGroup';
 import { Menu, MenuItem } from '../Menu';
 
@@ -78,51 +78,95 @@ export const Default: Story = {
   },
 };
 
-export const InsideButtonGroup: Story = {
+export const CallControls: Story = {
   decorators: [withLightSurface],
-  render: () => (
-    <ButtonGroup aria-label='Call controls'>
-      <SplitButton aria-label='Microphone'>
+  render: function Render() {
+    const [micOn, setMicOn] = useState(true);
+    const [cameraOn, setCameraOn] = useState(true);
+    const [captionsOn, setCaptionsOn] = useState(false);
+    const [handRaised, setHandRaised] = useState(false);
+
+    return (
+      <ButtonGroup aria-label='Call controls'>
+        <SplitButton aria-label='Microphone'>
+          <Menu
+            icon='kebab'
+            button={<IconButton secondary small icon='kebab' />}
+            aria-label='Audio settings'
+            placement='top-start'
+          >
+            <MenuItem key='built-in'>Built-in Microphone</MenuItem>
+            <MenuItem key='headset'>Headset</MenuItem>
+          </Menu>
+          <IconButton
+            secondary
+            small
+            icon={micOn ? 'mic' : 'mic-off'}
+            aria-label='Microphone'
+            aria-pressed={micOn}
+            onClick={() => setMicOn((on) => !on)}
+          />
+        </SplitButton>
+        <SplitButton aria-label='Camera'>
+          <Menu
+            icon='chevron-up'
+            button={<IconButton secondary small icon='chevron-up' />}
+            aria-label='Video settings'
+            placement='top-start'
+          >
+            <MenuItem key='built-in'>Built-in Camera</MenuItem>
+            <MenuItem key='external'>External Camera</MenuItem>
+          </Menu>
+          <IconButton
+            secondary
+            small
+            icon={cameraOn ? 'video' : 'video-off'}
+            aria-label='Camera'
+            aria-pressed={cameraOn}
+            onClick={() => setCameraOn((on) => !on)}
+          />
+        </SplitButton>
+        <IconButton
+          secondary
+          small
+          icon='desktop-arrow-up'
+          aria-label='Present now'
+        />
+        <IconButton secondary small icon='emoji' aria-label='Send a reaction' />
+        <IconButton
+          secondary
+          small
+          icon='closed-captions'
+          aria-label='Captions'
+          aria-pressed={captionsOn}
+          onClick={() => setCaptionsOn((on) => !on)}
+        />
+        <IconButton
+          secondary
+          small
+          icon='hand'
+          aria-label='Raise hand'
+          aria-pressed={handRaised}
+          onClick={() => setHandRaised((raised) => !raised)}
+        />
         <Menu
           icon='kebab'
           button={<IconButton secondary small icon='kebab' />}
-          aria-label='Audio settings'
+          aria-label='More options'
+          placement='top-end'
         >
-          <MenuItem key='built-in'>Built-in Microphone</MenuItem>
+          <MenuItem key='settings'>Settings</MenuItem>
+          <MenuItem key='report'>Report a problem</MenuItem>
         </Menu>
-        <IconButton
-          secondary
-          small
-          icon='mic'
-          aria-label='Microphone'
-          aria-pressed
-        />
-      </SplitButton>
-      <SplitButton aria-label='Camera'>
-        <Menu
-          icon='chevron-up'
-          button={<IconButton secondary small icon='chevron-up' />}
-          aria-label='Video settings'
-        >
-          <MenuItem key='built-in'>Built-in Camera</MenuItem>
-        </Menu>
-        <IconButton
-          secondary
-          small
-          icon='video'
-          aria-label='Camera'
-          aria-pressed={false}
-        />
-      </SplitButton>
-      <IconButton secondary small icon='desktop' aria-label='Present' />
-      <IconButton danger small icon='phone-off' aria-label='Leave call' />
-    </ButtonGroup>
-  ),
+        <Button danger small square icon='phone-off' aria-label='Leave call' />
+      </ButtonGroup>
+    );
+  },
   parameters: {
     docs: {
       description: {
         story:
-          'Video-call controls: each device toggle is paired with a ghost menu segment that opens the device selection.',
+          'Video-call controls: `SplitButton`s for the microphone and camera (each device toggle paired with a ghost menu segment that opens the device selection), laid out in a `ButtonGroup` next to standalone toggles, a regular `Menu` and the leave action. Only the split buttons are fused; the group keeps its 8px gap between controls.',
       },
     },
   },
