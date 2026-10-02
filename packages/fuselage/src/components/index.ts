@@ -53,6 +53,7 @@ export * from './Sidebar';
 export * from './Sidepanel';
 export * from './Skeleton';
 export * from './Slider';
+export * from './SplitButton';
 export * from './States';
 export * from './StatusBullet';
 export * from './Table';
