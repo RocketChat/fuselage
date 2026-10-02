@@ -1,41 +1,54 @@
 import type { Ref, RefCallback, RefObject } from 'react';
-import { useCallback, useRef } from 'react';
-
-import { useIsomorphicLayoutEffect } from './useIsomorphicLayoutEffect';
+import { useCallback } from 'react';
 
 const isRefCallback = <T>(x: unknown): x is RefCallback<T> =>
   typeof x === 'function';
-const isRefObject = <T>(x: unknown): x is RefObject<T> => typeof x === 'object';
+const isRefObject = <T>(x: unknown): x is RefObject<T | null> =>
+  typeof x === 'object' && x !== null;
+const isRefCleanup = (x: unknown): x is () => void | undefined =>
+  typeof x === 'function';
+
+const setRef = <T>(
+  ref: Ref<T> | undefined,
+  refValue: T,
+): (() => void) | void => {
+  if (isRefCallback<T>(ref)) {
+    const result = ref(refValue);
+    return isRefCleanup(result) ? result : () => ref(null);
+  }
+
+  if (isRefObject<T>(ref)) {
+    ref.current = refValue;
+
+    return () => {
+      ref.current = null;
+    };
+  }
+};
 
 /**
- * Hook to merge refs and callbacks refs into a single callback ref. Useful when your component need a internal ref
- * while receiving a forwared ref.
+ * Merges many refs and ref callbacks into a single ref callback. Useful when you need to attach
+ * more than one ref to a component's lifecycle.
  *
- * @param refs - the refs and callback refs that should be merged
- * @return a merged callback ref
+ * @param refs - the ref objects and ref callbacks to be merged
+ * @return the merged ref callback
  * @public
  */
 export const useMergedRefs = <T>(
   ...refs: (Ref<T> | null | undefined)[]
 ): RefCallback<T> => {
-  const refsRef = useRef(refs);
-
-  useIsomorphicLayoutEffect(() => {
-    refsRef.current = refs;
-  });
-
   return useCallback((refValue: T) => {
-    const refs = refsRef.current;
+    const refValues = refs.map((ref) => setRef(ref, refValue));
 
-    refs.filter(Boolean).forEach((ref) => {
-      if (isRefCallback<T>(ref)) {
-        ref(refValue);
-        return;
-      }
+    return () => {
+      refValues.forEach((value) => {
+        if (!isRefCleanup(value)) {
+          return;
+        }
 
-      if (isRefObject<T>(ref)) {
-        ref.current = refValue;
-      }
-    });
-  }, []);
+        value();
+      });
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, refs);
 };
