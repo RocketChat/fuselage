@@ -77,9 +77,14 @@ $card-background-color: theme('card-background-color', colors.surface(light));
 
   &__title,
   &__row,
-  &__header,
+  &__header {
+    display: flex;
+    align-items: center;
+  }
+
   &__controls {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
   }
 }
