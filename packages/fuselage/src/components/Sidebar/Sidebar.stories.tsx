@@ -190,7 +190,11 @@ export const Default: Story = {
                   variant='danger'
                 />
               }
-              menu={<MenuTemplate />}
+              menu={
+                <SidebarCollapseGroupMenu>
+                  <MenuTemplate />
+                </SidebarCollapseGroupMenu>
+              }
             >
               <Condensed />
               <SidebarListItem>
