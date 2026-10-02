@@ -53,6 +53,27 @@
       "font-on-service-2": { "value": "#C393D2", "type": "color" },
       "service-3": { "value": "#5F1477", "type": "color" },
       "font-on-service-3": { "value": "#FFFFFF", "type": "color" }
+    },
+    "dark-alpha": {
+      "info": { "value": "rgba(115, 158, 222, 0.22)", "type": "color" },
+      "font-on-info": { "value": "#9EC1F0", "type": "color" },
+      "success": { "value": "rgba(88, 173, 144, 0.22)", "type": "color" },
+      "font-on-success": { "value": "#7BD3AE", "type": "color" },
+      "danger": { "value": "rgba(216, 136, 146, 0.22)", "type": "color" },
+      "font-on-danger": { "value": "#F0A6B0", "type": "color" },
+      "warning": { "value": "rgba(199, 170, 102, 0.22)", "type": "color" },
+      "font-on-warning": { "value": "#DFC583", "type": "color" },
+      "warning-2": { "value": "rgba(199, 170, 102, 0.12)", "type": "color" },
+      "font-on-warning-2": {
+        "value": "rgba(255, 255, 255, 0.92)",
+        "type": "color"
+      },
+      "service-1": { "value": "rgba(202, 145, 99, 0.22)", "type": "color" },
+      "font-on-service-1": { "value": "#E3B08A", "type": "color" },
+      "service-2": { "value": "rgba(195, 147, 210, 0.22)", "type": "color" },
+      "font-on-service-2": { "value": "#D9B3E6", "type": "color" },
+      "service-3": { "value": "rgba(95, 20, 119, 0.9)", "type": "color" },
+      "font-on-service-3": { "value": "#FFFFFF", "type": "color" }
     }
   }
 }
