@@ -445,16 +445,22 @@ $item-group-narrow-width: 320px;
 
   display: block;
 
-  height: 0;
-  margin-block: lengths.margin(4);
-  margin-inline: 0;
-  padding: 0;
+  margin: 0;
+  padding-block: lengths.padding(4);
+  padding-inline: 0;
 
   list-style: none;
 
   border: 0;
-  border-top: lengths.border-width(default) solid $item-color-stroke-divider;
   @include inset-scale;
+
+  &::before {
+    display: block;
+
+    content: '';
+
+    border-top: lengths.border-width(default) solid $item-color-stroke-divider;
+  }
 
   &--inset-sm,
   &--inset-md,
