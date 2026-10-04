@@ -12,7 +12,8 @@ export default {
         component:
           'Splits data into several pages, with navigation control and items-per-page. Usually used with tables.\n\n' +
           '**Rules**\n' +
-          '- Use with paginated data sets, typically below a table.',
+          '- Use with paginated data sets, typically below a table.\n' +
+          '- Below the medium breakpoint, controls use 40px touch targets and page links wrap to fit the viewport.',
       },
     },
   },

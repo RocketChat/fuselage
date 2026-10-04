@@ -51,9 +51,12 @@ $pagination-border-radius: theme(
   flex-flow: row nowrap;
   align-items: center;
   flex: 0 1 auto;
+
+  max-width: lengths.size(full);
 }
 
 .rcx-pagination__left {
+  flex-direction: column;
   justify-content: center;
 
   margin-inline-start: lengths.margin(none);
@@ -63,6 +66,8 @@ $pagination-border-radius: theme(
   }
 
   @include on-breakpoint(md) {
+    flex-direction: row;
+
     margin-inline: lengths.margin(none) auto;
   }
 }
@@ -90,10 +95,30 @@ $pagination-border-radius: theme(
 
 .rcx-pagination__list {
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: row wrap;
+  justify-content: center;
   align-items: center;
 
   margin-inline: lengths.margin(4);
+
+  @include on-breakpoint(md) {
+    flex-wrap: nowrap;
+  }
+}
+
+.rcx-pagination__link,
+.rcx-pagination__back,
+.rcx-pagination__forward {
+  justify-content: center;
+  align-items: center;
+
+  min-width: lengths.size(40);
+  min-height: lengths.size(40);
+
+  @include on-breakpoint(md) {
+    min-width: lengths.size(none);
+    min-height: lengths.size(none);
+  }
 }
 
 .rcx-pagination__list-item {
