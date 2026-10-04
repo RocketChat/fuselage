@@ -34,8 +34,8 @@ for (const width of [320, 375, 600]) {
       }),
     );
     for (const size of sizes) {
-      expect(size.width).toBeGreaterThanOrEqual(40);
-      expect(size.height).toBeGreaterThanOrEqual(40);
+      expect(size.width).toBeGreaterThanOrEqual(44);
+      expect(size.height).toBeGreaterThanOrEqual(44);
     }
 
     const optionRows = await pagination

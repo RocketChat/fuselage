@@ -112,8 +112,8 @@ $pagination-border-radius: theme(
   justify-content: center;
   align-items: center;
 
-  min-width: lengths.size(40);
-  min-height: lengths.size(40);
+  min-width: lengths.size(44);
+  min-height: lengths.size(44);
 
   @include on-breakpoint(md) {
     min-width: lengths.size(none);
