@@ -1,6 +1,9 @@
 import type { AllHTMLAttributes, ElementType, RefAttributes } from 'react';
+import { useEffect, useId } from 'react';
 
 import { cx } from '../../helpers/composeClassNames';
+
+import { useItemContext } from './ItemContext';
 
 export type ItemTitleProps = {
   is?: ElementType;
@@ -12,10 +15,19 @@ export type ItemTitleProps = {
  */
 const ItemTitle = ({
   is: Tag = 'div',
+  id: propId,
   className,
   ...props
-}: ItemTitleProps) => (
-  <Tag {...props} className={cx('rcx-item__title', className)} />
-);
+}: ItemTitleProps) => {
+  const generatedId = useId();
+  const id = propId ?? generatedId;
+  const { registerTitle } = useItemContext();
+
+  useEffect(() => registerTitle(id), [id, registerTitle]);
+
+  return (
+    <Tag {...props} id={id} className={cx('rcx-item__title', className)} />
+  );
+};
 
 export default ItemTitle;
