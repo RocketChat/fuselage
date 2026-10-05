@@ -327,4 +327,55 @@ describe('getPositionStyle function', () => {
     expect(result.style.left).toEqual(50);
     expect(result.style.top).toEqual(-5);
   });
+
+  it.each(['right-start', 'left-start'] as const)(
+    'centers a horizontally overflowing target on the horizontal axis for %s',
+    (placement) => {
+      const containerRect = createRect(100, 200, 200, 120);
+      const anchorRect = createRect(180, 260, 40, 20);
+      const targetRect = createRect(0, 0, 240, 40);
+
+      const targetBoundaries = getTargetBoundaries({ anchorRect, targetRect });
+      const variantBoundaries = getVariantBoundaries({
+        anchorRect,
+        targetRect,
+      });
+
+      const result = getPositionStyle({
+        placement,
+        containerRect,
+        targetBoundaries,
+        variantBoundaries,
+        targetRect,
+      });
+
+      expect(result.style.left).toEqual(80);
+      expect(result.style.top).toEqual(260);
+    },
+  );
+
+  it('detects vertical overflow using the vertical coordinate for horizontal placements', () => {
+    const containerRect = createRect(100, 200, 200, 80);
+    const anchorRect = createRect(180, 260, 40, 20);
+    const targetRect = createRect(0, 0, 240, 40);
+    const placement = 'right-start';
+
+    const targetBoundaries = getTargetBoundaries({ anchorRect, targetRect });
+    const variantBoundaries = getVariantBoundaries({
+      anchorRect,
+      targetRect,
+    });
+
+    const result = getPositionStyle({
+      placement,
+      containerRect,
+      targetBoundaries,
+      variantBoundaries,
+      targetRect,
+    });
+
+    expect(result.style.left).toEqual(80);
+    expect(result.style.top).toEqual(260);
+    expect(result.style.overflowY).toEqual('auto');
+  });
 });
