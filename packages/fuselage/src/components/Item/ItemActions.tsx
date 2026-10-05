@@ -14,6 +14,7 @@ export type ItemActionsProps = {
 
 /**
  * The trailing buttons, icon buttons or menu trigger of an `Item` or `ItemGroupHeader`.
+ * Placed as a direct child it spans every row; placed inside an `ItemRow` it only takes space from that row.
  */
 const ItemActions = ({
   is: Tag = 'div',

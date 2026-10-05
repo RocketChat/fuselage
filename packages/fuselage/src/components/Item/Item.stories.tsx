@@ -296,13 +296,18 @@ const RoomRow = ({
           <ItemRow>
             <ItemDescription>{room.preview}</ItemDescription>
             <RoomBadge room={room} />
+            <ItemActions reveal='hover'>
+              <RoomMenu room={room} />
+            </ItemActions>
           </ItemRow>
         )}
       </ItemContent>
       {!extended && <RoomBadge room={room} />}
-      <ItemActions reveal='hover'>
-        <RoomMenu room={room} />
-      </ItemActions>
+      {!extended && (
+        <ItemActions reveal='hover'>
+          <RoomMenu room={room} />
+        </ItemActions>
+      )}
     </Item>
   );
 };
@@ -359,11 +364,11 @@ export const Default: Story = {
               <Badge variant='primary' title='3 unread messages'>
                 3
               </Badge>
+              <ItemActions reveal='hover'>
+                <IconButton mini icon='kebab' aria-label='Options' />
+              </ItemActions>
             </ItemRow>
           </ItemContent>
-          <ItemActions reveal='hover'>
-            <IconButton mini icon='kebab' aria-label='Options' />
-          </ItemActions>
         </Item>
       </ItemGroup>
     </SidebarSurface>

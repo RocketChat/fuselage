@@ -693,26 +693,26 @@ exports[`[Item Rendering] renders Default without crashing 1`] = `
               >
                 3
               </span>
-            </div>
-          </div>
-          <div
-            class="rcx-item__actions rcx-item__actions--reveal-hover"
-          >
-            <div
-              class="rcx-item__actions-inner"
-            >
-              <button
-                aria-label="Options"
-                class="rcx-box rcx-box--full rcx-button--mini-square rcx-button--square rcx-button--icon rcx-button"
-                type="button"
+              <div
+                class="rcx-item__actions rcx-item__actions--reveal-hover"
               >
-                <i
-                  aria-hidden="true"
-                  class="rcx-box rcx-box--full rcx-icon--name-kebab rcx-icon rcx-css-1tg7yd0"
+                <div
+                  class="rcx-item__actions-inner"
                 >
-                  
-                </i>
-              </button>
+                  <button
+                    aria-label="Options"
+                    class="rcx-box rcx-box--full rcx-button--mini-square rcx-button--square rcx-button--icon rcx-button"
+                    type="button"
+                  >
+                    <i
+                      aria-hidden="true"
+                      class="rcx-box rcx-box--full rcx-icon--name-kebab rcx-icon rcx-css-1tg7yd0"
+                    >
+                      
+                    </i>
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </li>
@@ -3931,30 +3931,30 @@ exports[`[Item Rendering] renders SidebarRoomList without crashing 1`] = `
                 >
                   12
                 </span>
-              </div>
-            </div>
-            <div
-              class="rcx-item__actions rcx-item__actions--reveal-hover"
-            >
-              <div
-                class="rcx-item__actions-inner"
-              >
-                <button
-                  aria-expanded="false"
-                  aria-haspopup="true"
-                  aria-label="Options for general"
-                  class="rcx-box rcx-box--full rcx-button--mini-square rcx-button--square rcx-button--icon rcx-button"
-                  id="react-aria-_r_32_"
-                  title="Options"
-                  type="button"
+                <div
+                  class="rcx-item__actions rcx-item__actions--reveal-hover"
                 >
-                  <i
-                    aria-hidden="true"
-                    class="rcx-box rcx-box--full rcx-icon--name-kebab rcx-icon rcx-css-1tg7yd0"
+                  <div
+                    class="rcx-item__actions-inner"
                   >
-                    
-                  </i>
-                </button>
+                    <button
+                      aria-expanded="false"
+                      aria-haspopup="true"
+                      aria-label="Options for general"
+                      class="rcx-box rcx-box--full rcx-button--mini-square rcx-button--square rcx-button--icon rcx-button"
+                      id="react-aria-_r_32_"
+                      title="Options"
+                      type="button"
+                    >
+                      <i
+                        aria-hidden="true"
+                        class="rcx-box rcx-box--full rcx-icon--name-kebab rcx-icon rcx-css-1tg7yd0"
+                      >
+                        
+                      </i>
+                    </button>
+                  </div>
+                </div>
               </div>
             </div>
           </li>
@@ -4025,30 +4025,30 @@ exports[`[Item Rendering] renders SidebarRoomList without crashing 1`] = `
                 >
                   3
                 </span>
-              </div>
-            </div>
-            <div
-              class="rcx-item__actions rcx-item__actions--reveal-hover"
-            >
-              <div
-                class="rcx-item__actions-inner"
-              >
-                <button
-                  aria-expanded="false"
-                  aria-haspopup="true"
-                  aria-label="Options for design-system"
-                  class="rcx-box rcx-box--full rcx-button--mini-square rcx-button--square rcx-button--icon rcx-button"
-                  id="react-aria-_r_35_"
-                  title="Options"
-                  type="button"
+                <div
+                  class="rcx-item__actions rcx-item__actions--reveal-hover"
                 >
-                  <i
-                    aria-hidden="true"
-                    class="rcx-box rcx-box--full rcx-icon--name-kebab rcx-icon rcx-css-1tg7yd0"
+                  <div
+                    class="rcx-item__actions-inner"
                   >
-                    
-                  </i>
-                </button>
+                    <button
+                      aria-expanded="false"
+                      aria-haspopup="true"
+                      aria-label="Options for design-system"
+                      class="rcx-box rcx-box--full rcx-button--mini-square rcx-button--square rcx-button--icon rcx-button"
+                      id="react-aria-_r_35_"
+                      title="Options"
+                      type="button"
+                    >
+                      <i
+                        aria-hidden="true"
+                        class="rcx-box rcx-box--full rcx-icon--name-kebab rcx-icon rcx-css-1tg7yd0"
+                      >
+                        
+                      </i>
+                    </button>
+                  </div>
+                </div>
               </div>
             </div>
           </li>
@@ -4118,30 +4118,30 @@ exports[`[Item Rendering] renders SidebarRoomList without crashing 1`] = `
                 >
                   1
                 </span>
-              </div>
-            </div>
-            <div
-              class="rcx-item__actions rcx-item__actions--reveal-hover"
-            >
-              <div
-                class="rcx-item__actions-inner"
-              >
-                <button
-                  aria-expanded="false"
-                  aria-haspopup="true"
-                  aria-label="Options for ops-oncall"
-                  class="rcx-box rcx-box--full rcx-button--mini-square rcx-button--square rcx-button--icon rcx-button"
-                  id="react-aria-_r_38_"
-                  title="Options"
-                  type="button"
+                <div
+                  class="rcx-item__actions rcx-item__actions--reveal-hover"
                 >
-                  <i
-                    aria-hidden="true"
-                    class="rcx-box rcx-box--full rcx-icon--name-kebab rcx-icon rcx-css-1tg7yd0"
+                  <div
+                    class="rcx-item__actions-inner"
                   >
-                    
-                  </i>
-                </button>
+                    <button
+                      aria-expanded="false"
+                      aria-haspopup="true"
+                      aria-label="Options for ops-oncall"
+                      class="rcx-box rcx-box--full rcx-button--mini-square rcx-button--square rcx-button--icon rcx-button"
+                      id="react-aria-_r_38_"
+                      title="Options"
+                      type="button"
+                    >
+                      <i
+                        aria-hidden="true"
+                        class="rcx-box rcx-box--full rcx-icon--name-kebab rcx-icon rcx-css-1tg7yd0"
+                      >
+                        
+                      </i>
+                    </button>
+                  </div>
+                </div>
               </div>
             </div>
           </li>
@@ -4266,30 +4266,30 @@ exports[`[Item Rendering] renders SidebarRoomList without crashing 1`] = `
                 >
                   You: sounds good, merging after CI
                 </div>
-              </div>
-            </div>
-            <div
-              class="rcx-item__actions rcx-item__actions--reveal-hover"
-            >
-              <div
-                class="rcx-item__actions-inner"
-              >
-                <button
-                  aria-expanded="false"
-                  aria-haspopup="true"
-                  aria-label="Options for Kenji Takahashi"
-                  class="rcx-box rcx-box--full rcx-button--mini-square rcx-button--square rcx-button--icon rcx-button"
-                  id="react-aria-_r_3c_"
-                  title="Options"
-                  type="button"
+                <div
+                  class="rcx-item__actions rcx-item__actions--reveal-hover"
                 >
-                  <i
-                    aria-hidden="true"
-                    class="rcx-box rcx-box--full rcx-icon--name-kebab rcx-icon rcx-css-1tg7yd0"
+                  <div
+                    class="rcx-item__actions-inner"
                   >
-                    
-                  </i>
-                </button>
+                    <button
+                      aria-expanded="false"
+                      aria-haspopup="true"
+                      aria-label="Options for Kenji Takahashi"
+                      class="rcx-box rcx-box--full rcx-button--mini-square rcx-button--square rcx-button--icon rcx-button"
+                      id="react-aria-_r_3c_"
+                      title="Options"
+                      type="button"
+                    >
+                      <i
+                        aria-hidden="true"
+                        class="rcx-box rcx-box--full rcx-icon--name-kebab rcx-icon rcx-css-1tg7yd0"
+                      >
+                        
+                      </i>
+                    </button>
+                  </div>
+                </div>
               </div>
             </div>
           </li>
@@ -4365,30 +4365,30 @@ exports[`[Item Rendering] renders SidebarRoomList without crashing 1`] = `
                 >
                   1
                 </span>
-              </div>
-            </div>
-            <div
-              class="rcx-item__actions rcx-item__actions--reveal-hover"
-            >
-              <div
-                class="rcx-item__actions-inner"
-              >
-                <button
-                  aria-expanded="false"
-                  aria-haspopup="true"
-                  aria-label="Options for Mariana Kovač"
-                  class="rcx-box rcx-box--full rcx-button--mini-square rcx-button--square rcx-button--icon rcx-button"
-                  id="react-aria-_r_3f_"
-                  title="Options"
-                  type="button"
+                <div
+                  class="rcx-item__actions rcx-item__actions--reveal-hover"
                 >
-                  <i
-                    aria-hidden="true"
-                    class="rcx-box rcx-box--full rcx-icon--name-kebab rcx-icon rcx-css-1tg7yd0"
+                  <div
+                    class="rcx-item__actions-inner"
                   >
-                    
-                  </i>
-                </button>
+                    <button
+                      aria-expanded="false"
+                      aria-haspopup="true"
+                      aria-label="Options for Mariana Kovač"
+                      class="rcx-box rcx-box--full rcx-button--mini-square rcx-button--square rcx-button--icon rcx-button"
+                      id="react-aria-_r_3f_"
+                      title="Options"
+                      type="button"
+                    >
+                      <i
+                        aria-hidden="true"
+                        class="rcx-box rcx-box--full rcx-icon--name-kebab rcx-icon rcx-css-1tg7yd0"
+                      >
+                        
+                      </i>
+                    </button>
+                  </div>
+                </div>
               </div>
             </div>
           </li>
@@ -4463,30 +4463,30 @@ exports[`[Item Rendering] renders SidebarRoomList without crashing 1`] = `
                 >
                   Priya: see you at the offsite
                 </div>
-              </div>
-            </div>
-            <div
-              class="rcx-item__actions rcx-item__actions--reveal-hover"
-            >
-              <div
-                class="rcx-item__actions-inner"
-              >
-                <button
-                  aria-expanded="false"
-                  aria-haspopup="true"
-                  aria-label="Options for Priya Nair"
-                  class="rcx-box rcx-box--full rcx-button--mini-square rcx-button--square rcx-button--icon rcx-button"
-                  id="react-aria-_r_3i_"
-                  title="Options"
-                  type="button"
+                <div
+                  class="rcx-item__actions rcx-item__actions--reveal-hover"
                 >
-                  <i
-                    aria-hidden="true"
-                    class="rcx-box rcx-box--full rcx-icon--name-kebab rcx-icon rcx-css-1tg7yd0"
+                  <div
+                    class="rcx-item__actions-inner"
                   >
-                    
-                  </i>
-                </button>
+                    <button
+                      aria-expanded="false"
+                      aria-haspopup="true"
+                      aria-label="Options for Priya Nair"
+                      class="rcx-box rcx-box--full rcx-button--mini-square rcx-button--square rcx-button--icon rcx-button"
+                      id="react-aria-_r_3i_"
+                      title="Options"
+                      type="button"
+                    >
+                      <i
+                        aria-hidden="true"
+                        class="rcx-box rcx-box--full rcx-icon--name-kebab rcx-icon rcx-css-1tg7yd0"
+                      >
+                        
+                      </i>
+                    </button>
+                  </div>
+                </div>
               </div>
             </div>
           </li>
@@ -4616,30 +4616,30 @@ exports[`[Item Rendering] renders SidebarRoomList without crashing 1`] = `
                 >
                   4
                 </span>
-              </div>
-            </div>
-            <div
-              class="rcx-item__actions rcx-item__actions--reveal-hover"
-            >
-              <div
-                class="rcx-item__actions-inner"
-              >
-                <button
-                  aria-expanded="false"
-                  aria-haspopup="true"
-                  aria-label="Options for Item API review"
-                  class="rcx-box rcx-box--full rcx-button--mini-square rcx-button--square rcx-button--icon rcx-button"
-                  id="react-aria-_r_3m_"
-                  title="Options"
-                  type="button"
+                <div
+                  class="rcx-item__actions rcx-item__actions--reveal-hover"
                 >
-                  <i
-                    aria-hidden="true"
-                    class="rcx-box rcx-box--full rcx-icon--name-kebab rcx-icon rcx-css-1tg7yd0"
+                  <div
+                    class="rcx-item__actions-inner"
                   >
-                    
-                  </i>
-                </button>
+                    <button
+                      aria-expanded="false"
+                      aria-haspopup="true"
+                      aria-label="Options for Item API review"
+                      class="rcx-box rcx-box--full rcx-button--mini-square rcx-button--square rcx-button--icon rcx-button"
+                      id="react-aria-_r_3m_"
+                      title="Options"
+                      type="button"
+                    >
+                      <i
+                        aria-hidden="true"
+                        class="rcx-box rcx-box--full rcx-icon--name-kebab rcx-icon rcx-css-1tg7yd0"
+                      >
+                        
+                      </i>
+                    </button>
+                  </div>
+                </div>
               </div>
             </div>
           </li>
@@ -5087,30 +5087,30 @@ exports[`[Item Rendering] renders Sizes without crashing 1`] = `
                   >
                     12
                   </span>
-                </div>
-              </div>
-              <div
-                class="rcx-item__actions rcx-item__actions--reveal-hover"
-              >
-                <div
-                  class="rcx-item__actions-inner"
-                >
-                  <button
-                    aria-expanded="false"
-                    aria-haspopup="true"
-                    aria-label="Options for general"
-                    class="rcx-box rcx-box--full rcx-button--mini-square rcx-button--square rcx-button--icon rcx-button"
-                    id="react-aria-_r_e_"
-                    title="Options"
-                    type="button"
+                  <div
+                    class="rcx-item__actions rcx-item__actions--reveal-hover"
                   >
-                    <i
-                      aria-hidden="true"
-                      class="rcx-box rcx-box--full rcx-icon--name-kebab rcx-icon rcx-css-1tg7yd0"
+                    <div
+                      class="rcx-item__actions-inner"
                     >
-                      
-                    </i>
-                  </button>
+                      <button
+                        aria-expanded="false"
+                        aria-haspopup="true"
+                        aria-label="Options for general"
+                        class="rcx-box rcx-box--full rcx-button--mini-square rcx-button--square rcx-button--icon rcx-button"
+                        id="react-aria-_r_e_"
+                        title="Options"
+                        type="button"
+                      >
+                        <i
+                          aria-hidden="true"
+                          class="rcx-box rcx-box--full rcx-icon--name-kebab rcx-icon rcx-css-1tg7yd0"
+                        >
+                          
+                        </i>
+                      </button>
+                    </div>
+                  </div>
                 </div>
               </div>
             </li>
@@ -5182,30 +5182,30 @@ exports[`[Item Rendering] renders Sizes without crashing 1`] = `
                   >
                     You: sounds good, merging after CI
                   </div>
-                </div>
-              </div>
-              <div
-                class="rcx-item__actions rcx-item__actions--reveal-hover"
-              >
-                <div
-                  class="rcx-item__actions-inner"
-                >
-                  <button
-                    aria-expanded="false"
-                    aria-haspopup="true"
-                    aria-label="Options for Kenji Takahashi"
-                    class="rcx-box rcx-box--full rcx-button--mini-square rcx-button--square rcx-button--icon rcx-button"
-                    id="react-aria-_r_h_"
-                    title="Options"
-                    type="button"
+                  <div
+                    class="rcx-item__actions rcx-item__actions--reveal-hover"
                   >
-                    <i
-                      aria-hidden="true"
-                      class="rcx-box rcx-box--full rcx-icon--name-kebab rcx-icon rcx-css-1tg7yd0"
+                    <div
+                      class="rcx-item__actions-inner"
                     >
-                      
-                    </i>
-                  </button>
+                      <button
+                        aria-expanded="false"
+                        aria-haspopup="true"
+                        aria-label="Options for Kenji Takahashi"
+                        class="rcx-box rcx-box--full rcx-button--mini-square rcx-button--square rcx-button--icon rcx-button"
+                        id="react-aria-_r_h_"
+                        title="Options"
+                        type="button"
+                      >
+                        <i
+                          aria-hidden="true"
+                          class="rcx-box rcx-box--full rcx-icon--name-kebab rcx-icon rcx-css-1tg7yd0"
+                        >
+                          
+                        </i>
+                      </button>
+                    </div>
+                  </div>
                 </div>
               </div>
             </li>
