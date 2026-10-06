@@ -27,8 +27,7 @@ import ItemMeta from './ItemMeta';
 import ItemRow from './ItemRow';
 import ItemSkeleton from './ItemSkeleton';
 import ItemTitle from './ItemTitle';
-import { ITEM_MEDIA_SIZE } from './itemMediaSize';
-import type { ItemInset, ItemSize } from './types';
+import type { ItemInset } from './types';
 
 export default {
   title: 'Navigation/Item',
@@ -58,7 +57,8 @@ export default {
           '- Compose rows from slots. A slot that is absent takes no space.\n' +
           '- Parts render a `div` and set no role. Pass `is`, `role` and ARIA attributes to fit the list pattern: `ul`/`li` for lists, `listbox`/`option` for pickers.\n' +
           '- Use `ItemLink` for the primary target, so actions sit beside the link instead of inside it.\n' +
-          '- Use `size` for the sidebar view modes and `inset` to align rows with their container gutter.\n' +
+          '- The row height follows its content: the taller of the media and the text lines. Size the avatar to set it.\n' +
+          '- Use `inset` to align rows with their container gutter.\n' +
           '- Collapsing a group belongs to the component that owns it. `ItemGroupHeader` only shows text.',
       },
     },
@@ -66,13 +66,6 @@ export default {
     controls: { hideNoControlsWarning: true },
   },
   argTypes: {
-    size: {
-      control: 'inline-radio',
-      options: ['condensed', 'medium', 'extended'],
-      description:
-        'Sets the media box and gap. Matches the sidebar view modes.',
-      table: { category: 'Layout', defaultValue: { summary: 'condensed' } },
-    },
     inset: {
       control: 'inline-radio',
       options: ['none', 'sm', 'md', 'lg'],
@@ -249,32 +242,34 @@ const RoomMenu = ({ room }: { room: Room }) => (
   </Menu>
 );
 
+type ViewMode = 'condensed' | 'medium' | 'extended';
+
+const viewModeAvatarSize = {
+  condensed: 'x20',
+  medium: 'x28',
+  extended: 'x36',
+} as const;
+
 type RoomRowProps = {
   room: Room;
-  size?: ItemSize;
+  viewMode?: ViewMode;
   inset?: ItemInset;
   selected?: boolean;
 };
 
 const RoomRow = ({
   room,
-  size = 'condensed',
+  viewMode = 'condensed',
   inset,
   selected,
 }: RoomRowProps) => {
-  const extended = size === 'extended';
+  const extended = viewMode === 'extended';
 
   return (
-    <Item
-      is='li'
-      size={size}
-      inset={inset}
-      selected={selected}
-      highlighted={!!room.unread}
-    >
+    <Item is='li' inset={inset} selected={selected} highlighted={!!room.unread}>
       <ItemMedia>
         <Avatar
-          size={ITEM_MEDIA_SIZE[size]}
+          size={viewModeAvatarSize[viewMode]}
           url={leterAvatarUrls[room.avatar]}
           alt=''
         />
@@ -332,7 +327,6 @@ const Caption = ({ children }: { children: ReactNode }) => (
 
 export const Default: Story = {
   args: {
-    size: 'extended',
     inset: 'none',
     highlighted: true,
   },
@@ -341,11 +335,7 @@ export const Default: Story = {
       <ItemGroup is='ul' aria-label='Rooms'>
         <Item is='li' {...args}>
           <ItemMedia>
-            <Avatar
-              size={ITEM_MEDIA_SIZE[args.size ?? 'condensed']}
-              url={leterAvatarUrls[2]}
-              alt=''
-            />
+            <Avatar size='x36' url={leterAvatarUrls[2]} alt='' />
           </ItemMedia>
           <ItemContent>
             <ItemRow>
@@ -375,16 +365,16 @@ export const Default: Story = {
   ),
 };
 
-export const Sizes: Story = {
+export const Heights: Story = {
   render: () => (
     <Box display='flex' flexDirection='column'>
-      {(['condensed', 'medium', 'extended'] as const).map((size) => (
-        <div key={size}>
-          <Caption>{size}</Caption>
+      {(['condensed', 'medium', 'extended'] as const).map((viewMode) => (
+        <div key={viewMode}>
+          <Caption>{viewMode}</Caption>
           <SidebarSurface>
-            <ItemGroup is='ul' aria-label={`${size} rooms`}>
-              <RoomRow room={rooms[0]} size={size} />
-              <RoomRow room={rooms[4]} size={size} />
+            <ItemGroup is='ul' aria-label={`${viewMode} rooms`}>
+              <RoomRow room={rooms[0]} viewMode={viewMode} />
+              <RoomRow room={rooms[4]} viewMode={viewMode} />
             </ItemGroup>
           </SidebarSurface>
         </div>
@@ -401,7 +391,7 @@ export const Insets: Story = {
           <Caption>inset {inset}</Caption>
           <Box borderWidth='default' borderColor='extra-light'>
             <ItemGroup is='ul' aria-label={`Inset ${inset}`}>
-              <Item is='li' size='medium' inset={inset}>
+              <Item is='li' inset={inset}>
                 <ItemMedia>
                   <Avatar size='x28' url={leterAvatarUrls[1]} alt='' />
                 </ItemMedia>
@@ -543,7 +533,7 @@ export const GroupHeaders: Story = {
           <ItemGroupTitle>Moderators</ItemGroupTitle>
           <ItemMeta>2</ItemMeta>
         </ItemGroupHeader>
-        <RoomRow room={rooms[5]} size='medium' inset='lg' />
+        <RoomRow room={rooms[5]} viewMode='medium' inset='lg' />
       </ItemGroup>
       <Caption>As a heading, with actions</Caption>
       <section aria-labelledby='favorites-title'>
@@ -634,7 +624,7 @@ export const Dividers: Story = {
           <ItemGroupTitle>Owners</ItemGroupTitle>
         </ItemGroupHeader>
         <ItemDivider is='li' aria-hidden />
-        <RoomRow room={rooms[4]} size='medium' inset='lg' />
+        <RoomRow room={rooms[4]} viewMode='medium' inset='lg' />
       </ItemGroup>
       <Caption>Inset to the rows</Caption>
       <ItemGroup is='ul' aria-label='Inset divider'>
@@ -649,13 +639,25 @@ export const Dividers: Story = {
 export const Skeletons: Story = {
   render: () => (
     <Box display='flex' flexDirection='column' width='x280'>
-      {(['condensed', 'medium', 'extended'] as const).map((size) => (
-        <div key={size}>
-          <Caption>{size}</Caption>
+      {(['condensed', 'medium', 'extended'] as const).map((viewMode) => (
+        <div key={viewMode}>
+          <Caption>{viewMode}</Caption>
           <SidebarSurface>
-            <ItemGroup is='ul' aria-label={`Loading ${size} rooms`} aria-busy>
-              <ItemSkeleton is='li' size={size} />
-              <ItemSkeleton is='li' size={size} />
+            <ItemGroup
+              is='ul'
+              aria-label={`Loading ${viewMode} rooms`}
+              aria-busy
+            >
+              <ItemSkeleton
+                is='li'
+                mediaSize={viewModeAvatarSize[viewMode]}
+                description={viewMode === 'extended'}
+              />
+              <ItemSkeleton
+                is='li'
+                mediaSize={viewModeAvatarSize[viewMode]}
+                description={viewMode === 'extended'}
+              />
             </ItemGroup>
           </SidebarSurface>
         </div>
@@ -682,7 +684,7 @@ const members: {
 ];
 
 const MemberRow = ({ member }: { member: (typeof members)[number] }) => (
-  <Item is='li' size='medium' inset='lg'>
+  <Item is='li' inset='lg'>
     <ItemMedia>
       <Avatar size='x28' url={leterAvatarUrls[member.avatar]} alt='' />
     </ItemMedia>
@@ -734,38 +736,38 @@ export const NarrowList: Story = {
   ),
 };
 
-export const SidebarRoomList: Story = {
-  args: { size: 'extended' },
+const SidebarRoomListDemo = ({ viewMode }: { viewMode: ViewMode }) => (
+  <SidebarSurface>
+    <CollapsibleGroup title='Favorites'>
+      {rooms.slice(0, 3).map((room, index) => (
+        <RoomRow
+          key={room.id}
+          room={room}
+          viewMode={viewMode}
+          selected={index === 1}
+        />
+      ))}
+    </CollapsibleGroup>
+    <CollapsibleGroup title='Direct messages'>
+      {rooms.slice(4, 7).map((room) => (
+        <RoomRow key={room.id} room={room} viewMode={viewMode} />
+      ))}
+    </CollapsibleGroup>
+    <CollapsibleGroup title='Discussions' defaultExpanded={false} unread={4}>
+      <RoomRow room={rooms[7]} viewMode={viewMode} />
+    </CollapsibleGroup>
+  </SidebarSurface>
+);
+
+export const SidebarRoomList: StoryObj<typeof SidebarRoomListDemo> = {
+  args: { viewMode: 'extended' },
   argTypes: {
-    inset: { control: false },
-    selected: { control: false },
-    highlighted: { control: false },
-    focused: { control: false },
-    disabled: { control: false },
-    variant: { control: false },
+    viewMode: {
+      control: 'inline-radio',
+      options: ['condensed', 'medium', 'extended'],
+    },
   },
-  render: ({ size }) => (
-    <SidebarSurface>
-      <CollapsibleGroup title='Favorites'>
-        {rooms.slice(0, 3).map((room, index) => (
-          <RoomRow
-            key={room.id}
-            room={room}
-            size={size}
-            selected={index === 1}
-          />
-        ))}
-      </CollapsibleGroup>
-      <CollapsibleGroup title='Direct messages'>
-        {rooms.slice(4, 7).map((room) => (
-          <RoomRow key={room.id} room={room} size={size} />
-        ))}
-      </CollapsibleGroup>
-      <CollapsibleGroup title='Discussions' defaultExpanded={false} unread={4}>
-        <RoomRow room={rooms[7]} size={size} />
-      </CollapsibleGroup>
-    </SidebarSurface>
-  ),
+  render: (args) => <SidebarRoomListDemo {...args} />,
 };
 
 export const SearchResults: Story = {
@@ -846,7 +848,7 @@ export const RoomFiles: Story = {
     <Box width='x400' borderWidth='default' borderColor='extra-light'>
       <ItemGroup is='ul' aria-label='Files'>
         {files.map((file) => (
-          <Item key={file.name} is='li' size='extended' inset='lg'>
+          <Item key={file.name} is='li' inset='lg'>
             <ItemMedia>
               <Icon name={file.icon} size='x36' />
             </ItemMedia>

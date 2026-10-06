@@ -19,7 +19,7 @@ exports[`[Item Rendering] renders Actions without crashing 1`] = `
           class="rcx-item-group"
         >
           <li
-            class="rcx-item rcx-item--condensed"
+            class="rcx-item"
           >
             <div
               class="rcx-item__media"
@@ -93,7 +93,7 @@ exports[`[Item Rendering] renders Actions without crashing 1`] = `
           class="rcx-item-group"
         >
           <li
-            class="rcx-item rcx-item--condensed rcx-item--highlighted"
+            class="rcx-item rcx-item--highlighted"
           >
             <div
               class="rcx-item__media"
@@ -173,7 +173,7 @@ exports[`[Item Rendering] renders Actions without crashing 1`] = `
             </div>
           </li>
           <li
-            class="rcx-item rcx-item--condensed rcx-item--highlighted"
+            class="rcx-item rcx-item--highlighted"
           >
             <div
               class="rcx-item__media"
@@ -317,7 +317,7 @@ exports[`[Item Rendering] renders CollapsibleGroupHeaders without crashing 1`] =
           id="favorites-list"
         >
           <li
-            class="rcx-item rcx-item--condensed rcx-item--highlighted"
+            class="rcx-item rcx-item--highlighted"
           >
             <div
               class="rcx-item__media"
@@ -397,7 +397,7 @@ exports[`[Item Rendering] renders CollapsibleGroupHeaders without crashing 1`] =
             </div>
           </li>
           <li
-            class="rcx-item rcx-item--condensed rcx-item--highlighted"
+            class="rcx-item rcx-item--highlighted"
           >
             <div
               class="rcx-item__media"
@@ -537,7 +537,7 @@ exports[`[Item Rendering] renders CollapsibleGroupHeaders without crashing 1`] =
           id="discussions-list"
         >
           <li
-            class="rcx-item rcx-item--condensed rcx-item--highlighted"
+            class="rcx-item rcx-item--highlighted"
           >
             <div
               class="rcx-item__media"
@@ -634,7 +634,7 @@ exports[`[Item Rendering] renders Default without crashing 1`] = `
         class="rcx-item-group"
       >
         <li
-          class="rcx-item rcx-item--extended rcx-item--highlighted"
+          class="rcx-item rcx-item--highlighted"
         >
           <div
             class="rcx-item__media"
@@ -760,7 +760,7 @@ exports[`[Item Rendering] renders Dividers without crashing 1`] = `
           class="rcx-item-divider"
         />
         <li
-          class="rcx-item rcx-item--medium rcx-item--inset-lg"
+          class="rcx-item rcx-item--inset-lg"
         >
           <div
             class="rcx-item__media"
@@ -852,7 +852,7 @@ exports[`[Item Rendering] renders Dividers without crashing 1`] = `
         class="rcx-item-group"
       >
         <li
-          class="rcx-item rcx-item--condensed rcx-item--inset-md rcx-item--highlighted"
+          class="rcx-item rcx-item--inset-md rcx-item--highlighted"
         >
           <div
             class="rcx-item__media"
@@ -936,7 +936,7 @@ exports[`[Item Rendering] renders Dividers without crashing 1`] = `
           class="rcx-item-divider rcx-item-divider--inset-md"
         />
         <li
-          class="rcx-item rcx-item--condensed rcx-item--inset-md"
+          class="rcx-item rcx-item--inset-md"
         >
           <div
             class="rcx-item__media"
@@ -1042,7 +1042,7 @@ exports[`[Item Rendering] renders GroupHeaders without crashing 1`] = `
           </div>
         </li>
         <li
-          class="rcx-item rcx-item--condensed rcx-item--highlighted"
+          class="rcx-item rcx-item--highlighted"
         >
           <div
             class="rcx-item__media"
@@ -1148,7 +1148,7 @@ exports[`[Item Rendering] renders GroupHeaders without crashing 1`] = `
           </div>
         </li>
         <li
-          class="rcx-item rcx-item--medium rcx-item--inset-lg rcx-item--highlighted"
+          class="rcx-item rcx-item--inset-lg rcx-item--highlighted"
         >
           <div
             class="rcx-item__media"
@@ -1277,7 +1277,7 @@ exports[`[Item Rendering] renders GroupHeaders without crashing 1`] = `
           class="rcx-item-group"
         >
           <li
-            class="rcx-item rcx-item--condensed rcx-item--highlighted"
+            class="rcx-item rcx-item--highlighted"
           >
             <div
               class="rcx-item__media"
@@ -1363,6 +1363,579 @@ exports[`[Item Rendering] renders GroupHeaders without crashing 1`] = `
 </body>
 `;
 
+exports[`[Item Rendering] renders Heights without crashing 1`] = `
+<body>
+  <div>
+    <div
+      class="rcx-box rcx-box--full rcx-css-1tbw8nv"
+    >
+      <div>
+        <div
+          class="rcx-box rcx-box--full rcx-css-12k7ahl"
+        >
+          condensed
+        </div>
+        <div
+          class="rcx-box rcx-box--full rcx-css-m5e0pf"
+        >
+          <ul
+            aria-label="condensed rooms"
+            class="rcx-item-group"
+          >
+            <li
+              class="rcx-item rcx-item--highlighted"
+            >
+              <div
+                class="rcx-item__media"
+              >
+                <figure
+                  class="rcx-box rcx-box--full rcx-avatar rcx-avatar--x20"
+                >
+                  <img
+                    alt=""
+                    class="rcx-avatar__element rcx-avatar__element--x20"
+                    src="data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3e%3crect width='100%25' height='100%25' fill='%23158D65'/%3e%3ctext x='50%25' y='50%25' dy='0.36em' text-anchor='middle' pointer-events='none' fill='white' font-size='125' font-family='Helvetica%2c sans-serif'%3eG%3c/text%3e%3c/svg%3e"
+                  />
+                </figure>
+              </div>
+              <div
+                class="rcx-item__content"
+              >
+                <div
+                  class="rcx-item__row"
+                >
+                  <div
+                    aria-label="Public channel"
+                    class="rcx-item__icon"
+                    id="_r_2_"
+                    role="img"
+                  >
+                    <i
+                      aria-hidden="true"
+                      class="rcx-box rcx-box--full rcx-icon--name-hashtag rcx-icon rcx-css-1g87xs3"
+                    >
+                      
+                    </i>
+                  </div>
+                  <div
+                    class="rcx-item__title"
+                    id="_r_3_"
+                  >
+                    <a
+                      aria-describedby="_r_2_"
+                      class="rcx-item__link"
+                      href="#general"
+                    >
+                      general
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <span
+                class="rcx-box rcx-box--full rcx-badge rcx-badge--primary"
+                title="12 unread messages"
+              >
+                12
+              </span>
+              <div
+                class="rcx-item__actions rcx-item__actions--reveal-hover"
+              >
+                <div
+                  class="rcx-item__actions-inner"
+                >
+                  <button
+                    aria-expanded="false"
+                    aria-haspopup="true"
+                    aria-label="Options for general"
+                    class="rcx-box rcx-box--full rcx-button--mini-square rcx-button--square rcx-button--icon rcx-button"
+                    id="react-aria-_r_4_"
+                    title="Options"
+                    type="button"
+                  >
+                    <i
+                      aria-hidden="true"
+                      class="rcx-box rcx-box--full rcx-icon--name-kebab rcx-icon rcx-css-1tg7yd0"
+                    >
+                      
+                    </i>
+                  </button>
+                </div>
+              </div>
+            </li>
+            <li
+              class="rcx-item"
+            >
+              <div
+                class="rcx-item__media"
+              >
+                <figure
+                  class="rcx-box rcx-box--full rcx-avatar rcx-avatar--x20"
+                >
+                  <img
+                    alt=""
+                    class="rcx-avatar__element rcx-avatar__element--x20"
+                    src="data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3e%3crect width='100%25' height='100%25' fill='%2310529E'/%3e%3ctext x='50%25' y='50%25' dy='0.36em' text-anchor='middle' pointer-events='none' fill='white' font-size='125' font-family='Helvetica%2c sans-serif'%3eB%3c/text%3e%3c/svg%3e"
+                  />
+                </figure>
+              </div>
+              <div
+                class="rcx-item__content"
+              >
+                <div
+                  class="rcx-item__row"
+                >
+                  <div
+                    aria-label="Away"
+                    class="rcx-item__icon"
+                    id="_r_6_"
+                    role="img"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="rcx-status-bullet rcx-status-bullet--away undefined "
+                      height="10"
+                      viewBox="0 0 10 10"
+                      width="10"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        clip-rule="evenodd"
+                        d="M5.13337 9.93325C7.78434 9.93325 9.93338 7.78422 9.93338 5.13325C9.93338 2.48229 7.78434 0.333252 5.13337 0.333252C2.48241 0.333252 0.333374 2.48229 0.333374 5.13325C0.333374 7.78422 2.48241 9.93325 5.13337 9.93325ZM5.80004 2.33325C5.80004 1.96506 5.50156 1.66659 5.13337 1.66659C4.76518 1.66659 4.46671 1.96506 4.46671 2.33325V5.13325V5.45367L4.71691 5.65383L6.71691 7.25383C7.00442 7.48384 7.42395 7.43722 7.65395 7.14972C7.88396 6.86221 7.83735 6.44268 7.54984 6.21267L5.80004 4.81284V2.33325Z"
+                        fill-rule="evenodd"
+                      />
+                    </svg>
+                  </div>
+                  <div
+                    class="rcx-item__title"
+                    id="_r_7_"
+                  >
+                    <a
+                      aria-describedby="_r_6_"
+                      class="rcx-item__link"
+                      href="#kenji"
+                    >
+                      Kenji Takahashi
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="rcx-item__actions rcx-item__actions--reveal-hover"
+              >
+                <div
+                  class="rcx-item__actions-inner"
+                >
+                  <button
+                    aria-expanded="false"
+                    aria-haspopup="true"
+                    aria-label="Options for Kenji Takahashi"
+                    class="rcx-box rcx-box--full rcx-button--mini-square rcx-button--square rcx-button--icon rcx-button"
+                    id="react-aria-_r_8_"
+                    title="Options"
+                    type="button"
+                  >
+                    <i
+                      aria-hidden="true"
+                      class="rcx-box rcx-box--full rcx-icon--name-kebab rcx-icon rcx-css-1tg7yd0"
+                    >
+                      
+                    </i>
+                  </button>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div>
+        <div
+          class="rcx-box rcx-box--full rcx-css-12k7ahl"
+        >
+          medium
+        </div>
+        <div
+          class="rcx-box rcx-box--full rcx-css-m5e0pf"
+        >
+          <ul
+            aria-label="medium rooms"
+            class="rcx-item-group"
+          >
+            <li
+              class="rcx-item rcx-item--highlighted"
+            >
+              <div
+                class="rcx-item__media"
+              >
+                <figure
+                  class="rcx-box rcx-box--full rcx-avatar rcx-avatar--x28"
+                >
+                  <img
+                    alt=""
+                    class="rcx-avatar__element rcx-avatar__element--x28"
+                    src="data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3e%3crect width='100%25' height='100%25' fill='%23158D65'/%3e%3ctext x='50%25' y='50%25' dy='0.36em' text-anchor='middle' pointer-events='none' fill='white' font-size='125' font-family='Helvetica%2c sans-serif'%3eG%3c/text%3e%3c/svg%3e"
+                  />
+                </figure>
+              </div>
+              <div
+                class="rcx-item__content"
+              >
+                <div
+                  class="rcx-item__row"
+                >
+                  <div
+                    aria-label="Public channel"
+                    class="rcx-item__icon"
+                    id="_r_a_"
+                    role="img"
+                  >
+                    <i
+                      aria-hidden="true"
+                      class="rcx-box rcx-box--full rcx-icon--name-hashtag rcx-icon rcx-css-1g87xs3"
+                    >
+                      
+                    </i>
+                  </div>
+                  <div
+                    class="rcx-item__title"
+                    id="_r_b_"
+                  >
+                    <a
+                      aria-describedby="_r_a_"
+                      class="rcx-item__link"
+                      href="#general"
+                    >
+                      general
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <span
+                class="rcx-box rcx-box--full rcx-badge rcx-badge--primary"
+                title="12 unread messages"
+              >
+                12
+              </span>
+              <div
+                class="rcx-item__actions rcx-item__actions--reveal-hover"
+              >
+                <div
+                  class="rcx-item__actions-inner"
+                >
+                  <button
+                    aria-expanded="false"
+                    aria-haspopup="true"
+                    aria-label="Options for general"
+                    class="rcx-box rcx-box--full rcx-button--mini-square rcx-button--square rcx-button--icon rcx-button"
+                    id="react-aria-_r_c_"
+                    title="Options"
+                    type="button"
+                  >
+                    <i
+                      aria-hidden="true"
+                      class="rcx-box rcx-box--full rcx-icon--name-kebab rcx-icon rcx-css-1tg7yd0"
+                    >
+                      
+                    </i>
+                  </button>
+                </div>
+              </div>
+            </li>
+            <li
+              class="rcx-item"
+            >
+              <div
+                class="rcx-item__media"
+              >
+                <figure
+                  class="rcx-box rcx-box--full rcx-avatar rcx-avatar--x28"
+                >
+                  <img
+                    alt=""
+                    class="rcx-avatar__element rcx-avatar__element--x28"
+                    src="data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3e%3crect width='100%25' height='100%25' fill='%2310529E'/%3e%3ctext x='50%25' y='50%25' dy='0.36em' text-anchor='middle' pointer-events='none' fill='white' font-size='125' font-family='Helvetica%2c sans-serif'%3eB%3c/text%3e%3c/svg%3e"
+                  />
+                </figure>
+              </div>
+              <div
+                class="rcx-item__content"
+              >
+                <div
+                  class="rcx-item__row"
+                >
+                  <div
+                    aria-label="Away"
+                    class="rcx-item__icon"
+                    id="_r_e_"
+                    role="img"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="rcx-status-bullet rcx-status-bullet--away undefined "
+                      height="10"
+                      viewBox="0 0 10 10"
+                      width="10"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        clip-rule="evenodd"
+                        d="M5.13337 9.93325C7.78434 9.93325 9.93338 7.78422 9.93338 5.13325C9.93338 2.48229 7.78434 0.333252 5.13337 0.333252C2.48241 0.333252 0.333374 2.48229 0.333374 5.13325C0.333374 7.78422 2.48241 9.93325 5.13337 9.93325ZM5.80004 2.33325C5.80004 1.96506 5.50156 1.66659 5.13337 1.66659C4.76518 1.66659 4.46671 1.96506 4.46671 2.33325V5.13325V5.45367L4.71691 5.65383L6.71691 7.25383C7.00442 7.48384 7.42395 7.43722 7.65395 7.14972C7.88396 6.86221 7.83735 6.44268 7.54984 6.21267L5.80004 4.81284V2.33325Z"
+                        fill-rule="evenodd"
+                      />
+                    </svg>
+                  </div>
+                  <div
+                    class="rcx-item__title"
+                    id="_r_f_"
+                  >
+                    <a
+                      aria-describedby="_r_e_"
+                      class="rcx-item__link"
+                      href="#kenji"
+                    >
+                      Kenji Takahashi
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="rcx-item__actions rcx-item__actions--reveal-hover"
+              >
+                <div
+                  class="rcx-item__actions-inner"
+                >
+                  <button
+                    aria-expanded="false"
+                    aria-haspopup="true"
+                    aria-label="Options for Kenji Takahashi"
+                    class="rcx-box rcx-box--full rcx-button--mini-square rcx-button--square rcx-button--icon rcx-button"
+                    id="react-aria-_r_g_"
+                    title="Options"
+                    type="button"
+                  >
+                    <i
+                      aria-hidden="true"
+                      class="rcx-box rcx-box--full rcx-icon--name-kebab rcx-icon rcx-css-1tg7yd0"
+                    >
+                      
+                    </i>
+                  </button>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div>
+        <div
+          class="rcx-box rcx-box--full rcx-css-12k7ahl"
+        >
+          extended
+        </div>
+        <div
+          class="rcx-box rcx-box--full rcx-css-m5e0pf"
+        >
+          <ul
+            aria-label="extended rooms"
+            class="rcx-item-group"
+          >
+            <li
+              class="rcx-item rcx-item--highlighted"
+            >
+              <div
+                class="rcx-item__media"
+              >
+                <figure
+                  class="rcx-box rcx-box--full rcx-avatar rcx-avatar--x36"
+                >
+                  <img
+                    alt=""
+                    class="rcx-avatar__element rcx-avatar__element--x36"
+                    src="data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3e%3crect width='100%25' height='100%25' fill='%23158D65'/%3e%3ctext x='50%25' y='50%25' dy='0.36em' text-anchor='middle' pointer-events='none' fill='white' font-size='125' font-family='Helvetica%2c sans-serif'%3eG%3c/text%3e%3c/svg%3e"
+                  />
+                </figure>
+              </div>
+              <div
+                class="rcx-item__content"
+              >
+                <div
+                  class="rcx-item__row"
+                >
+                  <div
+                    aria-label="Public channel"
+                    class="rcx-item__icon"
+                    id="_r_i_"
+                    role="img"
+                  >
+                    <i
+                      aria-hidden="true"
+                      class="rcx-box rcx-box--full rcx-icon--name-hashtag rcx-icon rcx-css-1g87xs3"
+                    >
+                      
+                    </i>
+                  </div>
+                  <div
+                    class="rcx-item__title"
+                    id="_r_j_"
+                  >
+                    <a
+                      aria-describedby="_r_i_"
+                      class="rcx-item__link"
+                      href="#general"
+                    >
+                      general
+                    </a>
+                  </div>
+                  <div
+                    class="rcx-item__meta"
+                  >
+                    09:15
+                  </div>
+                </div>
+                <div
+                  class="rcx-item__row"
+                >
+                  <div
+                    class="rcx-item__description"
+                  >
+                    Rafael: release notes for 8.2 are up
+                  </div>
+                  <span
+                    class="rcx-box rcx-box--full rcx-badge rcx-badge--primary"
+                    title="12 unread messages"
+                  >
+                    12
+                  </span>
+                  <div
+                    class="rcx-item__actions rcx-item__actions--reveal-hover"
+                  >
+                    <div
+                      class="rcx-item__actions-inner"
+                    >
+                      <button
+                        aria-expanded="false"
+                        aria-haspopup="true"
+                        aria-label="Options for general"
+                        class="rcx-box rcx-box--full rcx-button--mini-square rcx-button--square rcx-button--icon rcx-button"
+                        id="react-aria-_r_k_"
+                        title="Options"
+                        type="button"
+                      >
+                        <i
+                          aria-hidden="true"
+                          class="rcx-box rcx-box--full rcx-icon--name-kebab rcx-icon rcx-css-1tg7yd0"
+                        >
+                          
+                        </i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li
+              class="rcx-item"
+            >
+              <div
+                class="rcx-item__media"
+              >
+                <figure
+                  class="rcx-box rcx-box--full rcx-avatar rcx-avatar--x36"
+                >
+                  <img
+                    alt=""
+                    class="rcx-avatar__element rcx-avatar__element--x36"
+                    src="data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3e%3crect width='100%25' height='100%25' fill='%2310529E'/%3e%3ctext x='50%25' y='50%25' dy='0.36em' text-anchor='middle' pointer-events='none' fill='white' font-size='125' font-family='Helvetica%2c sans-serif'%3eB%3c/text%3e%3c/svg%3e"
+                  />
+                </figure>
+              </div>
+              <div
+                class="rcx-item__content"
+              >
+                <div
+                  class="rcx-item__row"
+                >
+                  <div
+                    aria-label="Away"
+                    class="rcx-item__icon"
+                    id="_r_m_"
+                    role="img"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="rcx-status-bullet rcx-status-bullet--away undefined "
+                      height="10"
+                      viewBox="0 0 10 10"
+                      width="10"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        clip-rule="evenodd"
+                        d="M5.13337 9.93325C7.78434 9.93325 9.93338 7.78422 9.93338 5.13325C9.93338 2.48229 7.78434 0.333252 5.13337 0.333252C2.48241 0.333252 0.333374 2.48229 0.333374 5.13325C0.333374 7.78422 2.48241 9.93325 5.13337 9.93325ZM5.80004 2.33325C5.80004 1.96506 5.50156 1.66659 5.13337 1.66659C4.76518 1.66659 4.46671 1.96506 4.46671 2.33325V5.13325V5.45367L4.71691 5.65383L6.71691 7.25383C7.00442 7.48384 7.42395 7.43722 7.65395 7.14972C7.88396 6.86221 7.83735 6.44268 7.54984 6.21267L5.80004 4.81284V2.33325Z"
+                        fill-rule="evenodd"
+                      />
+                    </svg>
+                  </div>
+                  <div
+                    class="rcx-item__title"
+                    id="_r_n_"
+                  >
+                    <a
+                      aria-describedby="_r_m_"
+                      class="rcx-item__link"
+                      href="#kenji"
+                    >
+                      Kenji Takahashi
+                    </a>
+                  </div>
+                  <div
+                    class="rcx-item__meta"
+                  >
+                    Yesterday
+                  </div>
+                </div>
+                <div
+                  class="rcx-item__row"
+                >
+                  <div
+                    class="rcx-item__description"
+                  >
+                    You: sounds good, merging after CI
+                  </div>
+                  <div
+                    class="rcx-item__actions rcx-item__actions--reveal-hover"
+                  >
+                    <div
+                      class="rcx-item__actions-inner"
+                    >
+                      <button
+                        aria-expanded="false"
+                        aria-haspopup="true"
+                        aria-label="Options for Kenji Takahashi"
+                        class="rcx-box rcx-box--full rcx-button--mini-square rcx-button--square rcx-button--icon rcx-button"
+                        id="react-aria-_r_o_"
+                        title="Options"
+                        type="button"
+                      >
+                        <i
+                          aria-hidden="true"
+                          class="rcx-box rcx-box--full rcx-icon--name-kebab rcx-icon rcx-css-1tg7yd0"
+                        >
+                          
+                        </i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
 exports[`[Item Rendering] renders Icons without crashing 1`] = `
 <body>
   <div>
@@ -1374,7 +1947,7 @@ exports[`[Item Rendering] renders Icons without crashing 1`] = `
         class="rcx-item-group"
       >
         <li
-          class="rcx-item rcx-item--condensed rcx-item--highlighted"
+          class="rcx-item rcx-item--highlighted"
         >
           <div
             class="rcx-item__media"
@@ -1454,7 +2027,7 @@ exports[`[Item Rendering] renders Icons without crashing 1`] = `
           </div>
         </li>
         <li
-          class="rcx-item rcx-item--condensed rcx-item--highlighted"
+          class="rcx-item rcx-item--highlighted"
         >
           <div
             class="rcx-item__media"
@@ -1534,7 +2107,7 @@ exports[`[Item Rendering] renders Icons without crashing 1`] = `
           </div>
         </li>
         <li
-          class="rcx-item rcx-item--condensed rcx-item--highlighted"
+          class="rcx-item rcx-item--highlighted"
         >
           <div
             class="rcx-item__media"
@@ -1614,7 +2187,7 @@ exports[`[Item Rendering] renders Icons without crashing 1`] = `
           </div>
         </li>
         <li
-          class="rcx-item rcx-item--condensed"
+          class="rcx-item"
         >
           <div
             class="rcx-item__media"
@@ -1688,7 +2261,7 @@ exports[`[Item Rendering] renders Icons without crashing 1`] = `
           </div>
         </li>
         <li
-          class="rcx-item rcx-item--condensed"
+          class="rcx-item"
         >
           <div
             class="rcx-item__media"
@@ -1770,7 +2343,7 @@ exports[`[Item Rendering] renders Icons without crashing 1`] = `
           </div>
         </li>
         <li
-          class="rcx-item rcx-item--condensed rcx-item--highlighted"
+          class="rcx-item rcx-item--highlighted"
         >
           <div
             class="rcx-item__media"
@@ -1856,7 +2429,7 @@ exports[`[Item Rendering] renders Icons without crashing 1`] = `
           </div>
         </li>
         <li
-          class="rcx-item rcx-item--condensed"
+          class="rcx-item"
         >
           <div
             class="rcx-item__media"
@@ -1941,7 +2514,7 @@ exports[`[Item Rendering] renders Icons without crashing 1`] = `
           </div>
         </li>
         <li
-          class="rcx-item rcx-item--condensed rcx-item--highlighted"
+          class="rcx-item rcx-item--highlighted"
         >
           <div
             class="rcx-item__media"
@@ -2047,7 +2620,7 @@ exports[`[Item Rendering] renders Insets without crashing 1`] = `
             class="rcx-item-group"
           >
             <li
-              class="rcx-item rcx-item--medium"
+              class="rcx-item"
             >
               <div
                 class="rcx-item__media"
@@ -2112,7 +2685,7 @@ exports[`[Item Rendering] renders Insets without crashing 1`] = `
             class="rcx-item-group"
           >
             <li
-              class="rcx-item rcx-item--medium rcx-item--inset-sm"
+              class="rcx-item rcx-item--inset-sm"
             >
               <div
                 class="rcx-item__media"
@@ -2177,7 +2750,7 @@ exports[`[Item Rendering] renders Insets without crashing 1`] = `
             class="rcx-item-group"
           >
             <li
-              class="rcx-item rcx-item--medium rcx-item--inset-md"
+              class="rcx-item rcx-item--inset-md"
             >
               <div
                 class="rcx-item__media"
@@ -2242,7 +2815,7 @@ exports[`[Item Rendering] renders Insets without crashing 1`] = `
             class="rcx-item-group"
           >
             <li
-              class="rcx-item rcx-item--medium rcx-item--inset-lg"
+              class="rcx-item rcx-item--inset-lg"
             >
               <div
                 class="rcx-item__media"
@@ -2325,7 +2898,7 @@ exports[`[Item Rendering] renders MenuSections without crashing 1`] = `
           </div>
           <div
             aria-labelledby="_r_64_"
-            class="rcx-item rcx-item--condensed rcx-item--inset-md rcx-item--focused"
+            class="rcx-item rcx-item--inset-md rcx-item--focused"
             role="menuitem"
             tabindex="-1"
           >
@@ -2352,7 +2925,7 @@ exports[`[Item Rendering] renders MenuSections without crashing 1`] = `
           </div>
           <div
             aria-labelledby="_r_65_"
-            class="rcx-item rcx-item--condensed rcx-item--inset-md"
+            class="rcx-item rcx-item--inset-md"
             role="menuitem"
             tabindex="-1"
           >
@@ -2384,7 +2957,7 @@ exports[`[Item Rendering] renders MenuSections without crashing 1`] = `
           </div>
           <div
             aria-labelledby="_r_66_"
-            class="rcx-item rcx-item--condensed rcx-item--inset-md"
+            class="rcx-item rcx-item--inset-md"
             role="menuitem"
             tabindex="-1"
           >
@@ -2433,7 +3006,7 @@ exports[`[Item Rendering] renders MenuSections without crashing 1`] = `
           <div
             aria-checked="true"
             aria-labelledby="_r_68_"
-            class="rcx-item rcx-item--condensed rcx-item--inset-md"
+            class="rcx-item rcx-item--inset-md"
             role="menuitemradio"
             tabindex="-1"
           >
@@ -2457,7 +3030,7 @@ exports[`[Item Rendering] renders MenuSections without crashing 1`] = `
           <div
             aria-checked="false"
             aria-labelledby="_r_69_"
-            class="rcx-item rcx-item--condensed rcx-item--inset-md"
+            class="rcx-item rcx-item--inset-md"
             role="menuitemradio"
             tabindex="-1"
           >
@@ -2479,7 +3052,7 @@ exports[`[Item Rendering] renders MenuSections without crashing 1`] = `
         />
         <div
           aria-labelledby="_r_6a_"
-          class="rcx-item rcx-item--condensed rcx-item--inset-md rcx-item--danger"
+          class="rcx-item rcx-item--inset-md rcx-item--danger"
           role="menuitem"
           tabindex="-1"
         >
@@ -2541,7 +3114,7 @@ exports[`[Item Rendering] renders NarrowList without crashing 1`] = `
           class="rcx-item-divider"
         />
         <li
-          class="rcx-item rcx-item--medium rcx-item--inset-lg"
+          class="rcx-item rcx-item--inset-lg"
         >
           <div
             class="rcx-item__media"
@@ -2622,7 +3195,7 @@ exports[`[Item Rendering] renders NarrowList without crashing 1`] = `
           </div>
         </li>
         <li
-          class="rcx-item rcx-item--medium rcx-item--inset-lg"
+          class="rcx-item rcx-item--inset-lg"
         >
           <div
             class="rcx-item__media"
@@ -2706,7 +3279,7 @@ exports[`[Item Rendering] renders NarrowList without crashing 1`] = `
           </div>
         </li>
         <li
-          class="rcx-item rcx-item--medium rcx-item--inset-lg"
+          class="rcx-item rcx-item--inset-lg"
         >
           <div
             class="rcx-item__media"
@@ -2785,7 +3358,7 @@ exports[`[Item Rendering] renders NarrowList without crashing 1`] = `
           </div>
         </li>
         <li
-          class="rcx-item rcx-item--medium rcx-item--inset-lg"
+          class="rcx-item rcx-item--inset-lg"
         >
           <div
             class="rcx-item__media"
@@ -2882,7 +3455,7 @@ exports[`[Item Rendering] renders RoomFiles without crashing 1`] = `
         class="rcx-item-group"
       >
         <li
-          class="rcx-item rcx-item--extended rcx-item--inset-lg"
+          class="rcx-item rcx-item--inset-lg"
         >
           <div
             class="rcx-item__media"
@@ -2960,7 +3533,7 @@ exports[`[Item Rendering] renders RoomFiles without crashing 1`] = `
           </div>
         </li>
         <li
-          class="rcx-item rcx-item--extended rcx-item--inset-lg"
+          class="rcx-item rcx-item--inset-lg"
         >
           <div
             class="rcx-item__media"
@@ -3038,7 +3611,7 @@ exports[`[Item Rendering] renders RoomFiles without crashing 1`] = `
           </div>
         </li>
         <li
-          class="rcx-item rcx-item--extended rcx-item--inset-lg"
+          class="rcx-item rcx-item--inset-lg"
         >
           <div
             class="rcx-item__media"
@@ -3152,7 +3725,7 @@ exports[`[Item Rendering] renders RoomMembers without crashing 1`] = `
           class="rcx-item-divider"
         />
         <li
-          class="rcx-item rcx-item--medium rcx-item--inset-lg"
+          class="rcx-item rcx-item--inset-lg"
         >
           <div
             class="rcx-item__media"
@@ -3258,7 +3831,7 @@ exports[`[Item Rendering] renders RoomMembers without crashing 1`] = `
           class="rcx-item-divider"
         />
         <li
-          class="rcx-item rcx-item--medium rcx-item--inset-lg"
+          class="rcx-item rcx-item--inset-lg"
         >
           <div
             class="rcx-item__media"
@@ -3367,7 +3940,7 @@ exports[`[Item Rendering] renders RoomMembers without crashing 1`] = `
           class="rcx-item-divider"
         />
         <li
-          class="rcx-item rcx-item--medium rcx-item--inset-lg"
+          class="rcx-item rcx-item--inset-lg"
         >
           <div
             class="rcx-item__media"
@@ -3446,7 +4019,7 @@ exports[`[Item Rendering] renders RoomMembers without crashing 1`] = `
           </div>
         </li>
         <li
-          class="rcx-item rcx-item--medium rcx-item--inset-lg"
+          class="rcx-item rcx-item--inset-lg"
         >
           <div
             class="rcx-item__media"
@@ -3561,7 +4134,7 @@ exports[`[Item Rendering] renders SearchResults without crashing 1`] = `
           </li>
           <li
             aria-selected="true"
-            class="rcx-item rcx-item--condensed rcx-item--inset-sm rcx-item--focused"
+            class="rcx-item rcx-item--inset-sm rcx-item--focused"
             id="search-results-0"
             role="option"
           >
@@ -3604,7 +4177,7 @@ exports[`[Item Rendering] renders SearchResults without crashing 1`] = `
           </li>
           <li
             aria-selected="false"
-            class="rcx-item rcx-item--condensed rcx-item--inset-sm"
+            class="rcx-item rcx-item--inset-sm"
             id="search-results-1"
             role="option"
           >
@@ -3647,7 +4220,7 @@ exports[`[Item Rendering] renders SearchResults without crashing 1`] = `
           </li>
           <li
             aria-selected="false"
-            class="rcx-item rcx-item--condensed rcx-item--inset-sm"
+            class="rcx-item rcx-item--inset-sm"
             id="search-results-2"
             role="option"
           >
@@ -3709,7 +4282,7 @@ exports[`[Item Rendering] renders SelectOptions without crashing 1`] = `
       >
         <li
           aria-selected="false"
-          class="rcx-item rcx-item--condensed rcx-item--inset-md rcx-item--focused"
+          class="rcx-item rcx-item--inset-md rcx-item--focused"
           role="option"
         >
           <div
@@ -3745,7 +4318,7 @@ exports[`[Item Rendering] renders SelectOptions without crashing 1`] = `
         </li>
         <li
           aria-selected="false"
-          class="rcx-item rcx-item--condensed rcx-item--inset-md"
+          class="rcx-item rcx-item--inset-md"
           role="option"
         >
           <div
@@ -3781,7 +4354,7 @@ exports[`[Item Rendering] renders SelectOptions without crashing 1`] = `
         </li>
         <li
           aria-selected="true"
-          class="rcx-item rcx-item--condensed rcx-item--inset-md rcx-item--selected"
+          class="rcx-item rcx-item--inset-md rcx-item--selected"
           role="option"
         >
           <div
@@ -3823,7 +4396,7 @@ exports[`[Item Rendering] renders SelectOptions without crashing 1`] = `
         </li>
         <li
           aria-selected="false"
-          class="rcx-item rcx-item--condensed rcx-item--inset-md"
+          class="rcx-item rcx-item--inset-md"
           role="option"
         >
           <div
@@ -3921,7 +4494,7 @@ exports[`[Item Rendering] renders SidebarRoomList without crashing 1`] = `
           id="favorites-list"
         >
           <li
-            class="rcx-item rcx-item--extended rcx-item--highlighted"
+            class="rcx-item rcx-item--highlighted"
           >
             <div
               class="rcx-item__media"
@@ -4015,7 +4588,7 @@ exports[`[Item Rendering] renders SidebarRoomList without crashing 1`] = `
             </div>
           </li>
           <li
-            class="rcx-item rcx-item--extended rcx-item--selected rcx-item--highlighted"
+            class="rcx-item rcx-item--selected rcx-item--highlighted"
           >
             <div
               class="rcx-item__media"
@@ -4110,7 +4683,7 @@ exports[`[Item Rendering] renders SidebarRoomList without crashing 1`] = `
             </div>
           </li>
           <li
-            class="rcx-item rcx-item--extended rcx-item--highlighted"
+            class="rcx-item rcx-item--highlighted"
           >
             <div
               class="rcx-item__media"
@@ -4257,7 +4830,7 @@ exports[`[Item Rendering] renders SidebarRoomList without crashing 1`] = `
           id="direct-messages-list"
         >
           <li
-            class="rcx-item rcx-item--extended"
+            class="rcx-item"
           >
             <div
               class="rcx-item__media"
@@ -4353,7 +4926,7 @@ exports[`[Item Rendering] renders SidebarRoomList without crashing 1`] = `
             </div>
           </li>
           <li
-            class="rcx-item rcx-item--extended rcx-item--highlighted"
+            class="rcx-item rcx-item--highlighted"
           >
             <div
               class="rcx-item__media"
@@ -4453,7 +5026,7 @@ exports[`[Item Rendering] renders SidebarRoomList without crashing 1`] = `
             </div>
           </li>
           <li
-            class="rcx-item rcx-item--extended"
+            class="rcx-item"
           >
             <div
               class="rcx-item__media"
@@ -4612,7 +5185,7 @@ exports[`[Item Rendering] renders SidebarRoomList without crashing 1`] = `
           id="discussions-list"
         >
           <li
-            class="rcx-item rcx-item--extended rcx-item--highlighted"
+            class="rcx-item rcx-item--highlighted"
           >
             <div
               class="rcx-item__media"
@@ -4712,579 +5285,6 @@ exports[`[Item Rendering] renders SidebarRoomList without crashing 1`] = `
 </body>
 `;
 
-exports[`[Item Rendering] renders Sizes without crashing 1`] = `
-<body>
-  <div>
-    <div
-      class="rcx-box rcx-box--full rcx-css-1tbw8nv"
-    >
-      <div>
-        <div
-          class="rcx-box rcx-box--full rcx-css-12k7ahl"
-        >
-          condensed
-        </div>
-        <div
-          class="rcx-box rcx-box--full rcx-css-m5e0pf"
-        >
-          <ul
-            aria-label="condensed rooms"
-            class="rcx-item-group"
-          >
-            <li
-              class="rcx-item rcx-item--condensed rcx-item--highlighted"
-            >
-              <div
-                class="rcx-item__media"
-              >
-                <figure
-                  class="rcx-box rcx-box--full rcx-avatar rcx-avatar--x20"
-                >
-                  <img
-                    alt=""
-                    class="rcx-avatar__element rcx-avatar__element--x20"
-                    src="data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3e%3crect width='100%25' height='100%25' fill='%23158D65'/%3e%3ctext x='50%25' y='50%25' dy='0.36em' text-anchor='middle' pointer-events='none' fill='white' font-size='125' font-family='Helvetica%2c sans-serif'%3eG%3c/text%3e%3c/svg%3e"
-                  />
-                </figure>
-              </div>
-              <div
-                class="rcx-item__content"
-              >
-                <div
-                  class="rcx-item__row"
-                >
-                  <div
-                    aria-label="Public channel"
-                    class="rcx-item__icon"
-                    id="_r_2_"
-                    role="img"
-                  >
-                    <i
-                      aria-hidden="true"
-                      class="rcx-box rcx-box--full rcx-icon--name-hashtag rcx-icon rcx-css-1g87xs3"
-                    >
-                      
-                    </i>
-                  </div>
-                  <div
-                    class="rcx-item__title"
-                    id="_r_3_"
-                  >
-                    <a
-                      aria-describedby="_r_2_"
-                      class="rcx-item__link"
-                      href="#general"
-                    >
-                      general
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <span
-                class="rcx-box rcx-box--full rcx-badge rcx-badge--primary"
-                title="12 unread messages"
-              >
-                12
-              </span>
-              <div
-                class="rcx-item__actions rcx-item__actions--reveal-hover"
-              >
-                <div
-                  class="rcx-item__actions-inner"
-                >
-                  <button
-                    aria-expanded="false"
-                    aria-haspopup="true"
-                    aria-label="Options for general"
-                    class="rcx-box rcx-box--full rcx-button--mini-square rcx-button--square rcx-button--icon rcx-button"
-                    id="react-aria-_r_4_"
-                    title="Options"
-                    type="button"
-                  >
-                    <i
-                      aria-hidden="true"
-                      class="rcx-box rcx-box--full rcx-icon--name-kebab rcx-icon rcx-css-1tg7yd0"
-                    >
-                      
-                    </i>
-                  </button>
-                </div>
-              </div>
-            </li>
-            <li
-              class="rcx-item rcx-item--condensed"
-            >
-              <div
-                class="rcx-item__media"
-              >
-                <figure
-                  class="rcx-box rcx-box--full rcx-avatar rcx-avatar--x20"
-                >
-                  <img
-                    alt=""
-                    class="rcx-avatar__element rcx-avatar__element--x20"
-                    src="data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3e%3crect width='100%25' height='100%25' fill='%2310529E'/%3e%3ctext x='50%25' y='50%25' dy='0.36em' text-anchor='middle' pointer-events='none' fill='white' font-size='125' font-family='Helvetica%2c sans-serif'%3eB%3c/text%3e%3c/svg%3e"
-                  />
-                </figure>
-              </div>
-              <div
-                class="rcx-item__content"
-              >
-                <div
-                  class="rcx-item__row"
-                >
-                  <div
-                    aria-label="Away"
-                    class="rcx-item__icon"
-                    id="_r_6_"
-                    role="img"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      class="rcx-status-bullet rcx-status-bullet--away undefined "
-                      height="10"
-                      viewBox="0 0 10 10"
-                      width="10"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        clip-rule="evenodd"
-                        d="M5.13337 9.93325C7.78434 9.93325 9.93338 7.78422 9.93338 5.13325C9.93338 2.48229 7.78434 0.333252 5.13337 0.333252C2.48241 0.333252 0.333374 2.48229 0.333374 5.13325C0.333374 7.78422 2.48241 9.93325 5.13337 9.93325ZM5.80004 2.33325C5.80004 1.96506 5.50156 1.66659 5.13337 1.66659C4.76518 1.66659 4.46671 1.96506 4.46671 2.33325V5.13325V5.45367L4.71691 5.65383L6.71691 7.25383C7.00442 7.48384 7.42395 7.43722 7.65395 7.14972C7.88396 6.86221 7.83735 6.44268 7.54984 6.21267L5.80004 4.81284V2.33325Z"
-                        fill-rule="evenodd"
-                      />
-                    </svg>
-                  </div>
-                  <div
-                    class="rcx-item__title"
-                    id="_r_7_"
-                  >
-                    <a
-                      aria-describedby="_r_6_"
-                      class="rcx-item__link"
-                      href="#kenji"
-                    >
-                      Kenji Takahashi
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div
-                class="rcx-item__actions rcx-item__actions--reveal-hover"
-              >
-                <div
-                  class="rcx-item__actions-inner"
-                >
-                  <button
-                    aria-expanded="false"
-                    aria-haspopup="true"
-                    aria-label="Options for Kenji Takahashi"
-                    class="rcx-box rcx-box--full rcx-button--mini-square rcx-button--square rcx-button--icon rcx-button"
-                    id="react-aria-_r_8_"
-                    title="Options"
-                    type="button"
-                  >
-                    <i
-                      aria-hidden="true"
-                      class="rcx-box rcx-box--full rcx-icon--name-kebab rcx-icon rcx-css-1tg7yd0"
-                    >
-                      
-                    </i>
-                  </button>
-                </div>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div>
-        <div
-          class="rcx-box rcx-box--full rcx-css-12k7ahl"
-        >
-          medium
-        </div>
-        <div
-          class="rcx-box rcx-box--full rcx-css-m5e0pf"
-        >
-          <ul
-            aria-label="medium rooms"
-            class="rcx-item-group"
-          >
-            <li
-              class="rcx-item rcx-item--medium rcx-item--highlighted"
-            >
-              <div
-                class="rcx-item__media"
-              >
-                <figure
-                  class="rcx-box rcx-box--full rcx-avatar rcx-avatar--x28"
-                >
-                  <img
-                    alt=""
-                    class="rcx-avatar__element rcx-avatar__element--x28"
-                    src="data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3e%3crect width='100%25' height='100%25' fill='%23158D65'/%3e%3ctext x='50%25' y='50%25' dy='0.36em' text-anchor='middle' pointer-events='none' fill='white' font-size='125' font-family='Helvetica%2c sans-serif'%3eG%3c/text%3e%3c/svg%3e"
-                  />
-                </figure>
-              </div>
-              <div
-                class="rcx-item__content"
-              >
-                <div
-                  class="rcx-item__row"
-                >
-                  <div
-                    aria-label="Public channel"
-                    class="rcx-item__icon"
-                    id="_r_a_"
-                    role="img"
-                  >
-                    <i
-                      aria-hidden="true"
-                      class="rcx-box rcx-box--full rcx-icon--name-hashtag rcx-icon rcx-css-1g87xs3"
-                    >
-                      
-                    </i>
-                  </div>
-                  <div
-                    class="rcx-item__title"
-                    id="_r_b_"
-                  >
-                    <a
-                      aria-describedby="_r_a_"
-                      class="rcx-item__link"
-                      href="#general"
-                    >
-                      general
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <span
-                class="rcx-box rcx-box--full rcx-badge rcx-badge--primary"
-                title="12 unread messages"
-              >
-                12
-              </span>
-              <div
-                class="rcx-item__actions rcx-item__actions--reveal-hover"
-              >
-                <div
-                  class="rcx-item__actions-inner"
-                >
-                  <button
-                    aria-expanded="false"
-                    aria-haspopup="true"
-                    aria-label="Options for general"
-                    class="rcx-box rcx-box--full rcx-button--mini-square rcx-button--square rcx-button--icon rcx-button"
-                    id="react-aria-_r_c_"
-                    title="Options"
-                    type="button"
-                  >
-                    <i
-                      aria-hidden="true"
-                      class="rcx-box rcx-box--full rcx-icon--name-kebab rcx-icon rcx-css-1tg7yd0"
-                    >
-                      
-                    </i>
-                  </button>
-                </div>
-              </div>
-            </li>
-            <li
-              class="rcx-item rcx-item--medium"
-            >
-              <div
-                class="rcx-item__media"
-              >
-                <figure
-                  class="rcx-box rcx-box--full rcx-avatar rcx-avatar--x28"
-                >
-                  <img
-                    alt=""
-                    class="rcx-avatar__element rcx-avatar__element--x28"
-                    src="data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3e%3crect width='100%25' height='100%25' fill='%2310529E'/%3e%3ctext x='50%25' y='50%25' dy='0.36em' text-anchor='middle' pointer-events='none' fill='white' font-size='125' font-family='Helvetica%2c sans-serif'%3eB%3c/text%3e%3c/svg%3e"
-                  />
-                </figure>
-              </div>
-              <div
-                class="rcx-item__content"
-              >
-                <div
-                  class="rcx-item__row"
-                >
-                  <div
-                    aria-label="Away"
-                    class="rcx-item__icon"
-                    id="_r_e_"
-                    role="img"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      class="rcx-status-bullet rcx-status-bullet--away undefined "
-                      height="10"
-                      viewBox="0 0 10 10"
-                      width="10"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        clip-rule="evenodd"
-                        d="M5.13337 9.93325C7.78434 9.93325 9.93338 7.78422 9.93338 5.13325C9.93338 2.48229 7.78434 0.333252 5.13337 0.333252C2.48241 0.333252 0.333374 2.48229 0.333374 5.13325C0.333374 7.78422 2.48241 9.93325 5.13337 9.93325ZM5.80004 2.33325C5.80004 1.96506 5.50156 1.66659 5.13337 1.66659C4.76518 1.66659 4.46671 1.96506 4.46671 2.33325V5.13325V5.45367L4.71691 5.65383L6.71691 7.25383C7.00442 7.48384 7.42395 7.43722 7.65395 7.14972C7.88396 6.86221 7.83735 6.44268 7.54984 6.21267L5.80004 4.81284V2.33325Z"
-                        fill-rule="evenodd"
-                      />
-                    </svg>
-                  </div>
-                  <div
-                    class="rcx-item__title"
-                    id="_r_f_"
-                  >
-                    <a
-                      aria-describedby="_r_e_"
-                      class="rcx-item__link"
-                      href="#kenji"
-                    >
-                      Kenji Takahashi
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div
-                class="rcx-item__actions rcx-item__actions--reveal-hover"
-              >
-                <div
-                  class="rcx-item__actions-inner"
-                >
-                  <button
-                    aria-expanded="false"
-                    aria-haspopup="true"
-                    aria-label="Options for Kenji Takahashi"
-                    class="rcx-box rcx-box--full rcx-button--mini-square rcx-button--square rcx-button--icon rcx-button"
-                    id="react-aria-_r_g_"
-                    title="Options"
-                    type="button"
-                  >
-                    <i
-                      aria-hidden="true"
-                      class="rcx-box rcx-box--full rcx-icon--name-kebab rcx-icon rcx-css-1tg7yd0"
-                    >
-                      
-                    </i>
-                  </button>
-                </div>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div>
-        <div
-          class="rcx-box rcx-box--full rcx-css-12k7ahl"
-        >
-          extended
-        </div>
-        <div
-          class="rcx-box rcx-box--full rcx-css-m5e0pf"
-        >
-          <ul
-            aria-label="extended rooms"
-            class="rcx-item-group"
-          >
-            <li
-              class="rcx-item rcx-item--extended rcx-item--highlighted"
-            >
-              <div
-                class="rcx-item__media"
-              >
-                <figure
-                  class="rcx-box rcx-box--full rcx-avatar rcx-avatar--x36"
-                >
-                  <img
-                    alt=""
-                    class="rcx-avatar__element rcx-avatar__element--x36"
-                    src="data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3e%3crect width='100%25' height='100%25' fill='%23158D65'/%3e%3ctext x='50%25' y='50%25' dy='0.36em' text-anchor='middle' pointer-events='none' fill='white' font-size='125' font-family='Helvetica%2c sans-serif'%3eG%3c/text%3e%3c/svg%3e"
-                  />
-                </figure>
-              </div>
-              <div
-                class="rcx-item__content"
-              >
-                <div
-                  class="rcx-item__row"
-                >
-                  <div
-                    aria-label="Public channel"
-                    class="rcx-item__icon"
-                    id="_r_i_"
-                    role="img"
-                  >
-                    <i
-                      aria-hidden="true"
-                      class="rcx-box rcx-box--full rcx-icon--name-hashtag rcx-icon rcx-css-1g87xs3"
-                    >
-                      
-                    </i>
-                  </div>
-                  <div
-                    class="rcx-item__title"
-                    id="_r_j_"
-                  >
-                    <a
-                      aria-describedby="_r_i_"
-                      class="rcx-item__link"
-                      href="#general"
-                    >
-                      general
-                    </a>
-                  </div>
-                  <div
-                    class="rcx-item__meta"
-                  >
-                    09:15
-                  </div>
-                </div>
-                <div
-                  class="rcx-item__row"
-                >
-                  <div
-                    class="rcx-item__description"
-                  >
-                    Rafael: release notes for 8.2 are up
-                  </div>
-                  <span
-                    class="rcx-box rcx-box--full rcx-badge rcx-badge--primary"
-                    title="12 unread messages"
-                  >
-                    12
-                  </span>
-                  <div
-                    class="rcx-item__actions rcx-item__actions--reveal-hover"
-                  >
-                    <div
-                      class="rcx-item__actions-inner"
-                    >
-                      <button
-                        aria-expanded="false"
-                        aria-haspopup="true"
-                        aria-label="Options for general"
-                        class="rcx-box rcx-box--full rcx-button--mini-square rcx-button--square rcx-button--icon rcx-button"
-                        id="react-aria-_r_k_"
-                        title="Options"
-                        type="button"
-                      >
-                        <i
-                          aria-hidden="true"
-                          class="rcx-box rcx-box--full rcx-icon--name-kebab rcx-icon rcx-css-1tg7yd0"
-                        >
-                          
-                        </i>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </li>
-            <li
-              class="rcx-item rcx-item--extended"
-            >
-              <div
-                class="rcx-item__media"
-              >
-                <figure
-                  class="rcx-box rcx-box--full rcx-avatar rcx-avatar--x36"
-                >
-                  <img
-                    alt=""
-                    class="rcx-avatar__element rcx-avatar__element--x36"
-                    src="data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3e%3crect width='100%25' height='100%25' fill='%2310529E'/%3e%3ctext x='50%25' y='50%25' dy='0.36em' text-anchor='middle' pointer-events='none' fill='white' font-size='125' font-family='Helvetica%2c sans-serif'%3eB%3c/text%3e%3c/svg%3e"
-                  />
-                </figure>
-              </div>
-              <div
-                class="rcx-item__content"
-              >
-                <div
-                  class="rcx-item__row"
-                >
-                  <div
-                    aria-label="Away"
-                    class="rcx-item__icon"
-                    id="_r_m_"
-                    role="img"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      class="rcx-status-bullet rcx-status-bullet--away undefined "
-                      height="10"
-                      viewBox="0 0 10 10"
-                      width="10"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        clip-rule="evenodd"
-                        d="M5.13337 9.93325C7.78434 9.93325 9.93338 7.78422 9.93338 5.13325C9.93338 2.48229 7.78434 0.333252 5.13337 0.333252C2.48241 0.333252 0.333374 2.48229 0.333374 5.13325C0.333374 7.78422 2.48241 9.93325 5.13337 9.93325ZM5.80004 2.33325C5.80004 1.96506 5.50156 1.66659 5.13337 1.66659C4.76518 1.66659 4.46671 1.96506 4.46671 2.33325V5.13325V5.45367L4.71691 5.65383L6.71691 7.25383C7.00442 7.48384 7.42395 7.43722 7.65395 7.14972C7.88396 6.86221 7.83735 6.44268 7.54984 6.21267L5.80004 4.81284V2.33325Z"
-                        fill-rule="evenodd"
-                      />
-                    </svg>
-                  </div>
-                  <div
-                    class="rcx-item__title"
-                    id="_r_n_"
-                  >
-                    <a
-                      aria-describedby="_r_m_"
-                      class="rcx-item__link"
-                      href="#kenji"
-                    >
-                      Kenji Takahashi
-                    </a>
-                  </div>
-                  <div
-                    class="rcx-item__meta"
-                  >
-                    Yesterday
-                  </div>
-                </div>
-                <div
-                  class="rcx-item__row"
-                >
-                  <div
-                    class="rcx-item__description"
-                  >
-                    You: sounds good, merging after CI
-                  </div>
-                  <div
-                    class="rcx-item__actions rcx-item__actions--reveal-hover"
-                  >
-                    <div
-                      class="rcx-item__actions-inner"
-                    >
-                      <button
-                        aria-expanded="false"
-                        aria-haspopup="true"
-                        aria-label="Options for Kenji Takahashi"
-                        class="rcx-box rcx-box--full rcx-button--mini-square rcx-button--square rcx-button--icon rcx-button"
-                        id="react-aria-_r_o_"
-                        title="Options"
-                        type="button"
-                      >
-                        <i
-                          aria-hidden="true"
-                          class="rcx-box rcx-box--full rcx-icon--name-kebab rcx-icon rcx-css-1tg7yd0"
-                        >
-                          
-                        </i>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-</body>
-`;
-
 exports[`[Item Rendering] renders Skeletons without crashing 1`] = `
 <body>
   <div>
@@ -5307,13 +5307,13 @@ exports[`[Item Rendering] renders Skeletons without crashing 1`] = `
           >
             <li
               aria-hidden="true"
-              class="rcx-item rcx-item--condensed"
+              class="rcx-item"
             >
               <div
                 class="rcx-item__media"
               >
                 <span
-                  class="rcx-skeleton rcx-skeleton--rect rcx-css-x2g2lg"
+                  class="rcx-skeleton rcx-skeleton--rect rcx-css-p6wo0p"
                 />
               </div>
               <div
@@ -5331,13 +5331,13 @@ exports[`[Item Rendering] renders Skeletons without crashing 1`] = `
             </li>
             <li
               aria-hidden="true"
-              class="rcx-item rcx-item--condensed"
+              class="rcx-item"
             >
               <div
                 class="rcx-item__media"
               >
                 <span
-                  class="rcx-skeleton rcx-skeleton--rect rcx-css-x2g2lg"
+                  class="rcx-skeleton rcx-skeleton--rect rcx-css-p6wo0p"
                 />
               </div>
               <div
@@ -5372,13 +5372,13 @@ exports[`[Item Rendering] renders Skeletons without crashing 1`] = `
           >
             <li
               aria-hidden="true"
-              class="rcx-item rcx-item--medium"
+              class="rcx-item"
             >
               <div
                 class="rcx-item__media"
               >
                 <span
-                  class="rcx-skeleton rcx-skeleton--rect rcx-css-x2g2lg"
+                  class="rcx-skeleton rcx-skeleton--rect rcx-css-1w8659a"
                 />
               </div>
               <div
@@ -5396,13 +5396,13 @@ exports[`[Item Rendering] renders Skeletons without crashing 1`] = `
             </li>
             <li
               aria-hidden="true"
-              class="rcx-item rcx-item--medium"
+              class="rcx-item"
             >
               <div
                 class="rcx-item__media"
               >
                 <span
-                  class="rcx-skeleton rcx-skeleton--rect rcx-css-x2g2lg"
+                  class="rcx-skeleton rcx-skeleton--rect rcx-css-1w8659a"
                 />
               </div>
               <div
@@ -5437,13 +5437,13 @@ exports[`[Item Rendering] renders Skeletons without crashing 1`] = `
           >
             <li
               aria-hidden="true"
-              class="rcx-item rcx-item--extended"
+              class="rcx-item"
             >
               <div
                 class="rcx-item__media"
               >
                 <span
-                  class="rcx-skeleton rcx-skeleton--rect rcx-css-x2g2lg"
+                  class="rcx-skeleton rcx-skeleton--rect rcx-css-th489m"
                 />
               </div>
               <div
@@ -5468,13 +5468,13 @@ exports[`[Item Rendering] renders Skeletons without crashing 1`] = `
             </li>
             <li
               aria-hidden="true"
-              class="rcx-item rcx-item--extended"
+              class="rcx-item"
             >
               <div
                 class="rcx-item__media"
               >
                 <span
-                  class="rcx-skeleton rcx-skeleton--rect rcx-css-x2g2lg"
+                  class="rcx-skeleton rcx-skeleton--rect rcx-css-th489m"
                 />
               </div>
               <div
@@ -5524,7 +5524,7 @@ exports[`[Item Rendering] renders States without crashing 1`] = `
           class="rcx-item-group"
         >
           <li
-            class="rcx-item rcx-item--condensed"
+            class="rcx-item"
           >
             <div
               class="rcx-item__media"
@@ -5598,7 +5598,7 @@ exports[`[Item Rendering] renders States without crashing 1`] = `
             </div>
           </li>
           <li
-            class="rcx-item rcx-item--condensed rcx-item--selected"
+            class="rcx-item rcx-item--selected"
           >
             <div
               class="rcx-item__media"
@@ -5673,7 +5673,7 @@ exports[`[Item Rendering] renders States without crashing 1`] = `
             </div>
           </li>
           <li
-            class="rcx-item rcx-item--condensed rcx-item--highlighted"
+            class="rcx-item rcx-item--highlighted"
           >
             <div
               class="rcx-item__media"
@@ -5766,7 +5766,7 @@ exports[`[Item Rendering] renders States without crashing 1`] = `
       >
         <div
           aria-labelledby="_r_1a_"
-          class="rcx-item rcx-item--condensed rcx-item--inset-md rcx-item--focused"
+          class="rcx-item rcx-item--inset-md rcx-item--focused"
           role="menuitem"
           tabindex="-1"
         >
@@ -5794,7 +5794,7 @@ exports[`[Item Rendering] renders States without crashing 1`] = `
         <div
           aria-disabled="true"
           aria-labelledby="_r_1b_"
-          class="rcx-item rcx-item--condensed rcx-item--inset-md rcx-item--disabled"
+          class="rcx-item rcx-item--inset-md rcx-item--disabled"
           role="menuitem"
           tabindex="-1"
         >
@@ -5821,7 +5821,7 @@ exports[`[Item Rendering] renders States without crashing 1`] = `
         </div>
         <div
           aria-labelledby="_r_1c_"
-          class="rcx-item rcx-item--condensed rcx-item--inset-md rcx-item--danger"
+          class="rcx-item rcx-item--inset-md rcx-item--danger"
           role="menuitem"
           tabindex="-1"
         >
