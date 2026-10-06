@@ -47,11 +47,10 @@
 
     height: lengths.size(28);
 
-    padding-inline: lengths.padding(12);
-    padding-inline-end: lengths.padding(16);
+    padding-inline: lengths.padding(8);
 
     border-radius: lengths.border-radius(extra-large);
-    column-gap: lengths.padding(8);
+    column-gap: lengths.padding(4);
 
     @include use-with-truncated-text;
 
@@ -60,8 +59,9 @@
     }
   }
 
-  &:not(.rcx-bubble__group) &__item {
-    padding-inline: lengths.padding(8);
+  &:not(.rcx-bubble__group) &__button:has(> .rcx-icon),
+  &:not(.rcx-bubble__group) &__item:has(> .rcx-icon) {
+    padding-inline-end: lengths.padding(12);
   }
 
   &--small &__button,
