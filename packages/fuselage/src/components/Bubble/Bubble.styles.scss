@@ -5,7 +5,6 @@
 @use '../../styles/variables/button-colors.scss';
 @use '../../styles/mixins/button.scss' as *;
 @use '../../styles/mixins/interactivity.scss' as *;
-@use '../../styles/mixins/elevation.scss' as *;
 
 .rcx-bubble {
   display: flex;
@@ -13,10 +12,6 @@
   overflow: hidden;
 
   align-items: center;
-
-  border-radius: lengths.border-radius(extra-large);
-
-  @include elevation-modifiers;
 
   &__button {
     &--primary {
