@@ -5,14 +5,14 @@ import { cx, cxx } from '../../helpers/composeClassNames';
 export type ItemMediaProps = {
   is?: ElementType;
   /**
-   * `icon` keeps a 20px box at every size, for icons and status bullets.
+   * `icon` centers its child in a 20px box, for icons and status bullets.
    */
   variant?: 'default' | 'icon';
 } & Omit<AllHTMLAttributes<HTMLElement>, 'is'> &
   RefAttributes<HTMLElement>;
 
 /**
- * The leading avatar, icon or thumbnail of an `Item`. Its box follows the item size.
+ * The leading avatar, icon or thumbnail of an `Item`. Its box fits its child, so the child's size sets the row height.
  */
 const ItemMedia = ({
   is: Tag = 'div',

@@ -102,7 +102,6 @@ $item-group-narrow-width: 320px;
 }
 
 .rcx-item {
-  --rcx-item-media-size: #{lengths.size(20)};
   --rcx-item-gap: #{lengths.margin(4)};
   --rcx-item-inset-inline: 0;
 
@@ -131,12 +130,7 @@ $item-group-narrow-width: 320px;
   @include inset-slots;
   @include inset-scale;
 
-  &--medium {
-    --rcx-item-media-size: #{lengths.size(28)};
-  }
-
-  &--extended {
-    --rcx-item-media-size: #{lengths.size(36)};
+  &:has(> .rcx-item__content > :nth-child(2)) {
     --rcx-item-gap: #{lengths.margin(8)};
   }
 
@@ -208,9 +202,6 @@ $item-group-narrow-width: 320px;
     justify-content: center;
     align-items: center;
     flex: none;
-
-    width: var(--rcx-item-media-size);
-    height: var(--rcx-item-media-size);
 
     &--icon {
       width: lengths.size(20);
