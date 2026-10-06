@@ -4,7 +4,7 @@ exports[`[Bubble Rendering] renders Dismissable without crashing 1`] = `
 <body>
   <div>
     <div
-      class="rcx-bubble rcx-box rcx-box--full rcx-bubble__group "
+      class="rcx-box rcx-box--full rcx-bubble__group rcx-bubble"
     >
       <button
         class="rcx-box rcx-box--full rcx-bubble__button rcx-bubble__button--primary"
@@ -39,7 +39,7 @@ exports[`[Bubble Rendering] renders IconAndLabel without crashing 1`] = `
 <body>
   <div>
     <div
-      class="rcx-bubble rcx-box rcx-box--full  "
+      class="rcx-box rcx-box--full rcx-bubble"
     >
       <button
         class="rcx-box rcx-box--full rcx-bubble__button rcx-bubble__button--primary"
@@ -63,7 +63,7 @@ exports[`[Bubble Rendering] renders LabelOnly without crashing 1`] = `
 <body>
   <div>
     <div
-      class="rcx-bubble rcx-box rcx-box--full  "
+      class="rcx-box rcx-box--full rcx-bubble"
     >
       <button
         class="rcx-box rcx-box--full rcx-bubble__button rcx-bubble__button--primary"
@@ -81,7 +81,7 @@ exports[`[Bubble Rendering] renders Secondary without crashing 1`] = `
 <body>
   <div>
     <div
-      class="rcx-bubble rcx-box rcx-box--full  "
+      class="rcx-box rcx-box--full rcx-bubble"
     >
       <button
         class="rcx-box rcx-box--full rcx-bubble__button rcx-bubble__button--secondary"
@@ -99,7 +99,7 @@ exports[`[Bubble Rendering] renders SecondaryDismissable without crashing 1`] = 
 <body>
   <div>
     <div
-      class="rcx-bubble rcx-box rcx-box--full rcx-bubble__group "
+      class="rcx-box rcx-box--full rcx-bubble__group rcx-bubble"
     >
       <span
         class="rcx-bubble__item rcx-bubble__item--secondary"
@@ -128,7 +128,7 @@ exports[`[Bubble Rendering] renders Small without crashing 1`] = `
 <body>
   <div>
     <div
-      class="rcx-bubble rcx-box rcx-box--full  rcx-bubble--small"
+      class="rcx-box rcx-box--full rcx-bubble--small rcx-bubble"
     >
       <span
         class="rcx-bubble__item rcx-bubble__item--secondary"
@@ -146,7 +146,7 @@ exports[`[Bubble Rendering] renders WithLargeText without crashing 1`] = `
 <body>
   <div>
     <div
-      class="rcx-bubble rcx-box rcx-box--full  "
+      class="rcx-box rcx-box--full rcx-bubble"
     >
       <button
         class="rcx-box rcx-box--full rcx-bubble__button rcx-bubble__button--secondary"
@@ -164,7 +164,7 @@ exports[`[Bubble Rendering] renders WithoutAction without crashing 1`] = `
 <body>
   <div>
     <div
-      class="rcx-bubble rcx-box rcx-box--full  "
+      class="rcx-box rcx-box--full rcx-bubble"
     >
       <span
         class="rcx-bubble__item rcx-bubble__item--secondary"
