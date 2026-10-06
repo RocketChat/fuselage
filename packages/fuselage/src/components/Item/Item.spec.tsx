@@ -49,12 +49,12 @@ describe('[Item Rendering]', () => {
 });
 
 describe('Item', () => {
-  it('renders a div with the default size and no inset', () => {
+  it('renders a div with no inset', () => {
     render(<Item data-testid='item' />);
 
     const item = screen.getByTestId('item');
     expect(item.tagName).toBe('DIV');
-    expect(item).toHaveClass('rcx-item', 'rcx-item--condensed');
+    expect(item).toHaveClass('rcx-item');
     expect(item.className).not.toMatch(/--inset-/);
   });
 
@@ -69,7 +69,6 @@ describe('Item', () => {
   });
 
   it.each([
-    [{ size: 'extended' as const }, 'rcx-item--extended'],
     [{ inset: 'lg' as const }, 'rcx-item--inset-lg'],
     [{ selected: true }, 'rcx-item--selected'],
     [{ highlighted: true }, 'rcx-item--highlighted'],
@@ -369,16 +368,16 @@ describe('ItemDivider', () => {
 });
 
 describe('ItemSkeleton', () => {
-  it('matches the size of an item and stays hidden from assistive technology', () => {
-    const { container } = render(<ItemSkeleton size='extended' />);
+  it('adds a description line and stays hidden from assistive technology', () => {
+    const { container } = render(<ItemSkeleton mediaSize='x36' description />);
 
     const item = container.firstElementChild;
-    expect(item).toHaveClass('rcx-item--extended');
+    expect(item).toHaveClass('rcx-item');
     expect(item).toHaveAttribute('aria-hidden', 'true');
     expect(container.querySelectorAll('.rcx-skeleton')).toHaveLength(3);
   });
 
-  it('shows one text line for condensed rows', () => {
+  it('shows one text line by default', () => {
     const { container } = render(<ItemSkeleton />);
 
     expect(container.querySelectorAll('.rcx-skeleton')).toHaveLength(2);
