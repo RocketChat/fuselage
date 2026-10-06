@@ -1,3 +1,4 @@
+import type { AvatarProps } from '../Avatar';
 import { Skeleton } from '../Skeleton';
 
 import type { ItemProps } from './Item';
@@ -7,25 +8,29 @@ import ItemDescription from './ItemDescription';
 import ItemMedia from './ItemMedia';
 import ItemTitle from './ItemTitle';
 
-export type ItemSkeletonProps = Pick<ItemProps, 'is' | 'size' | 'inset'> & {
+export type ItemSkeletonProps = Pick<ItemProps, 'is' | 'inset'> & {
   /**
-   * Adds a second text line. Defaults to `true` for the extended size.
+   * The size of the avatar the loaded row shows.
+   */
+  mediaSize?: AvatarProps['size'];
+  /**
+   * Adds a second text line.
    */
   description?: boolean;
 };
 
 /**
- * A loading placeholder with the same height as an `Item` of the given size.
+ * A loading placeholder with the same height as an `Item` with the same media and lines.
  */
 const ItemSkeleton = ({
   is,
-  size = 'condensed',
   inset,
-  description = size === 'extended',
+  mediaSize = 'x20',
+  description = false,
 }: ItemSkeletonProps) => (
-  <Item is={is} size={size} inset={inset} aria-hidden>
+  <Item is={is} inset={inset} aria-hidden>
     <ItemMedia>
-      <Skeleton variant='rect' width='100%' height='100%' />
+      <Skeleton variant='rect' width={mediaSize} height={mediaSize} />
     </ItemMedia>
     <ItemContent>
       <ItemTitle>

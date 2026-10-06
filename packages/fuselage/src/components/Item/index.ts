@@ -25,5 +25,4 @@ export {
   type ItemSkeletonProps,
 } from './ItemSkeleton';
 export { default as ItemTitle, type ItemTitleProps } from './ItemTitle';
-export { ITEM_MEDIA_SIZE } from './itemMediaSize';
-export type { ItemInset, ItemSize } from './types';
+export type { ItemInset } from './types';

@@ -9,7 +9,7 @@ import { useMemo } from 'react';
 import { cx, cxx } from '../../helpers/composeClassNames';
 
 import { ItemContext } from './ItemContext';
-import type { ItemInset, ItemSize } from './types';
+import type { ItemInset } from './types';
 import { useIdRegistry } from './useIdRegistry';
 
 export type ItemProps = {
@@ -17,10 +17,6 @@ export type ItemProps = {
    * The element to render. Use `li` inside a list; set `role` for listbox options or menu items.
    */
   is?: ElementType;
-  /**
-   * Sets the media box and the gap between slots. Matches the sidebar view modes.
-   */
-  size?: ItemSize;
   /**
    * Adds space between the row edge and its first and last slots.
    */
@@ -39,10 +35,7 @@ export type ItemProps = {
    */
   disabled?: boolean;
   variant?: 'danger';
-} & Omit<
-  AllHTMLAttributes<HTMLElement>,
-  'is' | 'size' | 'selected' | 'disabled'
-> &
+} & Omit<AllHTMLAttributes<HTMLElement>, 'is' | 'selected' | 'disabled'> &
   RefAttributes<HTMLElement>;
 
 /**
@@ -50,7 +43,6 @@ export type ItemProps = {
  */
 const Item = ({
   is: Tag = 'div',
-  size = 'condensed',
   inset = 'none',
   selected,
   highlighted,
@@ -84,7 +76,6 @@ const Item = ({
         {...props}
         className={cx(
           cxx('rcx-item')({
-            [size]: true,
             [`inset-${inset}`]: inset !== 'none',
             clickable: !!onClick,
             selected: !!selected,
