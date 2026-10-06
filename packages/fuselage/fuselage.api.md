@@ -790,13 +790,6 @@ export type InputProps<T extends HTMLInputElement | HTMLSelectElement | HTMLText
 export const Item: (input: ItemProps) => JSX.Element;
 
 // @public
-export const ITEM_MEDIA_SIZE: {
-    readonly condensed: "x20";
-    readonly medium: "x28";
-    readonly extended: "x36";
-};
-
-// @public
 export const ItemActions: (input: ItemActionsProps) => JSX.Element;
 
 // @public (undocumented)
@@ -898,14 +891,14 @@ export type ItemMetaProps = {
 // @public (undocumented)
 export type ItemProps = {
     is?: ElementType;
-    size?: ItemSize;
     inset?: ItemInset;
     selected?: boolean;
     highlighted?: boolean;
     focused?: boolean;
+    focusVisible?: boolean;
     disabled?: boolean;
     variant?: 'danger';
-} & Omit<AllHTMLAttributes<HTMLElement>, 'is' | 'size' | 'selected' | 'disabled'> & RefAttributes<HTMLElement>;
+} & Omit<AllHTMLAttributes<HTMLElement>, 'is' | 'selected' | 'disabled'> & RefAttributes<HTMLElement>;
 
 // @public
 export const ItemRow: (input: ItemRowProps) => JSX.Element;
@@ -915,14 +908,12 @@ export type ItemRowProps = {
     is?: ElementType;
 } & Omit<AllHTMLAttributes<HTMLElement>, 'is'> & RefAttributes<HTMLElement>;
 
-// @public (undocumented)
-export type ItemSize = 'condensed' | 'medium' | 'extended';
-
 // @public
 export const ItemSkeleton: (input: ItemSkeletonProps) => JSX.Element;
 
 // @public (undocumented)
-export type ItemSkeletonProps = Pick<ItemProps, 'is' | 'size' | 'inset'> & {
+export type ItemSkeletonProps = Pick<ItemProps, 'is' | 'inset'> & {
+    mediaSize?: AvatarProps['size'];
     description?: boolean;
 };
 
