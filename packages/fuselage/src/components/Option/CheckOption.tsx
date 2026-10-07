@@ -16,7 +16,7 @@ const CheckOption = ({
 }: CheckOptionProps) => {
   return (
     <Option label={label as string} selected={selected} {...options}>
-      <CheckBox checked={!!selected} readOnly tabIndex={-1} aria-hidden />
+      <CheckBox checked={!!selected} readOnly tabIndex={-1} aria-hidden inert />
     </Option>
   );
 };
