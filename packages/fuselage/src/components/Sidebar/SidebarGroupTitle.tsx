@@ -1,6 +1,8 @@
 import type { AriaAttributes, HTMLAttributes, ReactNode } from 'react';
 
+import { cx } from '../../helpers/composeClassNames';
 import { Chevron } from '../Chevron';
+import { ItemGroupHeader, ItemGroupTitle } from '../Item';
 
 export type SidebarGroupTitleProps = {
   expanded?: boolean;
@@ -11,6 +13,9 @@ export type SidebarGroupTitleProps = {
   barProps?: AriaAttributes;
 } & HTMLAttributes<HTMLDivElement>;
 
+/**
+ * The header of a sidebar group. It renders an `ItemGroupHeader`, so its menu reveals on hover like a row's.
+ */
 export const SidebarGroupTitle = ({
   title,
   titleId,
@@ -19,33 +24,26 @@ export const SidebarGroupTitle = ({
   barProps,
   expanded,
   role,
+  className,
   ...props
 }: SidebarGroupTitleProps) => (
-  <div
-    className={[
-      'rcx-box rcx-box--full',
-      'rcx-sidebar-collapse-group__bar rcx-box--animated',
-    ]
-      .filter(Boolean)
-      .join(' ')}
-    {...props}
+  <ItemGroupHeader
+    {...(props as Omit<HTMLAttributes<HTMLDivElement>, 'is'>)}
+    className={cx('rcx-sidebar-collapse-group__bar', className)}
   >
-    <div
-      className='rcx-box rcx-sidebar-collapse-group__bar-button'
+    <ItemGroupTitle
       role={role}
       {...barProps}
+      className='rcx-sidebar-collapse-group__bar-button'
     >
       {expanded !== undefined && <Chevron size='x20' right={!expanded} />}
       {title && (
-        <h4
-          className='rcx-box rcx-box--full rcx-sidebar-collapse-group__title'
-          id={titleId}
-        >
+        <h4 className='rcx-sidebar-collapse-group__title' id={titleId}>
           {title}
         </h4>
       )}
       {!expanded && badge && badge}
-    </div>
+    </ItemGroupTitle>
     {menu}
-  </div>
+  </ItemGroupHeader>
 );
