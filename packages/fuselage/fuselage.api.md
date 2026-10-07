@@ -1610,7 +1610,7 @@ type OptionAvatarProps = {
 export { OptionAvatarProps as MenuItemAvatarProps }
 export { OptionAvatarProps }
 
-// @public (undocumented)
+// @public
 const OptionColumn: (props: OptionColumnProps) => JSX.Element;
 export { OptionColumn as MenuItemColumn }
 export { OptionColumn }
@@ -1629,7 +1629,7 @@ export function OptionContainer(props: OptionContainerProps): JSX.Element;
 export type OptionContainerProps = Omit<BoxProps, 'ref'> & RefAttributes<HTMLElement>;
 
 // @public (undocumented)
-const OptionContent: (props: OptionContentProps) => JSX.Element;
+const OptionContent: (input: OptionContentProps) => JSX.Element;
 export { OptionContent as MenuItemContent }
 export { OptionContent }
 
@@ -1695,7 +1695,7 @@ export { OptionInputProps as MenuItemInputProps }
 export { OptionInputProps }
 
 // @public (undocumented)
-export const OptionMenu: (props: OptionMenuProps) => JSX.Element;
+export const OptionMenu: (input: OptionMenuProps) => JSX.Element;
 
 // @public (undocumented)
 export type OptionMenuProps = HTMLAttributes<HTMLDivElement>;
