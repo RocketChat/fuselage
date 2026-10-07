@@ -1,12 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react-webpack5';
 
-import { SidebarListItem } from '../..';
 import {
   GenericCondensedItem,
   GenericExtendedItem,
   GenericMediumItem,
   decorators,
 } from '../helpers';
+
+import { SidebarListItem } from '.';
 
 export default {
   title: 'Navigation/Sidebar/Item',
