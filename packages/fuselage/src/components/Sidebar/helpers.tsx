@@ -1,9 +1,9 @@
 import type { Decorator } from '@storybook/react-webpack5';
 
-import { Menu, MenuItem } from '../..';
 import { Avatar } from '../Avatar';
 import { Box } from '../Box';
 import { IconButton } from '../Button';
+import { Menu, MenuItem } from '../Menu';
 
 import {
   Sidebar,
