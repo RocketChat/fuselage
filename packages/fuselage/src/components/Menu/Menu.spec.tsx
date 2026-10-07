@@ -17,6 +17,7 @@ const {
   WithSubmenu,
   WithRichSubmenuTrigger,
   WithItemParts,
+  WithItemAliases,
 } = composeStories(stories);
 
 const testCases = Object.values(composeStories(stories)).map((Story) => [
@@ -164,6 +165,27 @@ describe('[Menu Component]', () => {
       const items = await screen.findAllByRole('menuitem');
       expect(items).toHaveLength(4);
       items.forEach((item) => expect(item).toHaveClass('rcx-item'));
+    });
+
+    it('should render the MenuItem* aliases as Item slots named by their content', async () => {
+      render(<WithItemAliases {...WithItemAliases.args} />);
+
+      await userEvent.click(screen.getByRole('button'));
+
+      const notifications = await screen.findByRole('menuitem', {
+        name: 'Notifications',
+      });
+      const slots = Array.from(notifications.children).map(
+        (child) => child.className,
+      );
+      expect(slots).toEqual([
+        expect.stringContaining('rcx-item__icon'),
+        expect.stringContaining('rcx-item__content'),
+        expect.stringContaining('rcx-item__actions'),
+      ]);
+      expect(
+        screen.getByRole('menuitem', { name: 'Logout' }).firstElementChild,
+      ).toHaveClass('rcx-item__media', 'rcx-option__column');
     });
 
     it('should name a menu item by its title and describe it with its labelled ItemIcon', async () => {
