@@ -4,6 +4,7 @@ import { axe } from 'jest-axe';
 import { render } from '../../testing';
 
 import * as stories from './Sidebar.stories';
+import { SidebarCollapseGroup } from './SidebarCollapseGroup';
 
 const { Default } = composeStories(stories);
 
@@ -16,5 +17,17 @@ describe('[Sidebar Default story]', () => {
 
     const results = await axe(container);
     expect(results).toHaveNoViolations();
+  });
+});
+
+describe('[SidebarCollapseGroup]', () => {
+  it('should not pass `actions` to the DOM', () => {
+    const { container } = render(
+      <SidebarCollapseGroup title='Favorites' actions={<span />}>
+        <div />
+      </SidebarCollapseGroup>,
+    );
+
+    expect(container.querySelector('section')).not.toHaveAttribute('actions');
   });
 });

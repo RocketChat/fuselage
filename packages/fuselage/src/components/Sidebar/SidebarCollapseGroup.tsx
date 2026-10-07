@@ -22,6 +22,7 @@ export function SidebarCollapseGroup({
   children,
   badge,
   menu,
+  actions: _actions,
   title,
   ...props
 }: SidebarCollapseGroupProps) {
