@@ -1,5 +1,5 @@
-import { Divider } from '../Divider';
+import { ItemDivider } from '../Item';
 
 export const SidebarDivider = () => (
-  <Divider rcx-sidebar--divider marginBlockStart={-2} marginBlockEnd={0} />
+  <ItemDivider role='separator' className='rcx-sidebar--divider' />
 );
