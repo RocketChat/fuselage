@@ -1664,7 +1664,7 @@ export const OptionDivider: (props: OptionDividerProps) => JSX.Element;
 // @public (undocumented)
 export type OptionDividerProps = DividerProps;
 
-// @public (undocumented)
+// @public
 export const OptionHeader: (input: OptionHeaderProps) => JSX.Element;
 
 // @public (undocumented)
@@ -1750,7 +1750,7 @@ export type OptionsProps<TValue extends string | number = string | number, TLabe
 };
 
 // @public (undocumented)
-const OptionTitle: (props: OptionTitleProps) => JSX.Element;
+const OptionTitle: (input: OptionTitleProps) => JSX.Element;
 export { OptionTitle as MenuItemTitle }
 export { OptionTitle }
 
