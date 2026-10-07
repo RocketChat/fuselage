@@ -12,6 +12,7 @@ import { Icon } from '../Icon';
 import { ItemActions, ItemContent, ItemIcon, ItemTitle } from '../Item';
 import { NavBarGroup, NavBarItem } from '../NavBar';
 import { RadioButton } from '../RadioButton';
+import { StatusBullet } from '../StatusBullet';
 import { ToggleSwitch } from '../ToggleSwitch';
 
 import type { MenuItemIconProps } from '.';
@@ -20,6 +21,7 @@ import {
   MenuItem,
   MenuSection,
   MenuSubmenuTrigger,
+  MenuItemColumn,
   MenuItemContent,
   MenuItemIcon,
   MenuItemInput,
@@ -560,3 +562,45 @@ export const WithItemParts: StoryFn<typeof Menu> = (args) => (
     </MenuSection>
   </Menu>
 );
+
+export const WithItemAliases: StoryFn<typeof Menu> = (args) => (
+  <Menu title='Status' {...args}>
+    <MenuSection title='Status'>
+      <MenuItem key='online' textValue='Online'>
+        <MenuItemColumn>
+          <StatusBullet status='online' />
+        </MenuItemColumn>
+        <MenuItemContent>Online</MenuItemContent>
+      </MenuItem>
+      <MenuItem key='away' textValue='Away'>
+        <MenuItemColumn>
+          <StatusBullet status='away' />
+        </MenuItemColumn>
+        <MenuItemContent>Away</MenuItemContent>
+      </MenuItem>
+    </MenuSection>
+    <MenuSection title='Preferences'>
+      <MenuItem key='notifications' textValue='Notifications'>
+        <MenuItemIcon name='bell' />
+        <MenuItemContent title='Notification preferences'>
+          Notifications
+        </MenuItemContent>
+        <MenuItemInput>
+          <ToggleSwitch checked onChange={() => undefined} />
+        </MenuItemInput>
+      </MenuItem>
+      <MenuItem key='logout' textValue='Logout'>
+        <MenuItemColumn />
+        <MenuItemContent>Logout</MenuItemContent>
+      </MenuItem>
+    </MenuSection>
+  </Menu>
+);
+WithItemAliases.parameters = {
+  docs: {
+    description: {
+      story:
+        'The `MenuItem*` aliases render `Item` parts, so menus built from them get the same row layout as menus composed from `Item` parts.',
+    },
+  },
+};
