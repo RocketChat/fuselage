@@ -18,6 +18,7 @@ import {
   ItemIcon,
   ItemLink,
   ItemMedia,
+  ItemMeta,
   ItemSkeleton,
   ItemTitle,
 } from '.';
@@ -340,6 +341,25 @@ describe('ItemDescription', () => {
     expect(screen.getByText('@kenji')).toHaveClass(
       'rcx-item__description--inline',
     );
+  });
+});
+
+describe('ItemMeta', () => {
+  it('does not truncate by default', () => {
+    render(<ItemMeta>10:42</ItemMeta>);
+
+    expect(screen.getByText('10:42')).toHaveClass('rcx-item__meta');
+    expect(screen.getByText('10:42')).not.toHaveClass(
+      'rcx-item__meta--truncate',
+    );
+  });
+
+  it('truncates when `truncate` is set', () => {
+    render(<ItemMeta truncate>Invite one user to join this channel</ItemMeta>);
+
+    expect(
+      screen.getByText('Invite one user to join this channel'),
+    ).toHaveClass('rcx-item__meta--truncate');
   });
 });
 

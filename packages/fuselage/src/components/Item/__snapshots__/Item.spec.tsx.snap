@@ -623,6 +623,99 @@ exports[`[Item Rendering] renders CollapsibleGroupHeaders without crashing 1`] =
 </body>
 `;
 
+exports[`[Item Rendering] renders CommandSuggestions without crashing 1`] = `
+<body>
+  <div>
+    <div
+      class="rcx-box rcx-box--full rcx-css-10e5f03"
+    >
+      <ul
+        aria-label="Commands"
+        class="rcx-item-group"
+        role="listbox"
+      >
+        <li
+          aria-selected="true"
+          class="rcx-item rcx-item--inset-md rcx-item--focused"
+          role="option"
+        >
+          <div
+            class="rcx-item__content"
+          >
+            <div
+              class="rcx-item__title"
+              id="_r_6f_"
+            >
+              /invite
+              <span
+                class="rcx-item__description rcx-item__description--inline"
+              >
+                @username
+              </span>
+            </div>
+          </div>
+          <div
+            class="rcx-item__meta rcx-item__meta--truncate"
+            title="Invite one user to join this channel"
+          >
+            Invite one user to join this channel
+          </div>
+        </li>
+        <li
+          aria-selected="false"
+          class="rcx-item rcx-item--inset-md"
+          role="option"
+        >
+          <div
+            class="rcx-item__content"
+          >
+            <div
+              class="rcx-item__title"
+              id="_r_6g_"
+            >
+              /leave
+            </div>
+          </div>
+          <div
+            class="rcx-item__meta rcx-item__meta--truncate"
+            title="Leave the current channel"
+          >
+            Leave the current channel
+          </div>
+        </li>
+        <li
+          aria-selected="false"
+          class="rcx-item rcx-item--inset-md"
+          role="option"
+        >
+          <div
+            class="rcx-item__content"
+          >
+            <div
+              class="rcx-item__title"
+              id="_r_6h_"
+            >
+              /invite-all-from
+              <span
+                class="rcx-item__description rcx-item__description--inline"
+              >
+                #room
+              </span>
+            </div>
+          </div>
+          <div
+            class="rcx-item__meta rcx-item__meta--truncate"
+            title="Invite all users from another room to join this channel"
+          >
+            Invite all users from another room to join this channel
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</body>
+`;
+
 exports[`[Item Rendering] renders Default without crashing 1`] = `
 <body>
   <div>
