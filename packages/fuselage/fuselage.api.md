@@ -22,7 +22,7 @@ import type { FocusEventHandler } from 'react';
 import type { HTMLAttributeAnchorTarget } from 'react';
 import type { HTMLAttributes } from 'react';
 import type { ImgHTMLAttributes } from 'react';
-import type { ItemProps } from '@react-types/shared';
+import type { ItemProps as ItemProps_2 } from '@react-types/shared';
 import { JSX } from 'react';
 import { JSXElementConstructor } from 'react';
 import { Key } from 'react';
@@ -786,8 +786,147 @@ export type InputBoxSkeletonProps = BoxProps;
 // @public (undocumented)
 export type InputProps<T extends HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement> = Omit<BoxProps, 'ref'> & RefAttributes<T>;
 
+// @public
+export const Item: (input: ItemProps) => JSX.Element;
+
+// @public
+export const ItemActions: (input: ItemActionsProps) => JSX.Element;
+
+// @public (undocumented)
+export type ItemActionsProps = {
+    is?: ElementType;
+    reveal?: 'always' | 'hover';
+} & Omit<AllHTMLAttributes<HTMLElement>, 'is'> & RefAttributes<HTMLElement>;
+
+// @public
+export const ItemContent: (input: ItemContentProps) => JSX.Element;
+
+// @public (undocumented)
+export type ItemContentProps = {
+    is?: ElementType;
+} & Omit<AllHTMLAttributes<HTMLElement>, 'is'> & RefAttributes<HTMLElement>;
+
+// @public
+export const ItemDescription: (input: ItemDescriptionProps) => JSX.Element;
+
+// @public (undocumented)
+export type ItemDescriptionProps = {
+    is?: ElementType;
+    inline?: boolean;
+} & Omit<AllHTMLAttributes<HTMLElement>, 'is'> & RefAttributes<HTMLElement>;
+
+// @public
+export const ItemDivider: (input: ItemDividerProps) => JSX.Element;
+
+// @public (undocumented)
+export type ItemDividerProps = {
+    is?: ElementType;
+    inset?: ItemInset;
+} & Omit<AllHTMLAttributes<HTMLElement>, 'is'> & RefAttributes<HTMLElement>;
+
+// @public
+export const ItemGroup: (input: ItemGroupProps) => JSX.Element;
+
+// @public
+export const ItemGroupHeader: (input: ItemGroupHeaderProps) => JSX.Element;
+
+// @public (undocumented)
+export type ItemGroupHeaderProps = {
+    is?: ElementType;
+    inset?: ItemInset;
+    sticky?: boolean;
+} & Omit<AllHTMLAttributes<HTMLElement>, 'is'> & RefAttributes<HTMLElement>;
+
+// @public (undocumented)
+export type ItemGroupProps = {
+    is?: ElementType;
+} & Omit<AllHTMLAttributes<HTMLElement>, 'is'> & RefAttributes<HTMLElement>;
+
+// @public
+export const ItemGroupTitle: (input: ItemGroupTitleProps) => JSX.Element;
+
+// @public (undocumented)
+export type ItemGroupTitleProps = {
+    is?: ElementType;
+} & Omit<AllHTMLAttributes<HTMLElement>, 'is'> & RefAttributes<HTMLElement>;
+
+// @public
+export const ItemIcon: (input: ItemIconProps) => JSX.Element;
+
+// @public (undocumented)
+export type ItemIconProps = {
+    is?: ElementType;
+    label?: string;
+} & Omit<AllHTMLAttributes<HTMLElement>, 'is' | 'label'> & RefAttributes<HTMLElement>;
+
+// @public (undocumented)
+export type ItemInset = 'none' | 'sm' | 'md' | 'lg';
+
+// @public
+export const ItemLink: (props: ItemLinkProps) => JSX.Element;
+
+// Warning: (ae-forgotten-export) The symbol "ItemLinkAnchorProps" needs to be exported by the entry point index.d.ts
+// Warning: (ae-forgotten-export) The symbol "ItemLinkButtonProps" needs to be exported by the entry point index.d.ts
+//
+// @public (undocumented)
+export type ItemLinkProps = ItemLinkAnchorProps | ItemLinkButtonProps;
+
+// @public
+export const ItemMedia: (input: ItemMediaProps) => JSX.Element;
+
+// @public (undocumented)
+export type ItemMediaProps = {
+    is?: ElementType;
+    variant?: 'default' | 'icon';
+} & Omit<AllHTMLAttributes<HTMLElement>, 'is'> & RefAttributes<HTMLElement>;
+
+// @public
+export const ItemMeta: (input: ItemMetaProps) => JSX.Element;
+
+// @public (undocumented)
+export type ItemMetaProps = {
+    is?: ElementType;
+} & Omit<AllHTMLAttributes<HTMLElement>, 'is'> & RefAttributes<HTMLElement>;
+
+// @public (undocumented)
+export type ItemProps = {
+    is?: ElementType;
+    inset?: ItemInset;
+    selected?: boolean;
+    highlighted?: boolean;
+    focused?: boolean;
+    focusVisible?: boolean;
+    disabled?: boolean;
+    variant?: 'danger';
+} & Omit<AllHTMLAttributes<HTMLElement>, 'is' | 'selected' | 'disabled'> & RefAttributes<HTMLElement>;
+
+// @public
+export const ItemRow: (input: ItemRowProps) => JSX.Element;
+
+// @public (undocumented)
+export type ItemRowProps = {
+    is?: ElementType;
+} & Omit<AllHTMLAttributes<HTMLElement>, 'is'> & RefAttributes<HTMLElement>;
+
+// @public
+export const ItemSkeleton: (input: ItemSkeletonProps) => JSX.Element;
+
+// @public (undocumented)
+export type ItemSkeletonProps = Pick<ItemProps, 'is' | 'inset'> & {
+    mediaSize?: AvatarProps['size'];
+    description?: boolean;
+};
+
 // @public (undocumented)
 export type ItemsPerPage = 25 | 50 | 100;
+
+// @public
+export const ItemTitle: (input: ItemTitleProps) => JSX.Element;
+
+// @public (undocumented)
+export type ItemTitleProps = {
+    is?: ElementType;
+} & Omit<AllHTMLAttributes<HTMLElement>, 'is'> & RefAttributes<HTMLElement>;
 
 // @public
 export function Label(input: LabelProps): JSX.Element;
@@ -832,7 +971,7 @@ export namespace MenuItem {
 }
 
 // @public (undocumented)
-export type MenuItemProps<T> = ItemProps<T>;
+export type MenuItemProps<T> = ItemProps_2<T>;
 
 // @public (undocumented)
 export type MenuProps<T> = AriaMenuProps<T> & MenuTriggerProps & {
@@ -874,7 +1013,7 @@ export namespace MenuSubmenuTrigger {
 }
 
 // @public (undocumented)
-export type MenuSubmenuTriggerProps<T> = Omit<ItemProps<T>, 'title' | 'children'> & {
+export type MenuSubmenuTriggerProps<T> = Omit<ItemProps_2<T>, 'title' | 'children'> & {
     children: ReactNode;
     variant?: 'danger' | 'success' | 'warning' | 'primary';
 };
@@ -1471,7 +1610,7 @@ type OptionAvatarProps = {
 export { OptionAvatarProps as MenuItemAvatarProps }
 export { OptionAvatarProps }
 
-// @public (undocumented)
+// @public
 const OptionColumn: (props: OptionColumnProps) => JSX.Element;
 export { OptionColumn as MenuItemColumn }
 export { OptionColumn }
@@ -1490,7 +1629,7 @@ export function OptionContainer(props: OptionContainerProps): JSX.Element;
 export type OptionContainerProps = Omit<BoxProps, 'ref'> & RefAttributes<HTMLElement>;
 
 // @public (undocumented)
-const OptionContent: (props: OptionContentProps) => JSX.Element;
+const OptionContent: (input: OptionContentProps) => JSX.Element;
 export { OptionContent as MenuItemContent }
 export { OptionContent }
 
@@ -1525,7 +1664,7 @@ export const OptionDivider: (props: OptionDividerProps) => JSX.Element;
 // @public (undocumented)
 export type OptionDividerProps = DividerProps;
 
-// @public (undocumented)
+// @public
 export const OptionHeader: (input: OptionHeaderProps) => JSX.Element;
 
 // @public (undocumented)
@@ -1556,7 +1695,7 @@ export { OptionInputProps as MenuItemInputProps }
 export { OptionInputProps }
 
 // @public (undocumented)
-export const OptionMenu: (props: OptionMenuProps) => JSX.Element;
+export const OptionMenu: (input: OptionMenuProps) => JSX.Element;
 
 // @public (undocumented)
 export type OptionMenuProps = HTMLAttributes<HTMLDivElement>;
@@ -1611,7 +1750,7 @@ export type OptionsProps<TValue extends string | number = string | number, TLabe
 };
 
 // @public (undocumented)
-const OptionTitle: (props: OptionTitleProps) => JSX.Element;
+const OptionTitle: (input: OptionTitleProps) => JSX.Element;
 export { OptionTitle as MenuItemTitle }
 export { OptionTitle }
 
@@ -2059,7 +2198,7 @@ export type SidebarGroupTitleProps = {
     barProps?: AriaAttributes;
 } & HTMLAttributes<HTMLDivElement>;
 
-// @public (undocumented)
+// @public
 export const SidebarItem: (input: SidebarItemProps) => JSX.Element;
 
 // @public (undocumented)
@@ -2086,9 +2225,10 @@ export const SidebarItemContent: (input: {
 export const SidebarItemIcon: (input: SidebarItemIconProps) => JSX.Element;
 
 // @public (undocumented)
-export type SidebarItemIconProps = Omit<IconProps, 'name'> & {
+export type SidebarItemIconProps = Omit<IconProps, 'name' | 'label'> & {
     icon: Keys | ReactElement<any>;
     highlighted?: boolean;
+    label?: string;
 };
 
 // @public (undocumented)
