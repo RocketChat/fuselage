@@ -64,7 +64,9 @@ function Options<
       return;
     }
     const { current } = liRef;
-    const li = current?.querySelector<HTMLLIElement>('.rcx-option--focus');
+    const li = current?.querySelector<HTMLLIElement>(
+      '.rcx-option--focus, .rcx-item--focused',
+    );
     if (!li) {
       return;
     }
