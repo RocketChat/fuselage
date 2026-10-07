@@ -2184,7 +2184,7 @@ export const SidebarFooter: (input: HTMLAttributes<HTMLElement>) => JSX.Element;
 // @public (undocumented)
 export const SidebarFooterContent: (input: BoxProps) => JSX.Element;
 
-// @public (undocumented)
+// @public
 export const SidebarGroupTitle: (input: SidebarGroupTitleProps) => JSX.Element;
 
 // @public (undocumented)
