@@ -886,6 +886,7 @@ export const ItemMeta: (input: ItemMetaProps) => JSX.Element;
 // @public (undocumented)
 export type ItemMetaProps = {
     is?: ElementType;
+    truncate?: boolean;
 } & Omit<AllHTMLAttributes<HTMLElement>, 'is'> & RefAttributes<HTMLElement>;
 
 // @public (undocumented)
