@@ -190,7 +190,11 @@ export const Default: Story = {
                   variant='danger'
                 />
               }
-              menu={<MenuTemplate />}
+              menu={
+                <SidebarCollapseGroupMenu>
+                  <MenuTemplate />
+                </SidebarCollapseGroupMenu>
+              }
             >
               <Condensed />
               <SidebarListItem>
@@ -214,68 +218,6 @@ export const Default: Story = {
           </SidebarMediaController>
           {/* <GenericCallItem is='div' /> */}
         </SidebarMedia>
-        <SidebarFooter>
-          <SidebarFooterContent>Powered by Rocket.Chat</SidebarFooterContent>
-          <SidebarFooterContent color='titles-labels'>
-            Free edition
-          </SidebarFooterContent>
-        </SidebarFooter>
-      </Sidebar>
-    </Box>
-  ),
-};
-
-export const Custom: Story = {
-  render: (args) => (
-    <Box height='90vh' width='x280'>
-      <Sidebar {...args}>
-        <SidebarCollapseGroup
-          title='Empty'
-          empty
-          menu={
-            <SidebarCollapseGroupMenu>
-              <MenuTemplate />
-            </SidebarCollapseGroupMenu>
-          }
-        />
-        <SidebarCollapseGroup title='Custom'>
-          {Array.from({ length: 4 }).map((_, i) => (
-            <GenericNoAvatarItem key={i} i={i} />
-          ))}
-        </SidebarCollapseGroup>
-        <SidebarCollapseGroup
-          title='Favorites'
-          defaultExpanded
-          badge={
-            <SidebarItemBadge
-              title='99+ unread messages'
-              children='99+'
-              variant='danger'
-            />
-          }
-        >
-          {Array.from({ length: 4 }).map((_, i) => (
-            <GenericNoAvatarItem key={i} i={i} />
-          ))}
-        </SidebarCollapseGroup>
-        <SidebarCollapseGroup
-          title='Teams'
-          defaultExpanded
-          badge={
-            <SidebarItemBadge
-              title='99+ unread messages'
-              children='99+'
-              variant='danger'
-            />
-          }
-        >
-          <Condensed />
-          <SidebarListItem>
-            <SidebarItemAction onClick={action('add team')}>
-              Add team
-            </SidebarItemAction>
-          </SidebarListItem>
-        </SidebarCollapseGroup>
         <SidebarFooter>
           <SidebarFooterContent>Powered by Rocket.Chat</SidebarFooterContent>
           <SidebarFooterContent color='titles-labels'>

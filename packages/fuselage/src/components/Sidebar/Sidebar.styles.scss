@@ -3,7 +3,6 @@
 @use '../../styles/typography.scss' as *;
 @use '../../styles/mixins/interactivity.scss' as *;
 @use '../../styles/mixins/templates.scss' as *;
-@use '../../styles/mixins/states.scss' as *;
 @use '../../styles/functions.scss' as *;
 @use '../../styles/mixins/link.scss' as *;
 @use './variables.scss' as *;
@@ -68,12 +67,30 @@ $sidebar-color-stroke-extra-light: theme(
       flex-flow: row nowrap;
       align-items: center;
 
+      min-height: lengths.size(24);
+
+      padding: calc(lengths.padding(8) - lengths.border-width(default))
+        calc(lengths.padding(16) - lengths.border-width(default));
+
       text-align: start;
+
+      background-color: $sidebar-color-surface-default;
+      column-gap: lengths.padding(4);
+    }
+
+    &__heading {
+      display: flex;
+      align-items: center;
+
+      flex: 1 1 0;
+
+      min-width: 0;
+
       column-gap: lengths.padding(4);
     }
 
     &__title {
-      flex: 1 1 lengths.size(none);
+      flex: 0 1 auto;
 
       margin: lengths.margin(none);
 
@@ -129,16 +146,7 @@ $sidebar-color-stroke-extra-light: theme(
 
   &-collapse-group {
     &__bar {
-      min-height: lengths.size(28);
-      margin-block-start: lengths.margin(4);
-      margin-inline: lengths.margin(4);
-
-      padding: lengths.padding(4);
-
       color: colors.font(secondary-info);
-
-      border-radius: lengths.border-radius(medium);
-      background-color: $sidebar-color-surface-default;
 
       &--empty {
         color: colors.font(disabled);
@@ -167,31 +175,12 @@ $sidebar-color-stroke-extra-light: theme(
 
       &[tabindex] {
         @include clickable;
+        @include focus-state($shadow: false);
       }
     }
 
-    &__heading {
-      display: flex;
-      align-items: center;
-
-      flex: 1 1 0;
-
-      min-width: 0;
-    }
-
-    &__title {
-      flex: 0 1 auto;
-    }
-
-    &__bar:has(&__bar-button[tabindex]) {
-      @include on-hover {
-        background-color: colors.surface(hover);
-      }
-    }
-
-    &__bar:has(&__bar-button:focus-visible) {
-      box-shadow: inset 0 0 0 lengths.border-width('medium')
-        colors.stroke(highlight);
+    &__bar:has(&__bar-button:hover) {
+      background-color: $sidebar-color-surface-hover;
     }
 
     &__panel--expanded {
@@ -212,14 +201,13 @@ $sidebar-color-stroke-extra-light: theme(
       z-index: 1;
       top: 0;
 
-      min-height: lengths.size(24);
-
       padding: lengths.padding(12) lengths.padding(16) lengths.padding(12)
         lengths.padding(none);
 
       color: colors.font(default);
 
       border-radius: lengths.border-radius(small);
+
       background-color: colors.surface(sidebar);
 
       &[tabindex] {

@@ -1,5 +1,21 @@
 # Change Log
 
+## 0.94.0
+
+### Minor Changes
+
+- [#2285](https://github.com/RocketChat/fuselage/pull/2285) [`55a8332`](https://github.com/RocketChat/fuselage/commit/55a8332b3843950c9934264980f2bcd8aa059d50) Thanks [@dougfabris](https://github.com/dougfabris)! - Restyles the sidebar collapse group header: the chevron now follows the title, the title is regular weight in a secondary color, and collapsed groups are dimmed when `empty` and emphasized when they have an unread badge
+
+## 0.93.0
+
+### Minor Changes
+
+- [#2232](https://github.com/RocketChat/fuselage/pull/2232) [`fe677ba`](https://github.com/RocketChat/fuselage/commit/fe677ba3050ba405f49a8d3a86a270a7f387814d) Thanks [@ggazzo](https://github.com/ggazzo)! - Reverts the sidebar rows and collapse group headers restyle ([#2193](https://github.com/RocketChat/fuselage/issues/2193), [#2207](https://github.com/RocketChat/fuselage/issues/2207) and [#2221](https://github.com/RocketChat/fuselage/issues/2221)), bringing back their previous look and markup
+
+### Patch Changes
+
+- [#2234](https://github.com/RocketChat/fuselage/pull/2234) [`f84a6f6`](https://github.com/RocketChat/fuselage/commit/f84a6f6d52a65b3bf2ecfb8c4245221eb57b2ffc) Thanks [@juliajforesti](https://github.com/juliajforesti)! - fix(fuselage): Keep `Tooltip` arrows pointing at their anchor in RTL
+
 ## 0.92.0
 
 ### Minor Changes

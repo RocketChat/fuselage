@@ -5,10 +5,10 @@ import { Box, type BoxProps } from '../Box';
 const parsePlacement = (placement: string | null | undefined) => {
   const [direction, position] = placement
     ? placement.split('-')
-    : [false, false];
+    : [undefined, undefined];
 
   if (direction === 'right' || direction === 'left') {
-    return [direction, false];
+    return [direction, undefined];
   }
 
   return [direction, position];
