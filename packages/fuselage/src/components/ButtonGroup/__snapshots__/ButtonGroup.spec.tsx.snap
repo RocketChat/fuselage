@@ -332,7 +332,7 @@ exports[`[ButtonGroup Rendering] renders JoinedSplitButton without crashing 1`] 
           >
             <i
               aria-hidden="true"
-              class="rcx-box rcx-box--full rcx-icon--name-chevron-down rcx-icon rcx-css-1hdf9ok"
+              class="rcx-box rcx-box--full rcx-icon--name-chevron-down rcx-icon rcx-css-4pvxx3"
             >
               
             </i>
