@@ -2232,11 +2232,19 @@ export const spacing: (this: unknown, arg: unknown) => string | undefined;
 export function SplitButton(input: SplitButtonProps): JSX.Element;
 
 // @public (undocumented)
-export type SplitButtonProps = RefAttributes<HTMLDivElement> & HTMLAttributes<HTMLDivElement> & ({
+export type SplitButtonProps = RefAttributes<HTMLDivElement> & HTMLAttributes<HTMLDivElement> & {
+    danger?: boolean;
+} & ({
     'aria-label': string;
 } | {
     'aria-labelledby': string;
 });
+
+// @public
+export function SplitButtonTrigger(props: SplitButtonTriggerProps): JSX.Element;
+
+// @public (undocumented)
+export type SplitButtonTriggerProps = IconButtonProps;
 
 // @public (undocumented)
 export const States: (input: StatesProps) => JSX.Element;

@@ -7,7 +7,7 @@ import { render } from '../../testing';
 
 import * as stories from './SplitButton.stories';
 
-const { Default } = composeStories(stories);
+const { Default, Danger } = composeStories(stories);
 
 const testCases = Object.values(composeStories(stories)).map((Story) => [
   Story.storyName || 'Story',
@@ -31,9 +31,9 @@ describe('[SplitButton Component]', () => {
     expect(screen.getByRole('group', { name: 'Microphone' })).toHaveClass(
       'rcx-split-button',
     );
-    expect(
-      screen.getByRole('button', { name: 'Audio settings' }),
-    ).toHaveAttribute('aria-haspopup', 'true');
+    const trigger = screen.getByRole('button', { name: 'Audio settings' });
+    expect(trigger).toHaveAttribute('aria-haspopup', 'true');
+    expect(trigger).toHaveClass('rcx-split-button__trigger');
     expect(screen.getByRole('button', { name: 'Microphone' })).toHaveAttribute(
       'aria-pressed',
       'true',
@@ -60,5 +60,13 @@ describe('[SplitButton Component]', () => {
 
     expect(screen.getByRole('menu')).toBeInTheDocument();
     expect(trigger).toHaveAttribute('aria-expanded', 'true');
+  });
+
+  it('marks the group as danger', () => {
+    render(<Danger />);
+
+    expect(screen.getByRole('group', { name: 'Leave call' })).toHaveClass(
+      'rcx-split-button--danger',
+    );
   });
 });

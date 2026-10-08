@@ -544,3 +544,25 @@ $button-ghost-focus-background-color: theme(
   'button-ghost-focus-background-color',
   -translucent(secondary-focus)
 );
+
+// split button, danger (danger tokens at 60% opacity)
+$split-button-danger-background-color: theme(
+  'split-button-danger-background-color',
+  -translucent(danger-default)
+);
+$split-button-danger-color: theme(
+  'split-button-danger-color',
+  colors.button(on-danger)
+);
+$button-ghost-danger-hover-background-color: theme(
+  'button-ghost-danger-hover-background-color',
+  -translucent(danger-hover)
+);
+$button-ghost-danger-active-background-color: theme(
+  'button-ghost-danger-active-background-color',
+  -translucent(danger-press)
+);
+$button-ghost-danger-focus-background-color: theme(
+  'button-ghost-danger-focus-background-color',
+  -translucent(danger-focus)
+);

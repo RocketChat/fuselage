@@ -1,19 +1,26 @@
 import type { HTMLAttributes, RefAttributes } from 'react';
 
 export type SplitButtonProps = RefAttributes<HTMLDivElement> &
-  HTMLAttributes<HTMLDivElement> &
-  ({ 'aria-label': string } | { 'aria-labelledby': string });
+  HTMLAttributes<HTMLDivElement> & {
+    danger?: boolean;
+  } & ({ 'aria-label': string } | { 'aria-labelledby': string });
 
 /**
  * Fuses a menu trigger and its primary action into a single control, e.g. an
- * audio device menu next to a microphone toggle. The first child is rendered
- * as a ghost segment and is expected to be the menu trigger.
+ * audio device menu next to a microphone toggle. The menu trigger is a
+ * `SplitButtonTrigger`, rendered as a ghost segment wherever it sits.
  */
-function SplitButton({ className, ...props }: SplitButtonProps) {
+function SplitButton({ className, danger, ...props }: SplitButtonProps) {
   return (
     <div
       role='group'
-      className={['rcx-split-button', className].filter(Boolean).join(' ')}
+      className={[
+        'rcx-split-button',
+        danger && 'rcx-split-button--danger',
+        className,
+      ]
+        .filter(Boolean)
+        .join(' ')}
       {...props}
     />
   );

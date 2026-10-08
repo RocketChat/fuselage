@@ -7,6 +7,7 @@ import { ButtonGroup } from '../ButtonGroup';
 import { Menu, MenuItem } from '../Menu';
 
 import SplitButton from './SplitButton';
+import SplitButtonTrigger from './SplitButtonTrigger';
 
 export default {
   title: 'Inputs/SplitButton',
@@ -16,9 +17,10 @@ export default {
       description: {
         component:
           'Fuses a menu trigger and its primary action into a single control, with no gap and group-level rounded corners.\n\n' +
-          'The first child is a **ghost** segment: it stays transparent so the translucent group background (the secondary button background at 60% opacity) shows through. Put the `Menu` trigger there and the primary action after it.\n\n' +
+          'The `SplitButtonTrigger` is a **ghost** segment: it stays transparent so the translucent group background (the secondary button background at 60% opacity) shows through. Pass it as the `Menu` `button`, next to the primary action.\n\n' +
           '**Rules**\n' +
-          '- Exactly two children: a `Menu` trigger, then the primary action.\n' +
+          '- Exactly two children: a `Menu` whose `button` is a `SplitButtonTrigger`, and the primary action.\n' +
+          '- Set `danger` on the group when the action is destructive, and make the action `secondary danger`.\n' +
           '- Name the group with `aria-label` (or `aria-labelledby`) — it is announced when focus enters it.\n' +
           '- For toggles (microphone, camera), set `aria-pressed` on the action.\n' +
           '- Keep both segments the same size.',
@@ -51,7 +53,7 @@ export const Default: Story = {
       <SplitButton aria-label='Microphone'>
         <Menu
           icon='kebab'
-          button={<IconButton secondary small icon='kebab' />}
+          button={<SplitButtonTrigger secondary small icon='kebab' />}
           aria-label='Audio settings'
           placement='top-start'
           selectionMode='single'
@@ -78,6 +80,29 @@ export const Default: Story = {
   },
 };
 
+export const Danger: Story = {
+  decorators: [withLightSurface],
+  render: () => (
+    <SplitButton danger aria-label='Leave call'>
+      <Menu
+        icon='chevron-up'
+        button={<SplitButtonTrigger secondary small icon='chevron-up' />}
+        aria-label='Leave options'
+        placement='top-start'
+      >
+        <MenuItem key='end-for-all'>End call for everyone</MenuItem>
+      </Menu>
+      <IconButton
+        secondary
+        danger
+        small
+        icon='phone-off'
+        aria-label='Leave call'
+      />
+    </SplitButton>
+  ),
+};
+
 export const CallControls: Story = {
   decorators: [withLightSurface],
   render: function Render() {
@@ -91,7 +116,7 @@ export const CallControls: Story = {
         <SplitButton aria-label='Microphone'>
           <Menu
             icon='kebab'
-            button={<IconButton secondary small icon='kebab' />}
+            button={<SplitButtonTrigger secondary small icon='kebab' />}
             aria-label='Audio settings'
             placement='top-start'
           >
@@ -110,7 +135,7 @@ export const CallControls: Story = {
         <SplitButton aria-label='Camera'>
           <Menu
             icon='chevron-up'
-            button={<IconButton secondary small icon='chevron-up' />}
+            button={<SplitButtonTrigger secondary small icon='chevron-up' />}
             aria-label='Video settings'
             placement='top-start'
           >

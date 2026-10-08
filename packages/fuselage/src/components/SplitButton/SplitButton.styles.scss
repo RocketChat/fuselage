@@ -3,6 +3,29 @@
 @use '../../styles/mixins/button.scss';
 @use '../../styles/mixins/states.scss' as *;
 
+@mixin ghost-segment($color, $hover, $active, $focus) {
+  > .rcx-button.rcx-split-button__trigger {
+    color: $color;
+    border-color: transparent;
+    background-color: transparent;
+
+    @include on-focus-visible {
+      border-color: transparent;
+      background-color: $focus;
+    }
+
+    @include on-hover {
+      border-color: transparent;
+      background-color: $hover;
+    }
+
+    @include on-active {
+      border-color: transparent;
+      background-color: $active;
+    }
+  }
+}
+
 .rcx-split-button {
   display: inline-flex;
   overflow: hidden;
@@ -26,24 +49,21 @@
     }
   }
 
-  > .rcx-button:first-child {
-    color: colors.button(on-secondary);
-    border-color: transparent;
-    background-color: transparent;
+  @include ghost-segment(
+    colors.button(on-secondary),
+    button-colors.$button-ghost-hover-background-color,
+    button-colors.$button-ghost-active-background-color,
+    button-colors.$button-ghost-focus-background-color
+  );
 
-    @include on-focus-visible {
-      border-color: transparent;
-      background-color: button-colors.$button-ghost-focus-background-color;
-    }
+  &--danger {
+    background-color: button-colors.$split-button-danger-background-color;
 
-    @include on-hover {
-      border-color: transparent;
-      background-color: button-colors.$button-ghost-hover-background-color;
-    }
-
-    @include on-active {
-      border-color: transparent;
-      background-color: button-colors.$button-ghost-active-background-color;
-    }
+    @include ghost-segment(
+      button-colors.$split-button-danger-color,
+      button-colors.$button-ghost-danger-hover-background-color,
+      button-colors.$button-ghost-danger-active-background-color,
+      button-colors.$button-ghost-danger-focus-background-color
+    );
   }
 }
