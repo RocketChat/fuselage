@@ -5,6 +5,37 @@ import { useMediaQueries } from './useMediaQueries';
 
 const setViewport = withMatchMediaMock();
 
+it('refreshes results when queries change without a viewport change', () => {
+  const { result, rerender } = renderHook(
+    ({ queries }) => useMediaQueries(...queries),
+    { initialProps: { queries: ['(max-width: 1024px)'] } },
+  );
+
+  expect(result.current).toEqual([true]);
+  rerender({ queries: ['(max-width: 968px)'] });
+  expect(result.current).toEqual([false]);
+  rerender({ queries: ['(max-width: 968px)', '(max-width: 1024px)'] });
+  expect(result.current).toEqual([false, true]);
+  rerender({ queries: ['(max-width: 1024px)', '(max-width: 968px)'] });
+  expect(result.current).toEqual([true, false]);
+  rerender({ queries: [] });
+  expect(result.current).toEqual([]);
+});
+
+it('continues tracking viewport changes after replacing queries', () => {
+  const { result, rerender } = renderHook(
+    ({ query }) => useMediaQueries(query),
+    { initialProps: { query: '(max-width: 1024px)' } },
+  );
+
+  rerender({ query: '(max-width: 968px)' });
+  expect(result.current).toEqual([false]);
+  act(() => setViewport({ width: 900 }));
+  expect(result.current).toEqual([true]);
+  act(() => setViewport({ width: 1000 }));
+  expect(result.current).toEqual([false]);
+});
+
 it('returns empty array if no query is given', () => {
   const { result } = renderHook(() => useMediaQueries());
 
