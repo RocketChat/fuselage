@@ -46,14 +46,6 @@ export const neutral = {
   900: new Var('neutral-900', colors.n900),
 };
 
-// fuselage-tokens doesn't expose semantic tokens for these yet:
-// - status-font "on-warning" (diverges from the token's yellow-900; see TODO
-//   below)
-// Falls back to the primitive palette directly. TODO(fuselage-tokens):
-// remove `primitive()` and its call sites below once resolved.
-const primitive = (ref: keyof typeof colors, name: string) =>
-  new Var(name, colors[ref]);
-
 const surfaceTokens = surface.light;
 
 export const surfaceColors = {
@@ -164,10 +156,10 @@ export const statusColors = {
     'status-font-on-success',
     statusTokens['font-on-success'],
   ),
-  // TODO(design): token value (font-on-warning, yellow-900, #8E6300)
-  // diverges from fuselage's current yellow-800. Keeping the current value
-  // until design confirms which is correct.
-  'status-font-on-warning': primitive('y800', 'status-font-on-warning'),
+  'status-font-on-warning': new Var(
+    'status-font-on-warning',
+    statusTokens['font-on-warning'],
+  ),
   'status-font-on-warning-2': new Var(
     'status-font-on-warning-2',
     statusTokens['font-on-warning-2'],
