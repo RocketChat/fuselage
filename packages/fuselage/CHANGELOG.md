@@ -1,5 +1,21 @@
 # Change Log
 
+## 0.95.0
+
+### Minor Changes
+
+- [#2274](https://github.com/RocketChat/fuselage/pull/2274) [`203fc19`](https://github.com/RocketChat/fuselage/commit/203fc1981644af2d947fea42d69270b6b21150b0) Thanks [@ggazzo](https://github.com/ggazzo)! - feat(fuselage): Add `SplitButton` and remove the `joined` and `ghostPosition` props from `ButtonGroup`
+
+  `ButtonGroup` is back to being a layout-only container. The split-button look (fused segments, translucent background, ghost menu segment) now lives in `SplitButton`, whose menu trigger is a `SplitButtonTrigger` and which takes a `danger` prop for destructive actions. The `--rcx-button-group-joined-background-color` theme variable was renamed to `--rcx-split-button-background-color`.
+
+### Patch Changes
+
+- [#2273](https://github.com/RocketChat/fuselage/pull/2273) [`312a253`](https://github.com/RocketChat/fuselage/commit/312a2537e7dc37f1d93c1f42aa699c00890e86bf) Thanks [@ivans-netto](https://github.com/ivans-netto)! - fix(fuselage): Ghost segments keep the button variant colors
+
+  `SplitButton` takes `warning`, `success` and `primary` props alongside `danger`, so its ghost menu trigger keeps the action's variant identity, and the split button translucency goes from 60% to 70%.
+
+- [#2289](https://github.com/RocketChat/fuselage/pull/2289) [`299bd8f`](https://github.com/RocketChat/fuselage/commit/299bd8f3162418c1d4f0c3e3b4008aa891d52567) Thanks [@dougfabris](https://github.com/dougfabris)! - fix(fuselage): Tighten `Bubble` spacing
+
 ## 0.94.0
 
 ### Minor Changes
