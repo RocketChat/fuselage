@@ -4,6 +4,52 @@ import type { RefObject } from 'react';
 import { renderHook } from './testing';
 import { useOutsideClick } from './useOutsideClick';
 
+describe('elements inside an open shadow root', () => {
+  let host: HTMLDivElement;
+  let element: HTMLDivElement;
+  let child: HTMLButtonElement;
+  let sibling: HTMLButtonElement;
+
+  beforeEach(() => {
+    host = document.createElement('div');
+    const shadowRoot = host.attachShadow({ mode: 'open' });
+    element = document.createElement('div');
+    child = document.createElement('button');
+    sibling = document.createElement('button');
+    element.append(child);
+    shadowRoot.append(element, sibling);
+    document.body.append(host);
+  });
+
+  afterEach(() => host.remove());
+
+  it('does not treat a click on a shadow descendant as an outside click', () => {
+    const cb = jest.fn();
+    renderHook(() => useOutsideClick([{ current: element }], cb));
+
+    child.dispatchEvent(
+      new MouseEvent('mousedown', { bubbles: true, composed: true }),
+    );
+
+    expect(cb).not.toHaveBeenCalled();
+  });
+
+  it('still detects outside clicks within and outside the shadow root', () => {
+    const cb = jest.fn();
+    renderHook(() => useOutsideClick([{ current: element }], cb));
+
+    sibling.dispatchEvent(
+      new MouseEvent('mousedown', { bubbles: true, composed: true }),
+    );
+    expect(cb).toHaveBeenCalledTimes(1);
+
+    document.body.dispatchEvent(
+      new MouseEvent('mousedown', { bubbles: true, composed: true }),
+    );
+    expect(cb).toHaveBeenCalledTimes(2);
+  });
+});
+
 it('it should call the callback when the user clicked outside the element', async () => {
   const ref: RefObject<HTMLElement> = {
     current: document.createElement('div'),
