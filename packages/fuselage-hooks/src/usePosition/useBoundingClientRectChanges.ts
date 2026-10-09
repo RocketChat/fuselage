@@ -38,6 +38,8 @@ export function useBoundingClientRectChanges(
     observer.observe(element);
 
     window.addEventListener('resize', safeCallback);
+    const { ownerDocument } = element;
+    ownerDocument.addEventListener('scroll', safeCallback, { passive: true });
 
     const ancestors = getAncestors(element);
     ancestors.forEach((ancestor) =>
@@ -47,6 +49,7 @@ export function useBoundingClientRectChanges(
     return () => {
       observer.disconnect();
       window.removeEventListener('resize', safeCallback);
+      ownerDocument.removeEventListener('scroll', safeCallback);
       ancestors.forEach((ancestor) =>
         ancestor.removeEventListener('scroll', safeCallback),
       );
