@@ -66,4 +66,37 @@
       button-colors.$button-ghost-danger-focus-background-color
     );
   }
+
+  &--warning {
+    background-color: button-colors.$split-button-warning-background-color;
+
+    @include ghost-segment(
+      button-colors.$split-button-warning-color,
+      button-colors.$button-ghost-warning-hover-background-color,
+      button-colors.$button-ghost-warning-active-background-color,
+      button-colors.$button-ghost-warning-focus-background-color
+    );
+  }
+
+  &--success {
+    background-color: button-colors.$split-button-success-background-color;
+
+    @include ghost-segment(
+      button-colors.$split-button-success-color,
+      button-colors.$button-ghost-success-hover-background-color,
+      button-colors.$button-ghost-success-active-background-color,
+      button-colors.$button-ghost-success-focus-background-color
+    );
+  }
+
+  &--primary {
+    background-color: button-colors.$split-button-primary-background-color;
+
+    @include ghost-segment(
+      button-colors.$split-button-primary-color,
+      button-colors.$button-ghost-primary-hover-background-color,
+      button-colors.$button-ghost-primary-active-background-color,
+      button-colors.$button-ghost-primary-focus-background-color
+    );
+  }
 }

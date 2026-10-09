@@ -523,9 +523,9 @@ $button-off-disabled-color: theme(
   colors.button(on-secondary-disabled)
 );
 
-// split button / ghost segment (secondary tokens at 60% opacity)
+// split button / ghost segment (secondary tokens at 70% opacity)
 @function -translucent($token) {
-  @return color-mix(in srgb, colors.button($token) 60%, transparent);
+  @return color-mix(in srgb, colors.button($token) 70%, transparent);
 }
 
 $split-button-background-color: theme(
@@ -545,7 +545,7 @@ $button-ghost-focus-background-color: theme(
   -translucent(secondary-focus)
 );
 
-// split button, danger (danger tokens at 60% opacity)
+// split button, danger (danger tokens at 70% opacity)
 $split-button-danger-background-color: theme(
   'split-button-danger-background-color',
   -translucent(danger-default)
@@ -565,4 +565,70 @@ $button-ghost-danger-active-background-color: theme(
 $button-ghost-danger-focus-background-color: theme(
   'button-ghost-danger-focus-background-color',
   -translucent(danger-focus)
+);
+
+// split button, warning (warning tokens at 70% opacity)
+$split-button-warning-background-color: theme(
+  'split-button-warning-background-color',
+  -translucent(warning-default)
+);
+$split-button-warning-color: theme(
+  'split-button-warning-color',
+  colors.button(on-warning)
+);
+$button-ghost-warning-hover-background-color: theme(
+  'button-ghost-warning-hover-background-color',
+  -translucent(warning-hover)
+);
+$button-ghost-warning-active-background-color: theme(
+  'button-ghost-warning-active-background-color',
+  -translucent(warning-press)
+);
+$button-ghost-warning-focus-background-color: theme(
+  'button-ghost-warning-focus-background-color',
+  -translucent(warning-focus)
+);
+
+// split button, success (success tokens at 70% opacity)
+$split-button-success-background-color: theme(
+  'split-button-success-background-color',
+  -translucent(success-default)
+);
+$split-button-success-color: theme(
+  'split-button-success-color',
+  colors.button(on-success)
+);
+$button-ghost-success-hover-background-color: theme(
+  'button-ghost-success-hover-background-color',
+  -translucent(success-hover)
+);
+$button-ghost-success-active-background-color: theme(
+  'button-ghost-success-active-background-color',
+  -translucent(success-press)
+);
+$button-ghost-success-focus-background-color: theme(
+  'button-ghost-success-focus-background-color',
+  -translucent(success-focus)
+);
+
+// split button, primary (primary tokens at 70% opacity)
+$split-button-primary-background-color: theme(
+  'split-button-primary-background-color',
+  -translucent(primary-default)
+);
+$split-button-primary-color: theme(
+  'split-button-primary-color',
+  colors.button(on-primary)
+);
+$button-ghost-primary-hover-background-color: theme(
+  'button-ghost-primary-hover-background-color',
+  -translucent(primary-hover)
+);
+$button-ghost-primary-active-background-color: theme(
+  'button-ghost-primary-active-background-color',
+  -translucent(primary-press)
+);
+$button-ghost-primary-focus-background-color: theme(
+  'button-ghost-primary-focus-background-color',
+  -translucent(primary-focus)
 );
