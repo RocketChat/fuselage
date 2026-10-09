@@ -28,7 +28,6 @@
 
 .rcx-split-button {
   display: inline-flex;
-  overflow: hidden;
 
   flex-flow: row nowrap;
   align-items: stretch;
@@ -39,8 +38,20 @@
   // lives in the color — `opacity` here would fade the children.
   background-color: button-colors.$split-button-background-color;
 
+  // Rounds the outer corners on the segments rather than clipping the group,
+  // which would cut off the focus ring drawn outside each segment.
   > .rcx-button {
     border-radius: 0;
+
+    &:first-child {
+      border-end-start-radius: button.$button-border-radius;
+      border-start-start-radius: button.$button-border-radius;
+    }
+
+    &:last-child {
+      border-end-end-radius: button.$button-border-radius;
+      border-start-end-radius: button.$button-border-radius;
+    }
 
     // keeps the focus ring above the adjacent segment
     @include on-focus-visible {
