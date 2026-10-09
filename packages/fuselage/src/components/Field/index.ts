@@ -10,5 +10,9 @@ export {
   default as FieldLabelInfo,
   type FieldLabelInfoProps,
 } from './FieldLabelInfo';
+export {
+  default as FieldLabelReset,
+  type FieldLabelResetProps,
+} from './FieldLabelReset';
 export { default as FieldLink, type FieldLinkProps } from './FieldLink';
 export { default as FieldRow, type FieldRowProps } from './FieldRow';
