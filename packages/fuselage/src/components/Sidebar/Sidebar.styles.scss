@@ -74,38 +74,30 @@ $sidebar-color-stroke-extra-light: theme(
 
       text-align: start;
 
-      color: colors.font(default);
-
       background-color: $sidebar-color-surface-default;
       column-gap: lengths.padding(4);
+    }
 
-      &[tabindex] {
-        @include clickable;
-        @include focus-state($shadow: false);
+    &__heading {
+      display: flex;
+      align-items: center;
 
-        &.hover,
-        &:hover {
-          background-color: colors.surface(tint);
-        }
-      }
+      flex: 1 1 0;
 
-      &--disabled {
-        cursor: not-allowed;
+      min-width: 0;
 
-        color: colors.font(disabled);
-        background-color: colors.surface(disabled);
-      }
+      column-gap: lengths.padding(4);
     }
 
     &__title {
-      flex: 1 1 lengths.size(none);
+      flex: 0 1 auto;
 
       margin: lengths.margin(none);
 
       white-space: nowrap;
 
       @include use-text-ellipsis;
-      @include use-font-scale(c2);
+      @include use-font-scale(c1);
     }
 
     &__menu-wrapper {
@@ -116,6 +108,8 @@ $sidebar-color-stroke-extra-light: theme(
       width: 0;
       height: lengths.size(20);
 
+      margin-inline-end: lengths.margin(-4);
+
       opacity: 0;
     }
 
@@ -123,6 +117,8 @@ $sidebar-color-stroke-extra-light: theme(
     &__bar:focus-within &__menu-wrapper,
     &__bar:has(&__menu-wrapper [aria-expanded='true']) &__menu-wrapper {
       width: lengths.size(20);
+
+      margin-inline-end: lengths.margin(none);
 
       opacity: 1;
     }
@@ -149,6 +145,22 @@ $sidebar-color-stroke-extra-light: theme(
   }
 
   &-collapse-group {
+    &__bar {
+      color: colors.font(secondary-info);
+
+      &--empty {
+        color: colors.font(disabled);
+      }
+
+      &--unread {
+        color: $sidebar-item-color-highlighted;
+
+        .rcx-sidebar-collapse-group__title {
+          @include use-font-scale(c2);
+        }
+      }
+    }
+
     &__bar-button {
       display: flex;
       align-items: center;
@@ -168,7 +180,7 @@ $sidebar-color-stroke-extra-light: theme(
     }
 
     &__bar:has(&__bar-button:hover) {
-      background-color: colors.surface(tint);
+      background-color: $sidebar-color-surface-hover;
     }
 
     &__panel--expanded {
@@ -192,9 +204,28 @@ $sidebar-color-stroke-extra-light: theme(
       padding: lengths.padding(12) lengths.padding(16) lengths.padding(12)
         lengths.padding(none);
 
+      color: colors.font(default);
+
       border-radius: lengths.border-radius(small);
 
       background-color: colors.surface(sidebar);
+
+      &[tabindex] {
+        @include clickable;
+        @include focus-state($shadow: false);
+
+        &.hover,
+        &:hover {
+          background-color: colors.surface(tint);
+        }
+      }
+
+      &--disabled {
+        cursor: not-allowed;
+
+        color: colors.font(disabled);
+        background-color: colors.surface(disabled);
+      }
 
       .rcx-sidebar-accordion-item__chevron {
         visibility: hidden;

@@ -1,6 +1,6 @@
 {
   "name": "@rocket.chat/fuselage",
-  "version": "0.93.0",
+  "version": "0.94.0",
   "description": "Rocket.Chat's React Components Library",
   "homepage": "https://github.com/RocketChat/fuselage#readme",
   "bugs": {
@@ -53,7 +53,7 @@
   "devDependencies": {
     "@microsoft/api-extractor": "~7.58.13",
     "@rocket.chat/fuselage-hooks": "workspace:~",
-    "@rocket.chat/icons": "workspace:~",
+    "@rocket.chat/icons": "~0.51.0",
     "@rocket.chat/storybook-dark-mode": "~4.2.1",
     "@rocket.chat/visual-regression": "workspace:~",
     "@storybook/addon-a11y": "~9.1.20",

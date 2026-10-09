@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.94.0
+
+### Minor Changes
+
+- [#2285](https://github.com/RocketChat/fuselage/pull/2285) [`55a8332`](https://github.com/RocketChat/fuselage/commit/55a8332b3843950c9934264980f2bcd8aa059d50) Thanks [@dougfabris](https://github.com/dougfabris)! - Restyles the sidebar collapse group header: the chevron now follows the title, the title is regular weight in a secondary color, and collapsed groups are dimmed when `empty` and emphasized when they have an unread badge
+
 ## 0.93.0
 
 ### Minor Changes
