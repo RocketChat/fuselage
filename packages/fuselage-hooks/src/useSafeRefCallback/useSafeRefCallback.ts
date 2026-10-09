@@ -3,11 +3,15 @@ import { useMemo } from 'react';
 export type SafeCallbackRef<T> = (node: T) => (() => void) | void;
 
 /**
+ * @deprecated React 19 handles ref callback cleanups natively.
+ *
  * useSafeRefCallback will call a cleanup function (returned from the passed callback)
  * whenever the component is re-rendered ( similar to useEffect, but in a callbackRef )
  *
  * Caveat: Usually, callback refs are called with `null` when the component is unmounted. The returned callback from this hook will only be called whenever `node !== null`.
  *  For cases where you want to do some action when the node is null, you should rely on the cleanup function to be called.
+ *
+ *
  *
  * @example
  *   const callback = useSafeRefCallback(
