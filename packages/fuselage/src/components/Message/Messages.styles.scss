@@ -142,6 +142,10 @@ $message-block-width-fixed: theme('message-block-width-fixed', 368px);
     }
   }
 
+  .rcx-message-body {
+    text-align: left;
+  }
+
   &--sequential {
     padding-block: lengths.padding(4);
   }
