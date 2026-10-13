@@ -241,6 +241,715 @@ exports[`[Tag Rendering] renders Medium without crashing 1`] = `
 </body>
 `;
 
+exports[`[Tag Rendering] renders Pill without crashing 1`] = `
+<body>
+  <div>
+    <div
+      class="rcx-box rcx-box--full rcx-css-8i0p31"
+    >
+      <span
+        class="rcx-box rcx-box--full rcx-tag rcx-tag--secondary-info rcx-tag--pill rcx-tag--clickable"
+      >
+        <span
+          class="rcx-tag__inner"
+        >
+          john.doe
+        </span>
+      </span>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`[Tag Rendering] renders PillVariants without crashing 1`] = `
+<body>
+  <div>
+    <div
+      class="rcx-box rcx-box--full rcx-css-valxal"
+    >
+      <div
+        class="rcx-button-group rcx-button-group--align-start"
+        role="group"
+      >
+        <span
+          class="rcx-box rcx-box--full rcx-tag rcx-tag--pill"
+        >
+          <span
+            class="rcx-tag__inner"
+          >
+            john.doe
+          </span>
+        </span>
+        <span
+          class="rcx-box rcx-box--full rcx-tag rcx-tag--primary rcx-tag--pill"
+        >
+          <span
+            class="rcx-tag__inner"
+          >
+            john.doe
+          </span>
+        </span>
+        <span
+          class="rcx-box rcx-box--full rcx-tag rcx-tag--secondary rcx-tag--pill"
+        >
+          <span
+            class="rcx-tag__inner"
+          >
+            john.doe
+          </span>
+        </span>
+        <span
+          class="rcx-box rcx-box--full rcx-tag rcx-tag--danger rcx-tag--pill"
+        >
+          <span
+            class="rcx-tag__inner"
+          >
+            john.doe
+          </span>
+        </span>
+        <span
+          class="rcx-box rcx-box--full rcx-tag rcx-tag--warning rcx-tag--pill"
+        >
+          <span
+            class="rcx-tag__inner"
+          >
+            john.doe
+          </span>
+        </span>
+        <span
+          class="rcx-box rcx-box--full rcx-tag rcx-tag--featured rcx-tag--pill"
+        >
+          <span
+            class="rcx-tag__inner"
+          >
+            john.doe
+          </span>
+        </span>
+        <span
+          class="rcx-box rcx-box--full rcx-tag rcx-tag--secondary-danger rcx-tag--pill"
+        >
+          <span
+            class="rcx-tag__inner"
+          >
+            john.doe
+          </span>
+        </span>
+        <span
+          class="rcx-box rcx-box--full rcx-tag rcx-tag--secondary-warning rcx-tag--pill"
+        >
+          <span
+            class="rcx-tag__inner"
+          >
+            john.doe
+          </span>
+        </span>
+        <span
+          class="rcx-box rcx-box--full rcx-tag rcx-tag--secondary-info rcx-tag--pill"
+        >
+          <span
+            class="rcx-tag__inner"
+          >
+            john.doe
+          </span>
+        </span>
+      </div>
+      <div
+        class="rcx-button-group rcx-button-group--align-start"
+        role="group"
+      >
+        <span
+          class="rcx-box rcx-box--full rcx-tag rcx-tag--pill"
+        >
+          <i
+            aria-hidden="true"
+            class="rcx-box rcx-box--full rcx-icon--name-team-lock rcx-icon rcx-css-nbjs1j"
+          >
+            
+          </i>
+          <span
+            class="rcx-tag__inner"
+          >
+            john.doe
+          </span>
+        </span>
+        <span
+          class="rcx-box rcx-box--full rcx-tag rcx-tag--primary rcx-tag--pill"
+        >
+          <i
+            aria-hidden="true"
+            class="rcx-box rcx-box--full rcx-icon--name-team-lock rcx-icon rcx-css-nbjs1j"
+          >
+            
+          </i>
+          <span
+            class="rcx-tag__inner"
+          >
+            john.doe
+          </span>
+        </span>
+        <span
+          class="rcx-box rcx-box--full rcx-tag rcx-tag--secondary rcx-tag--pill"
+        >
+          <i
+            aria-hidden="true"
+            class="rcx-box rcx-box--full rcx-icon--name-team-lock rcx-icon rcx-css-nbjs1j"
+          >
+            
+          </i>
+          <span
+            class="rcx-tag__inner"
+          >
+            john.doe
+          </span>
+        </span>
+        <span
+          class="rcx-box rcx-box--full rcx-tag rcx-tag--danger rcx-tag--pill"
+        >
+          <i
+            aria-hidden="true"
+            class="rcx-box rcx-box--full rcx-icon--name-team-lock rcx-icon rcx-css-nbjs1j"
+          >
+            
+          </i>
+          <span
+            class="rcx-tag__inner"
+          >
+            john.doe
+          </span>
+        </span>
+        <span
+          class="rcx-box rcx-box--full rcx-tag rcx-tag--warning rcx-tag--pill"
+        >
+          <i
+            aria-hidden="true"
+            class="rcx-box rcx-box--full rcx-icon--name-team-lock rcx-icon rcx-css-nbjs1j"
+          >
+            
+          </i>
+          <span
+            class="rcx-tag__inner"
+          >
+            john.doe
+          </span>
+        </span>
+        <span
+          class="rcx-box rcx-box--full rcx-tag rcx-tag--featured rcx-tag--pill"
+        >
+          <i
+            aria-hidden="true"
+            class="rcx-box rcx-box--full rcx-icon--name-team-lock rcx-icon rcx-css-nbjs1j"
+          >
+            
+          </i>
+          <span
+            class="rcx-tag__inner"
+          >
+            john.doe
+          </span>
+        </span>
+        <span
+          class="rcx-box rcx-box--full rcx-tag rcx-tag--secondary-danger rcx-tag--pill"
+        >
+          <i
+            aria-hidden="true"
+            class="rcx-box rcx-box--full rcx-icon--name-team-lock rcx-icon rcx-css-nbjs1j"
+          >
+            
+          </i>
+          <span
+            class="rcx-tag__inner"
+          >
+            john.doe
+          </span>
+        </span>
+        <span
+          class="rcx-box rcx-box--full rcx-tag rcx-tag--secondary-warning rcx-tag--pill"
+        >
+          <i
+            aria-hidden="true"
+            class="rcx-box rcx-box--full rcx-icon--name-team-lock rcx-icon rcx-css-nbjs1j"
+          >
+            
+          </i>
+          <span
+            class="rcx-tag__inner"
+          >
+            john.doe
+          </span>
+        </span>
+        <span
+          class="rcx-box rcx-box--full rcx-tag rcx-tag--secondary-info rcx-tag--pill"
+        >
+          <i
+            aria-hidden="true"
+            class="rcx-box rcx-box--full rcx-icon--name-team-lock rcx-icon rcx-css-nbjs1j"
+          >
+            
+          </i>
+          <span
+            class="rcx-tag__inner"
+          >
+            john.doe
+          </span>
+        </span>
+      </div>
+      <div
+        class="rcx-button-group rcx-button-group--align-start"
+        role="group"
+      >
+        <span
+          class="rcx-box rcx-box--full rcx-tag rcx-tag--medium rcx-tag--pill"
+        >
+          <span
+            class="rcx-tag__inner"
+          >
+            john.doe
+          </span>
+        </span>
+        <span
+          class="rcx-box rcx-box--full rcx-tag rcx-tag--primary rcx-tag--medium rcx-tag--pill"
+        >
+          <span
+            class="rcx-tag__inner"
+          >
+            john.doe
+          </span>
+        </span>
+        <span
+          class="rcx-box rcx-box--full rcx-tag rcx-tag--secondary rcx-tag--medium rcx-tag--pill"
+        >
+          <span
+            class="rcx-tag__inner"
+          >
+            john.doe
+          </span>
+        </span>
+        <span
+          class="rcx-box rcx-box--full rcx-tag rcx-tag--danger rcx-tag--medium rcx-tag--pill"
+        >
+          <span
+            class="rcx-tag__inner"
+          >
+            john.doe
+          </span>
+        </span>
+        <span
+          class="rcx-box rcx-box--full rcx-tag rcx-tag--warning rcx-tag--medium rcx-tag--pill"
+        >
+          <span
+            class="rcx-tag__inner"
+          >
+            john.doe
+          </span>
+        </span>
+        <span
+          class="rcx-box rcx-box--full rcx-tag rcx-tag--featured rcx-tag--medium rcx-tag--pill"
+        >
+          <span
+            class="rcx-tag__inner"
+          >
+            john.doe
+          </span>
+        </span>
+        <span
+          class="rcx-box rcx-box--full rcx-tag rcx-tag--secondary-danger rcx-tag--medium rcx-tag--pill"
+        >
+          <span
+            class="rcx-tag__inner"
+          >
+            john.doe
+          </span>
+        </span>
+        <span
+          class="rcx-box rcx-box--full rcx-tag rcx-tag--secondary-warning rcx-tag--medium rcx-tag--pill"
+        >
+          <span
+            class="rcx-tag__inner"
+          >
+            john.doe
+          </span>
+        </span>
+        <span
+          class="rcx-box rcx-box--full rcx-tag rcx-tag--secondary-info rcx-tag--medium rcx-tag--pill"
+        >
+          <span
+            class="rcx-tag__inner"
+          >
+            john.doe
+          </span>
+        </span>
+      </div>
+      <div
+        class="rcx-button-group rcx-button-group--align-start"
+        role="group"
+      >
+        <span
+          class="rcx-box rcx-box--full rcx-tag rcx-tag--medium rcx-tag--pill"
+        >
+          <i
+            aria-hidden="true"
+            class="rcx-box rcx-box--full rcx-icon--name-team-lock rcx-icon rcx-css-nbjs1j"
+          >
+            
+          </i>
+          <span
+            class="rcx-tag__inner"
+          >
+            john.doe
+          </span>
+        </span>
+        <span
+          class="rcx-box rcx-box--full rcx-tag rcx-tag--primary rcx-tag--medium rcx-tag--pill"
+        >
+          <i
+            aria-hidden="true"
+            class="rcx-box rcx-box--full rcx-icon--name-team-lock rcx-icon rcx-css-nbjs1j"
+          >
+            
+          </i>
+          <span
+            class="rcx-tag__inner"
+          >
+            john.doe
+          </span>
+        </span>
+        <span
+          class="rcx-box rcx-box--full rcx-tag rcx-tag--secondary rcx-tag--medium rcx-tag--pill"
+        >
+          <i
+            aria-hidden="true"
+            class="rcx-box rcx-box--full rcx-icon--name-team-lock rcx-icon rcx-css-nbjs1j"
+          >
+            
+          </i>
+          <span
+            class="rcx-tag__inner"
+          >
+            john.doe
+          </span>
+        </span>
+        <span
+          class="rcx-box rcx-box--full rcx-tag rcx-tag--danger rcx-tag--medium rcx-tag--pill"
+        >
+          <i
+            aria-hidden="true"
+            class="rcx-box rcx-box--full rcx-icon--name-team-lock rcx-icon rcx-css-nbjs1j"
+          >
+            
+          </i>
+          <span
+            class="rcx-tag__inner"
+          >
+            john.doe
+          </span>
+        </span>
+        <span
+          class="rcx-box rcx-box--full rcx-tag rcx-tag--warning rcx-tag--medium rcx-tag--pill"
+        >
+          <i
+            aria-hidden="true"
+            class="rcx-box rcx-box--full rcx-icon--name-team-lock rcx-icon rcx-css-nbjs1j"
+          >
+            
+          </i>
+          <span
+            class="rcx-tag__inner"
+          >
+            john.doe
+          </span>
+        </span>
+        <span
+          class="rcx-box rcx-box--full rcx-tag rcx-tag--featured rcx-tag--medium rcx-tag--pill"
+        >
+          <i
+            aria-hidden="true"
+            class="rcx-box rcx-box--full rcx-icon--name-team-lock rcx-icon rcx-css-nbjs1j"
+          >
+            
+          </i>
+          <span
+            class="rcx-tag__inner"
+          >
+            john.doe
+          </span>
+        </span>
+        <span
+          class="rcx-box rcx-box--full rcx-tag rcx-tag--secondary-danger rcx-tag--medium rcx-tag--pill"
+        >
+          <i
+            aria-hidden="true"
+            class="rcx-box rcx-box--full rcx-icon--name-team-lock rcx-icon rcx-css-nbjs1j"
+          >
+            
+          </i>
+          <span
+            class="rcx-tag__inner"
+          >
+            john.doe
+          </span>
+        </span>
+        <span
+          class="rcx-box rcx-box--full rcx-tag rcx-tag--secondary-warning rcx-tag--medium rcx-tag--pill"
+        >
+          <i
+            aria-hidden="true"
+            class="rcx-box rcx-box--full rcx-icon--name-team-lock rcx-icon rcx-css-nbjs1j"
+          >
+            
+          </i>
+          <span
+            class="rcx-tag__inner"
+          >
+            john.doe
+          </span>
+        </span>
+        <span
+          class="rcx-box rcx-box--full rcx-tag rcx-tag--secondary-info rcx-tag--medium rcx-tag--pill"
+        >
+          <i
+            aria-hidden="true"
+            class="rcx-box rcx-box--full rcx-icon--name-team-lock rcx-icon rcx-css-nbjs1j"
+          >
+            
+          </i>
+          <span
+            class="rcx-tag__inner"
+          >
+            john.doe
+          </span>
+        </span>
+      </div>
+      <div
+        class="rcx-button-group rcx-button-group--align-start"
+        role="group"
+      >
+        <span
+          class="rcx-box rcx-box--full rcx-tag rcx-tag--large rcx-tag--pill"
+        >
+          <span
+            class="rcx-tag__inner"
+          >
+            john.doe
+          </span>
+        </span>
+        <span
+          class="rcx-box rcx-box--full rcx-tag rcx-tag--primary rcx-tag--large rcx-tag--pill"
+        >
+          <span
+            class="rcx-tag__inner"
+          >
+            john.doe
+          </span>
+        </span>
+        <span
+          class="rcx-box rcx-box--full rcx-tag rcx-tag--secondary rcx-tag--large rcx-tag--pill"
+        >
+          <span
+            class="rcx-tag__inner"
+          >
+            john.doe
+          </span>
+        </span>
+        <span
+          class="rcx-box rcx-box--full rcx-tag rcx-tag--danger rcx-tag--large rcx-tag--pill"
+        >
+          <span
+            class="rcx-tag__inner"
+          >
+            john.doe
+          </span>
+        </span>
+        <span
+          class="rcx-box rcx-box--full rcx-tag rcx-tag--warning rcx-tag--large rcx-tag--pill"
+        >
+          <span
+            class="rcx-tag__inner"
+          >
+            john.doe
+          </span>
+        </span>
+        <span
+          class="rcx-box rcx-box--full rcx-tag rcx-tag--featured rcx-tag--large rcx-tag--pill"
+        >
+          <span
+            class="rcx-tag__inner"
+          >
+            john.doe
+          </span>
+        </span>
+        <span
+          class="rcx-box rcx-box--full rcx-tag rcx-tag--secondary-danger rcx-tag--large rcx-tag--pill"
+        >
+          <span
+            class="rcx-tag__inner"
+          >
+            john.doe
+          </span>
+        </span>
+        <span
+          class="rcx-box rcx-box--full rcx-tag rcx-tag--secondary-warning rcx-tag--large rcx-tag--pill"
+        >
+          <span
+            class="rcx-tag__inner"
+          >
+            john.doe
+          </span>
+        </span>
+        <span
+          class="rcx-box rcx-box--full rcx-tag rcx-tag--secondary-info rcx-tag--large rcx-tag--pill"
+        >
+          <span
+            class="rcx-tag__inner"
+          >
+            john.doe
+          </span>
+        </span>
+      </div>
+      <div
+        class="rcx-button-group rcx-button-group--align-start"
+        role="group"
+      >
+        <span
+          class="rcx-box rcx-box--full rcx-tag rcx-tag--large rcx-tag--pill"
+        >
+          <i
+            aria-hidden="true"
+            class="rcx-box rcx-box--full rcx-icon--name-team-lock rcx-icon rcx-css-nbjs1j"
+          >
+            
+          </i>
+          <span
+            class="rcx-tag__inner"
+          >
+            john.doe
+          </span>
+        </span>
+        <span
+          class="rcx-box rcx-box--full rcx-tag rcx-tag--primary rcx-tag--large rcx-tag--pill"
+        >
+          <i
+            aria-hidden="true"
+            class="rcx-box rcx-box--full rcx-icon--name-team-lock rcx-icon rcx-css-nbjs1j"
+          >
+            
+          </i>
+          <span
+            class="rcx-tag__inner"
+          >
+            john.doe
+          </span>
+        </span>
+        <span
+          class="rcx-box rcx-box--full rcx-tag rcx-tag--secondary rcx-tag--large rcx-tag--pill"
+        >
+          <i
+            aria-hidden="true"
+            class="rcx-box rcx-box--full rcx-icon--name-team-lock rcx-icon rcx-css-nbjs1j"
+          >
+            
+          </i>
+          <span
+            class="rcx-tag__inner"
+          >
+            john.doe
+          </span>
+        </span>
+        <span
+          class="rcx-box rcx-box--full rcx-tag rcx-tag--danger rcx-tag--large rcx-tag--pill"
+        >
+          <i
+            aria-hidden="true"
+            class="rcx-box rcx-box--full rcx-icon--name-team-lock rcx-icon rcx-css-nbjs1j"
+          >
+            
+          </i>
+          <span
+            class="rcx-tag__inner"
+          >
+            john.doe
+          </span>
+        </span>
+        <span
+          class="rcx-box rcx-box--full rcx-tag rcx-tag--warning rcx-tag--large rcx-tag--pill"
+        >
+          <i
+            aria-hidden="true"
+            class="rcx-box rcx-box--full rcx-icon--name-team-lock rcx-icon rcx-css-nbjs1j"
+          >
+            
+          </i>
+          <span
+            class="rcx-tag__inner"
+          >
+            john.doe
+          </span>
+        </span>
+        <span
+          class="rcx-box rcx-box--full rcx-tag rcx-tag--featured rcx-tag--large rcx-tag--pill"
+        >
+          <i
+            aria-hidden="true"
+            class="rcx-box rcx-box--full rcx-icon--name-team-lock rcx-icon rcx-css-nbjs1j"
+          >
+            
+          </i>
+          <span
+            class="rcx-tag__inner"
+          >
+            john.doe
+          </span>
+        </span>
+        <span
+          class="rcx-box rcx-box--full rcx-tag rcx-tag--secondary-danger rcx-tag--large rcx-tag--pill"
+        >
+          <i
+            aria-hidden="true"
+            class="rcx-box rcx-box--full rcx-icon--name-team-lock rcx-icon rcx-css-nbjs1j"
+          >
+            
+          </i>
+          <span
+            class="rcx-tag__inner"
+          >
+            john.doe
+          </span>
+        </span>
+        <span
+          class="rcx-box rcx-box--full rcx-tag rcx-tag--secondary-warning rcx-tag--large rcx-tag--pill"
+        >
+          <i
+            aria-hidden="true"
+            class="rcx-box rcx-box--full rcx-icon--name-team-lock rcx-icon rcx-css-nbjs1j"
+          >
+            
+          </i>
+          <span
+            class="rcx-tag__inner"
+          >
+            john.doe
+          </span>
+        </span>
+        <span
+          class="rcx-box rcx-box--full rcx-tag rcx-tag--secondary-info rcx-tag--large rcx-tag--pill"
+        >
+          <i
+            aria-hidden="true"
+            class="rcx-box rcx-box--full rcx-icon--name-team-lock rcx-icon rcx-css-nbjs1j"
+          >
+            
+          </i>
+          <span
+            class="rcx-tag__inner"
+          >
+            john.doe
+          </span>
+        </span>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
 exports[`[Tag Rendering] renders Secondary without crashing 1`] = `
 <body>
   <div>

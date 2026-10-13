@@ -50,6 +50,12 @@ export default {
       description: 'Large size scale.',
       table: { category: 'Size' },
     },
+    pill: {
+      control: 'boolean',
+      description:
+        'Fully rounded shape. Use for interactive tags such as filters.',
+      table: { category: 'Shape' },
+    },
     disabled: {
       control: 'boolean',
       description: 'Renders the disabled visual style.',
@@ -178,6 +184,15 @@ export const Large: Story = {
   },
 };
 
+export const Pill: Story = {
+  render,
+  args: {
+    pill: true,
+    variant: 'secondary-info',
+    onClick: action('click'),
+  },
+};
+
 export const AsLink: Story = {
   render,
   args: {
@@ -226,5 +241,51 @@ export const VariantsAsLinks: Story = {
         john.doe
       </Tag>
     </ButtonGroup>
+  ),
+};
+
+const pillVariants = [
+  undefined,
+  'primary',
+  'secondary',
+  'danger',
+  'warning',
+  'featured',
+  'secondary-danger',
+  'secondary-warning',
+  'secondary-info',
+] as const;
+
+const pillSizes = [
+  { label: 'Default', props: {} },
+  { label: 'Medium', props: { medium: true } },
+  { label: 'Large', props: { large: true } },
+];
+
+export const PillVariants: Story = {
+  render: () => (
+    <Box display='flex' flexDirection='column' gap='x16'>
+      {pillSizes.map(({ label, props }) =>
+        [false, true].map((withIcon) => (
+          <ButtonGroup key={`${label}-${withIcon}`}>
+            {pillVariants.map((variant) => (
+              <Tag
+                key={variant ?? 'default'}
+                pill
+                variant={variant}
+                icon={
+                  withIcon ? (
+                    <Icon size='x12' marginInlineEnd={4} name='team-lock' />
+                  ) : undefined
+                }
+                {...props}
+              >
+                john.doe
+              </Tag>
+            ))}
+          </ButtonGroup>
+        )),
+      )}
+    </Box>
   ),
 };
