@@ -157,6 +157,10 @@ export function getPositionStyle({
 
   const directionVertical = ['t', 'b'].includes(placementAttempt);
 
+  const [positionKey, variantKey] = directionVertical
+    ? ['top', 'left']
+    : ['left', 'top'];
+
   const variantPoint =
     variantBoundaries[`${directionVertical ? 'v' : 'h'}${variantsAttempts[0]}`];
 
@@ -167,22 +171,26 @@ export function getPositionStyle({
   const referencePoint = directionVertical ? top : left;
 
   const point = (containerHeight - targetHeight) / 2 + referencePoint;
+  const verticalPoint = directionVertical ? point : variantPoint;
+
+  const style: CSSProperties = {
+    [positionKey]: point,
+    [variantKey]: variantPoint,
+    position: 'fixed',
+    zIndex: 999999,
+  };
+
+  if (bottom < targetRect.height + verticalPoint) {
+    style.bottom = margin;
+    style.overflowY = 'auto';
+  }
 
   return {
-    style: {
-      top: point,
-      left: variantPoint,
-      position: 'fixed',
-      zIndex: 999999,
-      ...(bottom < targetRect.height + point && {
-        bottom: margin,
-        overflowY: 'auto',
-      }),
-    },
+    style,
     placement: `${keysToPlacementMap[placementAttempt]}-${
       keysToPlacementMap[variantsAttempts[0]]
     }`,
-  } as UsePositionResult;
+  };
 }
 
 const UPDATE_DEBOUNCE_DELAY = 30;
