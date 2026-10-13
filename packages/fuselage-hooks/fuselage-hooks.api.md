@@ -230,7 +230,7 @@ export type UseResizeObserverOptions = {
 // @public
 export function useSafely<S, D extends DispatchWithoutAction | Dispatch<any>>(input: [state: S, dispatch: D]): [state: S, dispatch: D];
 
-// @public
+// @public @deprecated (undocumented)
 export const useSafeRefCallback: <T extends HTMLElement>(callback: SafeCallbackRef<T>) => (node: T | null) => void;
 
 // @public
