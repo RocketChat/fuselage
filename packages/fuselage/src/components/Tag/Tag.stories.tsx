@@ -200,18 +200,68 @@ export const AsLink: Story = {
   },
 };
 
+const variants = [
+  undefined,
+  'primary',
+  'secondary',
+  'danger',
+  'warning',
+  'featured',
+  'secondary-danger',
+  'secondary-warning',
+  'secondary-info',
+] as const;
+
+const sizes = [
+  { label: 'Default size', props: {} },
+  { label: 'Medium', props: { medium: true } },
+  { label: 'Large', props: { large: true } },
+];
+
 export const Variants: Story = {
   render: () => (
-    <ButtonGroup>
-      <Tag>john.doe</Tag>
-      <Tag variant='primary'>john.doe</Tag>
-      <Tag variant='danger'>john.doe</Tag>
-      <Tag variant='warning'>john.doe</Tag>
-      <Tag variant='featured'>john.doe</Tag>
-      <Tag variant='secondary-danger'>john.doe</Tag>
-      <Tag variant='secondary-warning'>john.doe</Tag>
-      <Tag variant='secondary-info'>john.doe</Tag>
-    </ButtonGroup>
+    <Box display='flex' flexDirection='column' gap='x16'>
+      {[false, true].map((pill) =>
+        sizes.map(({ label, props }) =>
+          [false, true].map((withIcon) => {
+            const title = [
+              pill ? 'Pill' : 'Default radius',
+              label,
+              withIcon ? 'With icon' : 'Without icon',
+            ].join(' · ');
+
+            return (
+              <Box key={title} display='flex' flexDirection='column' gap='x4'>
+                <Box fontScale='c2' color='default'>
+                  {title}
+                </Box>
+                <ButtonGroup wrap>
+                  {variants.map((variant) => (
+                    <Tag
+                      key={variant ?? 'default'}
+                      pill={pill}
+                      variant={variant}
+                      icon={
+                        withIcon ? (
+                          <Icon
+                            size='x12'
+                            marginInlineEnd={4}
+                            name='team-lock'
+                          />
+                        ) : undefined
+                      }
+                      {...props}
+                    >
+                      john.doe
+                    </Tag>
+                  ))}
+                </ButtonGroup>
+              </Box>
+            );
+          }),
+        ),
+      )}
+    </Box>
   ),
 };
 
@@ -241,51 +291,5 @@ export const VariantsAsLinks: Story = {
         john.doe
       </Tag>
     </ButtonGroup>
-  ),
-};
-
-const pillVariants = [
-  undefined,
-  'primary',
-  'secondary',
-  'danger',
-  'warning',
-  'featured',
-  'secondary-danger',
-  'secondary-warning',
-  'secondary-info',
-] as const;
-
-const pillSizes = [
-  { label: 'Default', props: {} },
-  { label: 'Medium', props: { medium: true } },
-  { label: 'Large', props: { large: true } },
-];
-
-export const PillVariants: Story = {
-  render: () => (
-    <Box display='flex' flexDirection='column' gap='x16'>
-      {pillSizes.map(({ label, props }) =>
-        [false, true].map((withIcon) => (
-          <ButtonGroup key={`${label}-${withIcon}`}>
-            {pillVariants.map((variant) => (
-              <Tag
-                key={variant ?? 'default'}
-                pill
-                variant={variant}
-                icon={
-                  withIcon ? (
-                    <Icon size='x12' marginInlineEnd={4} name='team-lock' />
-                  ) : undefined
-                }
-                {...props}
-              >
-                john.doe
-              </Tag>
-            ))}
-          </ButtonGroup>
-        )),
-      )}
-    </Box>
   ),
 };
