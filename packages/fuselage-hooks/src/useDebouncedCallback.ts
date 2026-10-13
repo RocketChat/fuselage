@@ -24,25 +24,28 @@ export const useDebouncedCallback = <P extends unknown[]>(
   const timerCallbackRef = useRef<() => void>(undefined);
   const timerRef = useRef<ReturnType<typeof setTimeout>>(undefined);
 
+  const flush = useCallback(() => {
+    clearTimeout(timerRef.current);
+    const timerCallback = timerCallbackRef.current;
+    timerCallbackRef.current = undefined;
+    timerCallback?.();
+  }, []);
+
+  const cancel = useCallback(() => {
+    clearTimeout(timerRef.current);
+    timerCallbackRef.current = undefined;
+  }, []);
+
   const debouncedCallback = useCallback(
     (...args: P) => {
       timerCallbackRef.current = (): void => {
         effectiveCallback(...args);
       };
       clearTimeout(timerRef.current);
-      timerRef.current = setTimeout(timerCallbackRef.current, delay);
+      timerRef.current = setTimeout(flush, delay);
     },
-    [effectiveCallback, delay],
+    [effectiveCallback, delay, flush],
   );
-
-  const flush = useCallback(() => {
-    clearTimeout(timerRef.current);
-    timerCallbackRef.current?.();
-  }, []);
-
-  const cancel = useCallback(() => {
-    clearTimeout(timerRef.current);
-  }, []);
 
   useEffect(
     () => () => {
