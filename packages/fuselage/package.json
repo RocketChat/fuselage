@@ -52,7 +52,7 @@
   },
   "devDependencies": {
     "@microsoft/api-extractor": "~7.58.13",
-    "@rocket.chat/fuselage-hooks": "workspace:~",
+    "@rocket.chat/fuselage-hooks": "~0.43.1",
     "@rocket.chat/icons": "~0.51.0",
     "@rocket.chat/storybook-dark-mode": "~4.2.1",
     "@rocket.chat/visual-regression": "workspace:~",
