@@ -2200,6 +2200,12 @@ export const SidebarItemAction: (input: {
     icon?: Keys;
 } & HTMLAttributes<HTMLDivElement>) => JSX.Element;
 
+// @public
+export const SidebarItemActions: (input: SidebarItemActionsProps) => JSX.Element;
+
+// @public (undocumented)
+export type SidebarItemActionsProps = Omit<ItemActionsProps, 'reveal'>;
+
 // @public (undocumented)
 export const SidebarItemAvatarWrapper: (input: HTMLAttributes<HTMLDivElement>) => JSX.Element;
 
@@ -2224,12 +2230,19 @@ export type SidebarItemIconProps = Omit<IconProps, 'name' | 'label'> & {
     label?: string;
 };
 
+// @public
+export const SidebarItemLink: (input: SidebarItemLinkProps) => JSX.Element;
+
+// @public (undocumented)
+export type SidebarItemLinkProps = ItemLinkProps;
+
 // @public (undocumented)
 export const SidebarItemMenu: (input: HTMLAttributes<HTMLDivElement>) => JSX.Element;
 
 // @public (undocumented)
 export type SidebarItemProps = {
     selected?: boolean;
+    highlighted?: boolean;
     level?: number;
     is?: ElementType;
 } & AllHTMLAttributes<HTMLAnchorElement>;
