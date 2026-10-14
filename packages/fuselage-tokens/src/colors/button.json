@@ -146,6 +146,115 @@
       "backgroundSuccessDisabled": { "value": "#1E4B40", "type": "color" },
       "fontOnSuccess": { "value": "#FFFFFF", "type": "color" },
       "fontOnSuccessDisabled": { "value": "#757575", "type": "color" }
+    },
+    "dark-alpha": {
+      "backgroundPrimaryDefault": { "value": "#095AD2", "type": "color" },
+      "backgroundPrimaryHover": { "value": "#10529E", "type": "color" },
+      "backgroundPrimaryPress": { "value": "#01336B", "type": "color" },
+      "backgroundPrimaryFocus": { "value": "#095AD2", "type": "color" },
+      "backgroundPrimaryKeyfocus": { "value": "#095AD2", "type": "color" },
+      "backgroundPrimaryDisabled": {
+        "value": "rgba(9, 90, 210, 0.24)",
+        "type": "color"
+      },
+      "fontOnPrimary": { "value": "#FFFFFF", "type": "color" },
+      "fontOnPrimaryDisabled": {
+        "value": "rgba(255, 255, 255, 0.36)",
+        "type": "color"
+      },
+
+      "backgroundSecondaryDefault": {
+        "value": "rgba(255, 255, 255, 0.08)",
+        "type": "color"
+      },
+      "backgroundSecondaryHover": {
+        "value": "rgba(255, 255, 255, 0.12)",
+        "type": "color"
+      },
+      "backgroundSecondaryPress": {
+        "value": "rgba(255, 255, 255, 0.16)",
+        "type": "color"
+      },
+      "backgroundSecondaryFocus": {
+        "value": "rgba(255, 255, 255, 0.08)",
+        "type": "color"
+      },
+      "backgroundSecondaryKeyfocus": {
+        "value": "rgba(255, 255, 255, 0.08)",
+        "type": "color"
+      },
+      "backgroundSecondaryDisabled": {
+        "value": "rgba(255, 255, 255, 0.04)",
+        "type": "color"
+      },
+      "fontOnSecondary": {
+        "value": "rgba(255, 255, 255, 0.87)",
+        "type": "color"
+      },
+      "fontOnSecondaryDisabled": {
+        "value": "rgba(255, 255, 255, 0.36)",
+        "type": "color"
+      },
+
+      "backgroundSecondaryDangerDefault": {
+        "value": "rgba(255, 255, 255, 0.08)",
+        "type": "color"
+      },
+      "backgroundSecondaryDangerHover": {
+        "value": "rgba(255, 255, 255, 0.12)",
+        "type": "color"
+      },
+      "backgroundSecondaryDangerPress": {
+        "value": "rgba(255, 255, 255, 0.16)",
+        "type": "color"
+      },
+      "backgroundSecondaryDangerFocus": {
+        "value": "rgba(255, 255, 255, 0.08)",
+        "type": "color"
+      },
+      "backgroundSecondaryDangerKeyfocus": {
+        "value": "rgba(255, 255, 255, 0.08)",
+        "type": "color"
+      },
+      "backgroundSecondaryDangerDisabled": {
+        "value": "rgba(255, 255, 255, 0.04)",
+        "type": "color"
+      },
+      "fontOnSecondaryDanger": { "value": "#FFC1C9", "type": "color" },
+      "onSecondaryDangerDisabled": {
+        "value": "rgba(255, 193, 201, 0.4)",
+        "type": "color"
+      },
+
+      "backgroundDangerDefault": { "value": "#BB3E4E", "type": "color" },
+      "backgroundDangerHover": { "value": "#95323F", "type": "color" },
+      "backgroundDangerPress": { "value": "#822C37", "type": "color" },
+      "backgroundDangerFocus": { "value": "#BB3E4E", "type": "color" },
+      "backgroundDangerKeyfocus": { "value": "#BB3E4E", "type": "color" },
+      "backgroundDangerDisabled": {
+        "value": "rgba(187, 62, 78, 0.24)",
+        "type": "color"
+      },
+      "fontOnDanger": { "value": "#FFFFFF", "type": "color" },
+      "fontOnDangerDisabled": {
+        "value": "rgba(255, 255, 255, 0.36)",
+        "type": "color"
+      },
+
+      "backgroundSuccessDefault": { "value": "#1D7256", "type": "color" },
+      "backgroundSuccessHover": { "value": "#175943", "type": "color" },
+      "backgroundSuccessPress": { "value": "#134937", "type": "color" },
+      "backgroundSuccessFocus": { "value": "#1D7256", "type": "color" },
+      "backgroundSuccessKeyfocus": { "value": "#1D7256", "type": "color" },
+      "backgroundSuccessDisabled": {
+        "value": "rgba(29, 114, 86, 0.24)",
+        "type": "color"
+      },
+      "fontOnSuccess": { "value": "#FFFFFF", "type": "color" },
+      "fontOnSuccessDisabled": {
+        "value": "rgba(255, 255, 255, 0.36)",
+        "type": "color"
+      }
     }
   }
 }
