@@ -1704,6 +1704,7 @@ export type OptionProps<TLabel = ReactNode> = RefAttributes<Element> & {
     selected?: boolean;
     className?: BoxProps['className'];
     icon?: IconProps['name'];
+    iconLabel?: string;
     gap?: boolean;
     avatar?: ReactNode;
     title?: string;
