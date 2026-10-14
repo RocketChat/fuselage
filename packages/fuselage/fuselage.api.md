@@ -889,6 +889,7 @@ export type ItemProps = {
     selected?: boolean;
     highlighted?: boolean;
     focused?: boolean;
+    focusVisible?: boolean;
     disabled?: boolean;
     variant?: 'danger';
 } & Omit<AllHTMLAttributes<HTMLElement>, 'is' | 'selected' | 'disabled'> & RefAttributes<HTMLElement>;
@@ -1603,7 +1604,7 @@ type OptionAvatarProps = {
 export { OptionAvatarProps as MenuItemAvatarProps }
 export { OptionAvatarProps }
 
-// @public (undocumented)
+// @public
 const OptionColumn: (props: OptionColumnProps) => JSX.Element;
 export { OptionColumn as MenuItemColumn }
 export { OptionColumn }
@@ -1622,7 +1623,7 @@ export function OptionContainer(props: OptionContainerProps): JSX.Element;
 export type OptionContainerProps = Omit<BoxProps, 'ref'> & RefAttributes<HTMLElement>;
 
 // @public (undocumented)
-const OptionContent: (props: OptionContentProps) => JSX.Element;
+const OptionContent: (input: OptionContentProps) => JSX.Element;
 export { OptionContent as MenuItemContent }
 export { OptionContent }
 
@@ -1657,7 +1658,7 @@ export const OptionDivider: (props: OptionDividerProps) => JSX.Element;
 // @public (undocumented)
 export type OptionDividerProps = DividerProps;
 
-// @public (undocumented)
+// @public
 export const OptionHeader: (input: OptionHeaderProps) => JSX.Element;
 
 // @public (undocumented)
@@ -1688,7 +1689,7 @@ export { OptionInputProps as MenuItemInputProps }
 export { OptionInputProps }
 
 // @public (undocumented)
-export const OptionMenu: (props: OptionMenuProps) => JSX.Element;
+export const OptionMenu: (input: OptionMenuProps) => JSX.Element;
 
 // @public (undocumented)
 export type OptionMenuProps = HTMLAttributes<HTMLDivElement>;
@@ -1743,7 +1744,7 @@ export type OptionsProps<TValue extends string | number = string | number, TLabe
 };
 
 // @public (undocumented)
-const OptionTitle: (props: OptionTitleProps) => JSX.Element;
+const OptionTitle: (input: OptionTitleProps) => JSX.Element;
 export { OptionTitle as MenuItemTitle }
 export { OptionTitle }
 
