@@ -22,6 +22,7 @@ export const SidebarItem = ({
   <Item
     {...(props as Omit<ItemProps, 'is' | 'selected'>)}
     is={is}
+    inset='md'
     selected={selected}
     className={cx(
       'rcx-sidebar-item',

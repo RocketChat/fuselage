@@ -31,6 +31,7 @@ const SidebarLink = ({
 }: SidebarLinkProps) => (
   <Item
     is='a'
+    inset='md'
     role='link'
     tabIndex={0}
     selected={selected}
