@@ -2177,7 +2177,7 @@ export const SidebarFooter: (input: HTMLAttributes<HTMLElement>) => JSX.Element;
 // @public (undocumented)
 export const SidebarFooterContent: (input: BoxProps) => JSX.Element;
 
-// @public (undocumented)
+// @public
 export const SidebarGroupTitle: (input: SidebarGroupTitleProps) => JSX.Element;
 
 // @public (undocumented)
@@ -2191,7 +2191,7 @@ export type SidebarGroupTitleProps = {
     barProps?: AriaAttributes;
 } & HTMLAttributes<HTMLDivElement>;
 
-// @public (undocumented)
+// @public
 export const SidebarItem: (input: SidebarItemProps) => JSX.Element;
 
 // @public (undocumented)
@@ -2218,9 +2218,10 @@ export const SidebarItemContent: (input: {
 export const SidebarItemIcon: (input: SidebarItemIconProps) => JSX.Element;
 
 // @public (undocumented)
-export type SidebarItemIconProps = Omit<IconProps, 'name'> & {
+export type SidebarItemIconProps = Omit<IconProps, 'name' | 'label'> & {
     icon: Keys | ReactElement<any>;
     highlighted?: boolean;
+    label?: string;
 };
 
 // @public (undocumented)
