@@ -6,6 +6,10 @@ import { Box, type BoxProps } from '../Box';
 export type TagProps = {
   medium?: boolean;
   large?: boolean;
+  /**
+   * Fully rounded shape. Use for interactive tags such as filters
+   */
+  pill?: boolean;
   variant?:
     | 'primary'
     | 'secondary'
@@ -25,6 +29,7 @@ export type TagProps = {
 const Tag = ({
   large,
   medium,
+  pill,
   className,
   disabled,
   onClick,
@@ -38,6 +43,7 @@ const Tag = ({
     variant,
     medium && 'medium',
     large && 'large',
+    pill && 'pill',
     disabled && 'disabled',
     onClick && 'clickable',
     href && 'clickable',

@@ -2692,6 +2692,7 @@ export const Tag: (input: TagProps) => JSX.Element;
 export type TagProps = {
     medium?: boolean;
     large?: boolean;
+    pill?: boolean;
     variant?: 'primary' | 'secondary' | 'danger' | 'warning' | 'secondary-danger' | 'secondary-warning' | 'secondary-info' | 'featured';
     disabled?: boolean;
     icon?: ReactNode;
