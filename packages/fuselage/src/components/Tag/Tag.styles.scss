@@ -281,4 +281,8 @@ $tag-border-radius: theme('tag-border-radius', lengths.border-radius(small));
   &--large {
     @include use-font-scale(p2b);
   }
+
+  &--pill {
+    --rcx-tag-border-radius: #{lengths.border-radius(full)};
+  }
 }
