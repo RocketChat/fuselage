@@ -1,7 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react-webpack5';
 
+import { Box } from '../Box';
+
 import Label from './Label';
 import { LabelInfo } from './LabelInfo';
+import { LabelReset } from './LabelReset';
 
 export default {
   title: 'Inputs/Label',
@@ -68,15 +71,27 @@ export const Info: Story = {
   ),
 };
 
-export const InfoRequired: Story = {
+export const Reset: Story = {
+  render: (args) => (
+    <Box display='flex' alignItems='center' width='100%'>
+      <Label {...args}>Label</Label>
+      <LabelReset title='reset to default' />
+    </Box>
+  ),
+};
+
+export const InfoRequiredReset: Story = {
   args: {
     required: true,
   },
   render: (args) => (
-    <Label {...args}>
-      Label
-      <LabelInfo title='this is a label info' />
-    </Label>
+    <Box display='flex' alignItems='center' width='100%'>
+      <Label {...args}>
+        Label
+        <LabelInfo title='this is a label info' />
+      </Label>
+      <LabelReset title='reset to default' />
+    </Box>
   ),
 };
 
