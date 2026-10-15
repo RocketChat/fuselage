@@ -8,7 +8,8 @@ import { useLayoutEffect, useMemo, useRef } from 'react';
 
 import { prevent } from '../../helpers/prevent';
 import { Box, type BoxProps } from '../Box';
-import { Option, OptionHeader, OptionDivider } from '../Option';
+import { ItemDivider } from '../Item';
+import { Option, OptionHeader } from '../Option';
 import { Scrollable } from '../Scrollable';
 import { Tile } from '../Tile';
 
@@ -64,7 +65,9 @@ function Options<
       return;
     }
     const { current } = liRef;
-    const li = current?.querySelector<HTMLLIElement>('.rcx-option--focus');
+    const li = current?.querySelector<HTMLLIElement>(
+      '.rcx-option--focus, .rcx-item--focused',
+    );
     if (!li) {
       return;
     }
@@ -84,7 +87,7 @@ function Options<
           case 'heading':
             return <OptionHeader key={value}>{label}</OptionHeader>;
           case 'divider':
-            return <OptionDivider key={value} />;
+            return <ItemDivider key={value} is='li' aria-hidden />;
           default:
             return (
               <OptionComponent

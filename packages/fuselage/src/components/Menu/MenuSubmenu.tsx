@@ -1,21 +1,25 @@
 import type {
   CollectionChildren,
-  FocusableElement,
   Key,
   KeyboardEvent,
   Node,
 } from '@react-types/shared';
 import type { RefObject } from 'react';
 import { useRef } from 'react';
-import { mergeProps, useMenuItem, useSubmenuTrigger } from 'react-aria';
+import {
+  mergeProps,
+  useFocusVisible,
+  useMenuItem,
+  useSubmenuTrigger,
+} from 'react-aria';
 import type { RootMenuTriggerState, TreeState } from 'react-stately';
 import { useSubmenuTriggerState } from 'react-stately';
 
 import { Icon } from '../Icon';
+import { Item, ItemIcon } from '../Item';
 
 import MenuDropDown from './MenuDropdown';
 import type { MenuOptionProps } from './MenuOption';
-import MenuOption from './MenuOption';
 import MenuPopover from './MenuPopover';
 
 type MenuSubmenuProps = {
@@ -43,7 +47,7 @@ function MenuSubmenu({
   parentMenuRef,
   onAction,
 }: MenuSubmenuProps) {
-  const triggerRef = useRef<FocusableElement>(null);
+  const triggerRef = useRef<HTMLDivElement>(null);
   const submenuRef = useRef<HTMLDivElement>(null);
 
   const submenuTriggerState = useSubmenuTriggerState(
@@ -90,6 +94,7 @@ function MenuSubmenu({
     submenuTriggerProps.onKeyDown?.(event);
   };
 
+  const { isFocusVisible } = useFocusVisible();
   const { menuItemProps, isFocused, isDisabled } = useMenuItem(
     { ...submenuTriggerProps, onKeyDown: onTriggerKeyDown, key: item.key },
     state,
@@ -98,7 +103,7 @@ function MenuSubmenu({
 
   return (
     <>
-      <MenuOption
+      <Item
         {...mergeProps(menuItemProps, {
           'id': submenuTriggerProps.id,
           'aria-haspopup': submenuTriggerProps['aria-haspopup'],
@@ -106,18 +111,18 @@ function MenuSubmenu({
           'aria-controls': submenuTriggerProps['aria-controls'],
         })}
         ref={triggerRef}
-        focus={isFocused}
-        disabled={isDisabled}
         is='div'
-        variant={item.value?.variant}
+        inset='md'
+        focused={isFocused}
+        focusVisible={isFocused && isFocusVisible}
+        disabled={isDisabled}
+        variant={item.value?.variant === 'danger' ? 'danger' : undefined}
       >
-        <div className='rcx-option__wrapper'>
-          {item.rendered}
-          <div className='rcx-option__input'>
-            <Icon name='chevron-left' size='x16' />
-          </div>
-        </div>
-      </MenuOption>
+        {item.rendered}
+        <ItemIcon>
+          <Icon name='chevron-left' size='x16' />
+        </ItemIcon>
+      </Item>
       {submenuTriggerState.isOpen && (
         <MenuPopover
           {...popoverProps}

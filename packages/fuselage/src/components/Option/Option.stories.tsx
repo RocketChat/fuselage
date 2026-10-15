@@ -30,8 +30,17 @@ export default {
     OptionSkeleton,
   },
   decorators: [
-    (Story) => (
-      <Tile position='relative' maxWidth={250} paddingInline='0'>
+    (Story, { parameters }) => (
+      <Tile
+        is='ul'
+        role='listbox'
+        aria-label='Options'
+        aria-busy={parameters['busy'] || undefined}
+        position='relative'
+        maxWidth={250}
+        margin='none'
+        paddingInline='0'
+      >
         <Story />
       </Tile>
     ),
@@ -135,7 +144,12 @@ export default {
 type Story = StoryObj<typeof Option>;
 
 const MenuExample = () => (
-  <Menu detached small items={[{ id: '1', label: 'Option', icon: 'hashtag' }]}>
+  <Menu
+    detached
+    small
+    title='More options'
+    items={[{ id: '1', label: 'Option', icon: 'hashtag' }]}
+  >
     <MenuItem key='1'>Profile</MenuItem>
     <MenuItem key='2'>Chats</MenuItem>
     <MenuItem key='3'>Settings</MenuItem>
@@ -145,16 +159,16 @@ const MenuExample = () => (
 export const Default: Story = {
   render: () => (
     <>
-      <Option onClick={action('click')}>
+      <Option role='option' onClick={action('click')}>
         <OptionContent>Lorem Ipsum Lorem</OptionContent>
       </Option>
-      <Option>
+      <Option role='option'>
         <OptionContent>
           Lorem Ipsum Lorem Lorem Ipsum Lorem Lorem Ipsum Lorem Lorem Ipsum
           Lorem
         </OptionContent>
       </Option>
-      <Option>
+      <Option role='option'>
         <OptionContent>
           Lorem Ipsum Lorem{' '}
           <OptionDescription>
@@ -169,13 +183,13 @@ export const Default: Story = {
 export const WithAvatar: Story = {
   render: () => (
     <>
-      <Option onClick={action('click')}>
+      <Option role='option' onClick={action('click')}>
         <OptionAvatar>
           <Avatar url={exampleAvatar} size='x28' />
         </OptionAvatar>
         <OptionContent>Lorem Ipsum Lorem</OptionContent>
       </Option>
-      <Option>
+      <Option role='option'>
         <OptionAvatar>
           <Avatar url={exampleAvatar} size='x28' />
         </OptionAvatar>
@@ -184,7 +198,7 @@ export const WithAvatar: Story = {
           Lorem
         </OptionContent>
       </Option>
-      <Option>
+      <Option role='option'>
         <OptionAvatar>
           <Avatar url={exampleAvatar} size='x28' />
         </OptionAvatar>
@@ -202,13 +216,13 @@ export const WithAvatar: Story = {
 export const WithPresence: Story = {
   render: () => (
     <>
-      <Option onClick={action('click')}>
+      <Option role='option' onClick={action('click')}>
         <OptionColumn>
           <StatusBullet />
         </OptionColumn>
         <OptionContent>Lorem Ipsum Lorem</OptionContent>
       </Option>
-      <Option>
+      <Option role='option'>
         <OptionAvatar>
           <Avatar url={exampleAvatar} size='x28' />
         </OptionAvatar>
@@ -227,10 +241,10 @@ export const WithPresence: Story = {
 export const WithMenu: Story = {
   render: () => (
     <>
-      <Option onClick={action('click')}>
+      <Option role='option' onClick={action('click')}>
         <OptionContent>Lorem Ipsum Lorem</OptionContent>
       </Option>
-      <Option>
+      <Option role='option'>
         <OptionAvatar>
           <Avatar url={exampleAvatar} size='x28' />
         </OptionAvatar>
@@ -245,6 +259,7 @@ export const WithMenu: Story = {
           <Menu
             detached
             small
+            title='More options'
             items={[{ id: '1', label: 'Option', icon: 'hashtag' }]}
           >
             <MenuItem key='1'>Profile</MenuItem>
@@ -255,19 +270,23 @@ export const WithMenu: Story = {
       </Option>
     </>
   ),
+  parameters: {
+    // A menu inside an option is interactive content nested in another; only rows composed from `Item` parts avoid it.
+    a11y: { config: { rules: [{ id: 'nested-interactive', enabled: false }] } },
+  },
 };
 
 export const WithIcon: Story = {
   render: () => (
     <>
-      <Option onClick={action('click')}>
+      <Option role='option' onClick={action('click')}>
         <OptionIcon name='bell' />
         <OptionContent>Lorem Ipsum Lorem</OptionContent>
         <OptionMenu>
           <MenuExample />
         </OptionMenu>
       </Option>
-      <Option>
+      <Option role='option'>
         <OptionAvatar>
           <Avatar url={exampleAvatar} size='x28' />
         </OptionAvatar>
@@ -285,19 +304,39 @@ export const WithIcon: Story = {
       </Option>
     </>
   ),
+  parameters: {
+    // A menu inside an option is interactive content nested in another; only rows composed from `Item` parts avoid it.
+    a11y: { config: { rules: [{ id: 'nested-interactive', enabled: false }] } },
+  },
 };
 
 export const WithAndWithoutIcon: Story = {
   render: () => (
     <>
-      <Option onClick={action('click')} icon='star' label='Lorem Ipsum Lorem' />
-      <Option onClick={action('click')} icon='user' label='Lorem Ipsum Lorem' />
       <Option
+        role='option'
+        onClick={action('click')}
+        icon='star'
+        label='Lorem Ipsum Lorem'
+      />
+      <Option
+        role='option'
+        onClick={action('click')}
+        icon='user'
+        label='Lorem Ipsum Lorem'
+      />
+      <Option
+        role='option'
         onClick={action('click')}
         icon='hashtag'
         label='Lorem Ipsum Lorem'
       />
-      <Option onClick={action('click')} gap label='Lorem Ipsum Lorem' />
+      <Option
+        role='option'
+        onClick={action('click')}
+        gap
+        label='Lorem Ipsum Lorem'
+      />
     </>
   ),
   parameters: {
@@ -313,10 +352,10 @@ export const WithAndWithoutIcon: Story = {
 export const Disabled: Story = {
   render: () => (
     <>
-      <Option onClick={action('click')}>
+      <Option role='option' onClick={action('click')}>
         <OptionContent>Enabled</OptionContent>
       </Option>
-      <Option disabled={true}>
+      <Option role='option' disabled={true}>
         <OptionContent>Disabled</OptionContent>
       </Option>
     </>
@@ -326,7 +365,7 @@ export const Disabled: Story = {
 export const AsUserItem: Story = {
   render: () => (
     <>
-      <Option onClick={action('click')}>
+      <Option role='option' onClick={action('click')}>
         <OptionAvatar>
           <Avatar url={exampleAvatar} size='x28' />
         </OptionAvatar>
@@ -344,8 +383,13 @@ export const AsUserItem: Story = {
       </Option>
     </>
   ),
+  parameters: {
+    // A menu inside an option is interactive content nested in another; only rows composed from `Item` parts avoid it.
+    a11y: { config: { rules: [{ id: 'nested-interactive', enabled: false }] } },
+  },
 };
 
 export const AsSkeleton: Story = {
   render: () => <OptionSkeleton />,
+  parameters: { busy: true },
 };
