@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.36.0
+
+### Minor Changes
+
+- [#2226](https://github.com/RocketChat/fuselage/pull/2226) [`7f574ad`](https://github.com/RocketChat/fuselage/commit/7f574ad62e2be8286aa0aa283fcdef0c3b30c476) Thanks [@josephjpearce](https://github.com/josephjpearce)! - feat(fuselage-tokens): sync status font tokens with the Figma color system
+
 ## 0.35.0
 
 ### Minor Changes
