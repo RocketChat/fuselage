@@ -1,5 +1,22 @@
 # Change Log
 
+## 0.96.0
+
+### Minor Changes
+
+- [#2281](https://github.com/RocketChat/fuselage/pull/2281) [`58201cd`](https://github.com/RocketChat/fuselage/commit/58201cdd7cea188241a81f10a77b3c072e0e91e7) Thanks [@juliajforesti](https://github.com/juliajforesti)! - feat(fuselage): Add the `Item` family
+
+- [#2307](https://github.com/RocketChat/fuselage/pull/2307) [`0cca843`](https://github.com/RocketChat/fuselage/commit/0cca843fddb2aedf52769983e463338dd2fe673b) Thanks [@ivans-netto](https://github.com/ivans-netto)! - feat(fuselage): add `pill` prop to `Tag`
+
+  Adds a `pill` boolean prop that renders a fully rounded Tag (`rcx-tag--pill`), matching the `Radius=Pill` variant in the design system. Use it for interactive tags such as filters. The modifier sets `--rcx-tag-border-radius` to the `full` border radius token, so padding, sizes and colors are unchanged. Tags without `pill` render as before.
+
+### Patch Changes
+
+- [#2226](https://github.com/RocketChat/fuselage/pull/2226) [`7f574ad`](https://github.com/RocketChat/fuselage/commit/7f574ad62e2be8286aa0aa283fcdef0c3b30c476) Thanks [@josephjpearce](https://github.com/josephjpearce)! - feat(fuselage-tokens): sync status font tokens with the Figma color system
+
+- Updated dependencies [[`7f574ad`](https://github.com/RocketChat/fuselage/commit/7f574ad62e2be8286aa0aa283fcdef0c3b30c476)]:
+  - @rocket.chat/fuselage-tokens@0.36.0
+
 ## 0.95.0
 
 ### Minor Changes
