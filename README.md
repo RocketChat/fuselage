@@ -6,12 +6,13 @@
 
 <h1 align="center">Fuselage Monorepo</h1>
 
-![Issues](https://img.shields.io/github/issues/RocketChat/fuselage?style=flat-square)
-![Pull requests](https://img.shields.io/github/issues-pr/RocketChat/fuselage?style=flat-square)
-![GitHub commit activity](https://img.shields.io/github/commit-activity/m/RocketChat/fuselage?style=flat-square)
+> [!IMPORTANT]
+> **This repository is archived.** All packages previously maintained here were transferred to the [Rocket.Chat monorepo](https://github.com/RocketChat/Rocket.Chat). Please open issues and pull requests there.
 
-| Package | Description | Version | Dependencies |
-|---------|-------------|---------|--------------|
-| 📦 [`@rocket.chat/fuselage`](/packages/fuselage) | Rocket.Chat's React Components Library | [![npm](https://img.shields.io/npm/v/@rocket.chat/fuselage?style=flat-square)](https://www.npmjs.com/package/@rocket.chat/fuselage) | ![deps](https://img.shields.io/librariesio/release/npm/@rocket.chat/fuselage?style=flat-square) |
-| 📦 [`@rocket.chat/fuselage-tokens`](/packages/fuselage-tokens) | Design tokens for Fuselage, Rocket.Chat's design system | [![npm](https://img.shields.io/npm/v/@rocket.chat/fuselage-tokens?style=flat-square)](https://www.npmjs.com/package/@rocket.chat/fuselage-tokens) | ![deps](https://img.shields.io/librariesio/release/npm/@rocket.chat/fuselage-tokens?style=flat-square) |
-| 📦 [`@rocket.chat/prettier-config`](/packages/prettier-config) | Prettier configuration for Rocket.Chat repositories | [![npm](https://img.shields.io/npm/v/@rocket.chat/prettier-config?style=flat-square)](https://www.npmjs.com/package/@rocket.chat/prettier-config) | ![deps](https://img.shields.io/librariesio/release/npm/@rocket.chat/prettier-config?style=flat-square) |
+Packages that lived in this repository until the transfer:
+
+| Package | Description | Version |
+|---------|-------------|---------|
+| 📦 `@rocket.chat/fuselage` | Rocket.Chat's React Components Library | [![npm](https://img.shields.io/npm/v/@rocket.chat/fuselage?style=flat-square)](https://www.npmjs.com/package/@rocket.chat/fuselage) |
+| 📦 `@rocket.chat/fuselage-tokens` | Design tokens for Fuselage, Rocket.Chat's design system | [![npm](https://img.shields.io/npm/v/@rocket.chat/fuselage-tokens?style=flat-square)](https://www.npmjs.com/package/@rocket.chat/fuselage-tokens) |
+| 📦 `@rocket.chat/prettier-config` | Prettier configuration for Rocket.Chat repositories | [![npm](https://img.shields.io/npm/v/@rocket.chat/prettier-config?style=flat-square)](https://www.npmjs.com/package/@rocket.chat/prettier-config) |
