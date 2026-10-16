@@ -4,6 +4,9 @@ import { axe } from 'jest-axe';
 import { render } from '../../testing';
 
 import * as stories from './Sidepanel.stories';
+import SidepanelDivider from './SidepanelDivider';
+import SidepanelHeader from './SidepanelHeader';
+import SidepanelList from './SidepanelList';
 
 const testCases = Object.values(composeStories(stories)).map((Story) => [
   Story.storyName || 'Story',
@@ -27,3 +30,35 @@ test.each(testCases)(
     expect(results).toHaveNoViolations();
   },
 );
+
+describe('[Sidepanel bridges]', () => {
+  it('should render `SidepanelList` as an `ItemGroup` list', () => {
+    const { getByRole } = render(
+      <SidepanelList aria-label='Rooms'>
+        <div role='listitem'>general</div>
+      </SidepanelList>,
+    );
+
+    expect(getByRole('list', { name: 'Rooms' })).toHaveClass(
+      'rcx-item-group',
+      'rcx-sidepanel-list',
+    );
+  });
+
+  it('should render `SidepanelDivider` as an `ItemDivider` separator', () => {
+    const { getByRole } = render(<SidepanelDivider />);
+
+    expect(getByRole('separator')).toHaveClass(
+      'rcx-item-divider',
+      'rcx-sidepanel--divider',
+    );
+  });
+
+  it('should keep the full-width panel line under `SidepanelHeader`', () => {
+    const { container } = render(<SidepanelHeader>Title</SidepanelHeader>);
+
+    expect(container.querySelector('.rcx-sidepanel--divider')).not.toHaveClass(
+      'rcx-item-divider',
+    );
+  });
+});

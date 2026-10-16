@@ -2177,7 +2177,7 @@ export const SidebarFooter: (input: HTMLAttributes<HTMLElement>) => JSX.Element;
 // @public (undocumented)
 export const SidebarFooterContent: (input: BoxProps) => JSX.Element;
 
-// @public (undocumented)
+// @public
 export const SidebarGroupTitle: (input: SidebarGroupTitleProps) => JSX.Element;
 
 // @public (undocumented)
@@ -2191,7 +2191,7 @@ export type SidebarGroupTitleProps = {
     barProps?: AriaAttributes;
 } & HTMLAttributes<HTMLDivElement>;
 
-// @public (undocumented)
+// @public
 export const SidebarItem: (input: SidebarItemProps) => JSX.Element;
 
 // @public (undocumented)
@@ -2199,6 +2199,12 @@ export const SidebarItemAction: (input: {
     onClick: (e: Event) => void;
     icon?: Keys;
 } & HTMLAttributes<HTMLDivElement>) => JSX.Element;
+
+// @public
+export const SidebarItemActions: (input: SidebarItemActionsProps) => JSX.Element;
+
+// @public (undocumented)
+export type SidebarItemActionsProps = Omit<ItemActionsProps, 'reveal'>;
 
 // @public (undocumented)
 export const SidebarItemAvatarWrapper: (input: HTMLAttributes<HTMLDivElement>) => JSX.Element;
@@ -2218,10 +2224,17 @@ export const SidebarItemContent: (input: {
 export const SidebarItemIcon: (input: SidebarItemIconProps) => JSX.Element;
 
 // @public (undocumented)
-export type SidebarItemIconProps = Omit<IconProps, 'name'> & {
+export type SidebarItemIconProps = Omit<IconProps, 'name' | 'label'> & {
     icon: Keys | ReactElement<any>;
     highlighted?: boolean;
+    label?: string;
 };
+
+// @public
+export const SidebarItemLink: (input: SidebarItemLinkProps) => JSX.Element;
+
+// @public (undocumented)
+export type SidebarItemLinkProps = ItemLinkProps;
 
 // @public (undocumented)
 export const SidebarItemMenu: (input: HTMLAttributes<HTMLDivElement>) => JSX.Element;
@@ -2229,6 +2242,7 @@ export const SidebarItemMenu: (input: HTMLAttributes<HTMLDivElement>) => JSX.Ele
 // @public (undocumented)
 export type SidebarItemProps = {
     selected?: boolean;
+    highlighted?: boolean;
     level?: number;
     is?: ElementType;
 } & AllHTMLAttributes<HTMLAnchorElement>;

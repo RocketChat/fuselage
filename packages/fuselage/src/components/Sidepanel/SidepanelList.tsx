@@ -1,14 +1,17 @@
 import type { HTMLAttributes, RefAttributes } from 'react';
 
+import { cx } from '../../helpers/composeClassNames';
+import { ItemGroup } from '../Item';
+
 export type SidepanelListProps = HTMLAttributes<HTMLDivElement> &
   RefAttributes<HTMLDivElement>;
 
 function SidepanelList({ className, ...props }: SidepanelListProps) {
   return (
-    <div
+    <ItemGroup
       role='list'
-      className={['rcx-sidepanel-list', className].filter(Boolean).join(' ')}
-      {...props}
+      {...(props as Omit<SidepanelListProps, 'is'>)}
+      className={cx('rcx-sidepanel-list', className)}
     />
   );
 }
