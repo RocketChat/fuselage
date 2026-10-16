@@ -1,9 +1,7 @@
 import { useToggle } from '@rocket.chat/fuselage-hooks';
 
-import { Icon } from '../Icon';
+import { IconButton } from '../Button';
 import { InputBox, type InputBoxProps } from '../InputBox';
-
-// TODO: fix a11y issues
 
 export type PasswordInputProps = Omit<InputBoxProps<HTMLInputElement>, 'type'>;
 
@@ -17,9 +15,10 @@ function PasswordInput(props: PasswordInputProps) {
     <InputBox
       type={hidden ? 'password' : 'text'}
       endAddon={
-        <Icon
-          name={hidden ? 'eye-off' : 'eye'}
-          size={20}
+        <IconButton
+          icon={hidden ? 'eye-off' : 'eye'}
+          small
+          aria-label={hidden ? 'Show password' : 'Hide password'}
           onClick={handleAddonClick}
         />
       }
