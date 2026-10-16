@@ -117,13 +117,17 @@ function AutoComplete<TLabel = ReactNode>({
   );
 
   useEffect(() => {
-    // Validates if selected items are still valid after value changes
-    setSelected((selected) => {
-      return !selected.every(isSelectedValid(value))
-        ? selected.filter(isSelectedValid(value))
-        : selected;
+    setSelected((currentSelected) => {
+      //Keep any items we already have in our internal state that are still valid 
+      const validExisting = currentSelected.filter(isSelectedValid(value));
+      //Look through the current `options` for any valid items that we DON'T already have
+      const newItemsFromOptions = getSelected(value, options).filter(
+        (opt) => !validExisting.some((existing) => existing.value === opt.value)
+      );
+      //Combine them so we never lose selections when the dropdown filters during a search
+      return [...validExisting, ...newItemsFromOptions];
     });
-  }, [value]);
+  }, [value, options]);
 
   const handleSelect = useStableCallback(
     ([newValue]: OptionType<string, TLabel>) => {
@@ -189,7 +193,6 @@ function AutoComplete<TLabel = ReactNode>({
   );
 
   useEffect(reset, [filter, reset]);
-
   return (
     <Box
       animated
@@ -249,7 +252,17 @@ function AutoComplete<TLabel = ReactNode>({
           )}
         </Margins>
       </Box>
-      <Box rcx-autocomplete__addon>
+      <Box rcx-autocomplete__addon
+        onClick={(e)=>{
+          e.stopPropagation();
+
+          //if dropdown is open(cross is being shown), on clicking the cross close it and clear text
+          if(optionsAreVisible === AnimatedVisibility.VISIBLE){
+            hide();
+            setFilter?.('');
+          }
+        }}
+      >
         <Icon
           name={
             optionsAreVisible === AnimatedVisibility.VISIBLE
