@@ -3,9 +3,7 @@ import type { RefObject } from 'react';
 import { useMenuSection, useSeparator } from 'react-aria';
 import type { RootMenuTriggerState, TreeState } from 'react-stately';
 
-import { Box } from '../Box';
-import { Divider } from '../Divider';
-import { OptionTitle } from '../Option';
+import { ItemDivider, ItemGroupHeader, ItemGroupTitle } from '../Item';
 
 import MenuItem from './MenuItem';
 import MenuSubmenu from './MenuSubmenu';
@@ -31,20 +29,24 @@ function MenuSection<T extends object>({
   });
 
   const { separatorProps } = useSeparator({
-    elementType: 'span',
+    elementType: 'div',
   });
 
   // If the section is not the first, add a separator element.
   return (
     <>
       {section.key !== state.collection.getFirstKey() && (
-        <Divider {...separatorProps} />
+        <ItemDivider {...separatorProps} />
       )}
       <div {...itemProps}>
         {section.rendered && (
-          <OptionTitle {...headingProps}>{section.rendered}</OptionTitle>
+          <ItemGroupHeader inset='md'>
+            <ItemGroupTitle {...headingProps}>
+              {section.rendered}
+            </ItemGroupTitle>
+          </ItemGroupHeader>
         )}
-        <Box {...groupProps} padding='0'>
+        <div {...groupProps}>
           {[...section.childNodes].map((node) =>
             node.hasChildNodes ? (
               <MenuSubmenu
@@ -59,7 +61,7 @@ function MenuSection<T extends object>({
               <MenuItem key={node.key} item={node as any} state={state} />
             ),
           )}
-        </Box>
+        </div>
       </div>
     </>
   );

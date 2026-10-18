@@ -1,11 +1,13 @@
 import type { ReactNode } from 'react';
 
+import { ItemMedia } from '../Item';
+
 export type OptionAvatarProps = {
   children?: ReactNode;
 };
 
 const OptionAvatar = (props: OptionAvatarProps) => (
-  <div className='rcx-option__avatar' {...props} />
+  <ItemMedia className='rcx-option__avatar' {...props} />
 );
 
 export default OptionAvatar;
