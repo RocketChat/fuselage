@@ -52,36 +52,57 @@ exports[`[Label Component] renders Info without crashing 1`] = `
 </body>
 `;
 
-exports[`[Label Component] renders InfoRequired without crashing 1`] = `
+exports[`[Label Component] renders InfoRequiredReset without crashing 1`] = `
 <body>
   <div>
-    <label
-      class="rcx-box rcx-box--full rcx-label"
+    <div
+      class="rcx-box rcx-box--full rcx-css-g1wnuz"
     >
-      Label
-      <span
-        class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
+      <label
+        class="rcx-box rcx-box--full rcx-label"
       >
+        Label
         <span
-          hidden=""
+          class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
         >
-          this is a label info
+          <span
+            hidden=""
+          >
+            this is a label info
+          </span>
+          <i
+            aria-hidden="true"
+            class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon"
+            title="this is a label info"
+          >
+            
+          </i>
         </span>
-        <i
+        <span
           aria-hidden="true"
-          class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon"
-          title="this is a label info"
+          class="rcx-box rcx-box--full rcx-label__required rcx-css-b7g1a9"
         >
-          
-        </i>
-      </span>
+          *
+        </span>
+      </label>
       <span
-        aria-hidden="true"
-        class="rcx-box rcx-box--full rcx-label__required rcx-css-b7g1a9"
+        class="rcx-box rcx-box--full rcx-label__reset"
       >
-        *
+        <button
+          aria-label="reset to default"
+          class="rcx-box rcx-box--full rcx-button--mini-square rcx-button--square rcx-button--icon rcx-button"
+          title="reset to default"
+          type="button"
+        >
+          <i
+            aria-hidden="true"
+            class="rcx-box rcx-box--full rcx-icon--name-undo rcx-icon rcx-css-1tg7yd0"
+          >
+            ❰
+          </i>
+        </button>
       </span>
-    </label>
+    </div>
   </div>
 </body>
 `;
@@ -100,6 +121,39 @@ exports[`[Label Component] renders Required without crashing 1`] = `
         *
       </span>
     </label>
+  </div>
+</body>
+`;
+
+exports[`[Label Component] renders Reset without crashing 1`] = `
+<body>
+  <div>
+    <div
+      class="rcx-box rcx-box--full rcx-css-g1wnuz"
+    >
+      <label
+        class="rcx-box rcx-box--full rcx-label"
+      >
+        Label
+      </label>
+      <span
+        class="rcx-box rcx-box--full rcx-label__reset"
+      >
+        <button
+          aria-label="reset to default"
+          class="rcx-box rcx-box--full rcx-button--mini-square rcx-button--square rcx-button--icon rcx-button"
+          title="reset to default"
+          type="button"
+        >
+          <i
+            aria-hidden="true"
+            class="rcx-box rcx-box--full rcx-icon--name-undo rcx-icon rcx-css-1tg7yd0"
+          >
+            ❰
+          </i>
+        </button>
+      </span>
+    </div>
   </div>
 </body>
 `;
